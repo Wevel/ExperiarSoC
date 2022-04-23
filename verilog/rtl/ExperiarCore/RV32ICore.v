@@ -1,13 +1,13 @@
-module RV32ICore(
+module ExperiarCore(
 `ifdef USE_POWER_PINS
 	inout vccd1,	// User area 1 1.8V supply
 	inout vssd1,	// User area 1 digital ground
 `endif
 
-		input wire[31:0] coreID,
-
 		input wire clk,
 		input wire nrst,
+
+		//input wire[31:0] coreID,
 
 		output wire[3:0] loadEnableByteMask,
 		output wire[3:0] storeEnableByteMask,
@@ -20,7 +20,7 @@ module RV32ICore(
 		output wire probe_isBranch,
 		output wire probe_takeBranch
     );
-	
+
 	localparam STATE_FETCH   = 2'b00;
 	localparam STATE_EXECUTE = 2'b01;
 	localparam STATE_ERROR   = 2'b11;
@@ -146,18 +146,18 @@ module RV32ICore(
 	wire isLeftShift = funct3 == 3'b001;
 	wire[31:0] shiftInput = isLeftShift ? flipBits32(inputA) : inputA;
 	wire[31:0] aluShifter = $signed({ alt && shiftInput[31] && !isLeftShift, shiftInput } >>> inputB[4:0]);
-	wire[31:0] rightShift = aluShifter[31:0]
+	wire[31:0] rightShift = aluShifter[31:0];
 	wire[31:0] leftShift = flipBits32(rightShift);
 
 	reg[31:0] aluValue;
 	always @(*) begin
 		case (funct3)
 			/*ADD*/  3'b000: aluValue <= aluAlt ? aluAMinusB : aluAPlusB;
-			/*SLL*/  3'b001: aluValue <= leftShift
+			/*SLL*/  3'b001: aluValue <= leftShift;
 			/*SLT*/  3'b010: aluValue <= {31'b0, aluALessThanB};
 			/*SLTU*/ 3'b011: aluValue <= {31'b0, aluALessThanBUnsigned};
 			/*XOR*/  3'b100: aluValue <= inputA ^ inputB;
-			/*SRL*/  3'b101: aluValue <= rightShift
+			/*SRL*/  3'b101: aluValue <= rightShift;
 			/*OR*/   3'b110: aluValue <= inputA | inputB;
 			/*AND*/  3'b111: aluValue <= inputA & inputB;
 					default: aluValue <= 'b0;
@@ -187,12 +187,12 @@ module RV32ICore(
 				loadSigned <= (funct3 == 3'b100) || (funct3 == 3'b101);
 
 				case (funct3)
-					/*LBSB*/ 3'b000: aluValue <= aluAlt ? aluAMinusB : aluAPlusB;
-					/*LHSH*/ 3'b001: aluValue <= leftShift
-					/*LWSW*/ 3'b010: aluValue <= {31'b0, aluALessThanB};
+					/*LBSB*/ 3'b000: loadStoreByteMask <= 4'b0001;
+					/*LHSH*/ 3'b001: loadStoreByteMask <= 4'b0011;
+					/*LWSW*/ 3'b010: loadStoreByteMask <= 4'b1111;
 					//*None*/ 3'b011: loadStoreByteMask <= 4'b0000;
-					/*LBU*/  3'b100: aluValue <= inputA ^ inputB;
-					/*LHU*/  3'b101: aluValue <= rightShift
+					/*LBU*/  3'b100: loadStoreByteMask <= 4'b0001;
+					/*LHU*/  3'b101: loadStoreByteMask <= 4'b0011;
 					//*None*/ 3'b110: loadStoreByteMask <= 4'b0000;
 					//*None*/ 3'b111: loadStoreByteMask <= 4'b0000;
 							default: loadStoreByteMask <= 4'b0000;
@@ -228,7 +228,7 @@ module RV32ICore(
 					state <= STATE_EXECUTE;
 				end
 				STATE_EXECUTE: begin
-					if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] = integerRegisterWriteData
+					if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] = integerRegisterWriteData;
 
 					programCounter <= { nextProgramCounter[31:1] , 0};
 					state <= STATE_FETCH;
