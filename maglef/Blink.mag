@@ -1,0 +1,58 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1650726246
+<< obsli1 >>
+rect 1104 2159 10856 11441
+<< obsm1 >>
+rect 1104 2048 10856 11552
+<< obsm2 >>
+rect 1398 2042 10192 11558
+<< metal3 >>
+rect 0 10344 800 10464
+rect 11200 6944 12000 7064
+rect 0 3408 800 3528
+<< obsm3 >>
+rect 800 10544 11200 11457
+rect 880 10264 11200 10544
+rect 800 7144 11200 10264
+rect 800 6864 11120 7144
+rect 800 3608 11200 6864
+rect 880 3328 11200 3608
+rect 800 2143 11200 3328
+<< metal4 >>
+rect 2576 2128 2896 11472
+rect 4208 2128 4528 11472
+rect 5840 2128 6160 11472
+rect 7472 2128 7792 11472
+rect 9104 2128 9424 11472
+<< obsm4 >>
+rect 3371 2619 4128 11117
+rect 4608 2619 5760 11117
+rect 6240 2619 7117 11117
+<< labels >>
+rlabel metal3 s 11200 6944 12000 7064 6 blink
+port 1 nsew signal output
+rlabel metal3 s 0 3408 800 3528 6 clk
+port 2 nsew signal input
+rlabel metal3 s 0 10344 800 10464 6 nrst
+port 3 nsew signal input
+rlabel metal4 s 2576 2128 2896 11472 6 vccd1
+port 4 nsew power input
+rlabel metal4 s 5840 2128 6160 11472 6 vccd1
+port 4 nsew power input
+rlabel metal4 s 9104 2128 9424 11472 6 vccd1
+port 4 nsew power input
+rlabel metal4 s 4208 2128 4528 11472 6 vssd1
+port 5 nsew ground input
+rlabel metal4 s 7472 2128 7792 11472 6 vssd1
+port 5 nsew ground input
+<< properties >>
+string FIXED_BBOX 0 0 12000 14000
+string LEFclass BLOCK
+string LEFview TRUE
+string GDS_END 508988
+string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Blink/runs/Blink/results/finishing/Blink.magic.gds
+string GDS_START 145746
+<< end >>
+

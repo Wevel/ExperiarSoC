@@ -1,0 +1,84 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO Blink
+  CLASS BLOCK ;
+  FOREIGN Blink ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 60.000 BY 70.000 ;
+  PIN blink
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 56.000 34.720 60.000 35.320 ;
+    END
+  END blink
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 17.040 4.000 17.640 ;
+    END
+  END clk
+  PIN nrst
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 51.720 4.000 52.320 ;
+    END
+  END nrst
+  PIN vccd1
+    DIRECTION INPUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 12.880 10.640 14.480 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 29.200 10.640 30.800 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 45.520 10.640 47.120 57.360 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INPUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 21.040 10.640 22.640 57.360 ;
+    END
+    PORT
+      LAYER met4 ;
+        RECT 37.360 10.640 38.960 57.360 ;
+    END
+  END vssd1
+  OBS
+      LAYER li1 ;
+        RECT 5.520 10.795 54.280 57.205 ;
+      LAYER met1 ;
+        RECT 5.520 10.240 54.280 57.760 ;
+      LAYER met2 ;
+        RECT 6.990 10.210 50.960 57.790 ;
+      LAYER met3 ;
+        RECT 4.000 52.720 56.000 57.285 ;
+        RECT 4.400 51.320 56.000 52.720 ;
+        RECT 4.000 35.720 56.000 51.320 ;
+        RECT 4.000 34.320 55.600 35.720 ;
+        RECT 4.000 18.040 56.000 34.320 ;
+        RECT 4.400 16.640 56.000 18.040 ;
+        RECT 4.000 10.715 56.000 16.640 ;
+      LAYER met4 ;
+        RECT 16.855 13.095 20.640 55.585 ;
+        RECT 23.040 13.095 28.800 55.585 ;
+        RECT 31.200 13.095 35.585 55.585 ;
+  END
+END Blink
+END LIBRARY
+
