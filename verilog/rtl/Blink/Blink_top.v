@@ -5,19 +5,11 @@ module Blink (
 `endif
 
 		input wire clk,
-		input wire nrst,
+		input wire rst,
 
-		output wire blink
+		output wire[1:0] blink
 	);
 
-counter #(.WIDTH(1), .DIV(24), .TOP(0)) ctr(
-`ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V supply
-	.vssd1(vssd1),	// User area 1 digital ground
-`endif
-	.clk(clk),
-	.rst(!nrst),
-	.halt(1'b0),
-	.value(blink));
+counter #(.WIDTH(2), .DIV(23), .TOP(0)) ctr(.clk(clk), .rst(rst), .halt(1'b0), .value(blink));
 	
 endmodule

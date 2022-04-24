@@ -82,6 +82,9 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
+wire[127:0] example_la_data_out;
+wire[`MPRJ_IO_PADS-1:0] example_io_out;
+wire[`MPRJ_IO_PADS-1:0] example_io_oeb;
 user_proj_example mprj (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
@@ -105,18 +108,71 @@ user_proj_example mprj (
     // Logic Analyzer
 
     .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
+    .la_data_out(example_la_data_out),
     .la_oenb (la_oenb),
 
     // IO Pads
 
     .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
+    .io_out(example_io_out),
+    .io_oeb(example_io_oeb),
 
     // IRQ
     .irq(user_irq)
 );
+
+wire config_we;
+wire config_oe;
+wire[31:0] config_address;
+wire[31:0] config_data;
+
+wire[3:0] uart_rx;
+wire[3:0] uart_tx;
+wire[1:0] spi_clk;
+wire[1:0] spi_mosi;
+wire[1:0] spi_miso;
+wire[1:0] spi_cs;
+wire[15:0] pwm_out;
+wire[`MPRJ_IO_PADS_1-1:0] gpio0_input;
+wire[`MPRJ_IO_PADS_1-1:0] gpio0_output;
+wire[`MPRJ_IO_PADS_1-1:0] gpio0_oe;
+wire[`MPRJ_IO_PADS_2-1:0] gpio1_input;
+wire[`MPRJ_IO_PADS_2-1:0] gpio1_output;
+wire[`MPRJ_IO_PADS_2-1:0] gpio1_oe;
+
+wire[1:0] blink_o;
+IOMultiplexer ioMux(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+    .clk(wb_clk_i),
+    .rst(wb_rst_i),
+	.config_we(config_we),
+	.config_oe(config_oe),
+	.config_address(config_address),
+	.config_data(config_data),
+	.uart_rx(uart_rx),
+	.uart_tx(uart_tx),
+	.spi_clk(spi_clk),
+	.spi_mosi(spi_mosi),
+	.spi_miso(spi_miso),
+	.spi_cs(spi_cs),
+	.pwm_out(pwm_out),
+	.gpio0_input(gpio0_input),
+	.gpio0_output(gpio0_output),
+	.gpio0_oe(gpio0_oe),
+	.gpio1_input(gpio1_input),
+	.gpio1_output(gpio1_output),
+	.gpio1_oe(gpio1_oe),
+    .io_in(io_in),
+    .io_out(io_out),
+    .io_oeb(io_oeb),
+	.la_blink(blink_o)
+);
+
+assign la_data_out = {example_la_data_out[127:2], blink_o[1:0]};
 
 endmodule	// user_project_wrapper
 

@@ -25,6 +25,7 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/user_proj_example.v"
 
 set ::env(DESIGN_IS_CORE) 0
+set ::env(FP_PDN_CORE_RING) 0
 
 set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_NET) "counter.clk"

@@ -27,6 +27,8 @@ source $::env(CARAVEL_ROOT)/openlane/user_project_wrapper/default_wrapper_cfgs.t
 
 set script_dir [file dirname [file normalize [info script]]]
 
+set ::env(ROUTING_CORES) "8"
+
 set ::env(DESIGN_NAME) user_project_wrapper
 #section end
 
@@ -54,13 +56,16 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 ### Black-box verilog and views
 set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
-	$script_dir/../../verilog/rtl/user_proj_example.v"
+	$script_dir/../../verilog/rtl/user_proj_example.v \
+	$script_dir/../../verilog/rtl/IOMultiplexer/IOMultiplexer_top.v"
 
 set ::env(EXTRA_LEFS) "\
-	$script_dir/../../lef/user_proj_example.lef"
+	$script_dir/../../lef/user_proj_example.lef \
+	$script_dir/../../lef/IOMultiplexer.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
-	$script_dir/../../gds/user_proj_example.gds"
+	$script_dir/../../gds/user_proj_example.gds \
+	$script_dir/../../gds/IOMultiplexer.gds"
 
 # set ::env(GLB_RT_MAXLAYER) 5
 set ::env(RT_MAX_LAYER) {met4}

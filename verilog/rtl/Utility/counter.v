@@ -1,15 +1,9 @@
-module counter
-	#(
+module counter #(
 		parameter WIDTH = 8, 	// Width of the output
 		parameter DIV = 0, 		// number of bits to use as divisor
 		parameter TOP = 0, 		// max value, 0 = none		
 		parameter UP = 1 		// direction to count, use 1 for up and 0 for down
 	)(
-`ifdef USE_POWER_PINS
-		inout vccd1,	// User area 1 1.8V supply
-		inout vssd1,	// User area 1 digital ground
-`endif
-
 		input wire clk,
 		input wire rst,
 		input wire halt,
