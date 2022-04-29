@@ -1,0 +1,120 @@
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[45]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v:35)
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[46]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v:38)
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[52]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Peripherals/Registers/DataRegister.v:33)
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[53]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Peripherals/Registers/DataRegister.v:36)
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[70]: /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Utility/ShiftRegister.v:31: Warning: Range select out of bounds on signal `\nextData': Setting result bit to undef.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[115]: /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/../../verilog/rtl/Utility/ShiftRegister.v:31: Warning: Range select out of bounds on signal `\nextData': Setting result bit to undef.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[405]: Warning: multiple conflicting drivers for SPI.\genblk1[1].device.busy:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[408]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [31]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[414]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [30]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[420]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [29]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[426]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [28]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[432]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [27]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[438]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [26]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[444]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [25]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[450]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [24]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[456]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [23]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[462]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [22]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[468]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [21]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[474]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [20]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[480]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [19]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[486]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [18]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[492]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [17]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[498]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [16]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[504]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [15]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[510]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [14]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[516]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [13]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[522]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [12]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[528]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [11]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[534]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [10]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[540]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [9]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[546]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [8]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[552]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [7]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[558]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [6]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[564]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [5]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[570]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [4]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[576]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [3]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[582]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [2]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[588]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [1]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[594]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [0]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[600]: Warning: multiple conflicting drivers for SPI.\genblk1[0].device.busy:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[603]: Warning: Wire SPI.\spi_en [1] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[604]: Warning: Wire SPI.\spi_en [0] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[605]: Warning: Wire SPI.\genblk1[1].device.dataRegister.readData_busy is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[606]: Warning: Wire SPI.\genblk1[1].device.dataRegister.writeData_busy is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[607]: Warning: Wire SPI.\genblk1[0].device.dataRegister.readData_busy is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[608]: Warning: Wire SPI.\genblk1[0].device.dataRegister.writeData_busy is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1224]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [31]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1230]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [30]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1236]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [29]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1242]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [28]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1248]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [27]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1254]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [26]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1260]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [25]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1266]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [24]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1272]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [23]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1278]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [22]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1284]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [21]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1290]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [20]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1296]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [19]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1302]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [18]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1308]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [17]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1314]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [16]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1320]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [15]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1326]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [14]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1332]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [13]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1338]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [12]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1344]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [11]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1350]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [10]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1356]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [9]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1362]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [8]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1368]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [7]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1374]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [6]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1380]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [5]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1386]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [4]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1392]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [3]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1398]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [2]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1404]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [1]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1410]: Warning: multiple conflicting drivers for SPI.\peripheralBus_data [0]:
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1734]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1868]: Warning: Wire SPI.\spi_mosi [1] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1869]: Warning: Wire SPI.\spi_mosi [0] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1870]: Warning: Wire SPI.\spi_en [1] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1871]: Warning: Wire SPI.\spi_en [0] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1872]: Warning: Wire SPI.\spi_cs [1] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1873]: Warning: Wire SPI.\spi_cs [0] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1874]: Warning: Wire SPI.\spi_clk [1] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1875]: Warning: Wire SPI.\spi_clk [0] is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1876]: Warning: Wire SPI.\peripheralBus_busy is used but has no driver.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\1-synthesis.log[1928]: Warnings: 84 unique messages, 87 total
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[8]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__buf_1 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[9]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__inv_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[10]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or4_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[11]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or4b_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[12]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or3_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[13]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2b_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[14]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__mux2_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[15]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand2_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[16]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21bo_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[17]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21ai_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[18]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o211a_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[19]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor2_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[20]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor4_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[21]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[22]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and4bb_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[23]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a22o_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[24]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a311o_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[25]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21oi_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[26]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or2_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[27]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a211o_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[28]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or3b_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[29]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o22a_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[30]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21a_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[31]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o31a_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[32]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a22oi_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[33]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor3_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[34]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21o_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[35]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o2bb2a_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[36]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__dfxtp_2 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[37]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__conb_1 has no liberty cell.
+openlane/Peripheral_SPI\runs\Peripheral_SPI\logs\synthesis\2-sta.log[38]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__ebufn_2 has no liberty cell.
