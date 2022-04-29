@@ -40,15 +40,17 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/user_project_wrapper.v"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2"
-set ::env(CLOCK_NET) "mprj.clk"
+set ::env(CLOCK_PORT) "user_clock2 wb_clk_i"
+#set ::env(CLOCK_NET) "mprj.clk"
 
 set ::env(CLOCK_PERIOD) "10"
 
 ## Internal Macros
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
-	mprj vccd1 vssd1"
+	mprj vccd1 vssd1 \
+	pwm vccd1 vssd1 \
+	ioMux vccd1 vssd1"
 
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
@@ -57,18 +59,24 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
 	$script_dir/../../verilog/rtl/user_proj_example.v \
+	$script_dir/../../verilog/rtl/PWM/PWM_top.v \
 	$script_dir/../../verilog/rtl/IOMultiplexer/IOMultiplexer_top.v"
 
 set ::env(EXTRA_LEFS) "\
 	$script_dir/../../lef/user_proj_example.lef \
+	$script_dir/../../lef/PWM.lef \
 	$script_dir/../../lef/IOMultiplexer.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
 	$script_dir/../../gds/user_proj_example.gds \
+	$script_dir/../../gds/PWM.gds \
 	$script_dir/../../gds/IOMultiplexer.gds"
 
 # set ::env(GLB_RT_MAXLAYER) 5
 set ::env(RT_MAX_LAYER) {met4}
+
+# Only generate the PDN grid for the rails needed
+set ::env(FP_PDN_POWER_STRAPS) "vccd1 vssd1 1, vccd2 vssd2 0, vdda1 vssa1 0, vdda2 vssa2 0"
 
 # disable pdn check nodes becuase it hangs with multiple power domains.
 # any issue with pdn connections will be flagged with LVS so it is not a critical check.

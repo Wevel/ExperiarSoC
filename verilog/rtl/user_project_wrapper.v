@@ -132,13 +132,28 @@ wire[1:0] spi_clk;
 wire[1:0] spi_mosi;
 wire[1:0] spi_miso;
 wire[1:0] spi_cs;
-wire[15:0] pwm_out;
 wire[`MPRJ_IO_PADS_1-1:0] gpio0_input;
 wire[`MPRJ_IO_PADS_1-1:0] gpio0_output;
 wire[`MPRJ_IO_PADS_1-1:0] gpio0_oe;
 wire[`MPRJ_IO_PADS_2-1:0] gpio1_input;
 wire[`MPRJ_IO_PADS_2-1:0] gpio1_output;
 wire[`MPRJ_IO_PADS_2-1:0] gpio1_oe;
+
+wire[15:0] pwm_out;
+PWM pwm(
+`ifdef USE_POWER_PINS
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+    .clk(wb_clk_i),
+    .rst(wb_rst_i),
+	.config_we(config_we),
+	.config_oe(config_oe),
+	.config_address(config_address),
+	.config_data(config_data),
+	.pwm_out(pwm_out)
+);
 
 wire[1:0] blink_o;
 IOMultiplexer ioMux(
