@@ -9,9 +9,8 @@ set ::env(DESIGN_NAME) IOMultiplexer
 
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
-	$script_dir/../../verilog/rtl/Utility/counter.v \
-	$script_dir/../../verilog/rtl/Utility/ConfigurationRegister.v \
-	$script_dir/../../verilog/rtl/IOMultiplexer/IOMultiplexer_top.v"
+	$script_dir/../../verilog/rtl/Utility/Counter.v \
+	$script_dir/../../verilog/rtl/Peripherals/IOMultiplexer/IOMultiplexer_top.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
@@ -24,25 +23,17 @@ set ::env(CLOCK_PERIOD) "10"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 230 200"
+set ::env(DIE_AREA) "0 0 200 200"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
 #set ::env(FP_CORE_UTIL) 50
 #set ::env(FP_ASPECT_RATIO) 1.0
 
-# Only set these for small (less than ~200um) modules to make sure that there is a PDN in the module
-# Probably put just past half way so there is only one wire
-# This also still has problems when including in another module, so avoid if possible
-#set ::env(FP_PDN_VOFFSET) 10.0
-#set ::env(FP_PDN_VPITCH) 35.0
-#set ::env(FP_PDN_HOFFSET) 10.0
-#set ::env(FP_PDN_HPITCH) 35.0
-
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
-set ::env(PL_BASIC_PLACEMENT) 1
-set ::env(PL_TARGET_DENSITY) 0.4
+set ::env(PL_BASIC_PLACEMENT) 0
+set ::env(PL_TARGET_DENSITY) 0.085
 
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 

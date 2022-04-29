@@ -7,24 +7,21 @@ module IOMultiplexer (
 		input wire clk,
 		input wire rst,
 
-		// Config register interface
-		input wire config_we,
-		input wire config_oe,
-		input wire[31:0] config_address,
-		inout wire[31:0] config_data,
-
 		// IO Modules
 		// UART
+		input wire[3:0] uart_en,
 		output wire[3:0] uart_rx,
 		input  wire[3:0] uart_tx,
 
 		// SPI
+		input wire[1:0] spi_en,
 		input wire[1:0] spi_clk,
 		input wire[1:0] spi_mosi,
 		output wire[1:0] spi_miso,
 		input  wire[1:0] spi_cs,
 
 		// PWM
+		input wire[15:0] pwm_en,
 		input wire[15:0] pwm_out,
 
 		// GPIO
@@ -90,7 +87,7 @@ module IOMultiplexer (
 // Test blink
 reg blinkEnabled = 1'b1;
 wire[1:0] blink;
-counter #(.WIDTH(2), .DIV(23), .TOP(0)) ctr(.clk(clk), .rst(rst), .halt(1'b0), .value(blink));
+Counter #(.WIDTH(2), .DIV(26), .TOP(0)) ctr(.clk(clk), .rst(rst), .halt(1'b0), .value(blink));
 
 always @(posedge clk) begin
 	if (rst) begin
@@ -100,57 +97,9 @@ always @(posedge clk) begin
 	end
 end
 
-// Configuration register
-// b00: uart0_en
-// b01: uart1_en
-// b02: uart2_en
-// b03: uart3_en
-// b04: spi0_en
-// b05: spi1_en
-// b06: pwm0_en
-// b07: pwm1_en
-// b08: pwm2_en
-// b09: pwm3_en
-// b10: pwm4_en
-// b11: pwm5_en
-// b12: pwm6_en
-// b13: pwm7_en
-// b14: pwm8_en
-// b15: pwm9_en
-// b16: pwm10_en
-// b17: pwm11_en
-// b18: pwm12_en
-// b19: pwm13_en
-// b20: pwm14_en
-// b21: pwm15_en
-// b22: 
-// b23: 
-// b24: 
-// b25: 
-// b26: 
-// b27: 
-// b28: 
-// b29: 
-// b30: 
-// b31: 
-
-wire[31:0] configuration;
-ConfigurationRegister #(.WIDTH(32), .ADDRESS(32'h0000_0000)) configurationRegister(
-		.clk(clk),
-		.rst(rst),
-		.we(config_we),
-		.oe(config_oe),
-		.interfaceAddress(config_address),
-		.interfaceData(config_data),
-		.currentValue(configuration));
-
-wire[3:0] uart_en = configuration[3:0];
-wire[1:0] spi_en  = configuration[5:4];
-wire[15:0] pwm_en = configuration[21:6];
-
 // IO multiplexer
 assign gpio1_input = { 
-	io_in[`MPRJ_IO_PADS_1 + `MPRJ_IO_PADS_2 - 1 : `MPRJ_IO_PADS_1 + 12],
+	io_in[`MPRJ_IO_PADS_1 + `MPRJ_IO_PADS_2 - 1 : `MPRJ_IO_PADS_1 + 16],
 	pwm_en[15]   ? 1'b0 		: io_in[`MPRJ_IO_PADS_1 + 15],
 	pwm_en[14]   ? 1'b0 		: io_in[`MPRJ_IO_PADS_1 + 14],
 	pwm_en[13]   ? 1'b0 		: io_in[`MPRJ_IO_PADS_1 + 13],
@@ -158,7 +107,7 @@ assign gpio1_input = {
 	uart_en[3]   ? 1'b0         : io_in[`MPRJ_IO_PADS_1 + 11],
 	uart_en[3]   ? uart_rx[3]   : io_in[`MPRJ_IO_PADS_1 + 10],
 	spi_en[1]    ? 1'b0         : io_in[`MPRJ_IO_PADS_1 +  9],
-	spi_en[1]    ? spi1_miso[1] : io_in[`MPRJ_IO_PADS_1 +  8],
+	spi_en[1]    ? spi_miso[1] : io_in[`MPRJ_IO_PADS_1 +  8],
 	spi_en[1]    ? 1'b0         : io_in[`MPRJ_IO_PADS_1 +  7],
 	spi_en[1]    ? 1'b0         : io_in[`MPRJ_IO_PADS_1 +  6],
 	pwm_en[11]   ? 1'b0         : io_in[`MPRJ_IO_PADS_1 +  5],
@@ -179,7 +128,7 @@ assign gpio0_input = {
 	uart_en[1]   ? 1'b0         : io_in[11],
 	uart_en[1]   ? uart_rx[1]   : io_in[10],
 	spi_en[0]    ? 1'b0         : io_in[9],
-	spi_en[0]    ? spi1_miso[0] : io_in[8],
+	spi_en[0]    ? spi_miso[0] : io_in[8],
 	spi_en[0]    ? 1'b0         : io_in[7],
 	spi_en[0]    ? 1'b0         : io_in[6],
 	pwm_en[3]    ? 1'b0         : io_in[5],
@@ -200,7 +149,7 @@ assign io_out = {
 	uart_en[3]   ? 1'b0 		: gpio1_output[10],
 	spi_en[1]    ? spi_cs[1]    : gpio1_output[9],
 	spi_en[1]    ? 1'b0 		: gpio1_output[8],
-	spi_en[1]    ? spi1_mosi[1] : gpio1_output[7],
+	spi_en[1]    ? spi_mosi[1] : gpio1_output[7],
 	spi_en[1]    ? spi_clk[1]   : gpio1_output[6],
 	pwm_en[11]   ? pwm_out[11]  : gpio1_output[5],
 	pwm_en[10]   ? pwm_out[10]  : gpio1_output[4],
@@ -218,7 +167,7 @@ assign io_out = {
 	uart_en[1]   ? 1'b0 		: gpio0_output[10],
 	spi_en[0]    ? spi_cs[0]    : gpio0_output[9],
 	spi_en[0]    ? 1'b0         : gpio0_output[8],
-	spi_en[0]    ? spi1_mosi[0] : gpio0_output[7],
+	spi_en[0]    ? spi_mosi[0] : gpio0_output[7],
 	spi_en[0]    ? spi_clk[0]   : gpio0_output[6],
 	pwm_en[3]    ? pwm_out[3]   : gpio0_output[5],
 	pwm_en[2]    ? pwm_out[2]   : gpio0_output[4],
