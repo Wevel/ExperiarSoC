@@ -1,0 +1,87 @@
+0x0xxx_xxxx: Per core local memory
+	0x00xx_xxxx: Flash
+	0x01xx_xxxx: SRAM
+		0x0100_0xxx: Bank 0
+0x1xxx_xxxx: Wishbone bus
+	0x10xx_xxxx: Slave 0 (Core 0 SRAM)
+		0x1000_0xxx: Bank 0
+	0x11xx_xxxx: Slave 1 (Core 1 SRAM)
+		0x1100_0xxx: Bank 0
+	0x12xx_xxxx: Slave 2 (Block SRAM)
+		0x1200_0xxx: Bank 0
+		0x1200_1xxx: Bank 1
+	0x13xx_xxxx: Slave 3 (Peripherals)
+		0x1300_xxxx: Peripheral 0 (UART)
+			0x1300_0xxx: Peripheral configuration
+				0x1300_0000: Peripheral configuration register (Might not exist)
+			0x1300_1xxx: Device 0
+				0x1300_1000: Configuration register
+				0x1300_1004: Data
+				0x1300_1010: DMA configuration
+				0x1300_1014: DMA base address
+			0x1300_2xxx: Device 1
+				0x1300_2000: Configuration register
+				0x1300_2004: Data
+				0x1300_2010: DMA configuration
+				0x1300_2014: DMA base address
+			0x1300_3xxx: Device 2
+				0x1300_3000: Configuration register
+				0x1300_3004: Data
+				0x1300_3010: DMA configuration
+				0x1300_3014: DMA base address
+			0x1300_4xxx: Device 3
+				0x1300_4000: Configuration register
+				0x1300_4004: Data
+				0x1300_4010: DMA configuration
+				0x1300_4014: DMA base address
+		0x1301_xxxx: Peripheral 1 (SPI)
+			0x1301_0xxx: Peripheral configuration
+				0x1301_0000: Peripheral configuration register (Might not exist)
+			0x1301_1xxx: Device 0
+				0x1301_1000: Configuration register
+				0x1301_1004: Data
+			0x1301_2xxx: Device 1
+				0x1301_2000: Configuration register
+				0x1301_2004: Data
+		0x1302_xxxx: Peripheral 2 (PWM)
+			0x1302_0xxx: Peripheral configuration
+				0x1302_0000: Peripheral configuration register (Might not exist)
+			0x1302_1xxx: Device 0
+				0x1302_1000: Configuration register
+				0x1302_1004: Counter value
+				0x1302_1008: Output 0 compare
+				0x1302_100C: Output 1 compare
+				0x1302_1010: Output 2 compare
+				0x1302_1014: Output 3 compare
+			0x1302_2xxx: Device 1
+				0x1302_2000: Configuration register
+				0x1302_2004: Counter value
+				0x1302_2008: Output 0 compare
+				0x1302_200C: Output 1 compare
+				0x1302_2010: Output 2 compare
+				0x1302_2014: Output 3 compare
+			0x1302_3xxx: Device 2
+				0x1302_3000: Configuration register
+				0x1302_3004: Counter value
+				0x1302_3008: Output 0 compare
+				0x1302_300C: Output 1 compare
+				0x1302_3010: Output 2 compare
+				0x1302_3014: Output 3 compare
+			0x1302_4xxx: Device 3
+				0x1302_4000: Configuration register
+				0x1302_4004: Counter value
+				0x1302_4008: Output 0 compare
+				0x1302_400C: Output 1 compare
+				0x1302_4010: Output 2 compare
+				0x1302_4014: Output 3 compare
+		0x1303_xxxx: Peripheral 3 (GPIO)
+			0x1303_0xxx: Peripheral configuration
+				0x1303_0000: Peripheral configuration register (Might not exist)
+			0x1303_1xxx: Device 0 (Side 1)
+				0x1303_1000: OutputEnable
+				0x1303_1004: Output
+				0x1303_1008: Input
+			0x1303_2xxx: Device 1 (Side 2)
+				0x1303_2000: OutputEnable
+				0x1303_2004: Output
+				0x1303_2008: Input
