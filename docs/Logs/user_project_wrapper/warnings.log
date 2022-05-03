@@ -124,9 +124,6 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthes
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[212]: Warning: Wire user_project_wrapper.\config_address[1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[213]: Warning: Wire user_project_wrapper.\config_address[0] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[239]: Warnings: 120 unique messages, 120 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[8]: [WARNING ORD-1011] LEF master IOMultiplexer has no liberty cell.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[9]: [WARNING ORD-1011] LEF master user_proj_example has no liberty cell.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[10]: [WARNING ORD-1011] LEF master PWM has no liberty cell.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[94]: Warning: Wire user_project_wrapper.\uart_tx[3] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[95]: Warning: Wire user_project_wrapper.\uart_tx[2] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[96]: Warning: Wire user_project_wrapper.\uart_tx[1] is used but has no driver.

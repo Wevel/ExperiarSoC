@@ -110,7 +110,7 @@ def CheckFile(fileName:str, errorFile:io.TextIOWrapper, warningFile:io.TextIOWra
 			elif  "violated" in lowerCaseLine:
 				errorFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
 				violationCount += 1
-			elif "warning" in lowerCaseLine:
+			elif "warning" in lowerCaseLine and "has no liberty cell." not in lines[i]:
 				warningFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
 				warningCount += 1
 

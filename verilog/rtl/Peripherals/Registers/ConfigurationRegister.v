@@ -11,34 +11,48 @@ module ConfigurationRegister #(
 		input wire peripheralBus_we,
 		input wire peripheralBus_oe,
 		input wire[11:0] peripheralBus_address,
-		inout wire[31:0] peripheralBus_data,
+		input wire[3:0] peripheralBus_byteSelect,
+		output wire[31:0] peripheralBus_dataRead,
+		input wire[31:0] peripheralBus_dataWrite,
+		output wire requestOutput,
 
 		output wire[WIDTH-1:0] currentValue
 	);
 	
-reg[WIDTH-1:0] registerValue;
+	wire[31:0] dataMask = {
+		peripheralBus_byteSelect[3] ? 8'hFF : 8'h00,
+		peripheralBus_byteSelect[2] ? 8'hFF : 8'h00,
+		peripheralBus_byteSelect[1] ? 8'hFF : 8'h00,
+		peripheralBus_byteSelect[0] ? 8'hFF : 8'h00
+	};
 
-wire registerSelect = enable && (peripheralBus_address == ADDRESS);
-wire we = registerSelect && peripheralBus_we && !peripheralBus_oe;
-wire oe = registerSelect && peripheralBus_oe && !peripheralBus_we;
+	reg[WIDTH-1:0] registerValue;
+	wire[31:0] maskedWriteData = (peripheralBus_dataWrite & dataMask) | (registerValue & ~dataMask);
 
-always @(posedge clk) begin
-	if (rst) begin
-		registerValue <= DEFAULT;
-	end else begin
-		if (we) registerValue <= peripheralBus_data[WIDTH-1:0];
+	wire registerSelect = enable && (peripheralBus_address == ADDRESS);
+	wire we = registerSelect && peripheralBus_we && !peripheralBus_oe;
+	wire oe = registerSelect && peripheralBus_oe && !peripheralBus_we;
+
+	always @(posedge clk) begin
+		if (rst) begin
+			registerValue <= DEFAULT;
+		end else begin
+			if (we) registerValue <= maskedWriteData[WIDTH-1:0];
+		end
 	end
-end
 
-generate
-	if (WIDTH == 32) begin
-		assign peripheralBus_data = oe ? registerValue : 32'bz;
-	end else begin
-		wire[32-WIDTH-1:0] zeroPadding = 'b0;
-		assign peripheralBus_data = oe ? { zeroPadding, registerValue } : 32'bz;
-	end
-endgenerate
+	wire[31:0] baseReadData;
+	generate
+		if (WIDTH == 32) begin
+			assign baseReadData = registerValue;
+		end else begin
+			wire[32-WIDTH-1:0] zeroPadding = 'b0;
+			assign baseReadData = { zeroPadding, registerValue };
+		end
+	endgenerate
 
-assign currentValue = registerValue;
+	assign peripheralBus_dataRead = oe ? baseReadData & dataMask : 32'b0;
+	assign requestOutput = oe;
+	assign currentValue = registerValue;
 
 endmodule

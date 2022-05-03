@@ -1,144 +1,68 @@
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[50]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_PWM/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v:35)
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[51]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_PWM/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v:38)
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[57]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_PWM/../../verilog/rtl/Peripherals/Registers/DataRegister.v:33)
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[58]: Warning: Yosys has only limited support for tri-state logic at the moment. (/home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_PWM/../../verilog/rtl/Peripherals/Registers/DataRegister.v:36)
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[622]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [31]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[648]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [30]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[674]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [29]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[700]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [28]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[726]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [27]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[752]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [26]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[778]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [25]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[804]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [24]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[830]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [23]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[856]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [22]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[882]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [21]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[908]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [20]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[934]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [19]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[960]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [18]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[986]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [17]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1012]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [16]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1038]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [15]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1064]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [14]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1090]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [13]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1116]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [12]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1142]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [11]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1168]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [10]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1194]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [9]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1220]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [8]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1246]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [7]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1272]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [6]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1298]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [5]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1324]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [4]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1350]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [3]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1376]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [2]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1402]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [1]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1428]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [0]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2041]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [31]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2067]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [30]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2093]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [29]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2119]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [28]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2145]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [27]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2171]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [26]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2197]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [25]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2223]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [24]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2249]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [23]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2275]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [22]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2301]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [21]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2327]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [20]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2353]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [19]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2379]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [18]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2405]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [17]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2431]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [16]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2457]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [15]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2483]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [14]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2509]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [13]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2535]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [12]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2561]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [11]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2587]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [10]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2613]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [9]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2639]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [8]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2665]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [7]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2691]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [6]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2717]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [5]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2743]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [4]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2769]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [3]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2795]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [2]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2821]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [1]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2847]: Warning: multiple conflicting drivers for PWM.\peripheralBus_data [0]:
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3831]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3981]: Warning: Wire PWM.\pwm_out [15] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3982]: Warning: Wire PWM.\pwm_out [14] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3983]: Warning: Wire PWM.\pwm_out [13] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3984]: Warning: Wire PWM.\pwm_out [12] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3985]: Warning: Wire PWM.\pwm_out [11] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3986]: Warning: Wire PWM.\pwm_out [10] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3987]: Warning: Wire PWM.\pwm_out [9] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3988]: Warning: Wire PWM.\pwm_out [8] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3989]: Warning: Wire PWM.\pwm_out [7] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3990]: Warning: Wire PWM.\pwm_out [6] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3991]: Warning: Wire PWM.\pwm_out [5] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3992]: Warning: Wire PWM.\pwm_out [4] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3993]: Warning: Wire PWM.\pwm_out [3] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3994]: Warning: Wire PWM.\pwm_out [2] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3995]: Warning: Wire PWM.\pwm_out [1] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3996]: Warning: Wire PWM.\pwm_out [0] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3997]: Warning: Wire PWM.\pwm_en [15] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3998]: Warning: Wire PWM.\pwm_en [14] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[3999]: Warning: Wire PWM.\pwm_en [13] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4000]: Warning: Wire PWM.\pwm_en [12] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4001]: Warning: Wire PWM.\pwm_en [11] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4002]: Warning: Wire PWM.\pwm_en [10] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4003]: Warning: Wire PWM.\pwm_en [9] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4004]: Warning: Wire PWM.\pwm_en [8] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4005]: Warning: Wire PWM.\pwm_en [7] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4006]: Warning: Wire PWM.\pwm_en [6] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4007]: Warning: Wire PWM.\pwm_en [5] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4008]: Warning: Wire PWM.\pwm_en [4] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4009]: Warning: Wire PWM.\pwm_en [3] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4010]: Warning: Wire PWM.\pwm_en [2] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4011]: Warning: Wire PWM.\pwm_en [1] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4012]: Warning: Wire PWM.\pwm_en [0] is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4013]: Warning: Wire PWM.\peripheralBus_busy is used but has no driver.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[4075]: Warnings: 101 unique messages, 101 total
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[8]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__buf_1 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[9]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or4_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[10]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[11]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or4b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[12]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or3_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[13]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or2b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[14]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__inv_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[15]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or3b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[16]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__mux4_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[17]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__mux2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[18]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor4_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[19]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o211a_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[20]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[21]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[22]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[23]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[24]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a211o_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[25]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and3_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[26]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21o_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[27]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and3b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[28]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21ai_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[29]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21oi_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[30]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and4_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[31]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a31o_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[32]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand3_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[33]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor3b_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[34]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__xnor2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[35]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__xor2_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[36]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor3_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[37]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o221a_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[38]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21boi_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[39]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21a_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[40]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a31oi_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[41]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand4_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[42]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21bo_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[43]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a211oi_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[44]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a221o_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[45]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o2111a_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[46]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__dfxtp_2 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[47]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__conb_1 has no liberty cell.
-openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\2-sta.log[48]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__ebufn_2 has no liberty cell.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1799]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1965]: Warning: Wire PWM.\requestOutput is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1966]: Warning: Wire PWM.\pwm_out [15] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1967]: Warning: Wire PWM.\pwm_out [14] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1968]: Warning: Wire PWM.\pwm_out [13] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1969]: Warning: Wire PWM.\pwm_out [12] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1970]: Warning: Wire PWM.\pwm_out [11] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1971]: Warning: Wire PWM.\pwm_out [10] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1972]: Warning: Wire PWM.\pwm_out [9] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1973]: Warning: Wire PWM.\pwm_out [8] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1974]: Warning: Wire PWM.\pwm_out [7] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1975]: Warning: Wire PWM.\pwm_out [6] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1976]: Warning: Wire PWM.\pwm_out [5] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1977]: Warning: Wire PWM.\pwm_out [4] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1978]: Warning: Wire PWM.\pwm_out [3] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1979]: Warning: Wire PWM.\pwm_out [2] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1980]: Warning: Wire PWM.\pwm_out [1] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1981]: Warning: Wire PWM.\pwm_out [0] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1982]: Warning: Wire PWM.\pwm_en [15] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1983]: Warning: Wire PWM.\pwm_en [14] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1984]: Warning: Wire PWM.\pwm_en [13] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1985]: Warning: Wire PWM.\pwm_en [12] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1986]: Warning: Wire PWM.\pwm_en [11] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1987]: Warning: Wire PWM.\pwm_en [10] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1988]: Warning: Wire PWM.\pwm_en [9] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1989]: Warning: Wire PWM.\pwm_en [8] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1990]: Warning: Wire PWM.\pwm_en [7] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1991]: Warning: Wire PWM.\pwm_en [6] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1992]: Warning: Wire PWM.\pwm_en [5] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1993]: Warning: Wire PWM.\pwm_en [4] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1994]: Warning: Wire PWM.\pwm_en [3] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1995]: Warning: Wire PWM.\pwm_en [2] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1996]: Warning: Wire PWM.\pwm_en [1] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1997]: Warning: Wire PWM.\pwm_en [0] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1998]: Warning: Wire PWM.\peripheralBus_dataOut [31] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[1999]: Warning: Wire PWM.\peripheralBus_dataOut [30] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2000]: Warning: Wire PWM.\peripheralBus_dataOut [29] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2001]: Warning: Wire PWM.\peripheralBus_dataOut [28] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2002]: Warning: Wire PWM.\peripheralBus_dataOut [27] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2003]: Warning: Wire PWM.\peripheralBus_dataOut [26] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2004]: Warning: Wire PWM.\peripheralBus_dataOut [25] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2005]: Warning: Wire PWM.\peripheralBus_dataOut [24] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2006]: Warning: Wire PWM.\peripheralBus_dataOut [23] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2007]: Warning: Wire PWM.\peripheralBus_dataOut [22] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2008]: Warning: Wire PWM.\peripheralBus_dataOut [21] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2009]: Warning: Wire PWM.\peripheralBus_dataOut [20] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2010]: Warning: Wire PWM.\peripheralBus_dataOut [19] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2011]: Warning: Wire PWM.\peripheralBus_dataOut [18] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2012]: Warning: Wire PWM.\peripheralBus_dataOut [17] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2013]: Warning: Wire PWM.\peripheralBus_dataOut [16] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2014]: Warning: Wire PWM.\peripheralBus_dataOut [15] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2015]: Warning: Wire PWM.\peripheralBus_dataOut [14] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2016]: Warning: Wire PWM.\peripheralBus_dataOut [13] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2017]: Warning: Wire PWM.\peripheralBus_dataOut [12] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2018]: Warning: Wire PWM.\peripheralBus_dataOut [11] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2019]: Warning: Wire PWM.\peripheralBus_dataOut [10] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2020]: Warning: Wire PWM.\peripheralBus_dataOut [9] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2021]: Warning: Wire PWM.\peripheralBus_dataOut [8] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2022]: Warning: Wire PWM.\peripheralBus_dataOut [7] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2023]: Warning: Wire PWM.\peripheralBus_dataOut [6] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2024]: Warning: Wire PWM.\peripheralBus_dataOut [5] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2025]: Warning: Wire PWM.\peripheralBus_dataOut [4] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2026]: Warning: Wire PWM.\peripheralBus_dataOut [3] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2027]: Warning: Wire PWM.\peripheralBus_dataOut [2] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2028]: Warning: Wire PWM.\peripheralBus_dataOut [1] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2029]: Warning: Wire PWM.\peripheralBus_dataOut [0] is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2030]: Warning: Wire PWM.\peripheralBus_busy is used but has no driver.
+openlane/Peripheral_PWM\runs\Peripheral_PWM\logs\synthesis\1-synthesis.log[2107]: Warnings: 66 unique messages, 66 total

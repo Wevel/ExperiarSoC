@@ -9,20 +9,20 @@ set ::env(DESIGN_NAME) WBPeripheralBusInterface
 
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
-	$script_dir/../../verilog/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v"
+	$script_dir/../../verilog/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v \
+	$script_dir/../../verilog/rtl/Utility/WBSlaveSelect.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
 
-set ::env(CLOCK_PORT) "clk"
-set ::env(CLOCK_NET) "counter.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_PERIOD) "10"
 
 # Absolute module size
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 500 350"
+set ::env(DIE_AREA) "0 0 200 200"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -32,14 +32,11 @@ set ::env(DIE_AREA) "0 0 500 350"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.125
+set ::env(PL_TARGET_DENSITY) 0.08
 
-# Maximum layer used for routing is metal 4.
-# This is because this macro will be inserted in a top level (user_project_wrapper) 
-# where the PDN is planned on metal 5. So, to avoid having shorts between routes
-# in this macro and the top level metal 5 stripes, we have to restrict routes to metal4.  
-# set ::env(GLB_RT_MAXLAYER) 5
-set ::env(RT_MAX_LAYER) {met4}
+# If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
+# If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN (Possibly)
+set ::env(RT_MAX_LAYER) {met3}
 
 # You can draw more power domains if you need to 
 set ::env(VDD_NETS) [list {vccd1}]

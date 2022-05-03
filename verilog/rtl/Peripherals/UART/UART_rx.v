@@ -1,28 +1,28 @@
 (*keep_hierarchy = "yes"*) module UART_rx
 	#(
-		parameter BAUD = 1000000,
-		parameter CLK_FREQ = 100000000
+		parameter CLOCK_SCALE_BITS = 16
 	)(
 		input wire clk,
 		input wire rst,
+		input wire[CLOCK_SCALE_BITS-1:0] cyclesPerBit, // ((CLK_FREQ + BAUD) / BAUD) - 1
 		input wire rx,
-		output wire [7:0] data_out,
+		output wire [7:0] dataOut,
     	output wire dataAvailable
     );
 
-	localparam CLK_PER_BIT = (CLK_FREQ + BAUD) / BAUD - 1; // clock cycles per bit
-  	localparam CTR_SIZE = $clog2(CLK_PER_BIT); // bits required to store CLK_PER_BIT - 1
-	
 	localparam STATE_IDLE		= 2'b00;
 	localparam STATE_WAIT_HALF 	= 2'b01;
 	localparam STATE_WAIT_FULL 	= 2'b10;
 	localparam STATE_WAIT_HIGH 	= 2'b11;
 
 	reg [1:0] state = STATE_IDLE;
-	reg [CTR_SIZE-1:0] delayCounter = 'b0;
+	reg [CLOCK_SCALE_BITS-1:0] delayCounter = 'b0;
 	reg [2:0] bitCounter = 3'b0;
 	reg [7:0] savedData = 8'b0;
 	reg newData = 1'b0;
+
+	wire[CLOCK_SCALE_BITS-1:0] halfBitCounterValue = { 1'b0, cyclesPerBit[CLOCK_SCALE_BITS-1:1] };
+	wire[CLOCK_SCALE_BITS-1:0] fullBitCounterValue = cyclesPerBit[CLOCK_SCALE_BITS-1:1] - 1;
 
 	always @(posedge clk) begin
 		if (rst) begin
@@ -51,7 +51,7 @@
 				end
 
 				STATE_WAIT_HALF: begin
-					if (delayCounter == (CLK_PER_BIT >> 1)) begin						
+					if (delayCounter == halfBitCounterValue) begin						
 						delayCounter = 0;
 						state = STATE_WAIT_FULL;
 					end else begin
@@ -60,10 +60,10 @@
 				end
 
 				STATE_WAIT_FULL: begin
-					if (delayCounter == CLK_PER_BIT - 1) begin
+					if (delayCounter == fullBitCounterValue) begin
 						savedData = {rx, savedData[7:1]};
 						delayCounter = 0;
-						if (bitCounter == 7) begin
+						if (bitCounter == 3'h7) begin
 							state = STATE_WAIT_HIGH;
 							newData = 1'b1;
 						end else bitCounter = bitCounter + 1;
@@ -81,6 +81,6 @@
 		end
 	end
 
-	assign data_out = savedData;
+	assign dataOut = savedData;
 	assign dataAvailable = newData;
 endmodule

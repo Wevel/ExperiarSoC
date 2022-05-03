@@ -1,30 +1,30 @@
 (*keep_hierarchy = "yes"*) module UART_tx
 	#(
-		parameter BAUD = 1000000,
-		parameter CLK_FREQ = 100000000
+		parameter CLOCK_SCALE_BITS = 16
 	)(
 		input wire clk,
-		input wire rst,		
+		input wire rst,
+		input wire[CLOCK_SCALE_BITS-1:0] cyclesPerBit, // ((CLK_FREQ + BAUD) / BAUD) - 1		
 		output wire tx,
 		input wire blockTransmition,
     	output reg busy,
-    	input wire [7:0] data_in,
+    	input wire [7:0] dataIn,
     	input wire dataAvailable
     );
-
-  	localparam CLK_PER_BIT = (CLK_FREQ + BAUD) / BAUD - 1; // clock cycles per bit
-  	localparam CTR_SIZE = $clog2(CLK_PER_BIT); // bits required to store CLK_PER_BIT - 1
 	
 	localparam STATE_IDLE		= 2'b00;
 	localparam STATE_START_BIT 	= 2'b01;
 	localparam STATE_DATA 		= 2'b10;
 	localparam STATE_STOP_BIT 	= 2'b11;
 
-	reg [1:0] state = STATE_IDLE;
-	reg [CTR_SIZE-1:0] delayCounter = 'b0;
-	reg [2:0] bitCounter = 3'b0;
-	reg [7:0] savedData = 8'b0;
+	reg[1:0] state = STATE_IDLE;
+	reg[CLOCK_SCALE_BITS-1:0] delayCounter = 'b0;
+	reg[2:0] bitCounter = 3'b0;
+	reg[7:0] savedData = 8'b0;
 	reg outputBuffer = 1'b0;
+
+	wire[CLOCK_SCALE_BITS-1:0] nextDelayCounter = delayCounter + 1;
+	wire[CLOCK_SCALE_BITS-1:0] fullBitCounterValue = cyclesPerBit[CLOCK_SCALE_BITS-1:1] - 1;
 
 	always @(posedge clk) begin
 		if (rst) begin
@@ -57,7 +57,7 @@
 						bitCounter = 3'b0;
 
 						if (dataAvailable) begin
-							savedData = data_in;
+							savedData = dataIn;
 							state = STATE_START_BIT;
 						end
 					end
@@ -66,33 +66,33 @@
 				STATE_START_BIT: begin
 					outputBuffer = 1'b0;
 
-					if (delayCounter == CLK_PER_BIT - 1) begin
+					if (delayCounter == fullBitCounterValue) begin
 						delayCounter = 0;
 						state = STATE_DATA;
 					end else begin
-						delayCounter = delayCounter + 1;
+						delayCounter = nextDelayCounter;
 					end
 				end
 
 				STATE_DATA: begin
 					outputBuffer = savedData[bitCounter];
 
-					if (delayCounter == CLK_PER_BIT - 1) begin
+					if (delayCounter == fullBitCounterValue) begin
 						delayCounter = 0;
-						if (bitCounter == 7) state = STATE_STOP_BIT;
+						if (bitCounter == 3'h7) state = STATE_STOP_BIT;
 						else bitCounter = bitCounter + 1;
 					end else begin
-						delayCounter = delayCounter + 1;
+						delayCounter = nextDelayCounter;
 					end
 				end
 
 				STATE_STOP_BIT: begin
 					outputBuffer = 1'b1;
 
-					if (delayCounter == CLK_PER_BIT - 1) begin
+					if (delayCounter == fullBitCounterValue) begin
 						state = STATE_IDLE;
 					end else begin
-						delayCounter = delayCounter + 1;
+						delayCounter = nextDelayCounter;
 					end
 				end
 				

@@ -14,8 +14,7 @@ set ::env(VERILOG_FILES) "\
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
 
-set ::env(CLOCK_PORT) "clk"
-#set ::env(CLOCK_NET) "counter.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_PERIOD) "10"
 
 ## Internal Macros
@@ -47,7 +46,7 @@ set ::env(EXTRA_LEFS) "\
 	$script_dir/../../lef/IOMultiplexer.lef \
 	$script_dir/../../lef/PWM.lef \
 	$script_dir/../../lef/SPI.lef \
-	$script_dir/../../lef/UART.lef \"
+	$script_dir/../../lef/UART.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
 	$script_dir/../../gds/WBPeripheralBusInterface.gds \
@@ -73,6 +72,15 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(PL_BASIC_PLACEMENT) 0
 set ::env(PL_TARGET_DENSITY) 0.01
 
+# Use to prevent standard cells being generated
+set ::env(SYNTH_TOP_LEVEL) 1
+set ::env(PL_RANDOM_GLB_PLACEMENT) 1
+set ::env(PL_OPENPHYSYN_OPTIMIZATIONS) 0
+set ::env(DIODE_INSERTION_STRATEGY) 0
+set ::env(FILL_INSERTION) 0
+set ::env(TAP_DECAP_INSERTION) 0
+set ::env(CLOCK_TREE_SYNTH) 0
+
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 
 # where the PDN is planned on metal 5. So, to avoid having shorts between routes
@@ -86,5 +94,3 @@ set ::env(GND_NETS) [list {vssd1}]
 
 # If you're going to use multiple power domains, then disable cvc run.
 set ::env(RUN_CVC) 1
-
-set ::env(DIODE_INSERTION_STRATEGY) 4 

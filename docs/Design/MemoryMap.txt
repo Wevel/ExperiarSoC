@@ -16,24 +16,36 @@
 				0x1300_0000: Peripheral configuration register (Might not exist)
 			0x1300_1xxx: Device 0
 				0x1300_1000: Configuration register
-				0x1300_1004: Data
-				0x1300_1010: DMA configuration
-				0x1300_1014: DMA base address
+				0x1300_1004: Clear register
+				0x1300_1008: Status register
+				0x1300_1010: Rx register
+				0x1300_1014: Tx register
+				0x1300_1020: DMA configuration
+				0x1300_1024: DMA base address
 			0x1300_2xxx: Device 1
 				0x1300_2000: Configuration register
-				0x1300_2004: Data
-				0x1300_2010: DMA configuration
-				0x1300_2014: DMA base address
+				0x1300_2004: Clear register
+				0x1300_2008: Status register
+				0x1300_2010: Rx register
+				0x1300_2014: Tx register
+				0x1300_2020: DMA configuration
+				0x1300_2024: DMA base address
 			0x1300_3xxx: Device 2
 				0x1300_3000: Configuration register
-				0x1300_3004: Data
-				0x1300_3010: DMA configuration
-				0x1300_3014: DMA base address
+				0x1300_3004: Clear register
+				0x1300_3008: Status register
+				0x1300_3010: Rx register
+				0x1300_3014: Tx register
+				0x1300_3020: DMA configuration
+				0x1300_3024: DMA base address
 			0x1300_4xxx: Device 3
 				0x1300_4000: Configuration register
-				0x1300_4004: Data
-				0x1300_4010: DMA configuration
-				0x1300_4014: DMA base address
+				0x1300_4004: Clear register
+				0x1300_4008: Status register
+				0x1300_4010: Rx register
+				0x1300_4014: Tx register
+				0x1300_4020: DMA configuration
+				0x1300_4024: DMA base address
 		0x1301_xxxx: Peripheral 1 (SPI)
 			0x1301_0xxx: Peripheral configuration
 				0x1301_0000: Peripheral configuration register (Might not exist)

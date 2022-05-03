@@ -240,32 +240,3 @@ openlane/user_proj_example\runs\user_proj_example\logs\synthesis\1-synthesis.log
 openlane/user_proj_example\runs\user_proj_example\logs\synthesis\1-synthesis.log[1213]: Warning: Wire user_proj_example.\io_oeb [1] is used but has no driver.
 openlane/user_proj_example\runs\user_proj_example\logs\synthesis\1-synthesis.log[1214]: Warning: Wire user_proj_example.\io_oeb [0] is used but has no driver.
 openlane/user_proj_example\runs\user_proj_example\logs\synthesis\1-synthesis.log[1264]: Warnings: 240 unique messages, 240 total
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[8]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2b_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[9]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21oi_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[10]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__buf_1 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[11]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__inv_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[12]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__mux2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[13]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[14]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[15]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[16]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a41o_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[17]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and3_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[18]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and4_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[19]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and4b_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[20]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21o_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[21]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__and3b_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[22]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a221o_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[23]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[24]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a32o_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[25]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21a_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[26]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand3_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[27]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__a31o_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[28]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o21ai_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[29]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__or3b_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[30]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o211a_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[31]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__xnor2_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[32]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__o32a_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[33]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand4_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[34]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__dfxtp_2 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[35]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__conb_1 has no liberty cell.
-openlane/user_proj_example\runs\user_proj_example\logs\synthesis\2-sta.log[36]: [WARNING ORD-1011] LEF master sky130_fd_sc_hd__buf_2 has no liberty cell.

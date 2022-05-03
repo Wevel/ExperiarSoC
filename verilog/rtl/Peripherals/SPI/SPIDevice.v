@@ -1,6 +1,5 @@
 module SPIDevice #(
 		parameter ID = 4'h0,
-		parameter WIDTH = 8,
 		parameter CLOCK_WIDTH = 8
 	)(
 		input wire clk,
@@ -12,7 +11,10 @@ module SPIDevice #(
 		input wire peripheralBus_oe,
 		output wire peripheralBus_busy,
 		input wire[15:0] peripheralBus_address,
-		inout wire[31:0] peripheralBus_data,
+		input wire[3:0] peripheralBus_byteSelect,
+		output wire[31:0] peripheralBus_dataRead,
+		input wire[31:0] peripheralBus_dataWrite,
+		output wire requestOutput,
 
 		// SPI interface
 		output wire spi_en,
@@ -22,7 +24,6 @@ module SPIDevice #(
 		output wire spi_cs
 	);
 
-	localparam WIDTH_BITS = $clog2(WIDTH);
 	localparam CLOCK_BITS = $clog2(CLOCK_WIDTH);
 
 	localparam STATE_IDLE  = 2'b00;
@@ -40,57 +41,69 @@ module SPIDevice #(
 		.deviceEnable(deviceEnable));
 
 	// Register
-	// Configuration register 	Default 0x64
+	// Configuration register 	Default 0x064
 	// b00-b02: clockScale 		Default 0x4
 	// b03-04: spiMode 			Default 0x0
 	// b05: msbFirst 			Default 0x1
 	// b06: useCS 				Default 0x1
 	// b07: activeHighCS		Default 0x0
-	wire[7:0] configuration;
-	ConfigurationRegister #(.WIDTH(8), .ADDRESS(12'h000), .DEFAULT(8'h64)) configurationRegister(
+	// b08: enable				Default 0x0
+	wire[31:0] configurationRegisterOutputData;
+	wire configurationRegisterOutputRequest;
+	wire[8:0] configuration;
+	ConfigurationRegister #(.WIDTH(9), .ADDRESS(12'h000), .DEFAULT(9'h064)) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
 		.peripheralBus_address(localAddress),
-		.peripheralBus_data(peripheralBus_data),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(configurationRegisterOutputData),
+		.requestOutput(configurationRegisterOutputRequest),
 		.currentValue(configuration));
-
-	// Input and Output register
-	wire[WIDTH-1:0] readData;
-	wire[WIDTH-1:0] writeData;
-	wire writeData_en;
-	DataRegister #(.WIDTH(WIDTH), .ADDRESS(12'h004)) dataRegister(
-		.clk(clk),
-		.rst(rst),
-		.enable(deviceEnable),
-		.peripheralBus_we(peripheralBus_we),
-		.peripheralBus_oe(peripheralBus_oe),
-		.peripheralBus_busy(peripheralBus_busy),
-		.peripheralBus_address(localAddress),
-		.peripheralBus_data(peripheralBus_data),
-		.writeData(writeData),
-		.writeData_en(writeData_en),
-		.writeData_busy(),
-		.readData(readData),
-		.readData_en(),
-		.readData_busy());
 
 	wire[2:0] clockScale = configuration[2:0];
 	wire[1:0] spiMode = configuration[4:3];
 	wire msbFirst = configuration[5];
 	wire useCS = configuration[6];
 	wire activeHighCS = configuration[7];
+	assign spi_en = configuration[8];
 	wire spiClockPolarity = spiMode[1];
 	wire spiSampleMode = spiMode[0];
+
+	// Input and Output register
+	wire[31:0] dataRegisterOutputData;
+	wire dataRegisterOutputRequest;
+	wire[7:0] readData;
+	wire[7:0] writeData;	
+	wire writeData_en;
+	DataRegister #(.WIDTH(8), .ADDRESS(12'h004)) dataRegister(
+		.clk(clk),
+		.rst(rst),
+		.enable(deviceEnable),
+		.peripheralBus_we(peripheralBus_we),
+		.peripheralBus_oe(peripheralBus_oe),
+		.peripheralBus_busy(),
+		.peripheralBus_address(localAddress),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(dataRegisterOutputData),
+		.requestOutput(dataRegisterOutputRequest),
+		.writeData(writeData),
+		.writeData_en(writeData_en),
+		.writeData_busy(1'b0),
+		.readData(readData),
+		.readData_en(),
+		.readData_busy(1'b0));
 
 	// State control
 	reg[1:0] state = STATE_IDLE;
 	wire busy = state != STATE_IDLE;
 	
-	reg[WIDTH_BITS-1:0] bitCounter = 'b0;
-	wire[WIDTH_BITS-1:0] nextBitCounter = bitCounter + 1;
+	reg[2:0] bitCounter = 'b0;
+	wire[2:0] nextBitCounter = bitCounter + 1;
 
 	reg[CLOCK_WIDTH-1:0] clockCounter = 'b0;
 	wire nextClockCounter = clockCounter + 1;
@@ -106,7 +119,7 @@ module SPIDevice #(
 	wire shiftOutEnable = spiSampleMode ? spiClockRise : spiClockFall;
 
 	reg loadEnable;
-	ShiftRegister #(.WIDTH(WIDTH)) register (
+	ShiftRegister #(.WIDTH(8)) register (
 		.clk(clk),
 		.rst(rst),
 		.loadEnable(loadEnable),
@@ -133,7 +146,7 @@ module SPIDevice #(
 					clockCounter <= 1'b0;
 					loadEnable <= 1'b0;
 
-					if (writeData_en) begin 
+					if (writeData_en && peripheralBus_byteSelect[0]) begin 
 						state <= STATE_SETUP;
 						loadEnable <= 1'b1;
 					end
@@ -162,7 +175,7 @@ module SPIDevice #(
 						end
 
 						clockCounter <= 1'b0;
-						if (bitCounter == (WIDTH_BITS - 1)) state <= STATE_END;
+						if (bitCounter == 3'h7) state <= STATE_END;
 						else bitCounter <= nextBitCounter;
 					end else if (spiHalfClock) begin
 						if (spiClockPolarity) begin
@@ -200,7 +213,12 @@ module SPIDevice #(
 		end
 	end
 
+	assign requestOutput = configurationRegisterOutputRequest || dataRegisterOutputRequest;
+	assign peripheralBus_dataRead = configurationRegisterOutputRequest ? configurationRegisterOutputData :
+								    dataRegisterOutputRequest 		   ? dataRegisterOutputData :
+													   					 32'b0;																			
 	assign peripheralBus_busy = busy;
+
 	assign spi_clk = spiClockPolarity ? !(spiClock && busy) : spiClock && busy;
 	assign spi_cs = useCS ? (activeHighCS ? busy : !busy) : 1'b0;
 

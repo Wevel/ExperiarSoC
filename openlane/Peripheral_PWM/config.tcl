@@ -15,13 +15,13 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DataRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DeviceSelect.v \
-	$script_dir/../../verilog/rtl/Peripherals/Registers/PeripheralSelect.v"
+	$script_dir/../../verilog/rtl/Peripherals/Registers/PeripheralSelect.v \
+	$script_dir/../../verilog/rtl/Utility/Mux.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
 
 set ::env(CLOCK_PORT) "clk"
-set ::env(CLOCK_NET) "counter.clk"
 set ::env(CLOCK_PERIOD) "10"
 
 # Absolute module size
@@ -40,12 +40,9 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 set ::env(PL_BASIC_PLACEMENT) 0
 set ::env(PL_TARGET_DENSITY) 0.415
 
-# Maximum layer used for routing is metal 4.
-# This is because this macro will be inserted in a top level (user_project_wrapper) 
-# where the PDN is planned on metal 5. So, to avoid having shorts between routes
-# in this macro and the top level metal 5 stripes, we have to restrict routes to metal4.  
-# set ::env(GLB_RT_MAXLAYER) 5
-set ::env(RT_MAX_LAYER) {met4}
+# If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
+# If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN
+set ::env(RT_MAX_LAYER) {met3}
 
 # You can draw more power domains if you need to 
 set ::env(VDD_NETS) [list {vccd1}]

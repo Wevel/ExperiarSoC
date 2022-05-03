@@ -17,7 +17,7 @@ module ShiftRegister #(
 
 reg[WIDTH-1:0] data;
 reg outputBit = 1'b0;
-wire nextData = msbFirst ? { data[WIDTH-2:0], serialIn } : { serialIn, data[WIDTH-1:1] };
+wire[WIDTH-1:0] nextData = msbFirst ? { data[WIDTH-2:0], serialIn } : { serialIn, data[WIDTH-1:1] };
 
 always @(posedge clk) begin
 	if (rst) begin

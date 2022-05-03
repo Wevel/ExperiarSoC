@@ -12,6 +12,7 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Peripherals/Peripherals_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/GPIO/GPIO_top.v \
+	$script_dir/../../verilog/rtl/Peripherals/GPIO/GPIODevice.v \
 	$script_dir/../../verilog/rtl/Peripherals/IOMultiplexer/IOMultiplexer_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/PWM/PWM_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/PWM/PWMDevice.v \
@@ -19,27 +20,30 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Peripherals/SPI/SPI_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/SPI/SPIDevice.v \
 	$script_dir/../../verilog/rtl/Peripherals/UART/UART_top.v \
-	$script_dir/../../verilog/rtl/Peripherals/UART/UART_Buffer.v \
+	$script_dir/../../verilog/rtl/Peripherals/UART/UARTDevice.v \
 	$script_dir/../../verilog/rtl/Peripherals/UART/UART_rx.v \
 	$script_dir/../../verilog/rtl/Peripherals/UART/UART_tx.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DataRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DeviceSelect.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/PeripheralSelect.v \
-	$script_dir/../../verilog/rtl/Utility/ShiftRegister.v"
+	$script_dir/../../verilog/rtl/Utility/FIFO.v \
+	$script_dir/../../verilog/rtl/Utility/Mux.v \
+	$script_dir/../../verilog/rtl/Utility/ShiftRegister.v \
+	$script_dir/../../verilog/rtl/Utility/Counter.v \
+	$script_dir/../../verilog/rtl/Utility/WBSlaveSelect.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
 
-set ::env(CLOCK_PORT) "clk"
-set ::env(CLOCK_NET) "counter.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_PERIOD) "10"
 
 # Absolute module size
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 500 350"
+set ::env(DIE_AREA) "0 0 550 750"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -49,7 +53,7 @@ set ::env(DIE_AREA) "0 0 500 350"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.01
+set ::env(PL_TARGET_DENSITY) 0.405
 
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 

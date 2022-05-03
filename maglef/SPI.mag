@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1651190807
+timestamp 1651272821
 << obsli1 >>
 rect 1104 2159 38824 37553
 << obsm1 >>
@@ -375,8 +375,8 @@ port 73 nsew ground input
 string FIXED_BBOX 0 0 40000 40000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 2451964
+string GDS_END 2495006
 string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripheral_SPI/runs/Peripheral_SPI/results/finishing/SPI.magic.gds
-string GDS_START 327886
+string GDS_START 264836
 << end >>
 

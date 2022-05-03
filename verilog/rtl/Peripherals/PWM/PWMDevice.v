@@ -13,7 +13,10 @@ module PWMDevice #(
 		input wire peripheralBus_oe,
 		output wire peripheralBus_busy,
 		input wire[15:0] peripheralBus_address,
-		inout wire[31:0] peripheralBus_data,
+		input wire[3:0] peripheralBus_byteSelect,
+		output wire[31:0] peripheralBus_dataRead,
+		input wire[31:0] peripheralBus_dataWrite,
+		output requestOutput,
 		
 		// PWM output
 		output wire[OUTPUTS-1:0] pwm_en,
@@ -43,6 +46,8 @@ module PWMDevice #(
 	// b13: outputEnable3		Default 0x0
 	localparam CONFIG_WIDTH = 1 + CLOCK_BITS + WIDTH_BITS + OUTPUTS;
 	wire[CONFIG_WIDTH-1:0] configuration;
+	wire[31:0] configurationRegisterOutputData;
+	wire configurationRegisterOutputRequest;
 	ConfigurationRegister #(.WIDTH(CONFIG_WIDTH), .ADDRESS(12'h000), .DEFAULT(CONFIG_WIDTH'h3DC)) configurationRegister(
 		.clk(clk),
 		.rst(rst),
@@ -50,7 +55,10 @@ module PWMDevice #(
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
 		.peripheralBus_address(localAddress),
-		.peripheralBus_data(peripheralBus_data),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(configurationRegisterOutputData),
+		.requestOutput(configurationRegisterOutputRequest),
 		.currentValue(configuration));
 
 	wire counterEnable = configuration[0];
@@ -62,15 +70,20 @@ module PWMDevice #(
 	// b00-b15: counterValue
 	// b16-b19: output
 	wire[OUTPUTS-1:0] outputs;
+	wire[31:0] dataRegisterOutputData;
+	wire dataRegisterOutputRequest;
 	DataRegister #(.WIDTH(WIDTH + OUTPUTS), .ADDRESS(12'h004)) dataRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
-		.peripheralBus_busy(peripheralBus_busy),
+		.peripheralBus_busy(),
 		.peripheralBus_address(localAddress),
-		.peripheralBus_data(peripheralBus_data),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(dataRegisterOutputData),
+		.requestOutput(dataRegisterOutputRequest),
 		.writeData(),
 		.writeData_en(),
 		.writeData_busy(1'b0),
@@ -90,6 +103,14 @@ module PWMDevice #(
 		else if (counterEnable) baseCounter <= nextCounter;
 	end
 
+	wire[OUTPUTS-1:0] compareRegisterOutputRequest;
+	wire[(32 * OUTPUTS) - 1:0] compareRegisterOutputData;
+	Mux #(.WIDTH(32), .INPUTS(OUTPUTS)) mux(
+		.select(compareRegisterOutputRequest),
+		.in(compareRegisterOutputData),
+		.out(peripheralBus_dataRead),
+		.outputEnable(requestOutput));
+
 	// Outputs
 	genvar i;
 	generate
@@ -103,7 +124,10 @@ module PWMDevice #(
 				.peripheralBus_we(peripheralBus_we),
 				.peripheralBus_oe(peripheralBus_oe),
 				.peripheralBus_address(localAddress),
-				.peripheralBus_data(peripheralBus_data),
+				.peripheralBus_byteSelect(peripheralBus_byteSelect),
+				.peripheralBus_dataWrite(peripheralBus_dataWrite),
+				.peripheralBus_dataRead(compareRegisterOutputData[(i * 32) + 31:i * 32]),
+				.requestOutput(compareRegisterOutputRequest[i]),
 				.currentValue(compareValue));
 			PWMOutput #(.WIDTH(WIDTH)) outputPort(
 				.clk(clk),
@@ -114,6 +138,8 @@ module PWMDevice #(
 				.pwm_out(outputs[i]));
 		end
 	endgenerate
+
+	assign peripheralBus_busy = 1'b0;
 
 	assign pwm_en = outputEnable;
 	assign pwm_out = outputs;
