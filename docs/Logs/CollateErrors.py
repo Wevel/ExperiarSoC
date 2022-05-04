@@ -1,6 +1,6 @@
 import os
-import sys
 import io
+import re
 
 def CollateErrors(sourceLocation:str, outputLocation:str):
 	macrosPaths = [ f.path for f in os.scandir(sourceLocation) if f.is_dir() ]
@@ -102,12 +102,30 @@ def CheckFile(fileName:str, errorFile:io.TextIOWrapper, warningFile:io.TextIOWra
 
 	with open(fileName, "r") as f:
 		lines = f.readlines()
+		text = "".join(lines)
+		
+		# errors = re.findall(".*(?<![_\\-.\\w])error(?![_\\-.\\w]).*", text, re.IGNORECASE)
+		# if len(errors) > 0:
+		# 	errorFile.writelines(errors)
+		# 	errorCount += len(errors)
+
+		# violations = re.findall(".*(?<![_\\-.\\w])violated(?![_\\-.\\w]).*", text, re.IGNORECASE)
+		# if len(violations) > 0:
+		# 	errorFile.writelines(violations)
+		# 	violationCount += len(violations)
+
+		# warnings = re.findall(".*(?<![_\\-.\\w])warning(?![_\\-.\\w]).*", text, re.IGNORECASE)		
+		# warnings = [line for line in warnings if "has no liberty cell." not in line]
+		# if len(warnings) > 0:
+		# 	warningFile.writelines(warnings)
+		# 	warningCount += len(warnings)
+
 		for i in range(len(lines)):
 			lowerCaseLine = lines[i].lower()
-			if "error" in lowerCaseLine:
+			if " error " in lowerCaseLine or "[error]" in lowerCaseLine:
 				errorFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
 				errorCount += 1
-			elif  "violated" in lowerCaseLine:
+			elif "violated" in lowerCaseLine:
 				errorFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
 				violationCount += 1
 			elif "warning" in lowerCaseLine and "has no liberty cell." not in lines[i]:
