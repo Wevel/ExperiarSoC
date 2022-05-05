@@ -1,12 +1,14 @@
 import os
 import re
 from typing import TextIO
+import multiprocessing as mp
+import time
 
 def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 	macrosPaths = [f.path for f in os.scandir(sourceLocation) if f.is_dir()]
-
-	for macroPath in macrosPaths:
-		CheckMacro(macroPath, outputLocation)
+	processes = [mp.Process(target=CheckMacro, args=(macroPath, outputLocation)) for macroPath in macrosPaths]
+	[process.start() for process in processes]
+	[process.join() for process in processes]
 
 def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	outputDirNames = ["logs", "reports"]
@@ -95,16 +97,16 @@ def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[in
 	with open(fileName, "r") as f:
 		lines = f.readlines()
 
-		for line in lines:
+		for i, line in enumerate(lines):
 			if re.search("(?<![_\\-.\\w])error(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-				errorFile.write(line)
+				errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 				errorCount += 1
 			elif re.search("(?<![_\\-.\\w])violated(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-				errorFile.write(line)
+				errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 				violationCount += 1
 			elif "has no liberty cell." not in line:
 				if re.search("(?<![_\\-.\\w])warning(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-					warningFile.write(line)
+					warningFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 					warningCount += 1
 
 	return errorCount, warningCount, violationCount
