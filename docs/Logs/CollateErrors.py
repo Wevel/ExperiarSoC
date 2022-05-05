@@ -1,14 +1,14 @@
 import os
-import io
 import re
+from typing import TextIO
 
-def CollateErrors(sourceLocation:str, outputLocation:str):
-	macrosPaths = [ f.path for f in os.scandir(sourceLocation) if f.is_dir() ]
+def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
+	macrosPaths = [f.path for f in os.scandir(sourceLocation) if f.is_dir()]
 
 	for macroPath in macrosPaths:
 		CheckMacro(macroPath, outputLocation)
 
-def CheckMacro(macroPath:str, outputLocation:str):
+def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	outputDirNames = ["logs", "reports"]
 	macroName = os.path.basename(macroPath)
 	print(f"Checking macro '{macroName}': ", end="")
@@ -21,7 +21,7 @@ def CheckMacro(macroPath:str, outputLocation:str):
 	errorOutputFilePath = os.path.join(macroOutputPath, "errors.log")
 	if os.path.exists(errorOutputFilePath):
 		os.remove(errorOutputFilePath)
-	
+
 	warningOutputFilePath = os.path.join(macroOutputPath, "warnings.log")
 	if os.path.exists(warningOutputFilePath):
 		os.remove(warningOutputFilePath)
@@ -54,33 +54,25 @@ def CheckMacro(macroPath:str, outputLocation:str):
 					warningOutputFile.writelines(lines)
 					warningCount += len(lines)
 
-			# Check for synthesis problems
 			for dir in outputDirNames:
+				# Check for synthesis problems and routing violations
 				synthesisFilesPath = os.path.join(buildPath, dir, "synthesis")
-				synthesisFiles = [ f.path for f in os.scandir(synthesisFilesPath) if f.is_file() and f.path.endswith(".log") ]
-				for file in synthesisFiles:
-					e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
-					errorCount += e
-					warningCount += w
-					violationCount += v
-
-			# Check for routing violations
-			for dir in outputDirNames:
 				routingFilesPath = os.path.join(buildPath, dir, "routing")
-				routingFiles = [ f.path for f in os.scandir(routingFilesPath) if f.is_file() and f.path.endswith(".rpt") ]
-				for file in routingFiles:
+				files = [f.path for f in os.scandir(synthesisFilesPath) if f.is_file() and f.path.endswith(".log")]
+				files.extend([f.path for f in os.scandir(routingFilesPath) if f.is_file() and f.path.endswith(".rpt")])
+
+				for file in files:
 					e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
 					errorCount += e
 					warningCount += w
 					violationCount += v
 
 	finally:
-		if errorOutputFile != None:
+		if errorOutputFile is not None:
 			errorOutputFile.close()
-		if warningOutputFile != None:
+		if warningOutputFile is not None:
 			warningOutputFile.close()
 
-	
 	if errorCount == 0 and violationCount == 0 and warningCount == 0:
 		print("Ok")
 	else:
@@ -92,7 +84,7 @@ def CheckMacro(macroPath:str, outputLocation:str):
 		if warningCount != 0:
 			print(f"	\033[93mWarnings: {warningCount}\033[0m")
 
-def CheckFile(fileName:str, errorFile:io.TextIOWrapper, warningFile:io.TextIOWrapper) -> tuple[int, int, int]:
+def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[int, int, int]:
 	if not os.path.exists(fileName):
 		return 0, 0, 0
 
@@ -102,37 +94,23 @@ def CheckFile(fileName:str, errorFile:io.TextIOWrapper, warningFile:io.TextIOWra
 
 	with open(fileName, "r") as f:
 		lines = f.readlines()
-		text = "".join(lines)
-		
-		# errors = re.findall(".*(?<![_\\-.\\w])error(?![_\\-.\\w]).*", text, re.IGNORECASE)
-		# if len(errors) > 0:
-		# 	errorFile.writelines(errors)
-		# 	errorCount += len(errors)
 
-		# violations = re.findall(".*(?<![_\\-.\\w])violated(?![_\\-.\\w]).*", text, re.IGNORECASE)
-		# if len(violations) > 0:
-		# 	errorFile.writelines(violations)
-		# 	violationCount += len(violations)
-
-		# warnings = re.findall(".*(?<![_\\-.\\w])warning(?![_\\-.\\w]).*", text, re.IGNORECASE)		
-		# warnings = [line for line in warnings if "has no liberty cell." not in line]
-		# if len(warnings) > 0:
-		# 	warningFile.writelines(warnings)
-		# 	warningCount += len(warnings)
-
-		for i in range(len(lines)):
-			lowerCaseLine = lines[i].lower()
-			if " error " in lowerCaseLine or "[error]" in lowerCaseLine:
-				errorFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
+		for line in lines:
+			if re.search("(?<![_\\-.\\w])error(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
+				errorFile.write(line)
 				errorCount += 1
-			elif "violated" in lowerCaseLine:
-				errorFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
+			elif re.search("(?<![_\\-.\\w])violated(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
+				errorFile.write(line)
 				violationCount += 1
-			elif "warning" in lowerCaseLine and "has no liberty cell." not in lines[i]:
-				warningFile.write(f"{fileName}[{i}]: {lines[i].strip()}\n")
-				warningCount += 1
+			elif "has no liberty cell." not in line:
+				if re.search("(?<![_\\-.\\w])warning(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
+					warningFile.write(line)
+					warningCount += 1
 
 	return errorCount, warningCount, violationCount
 
-if __name__ == "__main__":
+def main():
 	CollateErrors("openlane/", "docs/Logs/")
+
+if __name__ == "__main__":
+	main()
