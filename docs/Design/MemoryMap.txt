@@ -105,3 +105,15 @@
 				0x1303_2000: OutputEnable
 				0x1303_2004: Output
 				0x1303_2008: Input
+0x20xx_xxxx: Reserved for caravel interface
+	0x2000_xxxx: Peripheral 0 (UART)
+		0x2000_0xxx: Peripheral configuration
+			0x2000_0000: Peripheral configuration register (Might not exist)
+		0x2000_1xxx: Internal Device
+			0x2000_1000: Configuration register
+			0x2000_1004: Clear register
+			0x2000_1008: Status register
+			0x2000_1010: Rx register
+			0x2000_1014: Tx register
+			0x2000_1020: DMA configuration
+			0x2000_1024: DMA base address
