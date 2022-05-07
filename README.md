@@ -15,6 +15,10 @@ RISC-V SoC designed for the Efabless Open MPW Program.
 - 4x PWM counters with 4x seperate outputs
 - DMA for UART peripheral
 
+# Memory Map
+
+![Memory map for Experiar SoC](docs/Design/MemoryMap.png "Memory map for Experiar SoC")
+
 # ToDo
 - Flash controller
 - DMA

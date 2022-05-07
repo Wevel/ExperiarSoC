@@ -1,6 +1,6 @@
 0x0xxx_xxxx: Per core local memory
-	0x00xx_xxxx: Flash
-	0x01xx_xxxx: SRAM
+	0x0000_0xxx: Flash
+	0x0100_0xxx: SRAM
 		0x0100_0xxx: Bank 0
 0x1xxx_xxxx: Wishbone bus
 	0x10xx_xxxx: Slave 0 (Core 0 SRAM)
@@ -14,7 +14,7 @@
 		0x1300_xxxx: Peripheral 0 (UART)
 			0x1300_0xxx: Peripheral configuration
 				0x1300_0000: Peripheral configuration register (Might not exist)
-			0x1300_1xxx: Device 0
+			0x1300_1xxx: Internal Device (For caravel)
 				0x1300_1000: Configuration register
 				0x1300_1004: Clear register
 				0x1300_1008: Status register
@@ -22,7 +22,7 @@
 				0x1300_1014: Tx register
 				0x1300_1020: DMA configuration
 				0x1300_1024: DMA base address
-			0x1300_2xxx: Device 1
+			0x1300_2xxx: Device 0
 				0x1300_2000: Configuration register
 				0x1300_2004: Clear register
 				0x1300_2008: Status register
@@ -30,7 +30,7 @@
 				0x1300_2014: Tx register
 				0x1300_2020: DMA configuration
 				0x1300_2024: DMA base address
-			0x1300_3xxx: Device 2
+			0x1300_3xxx: Device 1
 				0x1300_3000: Configuration register
 				0x1300_3004: Clear register
 				0x1300_3008: Status register
@@ -38,7 +38,7 @@
 				0x1300_3014: Tx register
 				0x1300_3020: DMA configuration
 				0x1300_3024: DMA base address
-			0x1300_4xxx: Device 3
+			0x1300_4xxx: Device 2
 				0x1300_4000: Configuration register
 				0x1300_4004: Clear register
 				0x1300_4008: Status register
@@ -46,6 +46,14 @@
 				0x1300_4014: Tx register
 				0x1300_4020: DMA configuration
 				0x1300_4024: DMA base address
+			0x1300_4xxx: Device 3
+				0x1300_5000: Configuration register
+				0x1300_5004: Clear register
+				0x1300_5008: Status register
+				0x1300_5010: Rx register
+				0x1300_5014: Tx register
+				0x1300_5020: DMA configuration
+				0x1300_5024: DMA base address
 		0x1301_xxxx: Peripheral 1 (SPI)
 			0x1301_0xxx: Peripheral configuration
 				0x1301_0000: Peripheral configuration register (Might not exist)
