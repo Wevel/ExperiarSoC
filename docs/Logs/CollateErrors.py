@@ -11,9 +11,9 @@ def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 	[process.join() for process in processes]
 
 def CheckMacro(macroPath: str, outputLocation: str) -> None:
-	outputDirNames = ["logs", "reports"]
+	outputTypes = ["logs", "reports"]
+	outputSections = ["synthesis", "routing", "placement", "floorplan", "finishing"]
 	macroName = os.path.basename(macroPath)
-	print(f"Checking macro '{macroName}': ", end="")
 
 	buildPath = os.path.join(macroPath, "runs", macroName)
 	macroOutputPath = os.path.join(outputLocation, macroName)
@@ -56,18 +56,16 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 					warningOutputFile.writelines(lines)
 					warningCount += len(lines)
 
-			for dir in outputDirNames:
-				# Check for synthesis problems and routing violations
-				synthesisFilesPath = os.path.join(buildPath, dir, "synthesis")
-				routingFilesPath = os.path.join(buildPath, dir, "routing")
-				files = [f.path for f in os.scandir(synthesisFilesPath) if f.is_file() and f.path.endswith(".log")]
-				files.extend([f.path for f in os.scandir(routingFilesPath) if f.is_file() and f.path.endswith(".rpt")])
+			for dir in outputTypes:
+				for section in outputSections:
+					path = os.path.join(buildPath, dir, section)
+					files = [f.path for f in os.scandir(path) if f.is_file() and (f.path.endswith(".log") or f.path.endswith(".rpt"))]
 
-				for file in files:
-					e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
-					errorCount += e
-					warningCount += w
-					violationCount += v
+					for file in files:
+						e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
+						errorCount += e
+						warningCount += w
+						violationCount += v
 
 	finally:
 		if errorOutputFile is not None:
@@ -75,8 +73,13 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 		if warningOutputFile is not None:
 			warningOutputFile.close()
 
+	print(f"Checking macro '{macroName}': ", end="")
+	
 	if errorCount == 0 and violationCount == 0 and warningCount == 0:
-		print("Ok")
+		if os.path.exists(buildPath):
+			print("Ok")
+		else:
+			print("No runs")
 	else:
 		print("Found issues")
 		if errorCount != 0:
@@ -104,7 +107,7 @@ def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[in
 			elif re.search("(?<![_\\-.\\w])violated(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
 				errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 				violationCount += 1
-			elif "has no liberty cell." not in line:
+			elif "has no liberty cell." not in line and "Parent cell lists instance of" not in line and "Character in instance name converted to underscore." not in line and "is a placeholder, treated as a black box." not in line and "[WARNING GRT-" not in line and "[WARNING TAP-" not in line and "[WARNING ORD-" not in line and "[WARNING STA-" not in line and "[WARNING IFP-" not in line and "[WARNING PSM-" not in line:
 				if re.search("(?<![_\\-.\\w])warning(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
 					warningFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 					warningCount += 1
