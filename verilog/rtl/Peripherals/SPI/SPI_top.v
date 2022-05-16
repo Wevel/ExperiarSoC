@@ -26,7 +26,7 @@ module SPI #(
 		output wire[DEVICE_COUNT-1:0] spi_cs
 	);
 
-	localparam DEVICE_COUNT = 2;
+	localparam DEVICE_COUNT = 1;
 
 	// Peripheral select
 	wire[15:0] localAddress;
@@ -48,7 +48,7 @@ module SPI #(
 	genvar i;
 	generate
 		for (i = 0; i < DEVICE_COUNT; i = i + 1) begin
-			SPIDevice #(.ID(4'(i+1)), .CLOCK_WIDTH(8)) device(
+			SPIDevice #(.ID(i+1), .CLOCK_WIDTH(8)) device(
 				.clk(clk),
 				.rst(rst),
 				.peripheralEnable(peripheralEnable),

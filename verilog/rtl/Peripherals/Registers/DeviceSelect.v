@@ -7,7 +7,7 @@ module DeviceSelect #(
 		output wire deviceEnable
 	);
 
-assign deviceEnable = peripheralEnable && (peripheralBus_address[15:12] == ID);
-assign localAddress = peripheralBus_address[11:0];
+	assign deviceEnable = peripheralEnable && (peripheralBus_address[15:12] == ID);
+	assign localAddress = peripheralBus_address[11:0];
 
 endmodule

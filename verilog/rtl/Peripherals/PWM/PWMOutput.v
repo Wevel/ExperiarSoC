@@ -11,14 +11,14 @@ module PWMOutput #(
 		output wire pwm_out
 	);
 
-	reg [WIDTH-1:0] currentCompareValue;
+	reg [WIDTH-1:0] currentCompareValue = {WIDTH{1'b0}};
 	wire equality = counterValue == currentCompareValue;
 
 	reg state = 1'b0;
 
 	always @(posedge clk) begin
 		if (rst) begin
-			currentCompareValue <= 'b0;
+			currentCompareValue <= {WIDTH{1'b0}};
 			state <= 1'b0; 
 		end else begin
 			if (enable) begin

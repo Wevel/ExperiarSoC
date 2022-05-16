@@ -2,246 +2,66 @@
 [WARNING]: All internal macros will not be connected to power.
 [WARNING]: All internal macros will not be connected to power.
 [WARNING]: All internal macros will not be connected to power.
-[WARNING]: There are max slew violations in the design at the typical corner. Please refer to /home/crab/windows/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/user_project_wrapper/reports/routing/22-parasitics_sta.slew.rpt
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[94]: Warning: Wire user_project_wrapper.\uart_tx[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[95]: Warning: Wire user_project_wrapper.\uart_tx[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[96]: Warning: Wire user_project_wrapper.\uart_tx[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[97]: Warning: Wire user_project_wrapper.\uart_tx[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[98]: Warning: Wire user_project_wrapper.\spi_mosi[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[99]: Warning: Wire user_project_wrapper.\spi_mosi[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[100]: Warning: Wire user_project_wrapper.\spi_cs[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[101]: Warning: Wire user_project_wrapper.\spi_cs[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[102]: Warning: Wire user_project_wrapper.\spi_clk[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[103]: Warning: Wire user_project_wrapper.\spi_clk[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[104]: Warning: Wire user_project_wrapper.\gpio1_output[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[105]: Warning: Wire user_project_wrapper.\gpio1_output[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[106]: Warning: Wire user_project_wrapper.\gpio1_output[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[107]: Warning: Wire user_project_wrapper.\gpio1_output[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[108]: Warning: Wire user_project_wrapper.\gpio1_output[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[109]: Warning: Wire user_project_wrapper.\gpio1_output[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[110]: Warning: Wire user_project_wrapper.\gpio1_output[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[111]: Warning: Wire user_project_wrapper.\gpio1_output[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[112]: Warning: Wire user_project_wrapper.\gpio1_output[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[113]: Warning: Wire user_project_wrapper.\gpio1_output[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[114]: Warning: Wire user_project_wrapper.\gpio1_output[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[115]: Warning: Wire user_project_wrapper.\gpio1_output[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[116]: Warning: Wire user_project_wrapper.\gpio1_output[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[117]: Warning: Wire user_project_wrapper.\gpio1_output[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[118]: Warning: Wire user_project_wrapper.\gpio1_output[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[119]: Warning: Wire user_project_wrapper.\gpio1_output[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[120]: Warning: Wire user_project_wrapper.\gpio1_output[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[121]: Warning: Wire user_project_wrapper.\gpio1_output[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[122]: Warning: Wire user_project_wrapper.\gpio1_output[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[123]: Warning: Wire user_project_wrapper.\gpio1_oe[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[124]: Warning: Wire user_project_wrapper.\gpio1_oe[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[125]: Warning: Wire user_project_wrapper.\gpio1_oe[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[126]: Warning: Wire user_project_wrapper.\gpio1_oe[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[127]: Warning: Wire user_project_wrapper.\gpio1_oe[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[128]: Warning: Wire user_project_wrapper.\gpio1_oe[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[129]: Warning: Wire user_project_wrapper.\gpio1_oe[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[130]: Warning: Wire user_project_wrapper.\gpio1_oe[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[131]: Warning: Wire user_project_wrapper.\gpio1_oe[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[132]: Warning: Wire user_project_wrapper.\gpio1_oe[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[133]: Warning: Wire user_project_wrapper.\gpio1_oe[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[134]: Warning: Wire user_project_wrapper.\gpio1_oe[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[135]: Warning: Wire user_project_wrapper.\gpio1_oe[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[136]: Warning: Wire user_project_wrapper.\gpio1_oe[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[137]: Warning: Wire user_project_wrapper.\gpio1_oe[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[138]: Warning: Wire user_project_wrapper.\gpio1_oe[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[139]: Warning: Wire user_project_wrapper.\gpio1_oe[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[140]: Warning: Wire user_project_wrapper.\gpio1_oe[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[141]: Warning: Wire user_project_wrapper.\gpio1_oe[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[142]: Warning: Wire user_project_wrapper.\gpio0_output[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[143]: Warning: Wire user_project_wrapper.\gpio0_output[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[144]: Warning: Wire user_project_wrapper.\gpio0_output[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[145]: Warning: Wire user_project_wrapper.\gpio0_output[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[146]: Warning: Wire user_project_wrapper.\gpio0_output[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[147]: Warning: Wire user_project_wrapper.\gpio0_output[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[148]: Warning: Wire user_project_wrapper.\gpio0_output[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[149]: Warning: Wire user_project_wrapper.\gpio0_output[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[150]: Warning: Wire user_project_wrapper.\gpio0_output[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[151]: Warning: Wire user_project_wrapper.\gpio0_output[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[152]: Warning: Wire user_project_wrapper.\gpio0_output[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[153]: Warning: Wire user_project_wrapper.\gpio0_output[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[154]: Warning: Wire user_project_wrapper.\gpio0_output[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[155]: Warning: Wire user_project_wrapper.\gpio0_output[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[156]: Warning: Wire user_project_wrapper.\gpio0_output[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[157]: Warning: Wire user_project_wrapper.\gpio0_output[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[158]: Warning: Wire user_project_wrapper.\gpio0_output[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[159]: Warning: Wire user_project_wrapper.\gpio0_output[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[160]: Warning: Wire user_project_wrapper.\gpio0_output[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[161]: Warning: Wire user_project_wrapper.\gpio0_oe[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[162]: Warning: Wire user_project_wrapper.\gpio0_oe[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[163]: Warning: Wire user_project_wrapper.\gpio0_oe[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[164]: Warning: Wire user_project_wrapper.\gpio0_oe[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[165]: Warning: Wire user_project_wrapper.\gpio0_oe[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[166]: Warning: Wire user_project_wrapper.\gpio0_oe[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[167]: Warning: Wire user_project_wrapper.\gpio0_oe[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[168]: Warning: Wire user_project_wrapper.\gpio0_oe[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[169]: Warning: Wire user_project_wrapper.\gpio0_oe[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[170]: Warning: Wire user_project_wrapper.\gpio0_oe[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[171]: Warning: Wire user_project_wrapper.\gpio0_oe[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[172]: Warning: Wire user_project_wrapper.\gpio0_oe[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[173]: Warning: Wire user_project_wrapper.\gpio0_oe[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[174]: Warning: Wire user_project_wrapper.\gpio0_oe[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[175]: Warning: Wire user_project_wrapper.\gpio0_oe[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[176]: Warning: Wire user_project_wrapper.\gpio0_oe[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[177]: Warning: Wire user_project_wrapper.\gpio0_oe[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[178]: Warning: Wire user_project_wrapper.\gpio0_oe[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[179]: Warning: Wire user_project_wrapper.\gpio0_oe[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[180]: Warning: Wire user_project_wrapper.\config_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[181]: Warning: Wire user_project_wrapper.\config_oe is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[182]: Warning: Wire user_project_wrapper.\config_address[31] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[183]: Warning: Wire user_project_wrapper.\config_address[30] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[184]: Warning: Wire user_project_wrapper.\config_address[29] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[185]: Warning: Wire user_project_wrapper.\config_address[28] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[186]: Warning: Wire user_project_wrapper.\config_address[27] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[187]: Warning: Wire user_project_wrapper.\config_address[26] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[188]: Warning: Wire user_project_wrapper.\config_address[25] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[189]: Warning: Wire user_project_wrapper.\config_address[24] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[190]: Warning: Wire user_project_wrapper.\config_address[23] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[191]: Warning: Wire user_project_wrapper.\config_address[22] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[192]: Warning: Wire user_project_wrapper.\config_address[21] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[193]: Warning: Wire user_project_wrapper.\config_address[20] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[194]: Warning: Wire user_project_wrapper.\config_address[19] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[195]: Warning: Wire user_project_wrapper.\config_address[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[196]: Warning: Wire user_project_wrapper.\config_address[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[197]: Warning: Wire user_project_wrapper.\config_address[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[198]: Warning: Wire user_project_wrapper.\config_address[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[199]: Warning: Wire user_project_wrapper.\config_address[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[200]: Warning: Wire user_project_wrapper.\config_address[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[201]: Warning: Wire user_project_wrapper.\config_address[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[202]: Warning: Wire user_project_wrapper.\config_address[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[203]: Warning: Wire user_project_wrapper.\config_address[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[204]: Warning: Wire user_project_wrapper.\config_address[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[205]: Warning: Wire user_project_wrapper.\config_address[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[206]: Warning: Wire user_project_wrapper.\config_address[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[207]: Warning: Wire user_project_wrapper.\config_address[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[208]: Warning: Wire user_project_wrapper.\config_address[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[209]: Warning: Wire user_project_wrapper.\config_address[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[210]: Warning: Wire user_project_wrapper.\config_address[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[211]: Warning: Wire user_project_wrapper.\config_address[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[212]: Warning: Wire user_project_wrapper.\config_address[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[213]: Warning: Wire user_project_wrapper.\config_address[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[239]: Warnings: 120 unique messages, 120 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[94]: Warning: Wire user_project_wrapper.\uart_tx[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[95]: Warning: Wire user_project_wrapper.\uart_tx[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[96]: Warning: Wire user_project_wrapper.\uart_tx[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[97]: Warning: Wire user_project_wrapper.\uart_tx[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[98]: Warning: Wire user_project_wrapper.\spi_mosi[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[99]: Warning: Wire user_project_wrapper.\spi_mosi[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[100]: Warning: Wire user_project_wrapper.\spi_cs[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[101]: Warning: Wire user_project_wrapper.\spi_cs[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[102]: Warning: Wire user_project_wrapper.\spi_clk[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[103]: Warning: Wire user_project_wrapper.\spi_clk[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[104]: Warning: Wire user_project_wrapper.\gpio1_output[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[105]: Warning: Wire user_project_wrapper.\gpio1_output[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[106]: Warning: Wire user_project_wrapper.\gpio1_output[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[107]: Warning: Wire user_project_wrapper.\gpio1_output[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[108]: Warning: Wire user_project_wrapper.\gpio1_output[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[109]: Warning: Wire user_project_wrapper.\gpio1_output[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[110]: Warning: Wire user_project_wrapper.\gpio1_output[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[111]: Warning: Wire user_project_wrapper.\gpio1_output[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[112]: Warning: Wire user_project_wrapper.\gpio1_output[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[113]: Warning: Wire user_project_wrapper.\gpio1_output[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[114]: Warning: Wire user_project_wrapper.\gpio1_output[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[115]: Warning: Wire user_project_wrapper.\gpio1_output[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[116]: Warning: Wire user_project_wrapper.\gpio1_output[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[117]: Warning: Wire user_project_wrapper.\gpio1_output[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[118]: Warning: Wire user_project_wrapper.\gpio1_output[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[119]: Warning: Wire user_project_wrapper.\gpio1_output[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[120]: Warning: Wire user_project_wrapper.\gpio1_output[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[121]: Warning: Wire user_project_wrapper.\gpio1_output[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[122]: Warning: Wire user_project_wrapper.\gpio1_output[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[123]: Warning: Wire user_project_wrapper.\gpio1_oe[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[124]: Warning: Wire user_project_wrapper.\gpio1_oe[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[125]: Warning: Wire user_project_wrapper.\gpio1_oe[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[126]: Warning: Wire user_project_wrapper.\gpio1_oe[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[127]: Warning: Wire user_project_wrapper.\gpio1_oe[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[128]: Warning: Wire user_project_wrapper.\gpio1_oe[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[129]: Warning: Wire user_project_wrapper.\gpio1_oe[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[130]: Warning: Wire user_project_wrapper.\gpio1_oe[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[131]: Warning: Wire user_project_wrapper.\gpio1_oe[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[132]: Warning: Wire user_project_wrapper.\gpio1_oe[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[133]: Warning: Wire user_project_wrapper.\gpio1_oe[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[134]: Warning: Wire user_project_wrapper.\gpio1_oe[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[135]: Warning: Wire user_project_wrapper.\gpio1_oe[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[136]: Warning: Wire user_project_wrapper.\gpio1_oe[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[137]: Warning: Wire user_project_wrapper.\gpio1_oe[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[138]: Warning: Wire user_project_wrapper.\gpio1_oe[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[139]: Warning: Wire user_project_wrapper.\gpio1_oe[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[140]: Warning: Wire user_project_wrapper.\gpio1_oe[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[141]: Warning: Wire user_project_wrapper.\gpio1_oe[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[142]: Warning: Wire user_project_wrapper.\gpio0_output[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[143]: Warning: Wire user_project_wrapper.\gpio0_output[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[144]: Warning: Wire user_project_wrapper.\gpio0_output[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[145]: Warning: Wire user_project_wrapper.\gpio0_output[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[146]: Warning: Wire user_project_wrapper.\gpio0_output[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[147]: Warning: Wire user_project_wrapper.\gpio0_output[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[148]: Warning: Wire user_project_wrapper.\gpio0_output[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[149]: Warning: Wire user_project_wrapper.\gpio0_output[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[150]: Warning: Wire user_project_wrapper.\gpio0_output[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[151]: Warning: Wire user_project_wrapper.\gpio0_output[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[152]: Warning: Wire user_project_wrapper.\gpio0_output[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[153]: Warning: Wire user_project_wrapper.\gpio0_output[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[154]: Warning: Wire user_project_wrapper.\gpio0_output[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[155]: Warning: Wire user_project_wrapper.\gpio0_output[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[156]: Warning: Wire user_project_wrapper.\gpio0_output[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[157]: Warning: Wire user_project_wrapper.\gpio0_output[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[158]: Warning: Wire user_project_wrapper.\gpio0_output[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[159]: Warning: Wire user_project_wrapper.\gpio0_output[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[160]: Warning: Wire user_project_wrapper.\gpio0_output[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[161]: Warning: Wire user_project_wrapper.\gpio0_oe[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[162]: Warning: Wire user_project_wrapper.\gpio0_oe[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[163]: Warning: Wire user_project_wrapper.\gpio0_oe[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[164]: Warning: Wire user_project_wrapper.\gpio0_oe[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[165]: Warning: Wire user_project_wrapper.\gpio0_oe[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[166]: Warning: Wire user_project_wrapper.\gpio0_oe[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[167]: Warning: Wire user_project_wrapper.\gpio0_oe[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[168]: Warning: Wire user_project_wrapper.\gpio0_oe[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[169]: Warning: Wire user_project_wrapper.\gpio0_oe[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[170]: Warning: Wire user_project_wrapper.\gpio0_oe[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire user_project_wrapper.\gpio0_oe[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire user_project_wrapper.\gpio0_oe[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[173]: Warning: Wire user_project_wrapper.\gpio0_oe[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[174]: Warning: Wire user_project_wrapper.\gpio0_oe[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[175]: Warning: Wire user_project_wrapper.\gpio0_oe[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[176]: Warning: Wire user_project_wrapper.\gpio0_oe[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[177]: Warning: Wire user_project_wrapper.\gpio0_oe[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[178]: Warning: Wire user_project_wrapper.\gpio0_oe[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[179]: Warning: Wire user_project_wrapper.\gpio0_oe[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[180]: Warning: Wire user_project_wrapper.\config_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[181]: Warning: Wire user_project_wrapper.\config_oe is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[182]: Warning: Wire user_project_wrapper.\config_address[31] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[183]: Warning: Wire user_project_wrapper.\config_address[30] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[184]: Warning: Wire user_project_wrapper.\config_address[29] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[185]: Warning: Wire user_project_wrapper.\config_address[28] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[186]: Warning: Wire user_project_wrapper.\config_address[27] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[187]: Warning: Wire user_project_wrapper.\config_address[26] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[188]: Warning: Wire user_project_wrapper.\config_address[25] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[189]: Warning: Wire user_project_wrapper.\config_address[24] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[190]: Warning: Wire user_project_wrapper.\config_address[23] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[191]: Warning: Wire user_project_wrapper.\config_address[22] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[192]: Warning: Wire user_project_wrapper.\config_address[21] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[193]: Warning: Wire user_project_wrapper.\config_address[20] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[194]: Warning: Wire user_project_wrapper.\config_address[19] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[195]: Warning: Wire user_project_wrapper.\config_address[18] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[196]: Warning: Wire user_project_wrapper.\config_address[17] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[197]: Warning: Wire user_project_wrapper.\config_address[16] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[198]: Warning: Wire user_project_wrapper.\config_address[15] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[199]: Warning: Wire user_project_wrapper.\config_address[14] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[200]: Warning: Wire user_project_wrapper.\config_address[13] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[201]: Warning: Wire user_project_wrapper.\config_address[12] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[202]: Warning: Wire user_project_wrapper.\config_address[11] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[203]: Warning: Wire user_project_wrapper.\config_address[10] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[204]: Warning: Wire user_project_wrapper.\config_address[9] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[205]: Warning: Wire user_project_wrapper.\config_address[8] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[206]: Warning: Wire user_project_wrapper.\config_address[7] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[207]: Warning: Wire user_project_wrapper.\config_address[6] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[208]: Warning: Wire user_project_wrapper.\config_address[5] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[209]: Warning: Wire user_project_wrapper.\config_address[4] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[210]: Warning: Wire user_project_wrapper.\config_address[3] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[211]: Warning: Wire user_project_wrapper.\config_address[2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[212]: Warning: Wire user_project_wrapper.\config_address[1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[213]: Warning: Wire user_project_wrapper.\config_address[0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[239]: Warnings: 120 unique messages, 120 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[169]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[170]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[171]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[172]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[173]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[174]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[175]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[177]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[178]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[179]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[259]: Warnings: 11 unique messages, 14 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[169]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[170]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[173]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[174]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[175]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[177]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[178]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[179]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[259]: Warnings: 11 unique messages, 14 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[85]: DEF Read: encountered 10 warnings total.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[926]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[927]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[402]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\25-gdsii-klayout.log[20]: WARNING: no fill config file specified
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\26-spice.log[85]: DEF Read: encountered 10 warnings total.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\27-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\30-drc.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\30-drc.log[420]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[3]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[4]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[5]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[6]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[7]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[8]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[9]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[11]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[12]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[13]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[3]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[4]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[5]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[6]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[7]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[8]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[9]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[11]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[12]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[13]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.

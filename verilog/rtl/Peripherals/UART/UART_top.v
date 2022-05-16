@@ -21,7 +21,7 @@ module UART #(
 
 		// UART
 		output wire[3:0] uart_en,	
-		output wire[3:0] uart_rx,
+		input wire[3:0] uart_rx,
 		output wire[3:0] uart_tx
 	);
 
@@ -47,7 +47,7 @@ module UART #(
 	genvar i;
 	generate
 		for (i = 0; i < DEVICE_COUNT; i = i + 1) begin
-			UARTDevice #(.ID(4'(i+1))) device(
+			UARTDevice #(.ID(i+1)) device(
 				.clk(clk),
 				.rst(rst),
 				.peripheralEnable(peripheralEnable),

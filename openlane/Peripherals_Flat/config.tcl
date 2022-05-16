@@ -30,20 +30,21 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Utility/FIFO.v \
 	$script_dir/../../verilog/rtl/Utility/Mux.v \
 	$script_dir/../../verilog/rtl/Utility/ShiftRegister.v \
-	$script_dir/../../verilog/rtl/Utility/Counter.v \
-	$script_dir/../../verilog/rtl/Utility/WBSlaveSelect.v"
+	$script_dir/../../verilog/rtl/Utility/Counter.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
 
 set ::env(CLOCK_PORT) "wb_clk_i"
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "25"
+
+set ::env(PL_TIME_DRIVEN) 0
 
 # Absolute module size
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 550 750"
+set ::env(DIE_AREA) "0 0 500 700"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -53,7 +54,7 @@ set ::env(DIE_AREA) "0 0 550 750"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.405
+set ::env(PL_TARGET_DENSITY) 0.385
 
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 
@@ -69,4 +70,9 @@ set ::env(GND_NETS) [list {vssd1}]
 # If you're going to use multiple power domains, then disable cvc run.
 set ::env(RUN_CVC) 1
 
-set ::env(DIODE_INSERTION_STRATEGY) 4 
+set ::env(GLB_RT_MAX_DIODE_INS_ITERS) 10
+set ::env(DIODE_INSERTION_STRATEGY) 3
+
+# Save a .png after each SYNTH_TOP_LEVEL
+# This doesn't work right now :(
+#set ::env(TAKE_LAYOUT_SCROT) 1

@@ -42,16 +42,18 @@ module PWM #(
 		.out(peripheralBus_dataRead),
 		.outputEnable(requestOutput));
 
+	wire[DEVICE_COUNT-1:0] deviceBusy_nc;
+
 	genvar i;
 	generate
-		for (i = 0; i < DEVICE_COUNT; i = i + 1) begin
-			PWMDevice #(.ID(4'(i+1)), .OUTPUTS(OUTPUTS_PER_DEVICE), .WIDTH(16), .CLOCK_WIDTH(32)) device(
+		for (i = 0; i < DEVICE_COUNT; i = i + 1) begin			
+			PWMDevice #(.ID(i+1), .OUTPUTS(OUTPUTS_PER_DEVICE), .WIDTH(16), .CLOCK_WIDTH(32)) device(
 				.clk(clk),
 				.rst(rst),
 				.peripheralEnable(peripheralEnable),
 				.peripheralBus_we(peripheralBus_we),
 				.peripheralBus_oe(peripheralBus_oe),
-				.peripheralBus_busy(),
+				.peripheralBus_busy(deviceBusy_nc[i]),
 				.peripheralBus_address(localAddress),
 				.peripheralBus_byteSelect(peripheralBus_byteSelect),
 				.peripheralBus_dataWrite(peripheralBus_dataWrite),

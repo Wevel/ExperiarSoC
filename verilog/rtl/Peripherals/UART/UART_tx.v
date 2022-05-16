@@ -1,4 +1,4 @@
-(*keep_hierarchy = "yes"*) module UART_tx
+module UART_tx
 	#(
 		parameter CLOCK_SCALE_BITS = 16
 	)(
@@ -18,7 +18,7 @@
 	localparam STATE_STOP_BIT 	= 2'b11;
 
 	reg[1:0] state = STATE_IDLE;
-	reg[CLOCK_SCALE_BITS-1:0] delayCounter = 'b0;
+	reg[CLOCK_SCALE_BITS-1:0] delayCounter = {CLOCK_SCALE_BITS{1'b0}};
 	reg[2:0] bitCounter = 3'b0;
 	reg[7:0] savedData = 8'b0;
 	reg outputBuffer = 1'b0;
@@ -29,7 +29,7 @@
 	always @(posedge clk) begin
 		if (rst) begin
 			state = STATE_IDLE;
-			delayCounter = 'b0;
+			delayCounter = {CLOCK_SCALE_BITS{1'b0}};
 			bitCounter = 3'b0;
 			savedData = 8'b0;
 			outputBuffer = 1'b0;
@@ -53,7 +53,7 @@
 
 					if (!blockTransmition) begin
 						busy = 1'b0;
-						delayCounter = 'b0;
+						delayCounter = {CLOCK_SCALE_BITS{1'b0}};
 						bitCounter = 3'b0;
 
 						if (dataAvailable) begin

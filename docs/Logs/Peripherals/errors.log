@@ -1,7 +1,0 @@
-[ERROR]: during executing: "yosys -c /openlane/scripts/yosys/synth_top.tcl -l /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripherals/runs/Peripherals/logs/synthesis/1-synthesis.log |& tee >&@stdout"
-[ERROR]: Exit code: 1
-[ERROR]: Last 10 lines:
-child process exited abnormally
-
-[ERROR]: Flow failed.
-openlane/Peripherals\runs\Peripherals\logs\synthesis\1-synthesis.log[50]: /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripherals/../../verilog/rtl/Peripherals/PWM/PWM_top.v:37: ERROR: Static cast is only supported in SystemVerilog mode.

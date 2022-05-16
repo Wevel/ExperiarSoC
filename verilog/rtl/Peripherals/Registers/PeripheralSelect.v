@@ -6,7 +6,7 @@ module PeripheralSelect #(
 		output wire peripheralEnable
 	);
 
-assign peripheralEnable = peripheralBus_address[23:16] == ID;
-assign localAddress = peripheralBus_address[15:0];
+	assign peripheralEnable = peripheralBus_address[23:16] == ID;
+	assign localAddress = peripheralBus_address[15:0];
 
 endmodule

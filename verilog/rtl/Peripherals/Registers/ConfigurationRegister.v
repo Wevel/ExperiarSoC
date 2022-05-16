@@ -29,7 +29,7 @@ module ConfigurationRegister #(
 	reg[WIDTH-1:0] registerValue;
 	wire[31:0] maskedWriteData = (peripheralBus_dataWrite & dataMask) | (registerValue & ~dataMask);
 
-	wire registerSelect = enable && (peripheralBus_address == ADDRESS);
+	wire registerSelect = enable && ({ peripheralBus_address[11:2], 2'b00 } == ADDRESS);
 	wire we = registerSelect && peripheralBus_we && !peripheralBus_oe;
 	wire oe = registerSelect && peripheralBus_oe && !peripheralBus_we;
 

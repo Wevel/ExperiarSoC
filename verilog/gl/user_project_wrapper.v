@@ -53,630 +53,124 @@ module user_project_wrapper (user_clock2,
  output [31:0] wbs_dat_o;
  input [3:0] wbs_sel_i;
 
- wire \config_address[0] ;
- wire \config_address[10] ;
- wire \config_address[11] ;
- wire \config_address[12] ;
- wire \config_address[13] ;
- wire \config_address[14] ;
- wire \config_address[15] ;
- wire \config_address[16] ;
- wire \config_address[17] ;
- wire \config_address[18] ;
- wire \config_address[19] ;
- wire \config_address[1] ;
- wire \config_address[20] ;
- wire \config_address[21] ;
- wire \config_address[22] ;
- wire \config_address[23] ;
- wire \config_address[24] ;
- wire \config_address[25] ;
- wire \config_address[26] ;
- wire \config_address[27] ;
- wire \config_address[28] ;
- wire \config_address[29] ;
- wire \config_address[2] ;
- wire \config_address[30] ;
- wire \config_address[31] ;
- wire \config_address[3] ;
- wire \config_address[4] ;
- wire \config_address[5] ;
- wire \config_address[6] ;
- wire \config_address[7] ;
- wire \config_address[8] ;
- wire \config_address[9] ;
- wire \config_data[0] ;
- wire \config_data[10] ;
- wire \config_data[11] ;
- wire \config_data[12] ;
- wire \config_data[13] ;
- wire \config_data[14] ;
- wire \config_data[15] ;
- wire \config_data[16] ;
- wire \config_data[17] ;
- wire \config_data[18] ;
- wire \config_data[19] ;
- wire \config_data[1] ;
- wire \config_data[20] ;
- wire \config_data[21] ;
- wire \config_data[22] ;
- wire \config_data[23] ;
- wire \config_data[24] ;
- wire \config_data[25] ;
- wire \config_data[26] ;
- wire \config_data[27] ;
- wire \config_data[28] ;
- wire \config_data[29] ;
- wire \config_data[2] ;
- wire \config_data[30] ;
- wire \config_data[31] ;
- wire \config_data[3] ;
- wire \config_data[4] ;
- wire \config_data[5] ;
- wire \config_data[6] ;
- wire \config_data[7] ;
- wire \config_data[8] ;
- wire \config_data[9] ;
- wire config_oe;
- wire config_we;
- wire \example_io_oeb[0] ;
- wire \example_io_oeb[10] ;
- wire \example_io_oeb[11] ;
- wire \example_io_oeb[12] ;
- wire \example_io_oeb[13] ;
- wire \example_io_oeb[14] ;
- wire \example_io_oeb[15] ;
- wire \example_io_oeb[16] ;
- wire \example_io_oeb[17] ;
- wire \example_io_oeb[18] ;
- wire \example_io_oeb[19] ;
- wire \example_io_oeb[1] ;
- wire \example_io_oeb[20] ;
- wire \example_io_oeb[21] ;
- wire \example_io_oeb[22] ;
- wire \example_io_oeb[23] ;
- wire \example_io_oeb[24] ;
- wire \example_io_oeb[25] ;
- wire \example_io_oeb[26] ;
- wire \example_io_oeb[27] ;
- wire \example_io_oeb[28] ;
- wire \example_io_oeb[29] ;
- wire \example_io_oeb[2] ;
- wire \example_io_oeb[30] ;
- wire \example_io_oeb[31] ;
- wire \example_io_oeb[32] ;
- wire \example_io_oeb[33] ;
- wire \example_io_oeb[34] ;
- wire \example_io_oeb[35] ;
- wire \example_io_oeb[36] ;
- wire \example_io_oeb[37] ;
- wire \example_io_oeb[3] ;
- wire \example_io_oeb[4] ;
- wire \example_io_oeb[5] ;
- wire \example_io_oeb[6] ;
- wire \example_io_oeb[7] ;
- wire \example_io_oeb[8] ;
- wire \example_io_oeb[9] ;
- wire \example_io_out[0] ;
- wire \example_io_out[10] ;
- wire \example_io_out[11] ;
- wire \example_io_out[12] ;
- wire \example_io_out[13] ;
- wire \example_io_out[14] ;
- wire \example_io_out[15] ;
- wire \example_io_out[16] ;
- wire \example_io_out[17] ;
- wire \example_io_out[18] ;
- wire \example_io_out[19] ;
- wire \example_io_out[1] ;
- wire \example_io_out[20] ;
- wire \example_io_out[21] ;
- wire \example_io_out[22] ;
- wire \example_io_out[23] ;
- wire \example_io_out[24] ;
- wire \example_io_out[25] ;
- wire \example_io_out[26] ;
- wire \example_io_out[27] ;
- wire \example_io_out[28] ;
- wire \example_io_out[29] ;
- wire \example_io_out[2] ;
- wire \example_io_out[30] ;
- wire \example_io_out[31] ;
- wire \example_io_out[32] ;
- wire \example_io_out[33] ;
- wire \example_io_out[34] ;
- wire \example_io_out[35] ;
- wire \example_io_out[36] ;
- wire \example_io_out[37] ;
- wire \example_io_out[3] ;
- wire \example_io_out[4] ;
- wire \example_io_out[5] ;
- wire \example_io_out[6] ;
- wire \example_io_out[7] ;
- wire \example_io_out[8] ;
- wire \example_io_out[9] ;
- wire \example_la_data_out[0] ;
- wire \example_la_data_out[1] ;
- wire \gpio0_input[0] ;
- wire \gpio0_input[10] ;
- wire \gpio0_input[11] ;
- wire \gpio0_input[12] ;
- wire \gpio0_input[13] ;
- wire \gpio0_input[14] ;
- wire \gpio0_input[15] ;
- wire \gpio0_input[16] ;
- wire \gpio0_input[17] ;
- wire \gpio0_input[18] ;
- wire \gpio0_input[1] ;
- wire \gpio0_input[2] ;
- wire \gpio0_input[3] ;
- wire \gpio0_input[4] ;
- wire \gpio0_input[5] ;
- wire \gpio0_input[6] ;
- wire \gpio0_input[7] ;
- wire \gpio0_input[8] ;
- wire \gpio0_input[9] ;
- wire \gpio0_oe[0] ;
- wire \gpio0_oe[10] ;
- wire \gpio0_oe[11] ;
- wire \gpio0_oe[12] ;
- wire \gpio0_oe[13] ;
- wire \gpio0_oe[14] ;
- wire \gpio0_oe[15] ;
- wire \gpio0_oe[16] ;
- wire \gpio0_oe[17] ;
- wire \gpio0_oe[18] ;
- wire \gpio0_oe[1] ;
- wire \gpio0_oe[2] ;
- wire \gpio0_oe[3] ;
- wire \gpio0_oe[4] ;
- wire \gpio0_oe[5] ;
- wire \gpio0_oe[6] ;
- wire \gpio0_oe[7] ;
- wire \gpio0_oe[8] ;
- wire \gpio0_oe[9] ;
- wire \gpio0_output[0] ;
- wire \gpio0_output[10] ;
- wire \gpio0_output[11] ;
- wire \gpio0_output[12] ;
- wire \gpio0_output[13] ;
- wire \gpio0_output[14] ;
- wire \gpio0_output[15] ;
- wire \gpio0_output[16] ;
- wire \gpio0_output[17] ;
- wire \gpio0_output[18] ;
- wire \gpio0_output[1] ;
- wire \gpio0_output[2] ;
- wire \gpio0_output[3] ;
- wire \gpio0_output[4] ;
- wire \gpio0_output[5] ;
- wire \gpio0_output[6] ;
- wire \gpio0_output[7] ;
- wire \gpio0_output[8] ;
- wire \gpio0_output[9] ;
- wire \gpio1_input[0] ;
- wire \gpio1_input[10] ;
- wire \gpio1_input[11] ;
- wire \gpio1_input[12] ;
- wire \gpio1_input[13] ;
- wire \gpio1_input[14] ;
- wire \gpio1_input[15] ;
- wire \gpio1_input[16] ;
- wire \gpio1_input[17] ;
- wire \gpio1_input[18] ;
- wire \gpio1_input[1] ;
- wire \gpio1_input[2] ;
- wire \gpio1_input[3] ;
- wire \gpio1_input[4] ;
- wire \gpio1_input[5] ;
- wire \gpio1_input[6] ;
- wire \gpio1_input[7] ;
- wire \gpio1_input[8] ;
- wire \gpio1_input[9] ;
- wire \gpio1_oe[0] ;
- wire \gpio1_oe[10] ;
- wire \gpio1_oe[11] ;
- wire \gpio1_oe[12] ;
- wire \gpio1_oe[13] ;
- wire \gpio1_oe[14] ;
- wire \gpio1_oe[15] ;
- wire \gpio1_oe[16] ;
- wire \gpio1_oe[17] ;
- wire \gpio1_oe[18] ;
- wire \gpio1_oe[1] ;
- wire \gpio1_oe[2] ;
- wire \gpio1_oe[3] ;
- wire \gpio1_oe[4] ;
- wire \gpio1_oe[5] ;
- wire \gpio1_oe[6] ;
- wire \gpio1_oe[7] ;
- wire \gpio1_oe[8] ;
- wire \gpio1_oe[9] ;
- wire \gpio1_output[0] ;
- wire \gpio1_output[10] ;
- wire \gpio1_output[11] ;
- wire \gpio1_output[12] ;
- wire \gpio1_output[13] ;
- wire \gpio1_output[14] ;
- wire \gpio1_output[15] ;
- wire \gpio1_output[16] ;
- wire \gpio1_output[17] ;
- wire \gpio1_output[18] ;
- wire \gpio1_output[1] ;
- wire \gpio1_output[2] ;
- wire \gpio1_output[3] ;
- wire \gpio1_output[4] ;
- wire \gpio1_output[5] ;
- wire \gpio1_output[6] ;
- wire \gpio1_output[7] ;
- wire \gpio1_output[8] ;
- wire \gpio1_output[9] ;
- wire \pwm_out[0] ;
- wire \pwm_out[10] ;
- wire \pwm_out[11] ;
- wire \pwm_out[12] ;
- wire \pwm_out[13] ;
- wire \pwm_out[14] ;
- wire \pwm_out[15] ;
- wire \pwm_out[1] ;
- wire \pwm_out[2] ;
- wire \pwm_out[3] ;
- wire \pwm_out[4] ;
- wire \pwm_out[5] ;
- wire \pwm_out[6] ;
- wire \pwm_out[7] ;
- wire \pwm_out[8] ;
- wire \pwm_out[9] ;
- wire \spi_clk[0] ;
- wire \spi_clk[1] ;
- wire \spi_cs[0] ;
- wire \spi_cs[1] ;
- wire \spi_miso[0] ;
- wire \spi_miso[1] ;
- wire \spi_mosi[0] ;
- wire \spi_mosi[1] ;
- wire \uart_rx[0] ;
- wire \uart_rx[1] ;
- wire \uart_rx[2] ;
- wire \uart_rx[3] ;
- wire \uart_tx[0] ;
- wire \uart_tx[1] ;
- wire \uart_tx[2] ;
- wire \uart_tx[3] ;
+ wire caravel_uart_rx;
+ wire caravel_uart_tx;
+ wire caravel_wb_ack_i;
+ wire \caravel_wb_adr_o[0] ;
+ wire \caravel_wb_adr_o[10] ;
+ wire \caravel_wb_adr_o[11] ;
+ wire \caravel_wb_adr_o[12] ;
+ wire \caravel_wb_adr_o[13] ;
+ wire \caravel_wb_adr_o[14] ;
+ wire \caravel_wb_adr_o[15] ;
+ wire \caravel_wb_adr_o[16] ;
+ wire \caravel_wb_adr_o[17] ;
+ wire \caravel_wb_adr_o[18] ;
+ wire \caravel_wb_adr_o[19] ;
+ wire \caravel_wb_adr_o[1] ;
+ wire \caravel_wb_adr_o[20] ;
+ wire \caravel_wb_adr_o[21] ;
+ wire \caravel_wb_adr_o[22] ;
+ wire \caravel_wb_adr_o[23] ;
+ wire \caravel_wb_adr_o[24] ;
+ wire \caravel_wb_adr_o[25] ;
+ wire \caravel_wb_adr_o[26] ;
+ wire \caravel_wb_adr_o[27] ;
+ wire \caravel_wb_adr_o[28] ;
+ wire \caravel_wb_adr_o[29] ;
+ wire \caravel_wb_adr_o[2] ;
+ wire \caravel_wb_adr_o[30] ;
+ wire \caravel_wb_adr_o[31] ;
+ wire \caravel_wb_adr_o[3] ;
+ wire \caravel_wb_adr_o[4] ;
+ wire \caravel_wb_adr_o[5] ;
+ wire \caravel_wb_adr_o[6] ;
+ wire \caravel_wb_adr_o[7] ;
+ wire \caravel_wb_adr_o[8] ;
+ wire \caravel_wb_adr_o[9] ;
+ wire caravel_wb_cyc_o;
+ wire \caravel_wb_data_i[0] ;
+ wire \caravel_wb_data_i[10] ;
+ wire \caravel_wb_data_i[11] ;
+ wire \caravel_wb_data_i[12] ;
+ wire \caravel_wb_data_i[13] ;
+ wire \caravel_wb_data_i[14] ;
+ wire \caravel_wb_data_i[15] ;
+ wire \caravel_wb_data_i[16] ;
+ wire \caravel_wb_data_i[17] ;
+ wire \caravel_wb_data_i[18] ;
+ wire \caravel_wb_data_i[19] ;
+ wire \caravel_wb_data_i[1] ;
+ wire \caravel_wb_data_i[20] ;
+ wire \caravel_wb_data_i[21] ;
+ wire \caravel_wb_data_i[22] ;
+ wire \caravel_wb_data_i[23] ;
+ wire \caravel_wb_data_i[24] ;
+ wire \caravel_wb_data_i[25] ;
+ wire \caravel_wb_data_i[26] ;
+ wire \caravel_wb_data_i[27] ;
+ wire \caravel_wb_data_i[28] ;
+ wire \caravel_wb_data_i[29] ;
+ wire \caravel_wb_data_i[2] ;
+ wire \caravel_wb_data_i[30] ;
+ wire \caravel_wb_data_i[31] ;
+ wire \caravel_wb_data_i[3] ;
+ wire \caravel_wb_data_i[4] ;
+ wire \caravel_wb_data_i[5] ;
+ wire \caravel_wb_data_i[6] ;
+ wire \caravel_wb_data_i[7] ;
+ wire \caravel_wb_data_i[8] ;
+ wire \caravel_wb_data_i[9] ;
+ wire \caravel_wb_data_o[0] ;
+ wire \caravel_wb_data_o[10] ;
+ wire \caravel_wb_data_o[11] ;
+ wire \caravel_wb_data_o[12] ;
+ wire \caravel_wb_data_o[13] ;
+ wire \caravel_wb_data_o[14] ;
+ wire \caravel_wb_data_o[15] ;
+ wire \caravel_wb_data_o[16] ;
+ wire \caravel_wb_data_o[17] ;
+ wire \caravel_wb_data_o[18] ;
+ wire \caravel_wb_data_o[19] ;
+ wire \caravel_wb_data_o[1] ;
+ wire \caravel_wb_data_o[20] ;
+ wire \caravel_wb_data_o[21] ;
+ wire \caravel_wb_data_o[22] ;
+ wire \caravel_wb_data_o[23] ;
+ wire \caravel_wb_data_o[24] ;
+ wire \caravel_wb_data_o[25] ;
+ wire \caravel_wb_data_o[26] ;
+ wire \caravel_wb_data_o[27] ;
+ wire \caravel_wb_data_o[28] ;
+ wire \caravel_wb_data_o[29] ;
+ wire \caravel_wb_data_o[2] ;
+ wire \caravel_wb_data_o[30] ;
+ wire \caravel_wb_data_o[31] ;
+ wire \caravel_wb_data_o[3] ;
+ wire \caravel_wb_data_o[4] ;
+ wire \caravel_wb_data_o[5] ;
+ wire \caravel_wb_data_o[6] ;
+ wire \caravel_wb_data_o[7] ;
+ wire \caravel_wb_data_o[8] ;
+ wire \caravel_wb_data_o[9] ;
+ wire caravel_wb_error_i;
+ wire \caravel_wb_sel_o[0] ;
+ wire \caravel_wb_sel_o[1] ;
+ wire \caravel_wb_sel_o[2] ;
+ wire \caravel_wb_sel_o[3] ;
+ wire caravel_wb_stall_i;
+ wire caravel_wb_stb_o;
+ wire caravel_wb_we_o;
 
- IOMultiplexer ioMux (.clk(wb_clk_i),
-    .config_oe(config_oe),
-    .config_we(config_we),
-    .rst(wb_rst_i),
+ CaravelHost caravelHost (.caravel_uart_rx(caravel_uart_rx),
+    .caravel_uart_tx(caravel_uart_tx),
+    .caravel_wb_ack_i(caravel_wb_ack_i),
+    .caravel_wb_cyc_o(caravel_wb_cyc_o),
+    .caravel_wb_error_i(caravel_wb_error_i),
+    .caravel_wb_stall_i(caravel_wb_stall_i),
+    .caravel_wb_stb_o(caravel_wb_stb_o),
+    .caravel_wb_we_o(caravel_wb_we_o),
     .vccd1(vccd1),
-    .vssd1(vssd1),
-    .config_address({\config_address[31] ,
-    \config_address[30] ,
-    \config_address[29] ,
-    \config_address[28] ,
-    \config_address[27] ,
-    \config_address[26] ,
-    \config_address[25] ,
-    \config_address[24] ,
-    \config_address[23] ,
-    \config_address[22] ,
-    \config_address[21] ,
-    \config_address[20] ,
-    \config_address[19] ,
-    \config_address[18] ,
-    \config_address[17] ,
-    \config_address[16] ,
-    \config_address[15] ,
-    \config_address[14] ,
-    \config_address[13] ,
-    \config_address[12] ,
-    \config_address[11] ,
-    \config_address[10] ,
-    \config_address[9] ,
-    \config_address[8] ,
-    \config_address[7] ,
-    \config_address[6] ,
-    \config_address[5] ,
-    \config_address[4] ,
-    \config_address[3] ,
-    \config_address[2] ,
-    \config_address[1] ,
-    \config_address[0] }),
-    .config_data({\config_data[31] ,
-    \config_data[30] ,
-    \config_data[29] ,
-    \config_data[28] ,
-    \config_data[27] ,
-    \config_data[26] ,
-    \config_data[25] ,
-    \config_data[24] ,
-    \config_data[23] ,
-    \config_data[22] ,
-    \config_data[21] ,
-    \config_data[20] ,
-    \config_data[19] ,
-    \config_data[18] ,
-    \config_data[17] ,
-    \config_data[16] ,
-    \config_data[15] ,
-    \config_data[14] ,
-    \config_data[13] ,
-    \config_data[12] ,
-    \config_data[11] ,
-    \config_data[10] ,
-    \config_data[9] ,
-    \config_data[8] ,
-    \config_data[7] ,
-    \config_data[6] ,
-    \config_data[5] ,
-    \config_data[4] ,
-    \config_data[3] ,
-    \config_data[2] ,
-    \config_data[1] ,
-    \config_data[0] }),
-    .gpio0_input({\gpio0_input[18] ,
-    \gpio0_input[17] ,
-    \gpio0_input[16] ,
-    \gpio0_input[15] ,
-    \gpio0_input[14] ,
-    \gpio0_input[13] ,
-    \gpio0_input[12] ,
-    \gpio0_input[11] ,
-    \gpio0_input[10] ,
-    \gpio0_input[9] ,
-    \gpio0_input[8] ,
-    \gpio0_input[7] ,
-    \gpio0_input[6] ,
-    \gpio0_input[5] ,
-    \gpio0_input[4] ,
-    \gpio0_input[3] ,
-    \gpio0_input[2] ,
-    \gpio0_input[1] ,
-    \gpio0_input[0] }),
-    .gpio0_oe({\gpio0_oe[18] ,
-    \gpio0_oe[17] ,
-    \gpio0_oe[16] ,
-    \gpio0_oe[15] ,
-    \gpio0_oe[14] ,
-    \gpio0_oe[13] ,
-    \gpio0_oe[12] ,
-    \gpio0_oe[11] ,
-    \gpio0_oe[10] ,
-    \gpio0_oe[9] ,
-    \gpio0_oe[8] ,
-    \gpio0_oe[7] ,
-    \gpio0_oe[6] ,
-    \gpio0_oe[5] ,
-    \gpio0_oe[4] ,
-    \gpio0_oe[3] ,
-    \gpio0_oe[2] ,
-    \gpio0_oe[1] ,
-    \gpio0_oe[0] }),
-    .gpio0_output({\gpio0_output[18] ,
-    \gpio0_output[17] ,
-    \gpio0_output[16] ,
-    \gpio0_output[15] ,
-    \gpio0_output[14] ,
-    \gpio0_output[13] ,
-    \gpio0_output[12] ,
-    \gpio0_output[11] ,
-    \gpio0_output[10] ,
-    \gpio0_output[9] ,
-    \gpio0_output[8] ,
-    \gpio0_output[7] ,
-    \gpio0_output[6] ,
-    \gpio0_output[5] ,
-    \gpio0_output[4] ,
-    \gpio0_output[3] ,
-    \gpio0_output[2] ,
-    \gpio0_output[1] ,
-    \gpio0_output[0] }),
-    .gpio1_input({\gpio1_input[18] ,
-    \gpio1_input[17] ,
-    \gpio1_input[16] ,
-    \gpio1_input[15] ,
-    \gpio1_input[14] ,
-    \gpio1_input[13] ,
-    \gpio1_input[12] ,
-    \gpio1_input[11] ,
-    \gpio1_input[10] ,
-    \gpio1_input[9] ,
-    \gpio1_input[8] ,
-    \gpio1_input[7] ,
-    \gpio1_input[6] ,
-    \gpio1_input[5] ,
-    \gpio1_input[4] ,
-    \gpio1_input[3] ,
-    \gpio1_input[2] ,
-    \gpio1_input[1] ,
-    \gpio1_input[0] }),
-    .gpio1_oe({\gpio1_oe[18] ,
-    \gpio1_oe[17] ,
-    \gpio1_oe[16] ,
-    \gpio1_oe[15] ,
-    \gpio1_oe[14] ,
-    \gpio1_oe[13] ,
-    \gpio1_oe[12] ,
-    \gpio1_oe[11] ,
-    \gpio1_oe[10] ,
-    \gpio1_oe[9] ,
-    \gpio1_oe[8] ,
-    \gpio1_oe[7] ,
-    \gpio1_oe[6] ,
-    \gpio1_oe[5] ,
-    \gpio1_oe[4] ,
-    \gpio1_oe[3] ,
-    \gpio1_oe[2] ,
-    \gpio1_oe[1] ,
-    \gpio1_oe[0] }),
-    .gpio1_output({\gpio1_output[18] ,
-    \gpio1_output[17] ,
-    \gpio1_output[16] ,
-    \gpio1_output[15] ,
-    \gpio1_output[14] ,
-    \gpio1_output[13] ,
-    \gpio1_output[12] ,
-    \gpio1_output[11] ,
-    \gpio1_output[10] ,
-    \gpio1_output[9] ,
-    \gpio1_output[8] ,
-    \gpio1_output[7] ,
-    \gpio1_output[6] ,
-    \gpio1_output[5] ,
-    \gpio1_output[4] ,
-    \gpio1_output[3] ,
-    \gpio1_output[2] ,
-    \gpio1_output[1] ,
-    \gpio1_output[0] }),
-    .io_in({io_in[37],
-    io_in[36],
-    io_in[35],
-    io_in[34],
-    io_in[33],
-    io_in[32],
-    io_in[31],
-    io_in[30],
-    io_in[29],
-    io_in[28],
-    io_in[27],
-    io_in[26],
-    io_in[25],
-    io_in[24],
-    io_in[23],
-    io_in[22],
-    io_in[21],
-    io_in[20],
-    io_in[19],
-    io_in[18],
-    io_in[17],
-    io_in[16],
-    io_in[15],
-    io_in[14],
-    io_in[13],
-    io_in[12],
-    io_in[11],
-    io_in[10],
-    io_in[9],
-    io_in[8],
-    io_in[7],
-    io_in[6],
-    io_in[5],
-    io_in[4],
-    io_in[3],
-    io_in[2],
-    io_in[1],
-    io_in[0]}),
-    .io_oeb({io_oeb[37],
-    io_oeb[36],
-    io_oeb[35],
-    io_oeb[34],
-    io_oeb[33],
-    io_oeb[32],
-    io_oeb[31],
-    io_oeb[30],
-    io_oeb[29],
-    io_oeb[28],
-    io_oeb[27],
-    io_oeb[26],
-    io_oeb[25],
-    io_oeb[24],
-    io_oeb[23],
-    io_oeb[22],
-    io_oeb[21],
-    io_oeb[20],
-    io_oeb[19],
-    io_oeb[18],
-    io_oeb[17],
-    io_oeb[16],
-    io_oeb[15],
-    io_oeb[14],
-    io_oeb[13],
-    io_oeb[12],
-    io_oeb[11],
-    io_oeb[10],
-    io_oeb[9],
-    io_oeb[8],
-    io_oeb[7],
-    io_oeb[6],
-    io_oeb[5],
-    io_oeb[4],
-    io_oeb[3],
-    io_oeb[2],
-    io_oeb[1],
-    io_oeb[0]}),
-    .io_out({io_out[37],
-    io_out[36],
-    io_out[35],
-    io_out[34],
-    io_out[33],
-    io_out[32],
-    io_out[31],
-    io_out[30],
-    io_out[29],
-    io_out[28],
-    io_out[27],
-    io_out[26],
-    io_out[25],
-    io_out[24],
-    io_out[23],
-    io_out[22],
-    io_out[21],
-    io_out[20],
-    io_out[19],
-    io_out[18],
-    io_out[17],
-    io_out[16],
-    io_out[15],
-    io_out[14],
-    io_out[13],
-    io_out[12],
-    io_out[11],
-    io_out[10],
-    io_out[9],
-    io_out[8],
-    io_out[7],
-    io_out[6],
-    io_out[5],
-    io_out[4],
-    io_out[3],
-    io_out[2],
-    io_out[1],
-    io_out[0]}),
-    .la_blink({la_data_out[1],
-    la_data_out[0]}),
-    .pwm_out({\pwm_out[15] ,
-    \pwm_out[14] ,
-    \pwm_out[13] ,
-    \pwm_out[12] ,
-    \pwm_out[11] ,
-    \pwm_out[10] ,
-    \pwm_out[9] ,
-    \pwm_out[8] ,
-    \pwm_out[7] ,
-    \pwm_out[6] ,
-    \pwm_out[5] ,
-    \pwm_out[4] ,
-    \pwm_out[3] ,
-    \pwm_out[2] ,
-    \pwm_out[1] ,
-    \pwm_out[0] }),
-    .spi_clk({\spi_clk[1] ,
-    \spi_clk[0] }),
-    .spi_cs({\spi_cs[1] ,
-    \spi_cs[0] }),
-    .spi_miso({\spi_miso[1] ,
-    \spi_miso[0] }),
-    .spi_mosi({\spi_mosi[1] ,
-    \spi_mosi[0] }),
-    .uart_rx({\uart_rx[3] ,
-    \uart_rx[2] ,
-    \uart_rx[1] ,
-    \uart_rx[0] }),
-    .uart_tx({\uart_tx[3] ,
-    \uart_tx[2] ,
-    \uart_tx[1] ,
-    \uart_tx[0] }));
- user_proj_example mprj (.vccd1(vccd1),
     .vssd1(vssd1),
     .wb_clk_i(wb_clk_i),
     .wb_rst_i(wb_rst_i),
@@ -684,507 +178,106 @@ module user_project_wrapper (user_clock2,
     .wbs_cyc_i(wbs_cyc_i),
     .wbs_stb_i(wbs_stb_i),
     .wbs_we_i(wbs_we_i),
-    .io_in({io_in[37],
-    io_in[36],
-    io_in[35],
-    io_in[34],
-    io_in[33],
-    io_in[32],
-    io_in[31],
-    io_in[30],
-    io_in[29],
-    io_in[28],
-    io_in[27],
-    io_in[26],
-    io_in[25],
-    io_in[24],
-    io_in[23],
-    io_in[22],
-    io_in[21],
-    io_in[20],
-    io_in[19],
-    io_in[18],
-    io_in[17],
-    io_in[16],
-    io_in[15],
-    io_in[14],
-    io_in[13],
-    io_in[12],
-    io_in[11],
-    io_in[10],
-    io_in[9],
-    io_in[8],
-    io_in[7],
-    io_in[6],
-    io_in[5],
-    io_in[4],
-    io_in[3],
-    io_in[2],
-    io_in[1],
-    io_in[0]}),
-    .io_oeb({\example_io_oeb[37] ,
-    \example_io_oeb[36] ,
-    \example_io_oeb[35] ,
-    \example_io_oeb[34] ,
-    \example_io_oeb[33] ,
-    \example_io_oeb[32] ,
-    \example_io_oeb[31] ,
-    \example_io_oeb[30] ,
-    \example_io_oeb[29] ,
-    \example_io_oeb[28] ,
-    \example_io_oeb[27] ,
-    \example_io_oeb[26] ,
-    \example_io_oeb[25] ,
-    \example_io_oeb[24] ,
-    \example_io_oeb[23] ,
-    \example_io_oeb[22] ,
-    \example_io_oeb[21] ,
-    \example_io_oeb[20] ,
-    \example_io_oeb[19] ,
-    \example_io_oeb[18] ,
-    \example_io_oeb[17] ,
-    \example_io_oeb[16] ,
-    \example_io_oeb[15] ,
-    \example_io_oeb[14] ,
-    \example_io_oeb[13] ,
-    \example_io_oeb[12] ,
-    \example_io_oeb[11] ,
-    \example_io_oeb[10] ,
-    \example_io_oeb[9] ,
-    \example_io_oeb[8] ,
-    \example_io_oeb[7] ,
-    \example_io_oeb[6] ,
-    \example_io_oeb[5] ,
-    \example_io_oeb[4] ,
-    \example_io_oeb[3] ,
-    \example_io_oeb[2] ,
-    \example_io_oeb[1] ,
-    \example_io_oeb[0] }),
-    .io_out({\example_io_out[37] ,
-    \example_io_out[36] ,
-    \example_io_out[35] ,
-    \example_io_out[34] ,
-    \example_io_out[33] ,
-    \example_io_out[32] ,
-    \example_io_out[31] ,
-    \example_io_out[30] ,
-    \example_io_out[29] ,
-    \example_io_out[28] ,
-    \example_io_out[27] ,
-    \example_io_out[26] ,
-    \example_io_out[25] ,
-    \example_io_out[24] ,
-    \example_io_out[23] ,
-    \example_io_out[22] ,
-    \example_io_out[21] ,
-    \example_io_out[20] ,
-    \example_io_out[19] ,
-    \example_io_out[18] ,
-    \example_io_out[17] ,
-    \example_io_out[16] ,
-    \example_io_out[15] ,
-    \example_io_out[14] ,
-    \example_io_out[13] ,
-    \example_io_out[12] ,
-    \example_io_out[11] ,
-    \example_io_out[10] ,
-    \example_io_out[9] ,
-    \example_io_out[8] ,
-    \example_io_out[7] ,
-    \example_io_out[6] ,
-    \example_io_out[5] ,
-    \example_io_out[4] ,
-    \example_io_out[3] ,
-    \example_io_out[2] ,
-    \example_io_out[1] ,
-    \example_io_out[0] }),
-    .irq({user_irq[2],
-    user_irq[1],
-    user_irq[0]}),
-    .la_data_in({la_data_in[127],
-    la_data_in[126],
-    la_data_in[125],
-    la_data_in[124],
-    la_data_in[123],
-    la_data_in[122],
-    la_data_in[121],
-    la_data_in[120],
-    la_data_in[119],
-    la_data_in[118],
-    la_data_in[117],
-    la_data_in[116],
-    la_data_in[115],
-    la_data_in[114],
-    la_data_in[113],
-    la_data_in[112],
-    la_data_in[111],
-    la_data_in[110],
-    la_data_in[109],
-    la_data_in[108],
-    la_data_in[107],
-    la_data_in[106],
-    la_data_in[105],
-    la_data_in[104],
-    la_data_in[103],
-    la_data_in[102],
-    la_data_in[101],
-    la_data_in[100],
-    la_data_in[99],
-    la_data_in[98],
-    la_data_in[97],
-    la_data_in[96],
-    la_data_in[95],
-    la_data_in[94],
-    la_data_in[93],
-    la_data_in[92],
-    la_data_in[91],
-    la_data_in[90],
-    la_data_in[89],
-    la_data_in[88],
-    la_data_in[87],
-    la_data_in[86],
-    la_data_in[85],
-    la_data_in[84],
-    la_data_in[83],
-    la_data_in[82],
-    la_data_in[81],
-    la_data_in[80],
-    la_data_in[79],
-    la_data_in[78],
-    la_data_in[77],
-    la_data_in[76],
-    la_data_in[75],
-    la_data_in[74],
-    la_data_in[73],
-    la_data_in[72],
-    la_data_in[71],
-    la_data_in[70],
-    la_data_in[69],
-    la_data_in[68],
-    la_data_in[67],
-    la_data_in[66],
-    la_data_in[65],
-    la_data_in[64],
-    la_data_in[63],
-    la_data_in[62],
-    la_data_in[61],
-    la_data_in[60],
-    la_data_in[59],
-    la_data_in[58],
-    la_data_in[57],
-    la_data_in[56],
-    la_data_in[55],
-    la_data_in[54],
-    la_data_in[53],
-    la_data_in[52],
-    la_data_in[51],
-    la_data_in[50],
-    la_data_in[49],
-    la_data_in[48],
-    la_data_in[47],
-    la_data_in[46],
-    la_data_in[45],
-    la_data_in[44],
-    la_data_in[43],
-    la_data_in[42],
-    la_data_in[41],
-    la_data_in[40],
-    la_data_in[39],
-    la_data_in[38],
-    la_data_in[37],
-    la_data_in[36],
-    la_data_in[35],
-    la_data_in[34],
-    la_data_in[33],
-    la_data_in[32],
-    la_data_in[31],
-    la_data_in[30],
-    la_data_in[29],
-    la_data_in[28],
-    la_data_in[27],
-    la_data_in[26],
-    la_data_in[25],
-    la_data_in[24],
-    la_data_in[23],
-    la_data_in[22],
-    la_data_in[21],
-    la_data_in[20],
-    la_data_in[19],
-    la_data_in[18],
-    la_data_in[17],
-    la_data_in[16],
-    la_data_in[15],
-    la_data_in[14],
-    la_data_in[13],
-    la_data_in[12],
-    la_data_in[11],
-    la_data_in[10],
-    la_data_in[9],
-    la_data_in[8],
-    la_data_in[7],
-    la_data_in[6],
-    la_data_in[5],
-    la_data_in[4],
-    la_data_in[3],
-    la_data_in[2],
-    la_data_in[1],
-    la_data_in[0]}),
-    .la_data_out({la_data_out[127],
-    la_data_out[126],
-    la_data_out[125],
-    la_data_out[124],
-    la_data_out[123],
-    la_data_out[122],
-    la_data_out[121],
-    la_data_out[120],
-    la_data_out[119],
-    la_data_out[118],
-    la_data_out[117],
-    la_data_out[116],
-    la_data_out[115],
-    la_data_out[114],
-    la_data_out[113],
-    la_data_out[112],
-    la_data_out[111],
-    la_data_out[110],
-    la_data_out[109],
-    la_data_out[108],
-    la_data_out[107],
-    la_data_out[106],
-    la_data_out[105],
-    la_data_out[104],
-    la_data_out[103],
-    la_data_out[102],
-    la_data_out[101],
-    la_data_out[100],
-    la_data_out[99],
-    la_data_out[98],
-    la_data_out[97],
-    la_data_out[96],
-    la_data_out[95],
-    la_data_out[94],
-    la_data_out[93],
-    la_data_out[92],
-    la_data_out[91],
-    la_data_out[90],
-    la_data_out[89],
-    la_data_out[88],
-    la_data_out[87],
-    la_data_out[86],
-    la_data_out[85],
-    la_data_out[84],
-    la_data_out[83],
-    la_data_out[82],
-    la_data_out[81],
-    la_data_out[80],
-    la_data_out[79],
-    la_data_out[78],
-    la_data_out[77],
-    la_data_out[76],
-    la_data_out[75],
-    la_data_out[74],
-    la_data_out[73],
-    la_data_out[72],
-    la_data_out[71],
-    la_data_out[70],
-    la_data_out[69],
-    la_data_out[68],
-    la_data_out[67],
-    la_data_out[66],
-    la_data_out[65],
-    la_data_out[64],
-    la_data_out[63],
-    la_data_out[62],
-    la_data_out[61],
-    la_data_out[60],
-    la_data_out[59],
-    la_data_out[58],
-    la_data_out[57],
-    la_data_out[56],
-    la_data_out[55],
-    la_data_out[54],
-    la_data_out[53],
-    la_data_out[52],
-    la_data_out[51],
-    la_data_out[50],
-    la_data_out[49],
-    la_data_out[48],
-    la_data_out[47],
-    la_data_out[46],
-    la_data_out[45],
-    la_data_out[44],
-    la_data_out[43],
-    la_data_out[42],
-    la_data_out[41],
-    la_data_out[40],
-    la_data_out[39],
-    la_data_out[38],
-    la_data_out[37],
-    la_data_out[36],
-    la_data_out[35],
-    la_data_out[34],
-    la_data_out[33],
-    la_data_out[32],
-    la_data_out[31],
-    la_data_out[30],
-    la_data_out[29],
-    la_data_out[28],
-    la_data_out[27],
-    la_data_out[26],
-    la_data_out[25],
-    la_data_out[24],
-    la_data_out[23],
-    la_data_out[22],
-    la_data_out[21],
-    la_data_out[20],
-    la_data_out[19],
-    la_data_out[18],
-    la_data_out[17],
-    la_data_out[16],
-    la_data_out[15],
-    la_data_out[14],
-    la_data_out[13],
-    la_data_out[12],
-    la_data_out[11],
-    la_data_out[10],
-    la_data_out[9],
-    la_data_out[8],
-    la_data_out[7],
-    la_data_out[6],
-    la_data_out[5],
-    la_data_out[4],
-    la_data_out[3],
-    la_data_out[2],
-    \example_la_data_out[1] ,
-    \example_la_data_out[0] }),
-    .la_oenb({la_oenb[127],
-    la_oenb[126],
-    la_oenb[125],
-    la_oenb[124],
-    la_oenb[123],
-    la_oenb[122],
-    la_oenb[121],
-    la_oenb[120],
-    la_oenb[119],
-    la_oenb[118],
-    la_oenb[117],
-    la_oenb[116],
-    la_oenb[115],
-    la_oenb[114],
-    la_oenb[113],
-    la_oenb[112],
-    la_oenb[111],
-    la_oenb[110],
-    la_oenb[109],
-    la_oenb[108],
-    la_oenb[107],
-    la_oenb[106],
-    la_oenb[105],
-    la_oenb[104],
-    la_oenb[103],
-    la_oenb[102],
-    la_oenb[101],
-    la_oenb[100],
-    la_oenb[99],
-    la_oenb[98],
-    la_oenb[97],
-    la_oenb[96],
-    la_oenb[95],
-    la_oenb[94],
-    la_oenb[93],
-    la_oenb[92],
-    la_oenb[91],
-    la_oenb[90],
-    la_oenb[89],
-    la_oenb[88],
-    la_oenb[87],
-    la_oenb[86],
-    la_oenb[85],
-    la_oenb[84],
-    la_oenb[83],
-    la_oenb[82],
-    la_oenb[81],
-    la_oenb[80],
-    la_oenb[79],
-    la_oenb[78],
-    la_oenb[77],
-    la_oenb[76],
-    la_oenb[75],
-    la_oenb[74],
-    la_oenb[73],
-    la_oenb[72],
-    la_oenb[71],
-    la_oenb[70],
-    la_oenb[69],
-    la_oenb[68],
-    la_oenb[67],
-    la_oenb[66],
-    la_oenb[65],
-    la_oenb[64],
-    la_oenb[63],
-    la_oenb[62],
-    la_oenb[61],
-    la_oenb[60],
-    la_oenb[59],
-    la_oenb[58],
-    la_oenb[57],
-    la_oenb[56],
-    la_oenb[55],
-    la_oenb[54],
-    la_oenb[53],
-    la_oenb[52],
-    la_oenb[51],
-    la_oenb[50],
-    la_oenb[49],
-    la_oenb[48],
-    la_oenb[47],
-    la_oenb[46],
-    la_oenb[45],
-    la_oenb[44],
-    la_oenb[43],
-    la_oenb[42],
-    la_oenb[41],
-    la_oenb[40],
-    la_oenb[39],
-    la_oenb[38],
-    la_oenb[37],
-    la_oenb[36],
-    la_oenb[35],
-    la_oenb[34],
-    la_oenb[33],
-    la_oenb[32],
-    la_oenb[31],
-    la_oenb[30],
-    la_oenb[29],
-    la_oenb[28],
-    la_oenb[27],
-    la_oenb[26],
-    la_oenb[25],
-    la_oenb[24],
-    la_oenb[23],
-    la_oenb[22],
-    la_oenb[21],
-    la_oenb[20],
-    la_oenb[19],
-    la_oenb[18],
-    la_oenb[17],
-    la_oenb[16],
-    la_oenb[15],
-    la_oenb[14],
-    la_oenb[13],
-    la_oenb[12],
-    la_oenb[11],
-    la_oenb[10],
-    la_oenb[9],
-    la_oenb[8],
-    la_oenb[7],
-    la_oenb[6],
-    la_oenb[5],
-    la_oenb[4],
-    la_oenb[3],
-    la_oenb[2],
-    la_oenb[1],
-    la_oenb[0]}),
+    .caravel_wb_adr_o({\caravel_wb_adr_o[31] ,
+    \caravel_wb_adr_o[30] ,
+    \caravel_wb_adr_o[29] ,
+    \caravel_wb_adr_o[28] ,
+    \caravel_wb_adr_o[27] ,
+    \caravel_wb_adr_o[26] ,
+    \caravel_wb_adr_o[25] ,
+    \caravel_wb_adr_o[24] ,
+    \caravel_wb_adr_o[23] ,
+    \caravel_wb_adr_o[22] ,
+    \caravel_wb_adr_o[21] ,
+    \caravel_wb_adr_o[20] ,
+    \caravel_wb_adr_o[19] ,
+    \caravel_wb_adr_o[18] ,
+    \caravel_wb_adr_o[17] ,
+    \caravel_wb_adr_o[16] ,
+    \caravel_wb_adr_o[15] ,
+    \caravel_wb_adr_o[14] ,
+    \caravel_wb_adr_o[13] ,
+    \caravel_wb_adr_o[12] ,
+    \caravel_wb_adr_o[11] ,
+    \caravel_wb_adr_o[10] ,
+    \caravel_wb_adr_o[9] ,
+    \caravel_wb_adr_o[8] ,
+    \caravel_wb_adr_o[7] ,
+    \caravel_wb_adr_o[6] ,
+    \caravel_wb_adr_o[5] ,
+    \caravel_wb_adr_o[4] ,
+    \caravel_wb_adr_o[3] ,
+    \caravel_wb_adr_o[2] ,
+    \caravel_wb_adr_o[1] ,
+    \caravel_wb_adr_o[0] }),
+    .caravel_wb_data_i({\caravel_wb_data_i[31] ,
+    \caravel_wb_data_i[30] ,
+    \caravel_wb_data_i[29] ,
+    \caravel_wb_data_i[28] ,
+    \caravel_wb_data_i[27] ,
+    \caravel_wb_data_i[26] ,
+    \caravel_wb_data_i[25] ,
+    \caravel_wb_data_i[24] ,
+    \caravel_wb_data_i[23] ,
+    \caravel_wb_data_i[22] ,
+    \caravel_wb_data_i[21] ,
+    \caravel_wb_data_i[20] ,
+    \caravel_wb_data_i[19] ,
+    \caravel_wb_data_i[18] ,
+    \caravel_wb_data_i[17] ,
+    \caravel_wb_data_i[16] ,
+    \caravel_wb_data_i[15] ,
+    \caravel_wb_data_i[14] ,
+    \caravel_wb_data_i[13] ,
+    \caravel_wb_data_i[12] ,
+    \caravel_wb_data_i[11] ,
+    \caravel_wb_data_i[10] ,
+    \caravel_wb_data_i[9] ,
+    \caravel_wb_data_i[8] ,
+    \caravel_wb_data_i[7] ,
+    \caravel_wb_data_i[6] ,
+    \caravel_wb_data_i[5] ,
+    \caravel_wb_data_i[4] ,
+    \caravel_wb_data_i[3] ,
+    \caravel_wb_data_i[2] ,
+    \caravel_wb_data_i[1] ,
+    \caravel_wb_data_i[0] }),
+    .caravel_wb_data_o({\caravel_wb_data_o[31] ,
+    \caravel_wb_data_o[30] ,
+    \caravel_wb_data_o[29] ,
+    \caravel_wb_data_o[28] ,
+    \caravel_wb_data_o[27] ,
+    \caravel_wb_data_o[26] ,
+    \caravel_wb_data_o[25] ,
+    \caravel_wb_data_o[24] ,
+    \caravel_wb_data_o[23] ,
+    \caravel_wb_data_o[22] ,
+    \caravel_wb_data_o[21] ,
+    \caravel_wb_data_o[20] ,
+    \caravel_wb_data_o[19] ,
+    \caravel_wb_data_o[18] ,
+    \caravel_wb_data_o[17] ,
+    \caravel_wb_data_o[16] ,
+    \caravel_wb_data_o[15] ,
+    \caravel_wb_data_o[14] ,
+    \caravel_wb_data_o[13] ,
+    \caravel_wb_data_o[12] ,
+    \caravel_wb_data_o[11] ,
+    \caravel_wb_data_o[10] ,
+    \caravel_wb_data_o[9] ,
+    \caravel_wb_data_o[8] ,
+    \caravel_wb_data_o[7] ,
+    \caravel_wb_data_o[6] ,
+    \caravel_wb_data_o[5] ,
+    \caravel_wb_data_o[4] ,
+    \caravel_wb_data_o[3] ,
+    \caravel_wb_data_o[2] ,
+    \caravel_wb_data_o[1] ,
+    \caravel_wb_data_o[0] }),
+    .caravel_wb_sel_o({\caravel_wb_sel_o[3] ,
+    \caravel_wb_sel_o[2] ,
+    \caravel_wb_sel_o[1] ,
+    \caravel_wb_sel_o[0] }),
     .wbs_adr_i({wbs_adr_i[31],
     wbs_adr_i[30],
     wbs_adr_i[29],
@@ -1217,7 +310,7 @@ module user_project_wrapper (user_clock2,
     wbs_adr_i[2],
     wbs_adr_i[1],
     wbs_adr_i[0]}),
-    .wbs_dat_i({wbs_dat_i[31],
+    .wbs_data_i({wbs_dat_i[31],
     wbs_dat_i[30],
     wbs_dat_i[29],
     wbs_dat_i[28],
@@ -1249,7 +342,7 @@ module user_project_wrapper (user_clock2,
     wbs_dat_i[2],
     wbs_dat_i[1],
     wbs_dat_i[0]}),
-    .wbs_dat_o({wbs_dat_o[31],
+    .wbs_data_o({wbs_dat_o[31],
     wbs_dat_o[30],
     wbs_dat_o[29],
     wbs_dat_o[28],
@@ -1285,90 +378,4 @@ module user_project_wrapper (user_clock2,
     wbs_sel_i[2],
     wbs_sel_i[1],
     wbs_sel_i[0]}));
- PWM pwm (.clk(wb_clk_i),
-    .config_oe(config_oe),
-    .config_we(config_we),
-    .rst(wb_rst_i),
-    .vccd1(vccd1),
-    .vssd1(vssd1),
-    .config_address({\config_address[31] ,
-    \config_address[30] ,
-    \config_address[29] ,
-    \config_address[28] ,
-    \config_address[27] ,
-    \config_address[26] ,
-    \config_address[25] ,
-    \config_address[24] ,
-    \config_address[23] ,
-    \config_address[22] ,
-    \config_address[21] ,
-    \config_address[20] ,
-    \config_address[19] ,
-    \config_address[18] ,
-    \config_address[17] ,
-    \config_address[16] ,
-    \config_address[15] ,
-    \config_address[14] ,
-    \config_address[13] ,
-    \config_address[12] ,
-    \config_address[11] ,
-    \config_address[10] ,
-    \config_address[9] ,
-    \config_address[8] ,
-    \config_address[7] ,
-    \config_address[6] ,
-    \config_address[5] ,
-    \config_address[4] ,
-    \config_address[3] ,
-    \config_address[2] ,
-    \config_address[1] ,
-    \config_address[0] }),
-    .config_data({\config_data[31] ,
-    \config_data[30] ,
-    \config_data[29] ,
-    \config_data[28] ,
-    \config_data[27] ,
-    \config_data[26] ,
-    \config_data[25] ,
-    \config_data[24] ,
-    \config_data[23] ,
-    \config_data[22] ,
-    \config_data[21] ,
-    \config_data[20] ,
-    \config_data[19] ,
-    \config_data[18] ,
-    \config_data[17] ,
-    \config_data[16] ,
-    \config_data[15] ,
-    \config_data[14] ,
-    \config_data[13] ,
-    \config_data[12] ,
-    \config_data[11] ,
-    \config_data[10] ,
-    \config_data[9] ,
-    \config_data[8] ,
-    \config_data[7] ,
-    \config_data[6] ,
-    \config_data[5] ,
-    \config_data[4] ,
-    \config_data[3] ,
-    \config_data[2] ,
-    \config_data[1] ,
-    \config_data[0] }),
-    .pwm_out({\pwm_out[15] ,
-    \pwm_out[14] ,
-    \pwm_out[13] ,
-    \pwm_out[12] ,
-    \pwm_out[11] ,
-    \pwm_out[10] ,
-    \pwm_out[9] ,
-    \pwm_out[8] ,
-    \pwm_out[7] ,
-    \pwm_out[6] ,
-    \pwm_out[5] ,
-    \pwm_out[4] ,
-    \pwm_out[3] ,
-    \pwm_out[2] ,
-    \pwm_out[1] ,
-    \pwm_out[0] }));
 endmodule

@@ -16,7 +16,7 @@ module PWMDevice #(
 		input wire[3:0] peripheralBus_byteSelect,
 		output wire[31:0] peripheralBus_dataRead,
 		input wire[31:0] peripheralBus_dataWrite,
-		output requestOutput,
+		output wire requestOutput,
 		
 		// PWM output
 		output wire[OUTPUTS-1:0] pwm_en,
@@ -25,6 +25,13 @@ module PWMDevice #(
 
 	localparam WIDTH_BITS = $clog2(WIDTH);
 	localparam CLOCK_BITS = $clog2(CLOCK_WIDTH);
+
+	// Counter control
+	reg[CLOCK_WIDTH + WIDTH - 1:0] baseCounter = 'b0;
+	wire[CLOCK_WIDTH + WIDTH - 1:0] nextCounter = baseCounter + 1;
+	wire[WIDTH-1:0] counterValue = baseCounter >> clockScale;
+	wire[WIDTH:0] topBitMaskFull = { {WIDTH{1'b1}} << topBit, 1'b0 };
+	wire[WIDTH-1:0] topBitMask = topBitMaskFull[WIDTH-1:0];
 
 	// Device select
 	wire[11:0] localAddress;
@@ -48,7 +55,7 @@ module PWMDevice #(
 	wire[CONFIG_WIDTH-1:0] configuration;
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(CONFIG_WIDTH), .ADDRESS(12'h000), .DEFAULT(CONFIG_WIDTH'h3DC)) configurationRegister(
+	ConfigurationRegister #(.WIDTH(CONFIG_WIDTH), .ADDRESS(12'h000), .DEFAULT({CONFIG_WIDTH{12'h3DC}})) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -72,31 +79,28 @@ module PWMDevice #(
 	wire[OUTPUTS-1:0] outputs;
 	wire[31:0] dataRegisterOutputData;
 	wire dataRegisterOutputRequest;
+	wire dataRegisterBusBust_nc;
+	wire[WIDTH+OUTPUTS-1:0] dataRegisterWriteData_nc;
+	wire dataRegisterWriteDataEnable_nc;
+	wire dataRegisterReadDataEnable_nc;
 	DataRegister #(.WIDTH(WIDTH + OUTPUTS), .ADDRESS(12'h004)) dataRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
-		.peripheralBus_busy(),
+		.peripheralBus_busy(dataRegisterBusBust_nc),
 		.peripheralBus_address(localAddress),
 		.peripheralBus_byteSelect(peripheralBus_byteSelect),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.peripheralBus_dataRead(dataRegisterOutputData),
 		.requestOutput(dataRegisterOutputRequest),
-		.writeData(),
-		.writeData_en(),
+		.writeData(dataRegisterWriteData_nc),
+		.writeData_en(dataRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
 		.readData({ outputs, counterValue }),
-		.readData_en(),
+		.readData_en(dataRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
-
-	// Counter control
-	reg[CLOCK_WIDTH + WIDTH - 1:0] baseCounter = 'b0;
-	wire[CLOCK_WIDTH + WIDTH - 1:0] nextCounter = baseCounter + 1;
-	wire[WIDTH-1:0] counterValue = baseCounter >> clockScale;
-	wire[WIDTH:0] topBitMaskFull = { WIDTH_BITS'h1 << topBit, 1'b0 };
-	wire[WIDTH-1:0] topBitMask = topBitMaskFull[WIDTH-1:0];
 
 	always @(posedge clk) begin
 		if (rst || |(counterValue & topBitMask) || !counterEnable) baseCounter <= 'b0;

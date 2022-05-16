@@ -101,14 +101,16 @@ def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[in
 		lines = f.readlines()
 
 		for i, line in enumerate(lines):
-			if re.search("(?<![_\\-.\\w])error(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-				errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
-				errorCount += 1
-			elif re.search("(?<![_\\-.\\w])violated(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-				errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
-				violationCount += 1
-			elif "has no liberty cell." not in line and "Parent cell lists instance of" not in line and "Character in instance name converted to underscore." not in line and "is a placeholder, treated as a black box." not in line and "[WARNING GRT-" not in line and "[WARNING TAP-" not in line and "[WARNING ORD-" not in line and "[WARNING STA-" not in line and "[WARNING IFP-" not in line and "[WARNING PSM-" not in line:
-				if re.search("(?<![_\\-.\\w])warning(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
+			if re.search("(?<![_\\-.\\w])(error|errors|mismatch)(?![_\\-.\\w])", line, re.IGNORECASE) is not None or "(no matching " in line or "shorted" in line:
+				if "Saving mag view with DRC errors" not in line and "Usage ERROR:" not in line and "CVC: Error output to" not in line and "Checking" not in line and "[InitialPlace]  Iter:" not in line and "No errors found." not in line and "Total errors = 0" not in line and "CVC: Model errors:          0" not in line and "CVC: Error Counts" not in line:
+					errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
+					errorCount += 1
+			elif re.search("(?<![_\\-.\\w])(violated|violation|violations)(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
+				if "Found 0 net violations" not in line and "violation count 0" not in line and "Number of violations = 0" not in line and "violated: 0" not in line and "violations: 0" not in line:
+					errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
+					violationCount += 1
+			elif "Warning: Calma reading is not undoable!  I hope that's OK." not in line and "already existed before reading GDS!" not in line and "has no liberty cell." not in line and "Parent cell lists instance of" not in line and "Character in instance name converted to underscore." not in line and "is a placeholder, treated as a black box." not in line and "[WARNING GRT-" not in line and "[WARNING TAP-" not in line and "[WARNING ORD-" not in line and "[WARNING STA-" not in line and "[WARNING IFP-" not in line and "[WARNING PSM-" not in line:
+				if re.search("(?<![_\\-.\\w])(warning|warnings)(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
 					warningFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 					warningCount += 1
 

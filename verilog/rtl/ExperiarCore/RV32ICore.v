@@ -1,43 +1,100 @@
-module ExperiarCore(
+module RV32ICore(
 `ifdef USE_POWER_PINS
 	inout vccd1,	// User area 1 1.8V supply
 	inout vssd1,	// User area 1 digital ground
 `endif
 
 		input wire clk,
-		input wire nrst,
+		input wire rst,
 
-		//input wire[31:0] coreID,
+		input wire[7:0] coreIndex,
+		input wire[10:0] manufacturerID,
+		input wire[15:0] partID,
+		input wire[3:0] versionID,
 
-		output wire[3:0] loadEnableByteMask,
-		output wire[3:0] storeEnableByteMask,
-		output reg[31:0] memoryAddress,
-		inout wire[31:0] memoryData,
+		// JTAG interface
+		input wire jtag_tck,
+		input wire jtag_tms,
+		input wire jtag_tdi,
+		output wire jtag_tdo,
 
-		output wire[31:0] probe_programCounter,
+		// SRAM interface
+		output wire[31:0] memoryAddress,
+		output wire[3:0] memoryByteSelect,
+		output wire memoryWriteEnable,
+		output wire memoryReadEnable,
+		output wire[31:0] memoryDataWrite,
+		input wire[31:0] memoryDataRead,
+		input wire memoryBusy,
+
+		// Logic probes
 		output wire[1:0] probe_state,
+		output wire[31:0] probe_programCounter,
+		output wire[6:0] probe_opcode,
 		output wire[3:0] probe_errorCode,
 		output wire probe_isBranch,
-		output wire probe_takeBranch
+		output wire probe_takeBranch,
+		output wire probe_isStore,
+		output wire probe_isLoad,
+		output wire probe_isCompressed,
+		output wire[4:0] probe_jtagInstruction
     );
 
-	localparam STATE_FETCH   = 2'b00;
-	localparam STATE_EXECUTE = 2'b01;
-	localparam STATE_ERROR   = 2'b11;
+
+	// Shortened form of misa register
+	// Modified extensions encounding
+	// Origional Bit | New Bit | Character | Description
+	// --------------|---------|-----------|------------------------------------------------------
+	// 0 			 | 0 	   | A 		   | Atomic extension
+	// 1 			 | 1 	   | B 		   | Tentatively reserved for Bit-Manipulation extension
+	// 2 			 | 2 	   | C 		   | Compressed extension
+	// 3 			 | 3 	   | D 		   | Double-precision floating-point extension
+	// 4 			 | 4 	   | E 		   | RV32E base ISA
+	// 5 			 | 5 	   | F 		   | Single-precision floating-point extension
+	// 6 			 | 6 	   | G 		   | Additional standard extensions present
+	// 7 			 | 7 	   | H 		   | Hypervisor extension
+	// 8 			 | 8 	   | I 		   | RV32I/64I/128I base ISA
+	// 12			 | 9 	   | M 		   | Integer Multiply/Divide extension
+	// 13			 | 10 	   | N 		   | User-level interrupts supported
+	// 16			 | 11 	   | Q 		   | Quad-precision floating-point extension
+	// 18			 | 12 	   | S 		   | Supervisor mode implemented
+	// 20			 | 13 	   | U 		   | User mode implemented
+	localparam CORE_MXL = 2'h1;
+	localparam CORE_EXTENSIONS = 14'b00_0001_0000_0000;
+	localparam CORE_VERSION = 8'h00;
+
+	localparam STATE_HALT 	 = 2'b00;
+	localparam STATE_DEBUG	 = 2'b10;
+	localparam STATE_FETCH   = 2'b01;
+	localparam STATE_EXECUTE = 2'b11;
 
 	// System registers
-	reg[31:0] programCounter;
 	reg[1:0] state;
-	reg[3:0] currentError;
+	reg[31:0] programCounter;
 	reg[31:0] currentInstruction;
 	reg[31:0] registers [0:31];
 
+	wire[3:0] currentError = { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
+
+	JTAG jtag(
+		.clk(clk),
+		.rst(rst),
+		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS }),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.jtag_tck(jtag_tck),
+		.jtag_tms(jtag_tms),
+		.jtag_tdi(jtag_tdi),
+		.jtag_tdo(jtag_tdo),
+		.probe_jtagInstruction(probe_jtagInstruction));
+
 	// Immediate Decode
-	wire[31:0] imm_I = {inputValue[31] ? 21'h1F_FFFF : 21'h00_0000, inputValue[30:25], inputValue[24:21], inputValue[20]};
-	wire[31:0] imm_S = {inputValue[31] ? 21'h1F_FFFF : 21'h00_0000, inputValue[30:25], inputValue[11:8] , inputValue[7]};
-	wire[31:0] imm_B = {inputValue[31] ? 20'hF_FFFF  : 20'h0_0000 , inputValue[7]    , inputValue[30:25], inputValue[11:8] , 1'b0};
-	wire[31:0] imm_U = {inputValue[31]							  , inputValue[30:20], inputValue[19:12], 12'h000};
-	wire[31:0] imm_J = {inputValue[31] ? 12'hFFF : 12'h000 		  , inputValue[19:12], inputValue[20]	, inputValue[30:25], inputValue[24:21], 1'b0};
+	wire[31:0] imm_I = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[24:21], currentInstruction[20]};
+	wire[31:0] imm_S = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[11:8] , currentInstruction[7]};
+	wire[31:0] imm_B = {currentInstruction[31] ? 20'hF_FFFF  : 20'h0_0000 , currentInstruction[7]    , currentInstruction[30:25], currentInstruction[11:8] , 1'b0};
+	wire[31:0] imm_U = {currentInstruction[31]							  , currentInstruction[30:20], currentInstruction[19:12], 12'h000};
+	wire[31:0] imm_J = {currentInstruction[31] ? 12'hFFF : 12'h000 		  , currentInstruction[19:12], currentInstruction[20]	, currentInstruction[30:25], currentInstruction[24:21], 1'b0};
 
 	// Instruction decode
 	wire[6:0] opcode = currentInstruction[6:0];
@@ -135,17 +192,16 @@ module ExperiarCore(
 	
 	// Using only a single shifter also from https://github.com/BrunoLevy/learn-fpga/tree/master/FemtoRV/TUTORIALS/FROM_BLINKER_TO_RISCV#from-blinker-to-risc-v
 	// Although I feel like there is an easier way to flip bit orderings
-	function [31:0] flipBits32;
-		input wire[31:0] x;
-		 flipBits32 = { x[ 0], x[ 1], x[ 2], x[ 3], x[ 4], x[ 5], x[ 6], x[ 7], 
-						x[ 8], x[ 9], x[10], x[11], x[12], x[13], x[14], x[15], 
-						x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23],
-				    	x[24], x[25], x[26], x[27], x[28], x[29], x[30], x[31] };
+	function [31:0] flipBits32 (input [31:0] x);
+		flipBits32 = { x[ 0], x[ 1], x[ 2], x[ 3], x[ 4], x[ 5], x[ 6], x[ 7], 
+					   x[ 8], x[ 9], x[10], x[11], x[12], x[13], x[14], x[15], 
+					   x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23],
+					   x[24], x[25], x[26], x[27], x[28], x[29], x[30], x[31] };
 	endfunction
 
 	wire isLeftShift = funct3 == 3'b001;
 	wire[31:0] shiftInput = isLeftShift ? flipBits32(inputA) : inputA;
-	wire[31:0] aluShifter = $signed({ alt && shiftInput[31] && !isLeftShift, shiftInput } >>> inputB[4:0]);
+	wire[31:0] aluShifter = $signed({ aluAlt && shiftInput[31] && !isLeftShift, shiftInput } >>> inputB[4:0]);
 	wire[31:0] rightShift = aluShifter[31:0];
 	wire[31:0] leftShift = flipBits32(rightShift);
 
@@ -160,51 +216,42 @@ module ExperiarCore(
 			/*SRL*/  3'b101: aluValue <= rightShift;
 			/*OR*/   3'b110: aluValue <= inputA | inputB;
 			/*AND*/  3'b111: aluValue <= inputA & inputB;
-					default: aluValue <= 'b0;
+					default: aluValue <= 32'b0;
 		endcase
 	end
 
 	// Memory connections
-	reg[3:0] loadStoreByteMask;
-	reg loadSigned;
-	wire shouldLoad  = |loadStoreByteMask && ((state == STATE_FETCH) || ((state == STATE_EXECUTE) && isLoad));
-	wire shouldStore = |loadStoreByteMask && ((state == STATE_EXECUTE) && isStore);
 
-	wire[31:0] loadData  = shouldLoad  ? memoryData : 32'b0;
-	wire[31:0] storeData = shouldStore ? rs2 		: 32'b0;
+	wire[31:0] targetMemoryAddress = state == STATE_FETCH   ? programCounter : 
+									 state == STATE_EXECUTE ? aluAPlusB:
+									 						  32'b0;
+	wire loadSigned    = (funct3 == 3'b100) || (funct3 == 3'b101);
+	wire loadStoreByte = funct3[1:0] == 2'b00;
+	wire loadStoreHalf = funct3[1:0] == 3'b01;
+	wire loadStoreWord = funct3 == 3'b010;
+	wire[3:0] baseByteMask = loadStoreByte ? 4'b0001 : 
+							 loadStoreHalf ? 4'b0011 : 
+							 loadStoreWord ? 4'b1111 :
+							 				 4'b0000;
 
-	always @(*) begin
-		case (state)
-			STATE_FETCH: begin
-				memoryAddress <= programCounter;
-				loadStoreByteMask <= 4'b1111;
-				loadSigned <= 1'b0;
-			end
-			STATE_EXECUTE: begin
-				if (isLoad || isStore) memoryAddress <= aluAPlusB;
-				else memoryAddress <= 32'b0;
+	wire[6:0] loadStoreByteMask = {3'b0, baseByteMask} << targetMemoryAddress[1:0];
+	wire loadStoreByteMaskValid = |(loadStoreByteMask[3:0]);
+	wire addressMissaligned = |loadStoreByteMask[6:4];
+	wire shouldLoad  = loadStoreByteMaskValid && !addressMissaligned && ((state == STATE_FETCH) || ((state == STATE_EXECUTE) && isLoad));
+	wire shouldStore = loadStoreByteMaskValid && !addressMissaligned && ((state == STATE_EXECUTE) && isStore);
+	assign memoryAddress = shouldLoad || shouldStore ? { targetMemoryAddress[31:2], 2'b00 } : 32'b0;
 
-				loadSigned <= (funct3 == 3'b100) || (funct3 == 3'b101);
+	wire[31:0] loadData  = shouldLoad  ? memoryDataRead : 32'b0;
+	wire[31:0] storeData = shouldStore ? rs2 			: 32'b0;
 
-				case (funct3)
-					/*LBSB*/ 3'b000: loadStoreByteMask <= 4'b0001;
-					/*LHSH*/ 3'b001: loadStoreByteMask <= 4'b0011;
-					/*LWSW*/ 3'b010: loadStoreByteMask <= 4'b1111;
-					//*None*/ 3'b011: loadStoreByteMask <= 4'b0000;
-					/*LBU*/  3'b100: loadStoreByteMask <= 4'b0001;
-					/*LHU*/  3'b101: loadStoreByteMask <= 4'b0011;
-					//*None*/ 3'b110: loadStoreByteMask <= 4'b0000;
-					//*None*/ 3'b111: loadStoreByteMask <= 4'b0000;
-							default: loadStoreByteMask <= 4'b0000;
-				endcase
-			end
-			default: memoryAddress <= 32'b0;
-		endcase
-	end
+	assign memoryByteSelect = shouldStore || shouldLoad  ? loadStoreByteMask[3:0] : 4'b0000;
+	assign memoryDataWrite	= shouldStore && !shouldLoad ? storeData 			  : 32'b0;
 
-	assign loadEnableByteMask  = !shouldStore &&  shouldLoad ? loadStoreByteMask : 4'b0000;
-	assign storeEnableByteMask =  shouldStore && !shouldLoad ? loadStoreByteMask : 4'b0000;
-	assign memoryData 		   =  shouldStore && !shouldLoad ? storeData 		 : 32'bZ;
+	assign memoryWriteEnable = shouldStore;
+	assign memoryReadEnable = shouldLoad;
+
+	wire memoryReadReady = shouldLoad ? memoryBusy : 1'b0;
+	wire memoryWriteDone = shouldStore ? memoryBusy : 1'b0;
 
 	// Register Write
 	wire integerRegisterWriteEn = isLUI || isAUIPC || isJAL || isJALR || isALU || isALUImm || isLoad;
@@ -216,35 +263,49 @@ module ExperiarCore(
 										  (isALU || isALUImm) ? aluValue 		   :
 																32'b0;
 
-	always @(posedge clk) begin
-		if (!nrst) begin
-			programCounter <= 32'b0;
-			state <= STATE_FETCH;
-			currentError <= 'b0;
-		end else begin
-			case (state)
-				STATE_FETCH: begin
-					currentInstruction <= memoryData;
-					state <= STATE_EXECUTE;
-				end
-				STATE_EXECUTE: begin
-					if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] = integerRegisterWriteData;
+	wire progressExecute = isStore ? memoryWriteDone :
+						   isLoad  ? memoryReadReady : 
+							 		 1'b1;
 
-					programCounter <= { nextProgramCounter[31:1] , 0};
-					state <= STATE_FETCH;
-				end
-				STATE_ERROR: begin
-					currentError <= { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
-				end
-				default: state <= STATE_FETCH;
-			endcase
+	always @(posedge clk) begin
+		if (rst) begin
+			state <= STATE_FETCH;
+			programCounter <= 32'b0;
+		end else begin
+			if (!(|currentError)) begin
+				case (state)
+					STATE_FETCH: begin
+						if (memoryReadReady) begin
+							currentInstruction <= memoryDataRead;
+							state <= STATE_EXECUTE;
+						end
+					end
+
+					STATE_EXECUTE: begin
+						if (progressExecute) begin
+							if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
+
+							programCounter <= { nextProgramCounter[31:1] , 1'b0};
+							state <= STATE_FETCH;
+						end
+					end
+
+					default: state <= STATE_FETCH;
+				endcase
+			end
 		end
 	end
 
-	assign probe_programCounter = programCounter;
+	// Debug
+
 	assign probe_state = state;
+	assign probe_programCounter = programCounter;
+	assign probe_opcode = opcode;
 	assign probe_errorCode = currentError;
 	assign probe_isBranch = isBranch;
 	assign probe_takeBranch = takeBranch;
+	assign probe_isStore = isStore;
+	assign probe_isLoad = isLoad;
+	assign probe_isCompressed = isCompressed;
 
 endmodule

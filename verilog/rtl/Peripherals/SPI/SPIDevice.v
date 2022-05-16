@@ -79,13 +79,15 @@ module SPIDevice #(
 	wire[7:0] readData;
 	wire[7:0] writeData;	
 	wire writeData_en;
+	wire dataRegisterBusBusy_nc;
+	wire dataRegisterReadDataEnable_nc;
 	DataRegister #(.WIDTH(8), .ADDRESS(12'h004)) dataRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
-		.peripheralBus_busy(),
+		.peripheralBus_busy(dataRegisterBusBusy_nc),
 		.peripheralBus_address(localAddress),
 		.peripheralBus_byteSelect(peripheralBus_byteSelect),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
@@ -95,19 +97,19 @@ module SPIDevice #(
 		.writeData_en(writeData_en),
 		.writeData_busy(1'b0),
 		.readData(readData),
-		.readData_en(),
+		.readData_en(dataRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
 	// State control
 	reg[1:0] state = STATE_IDLE;
 	wire busy = state != STATE_IDLE;
 	
-	reg[2:0] bitCounter = 'b0;
+	reg[2:0] bitCounter = 3'b0;
 	wire[2:0] nextBitCounter = bitCounter + 1;
 
-	reg[CLOCK_WIDTH-1:0] clockCounter = 'b0;
+	reg[CLOCK_WIDTH-1:0] clockCounter = {CLOCK_WIDTH{1'b0}};
 	wire nextClockCounter = clockCounter + 1;
-	wire[CLOCK_WIDTH-1:0] clockScaleHalfMask = CLOCK_BITS'b1 << clockScale;
+	wire[CLOCK_WIDTH-1:0] clockScaleHalfMask = {CLOCK_BITS{1'b1}} << clockScale;
 	wire[CLOCK_WIDTH-1:0] clockScaleMask 	 = { clockScaleMask[CLOCK_WIDTH-2:0], 1'b0 };
 	wire spiHalfClock = clockCounter == (clockScaleHalfMask - 1);//|(clockCounter & clockScaleHalfMask);
 	wire spiClock 	  = clockCounter == (clockScaleMask - 1);
@@ -134,16 +136,16 @@ module SPIDevice #(
 	always @(posedge clk) begin
 		if (rst) begin
 			state <= STATE_IDLE;
-			bitCounter <= 'b0;
-			clockCounter <= 1'b0;
+			bitCounter <= 3'b0;
+			clockCounter <= {CLOCK_WIDTH{1'b0}};
 			loadEnable <= 1'b0;
 			spiClockRise <= 1'b0;
 			spiClockFall <= 1'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
-					bitCounter <= 'b0;
-					clockCounter <= 1'b0;
+					bitCounter <= 3'b0;
+					clockCounter <= {CLOCK_WIDTH{1'b0}};
 					loadEnable <= 1'b0;
 
 					if (writeData_en && peripheralBus_byteSelect[0]) begin 
@@ -156,7 +158,7 @@ module SPIDevice #(
 					loadEnable <= 1'b0;
 
 					if (spiHalfClock) begin
-						clockCounter <= 1'b0;
+						clockCounter <= {CLOCK_WIDTH{1'b0}};
 						bitCounter <= 1'b0;
 						state <= STATE_SHIFT;
 					end else begin
@@ -174,7 +176,7 @@ module SPIDevice #(
 							spiClockFall <= 1'b0;
 						end
 
-						clockCounter <= 1'b0;
+						clockCounter <= {CLOCK_WIDTH{1'b0}};
 						if (bitCounter == 3'h7) state <= STATE_END;
 						else bitCounter <= nextBitCounter;
 					end else if (spiHalfClock) begin
@@ -203,8 +205,8 @@ module SPIDevice #(
 
 				default: begin
 					state <= STATE_IDLE;
-					bitCounter <= 'b0;
-					clockCounter <= 1'b0;
+					bitCounter <= 3'b0;
+					clockCounter <= {CLOCK_WIDTH{1'b0}};
 					loadEnable <= 1'b0;
 					spiClockRise <= 1'b0;
 					spiClockFall <= 1'b0;

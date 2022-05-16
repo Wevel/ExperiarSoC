@@ -37,20 +37,30 @@ set ::env(DESIGN_NAME) user_project_wrapper
 ## Source Verilog Files
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
+	$script_dir/../../verilog/rtl/ExperiarSoC/ExperiarSoC_top.v \
 	$script_dir/../../verilog/rtl/user_project_wrapper.v"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2 wb_clk_i"
-#set ::env(CLOCK_NET) "mprj.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
+ # user_clock2
 
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "25"
 
 ## Internal Macros
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
-	mprj vccd1 vssd1 \
-	pwm vccd1 vssd1 \
-	ioMux vccd1 vssd1"
+	configuration vccd1 vssd1 \
+	caravelHost vccd1 vssd1 \
+	wishboneInterconnect vccd1 vssd1 \
+	core0 vccd1 vssd1 \
+	core1 vccd1 vssd1 \
+	peripherals vccd1 vssd1 \
+	video vccd1 vssd1 \
+	core0SRAM vccd1 vssd1 \
+	core1SRAM vccd1 vssd1 \
+	videoSRAM0 vccd1 vssd1 \
+	videoSRAM1 vccd1 vssd1 \
+	art vccd1 vssd1"
 
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
@@ -58,25 +68,66 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 ### Black-box verilog and views
 set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
-	$script_dir/../../verilog/rtl/user_proj_example.v \
-	$script_dir/../../verilog/rtl/PWM/PWM_top.v \
-	$script_dir/../../verilog/rtl/IOMultiplexer/IOMultiplexer_top.v"
+	$script_dir/../../verilog/rtl/Art/Art_top.v \
+	$script_dir/../../verilog/rtl/CaravelHost/CaravelHost_top.v \
+	$script_dir/../../verilog/rtl/Configuration/Configuration_top.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v \
+	$script_dir/../../verilog/rtl/Flash/Flash_top.v \
+	$script_dir/../../verilog/rtl/Peripherals/Peripherals_top.v \
+	$script_dir/../../verilog/rtl/Video/Video_top.v \
+	$script_dir/../../verilog/rtl/WishboneInterconnect/WishboneInterconnect_top.v \
+	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v"
 
 set ::env(EXTRA_LEFS) "\
-	$script_dir/../../lef/user_proj_example.lef \
-	$script_dir/../../lef/PWM.lef \
-	$script_dir/../../lef/IOMultiplexer.lef"
+	$script_dir/../../lef/Art.lef \
+	$script_dir/../../lef/CaravelHost.lef \
+	$script_dir/../../lef/Configuration.lef \
+	$script_dir/../../lef/ExperiarCore.lef \
+	$script_dir/../../lef/Flash.lef \
+	$script_dir/../../lef/Peripherals.lef \
+	$script_dir/../../lef/Video.lef \
+	$script_dir/../../lef/WishboneInterconnect.lef \
+	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
-	$script_dir/../../gds/user_proj_example.gds \
-	$script_dir/../../gds/PWM.gds \
-	$script_dir/../../gds/IOMultiplexer.gds"
+	$script_dir/../../gds/Art.gds \
+	$script_dir/../../gds/CaravelHost.gds \
+	$script_dir/../../gds/Configuration.gds \
+	$script_dir/../../gds/ExperiarCore.gds \
+	$script_dir/../../gds/Flash.gds \
+	$script_dir/../../gds/Peripherals.gds \
+	$script_dir/../../gds/Video.gds \
+	$script_dir/../../gds/WishboneInterconnect.gds \
+	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds"
 
-# set ::env(GLB_RT_MAXLAYER) 5
-set ::env(RT_MAX_LAYER) {met4}
+# Exclude regions for Art and SRAM
+#set ::env(GLB_RT_OBS) "\
+	li1  400 175 1083.1 591.54,\
+	met1 400 175 1083.1 591.54,\
+	met2 400 175 1083.1 591.54,\
+	met3 400 175 1083.1 591.54,\
+	li1  400 2100 1083.1 2516.54,\
+	met1 400 2100 1083.1 2516.54,\
+	met2 400 2100 1083.1 2516.54,\
+	met3 400 2100 1083.1 2516.54,\
+	li1  1870 2050 2553.1 2466.54,\
+	met1 1870 2050 2553.1 2466.54,\
+	met2 1870 2050 2553.1 2466.54,\
+	met3 1870 2050 2553.1 2466.54,\
+	li1  1870 2600 2553.1 3016.54,\
+	met1 1870 2600 2553.1 3016.54,\
+	met2 1870 2600 2553.1 3016.54,\
+	met3 1870 2600 2553.1 3016.54,\
+	li1  100 2700 600 3200,\
+	met1 100 2700 600 3200,\
+	met2 100 2700 600 3200,\
+	met3 100 2700 600 3200"
+
+# Allow top level to use metal4 for routing
+set ::env(RT_MAX_LAYER) {met5}
 
 # Only generate the PDN grid for the rails needed
-set ::env(FP_PDN_POWER_STRAPS) "vccd1 vssd1 1, vccd2 vssd2 0, vdda1 vssa1 0, vdda2 vssa2 0"
+#set ::env(FP_PDN_POWER_STRAPS) "vccd1 vssd1 1, vccd2 vssd2 0, vdda1 vssa1 0, vdda2 vssa2 0"
 
 # disable pdn check nodes becuase it hangs with multiple power domains.
 # any issue with pdn connections will be flagged with LVS so it is not a critical check.
@@ -97,3 +148,11 @@ set ::env(DIODE_INSERTION_STRATEGY) 0
 set ::env(FILL_INSERTION) 0
 set ::env(TAP_DECAP_INSERTION) 0
 set ::env(CLOCK_TREE_SYNTH) 0
+
+# Save a .png after each SYNTH_TOP_LEVEL
+# This doesn't work right now :(
+#set ::env(TAKE_LAYOUT_SCROT) 1
+
+# Disable running XOR tests as it is very slow
+# This should be reenabled before submission
+set ::env(RUN_KLAYOUT_XOR) 0

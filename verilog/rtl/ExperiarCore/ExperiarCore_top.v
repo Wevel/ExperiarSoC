@@ -1,0 +1,254 @@
+module ExperiarCore (
+`ifdef USE_POWER_PINS
+	inout vccd1,	// User area 1 1.8V supply
+	inout vssd1,	// User area 1 digital ground
+`endif
+
+		input wire wb_clk_i,
+		input wire wb_rst_i,
+
+		input wire[7:0] coreIndex,
+		input wire[10:0] manufacturerID,
+		input wire[15:0] partID,
+		input wire[3:0] versionID,
+
+		// JTAG interface
+		input wire jtag_tck,
+		input wire jtag_tms,
+		input wire jtag_tdi,
+		output wire jtag_tdo,
+
+		// Wishbone master interface from core
+		output wire core_wb_cyc_o,
+		output wire core_wb_stb_o,
+		output wire core_wb_we_o,
+		output wire[3:0] core_wb_sel_o,
+		output wire[31:0] core_wb_data_o,
+		output wire[27:0] core_wb_adr_o,
+		input wire core_wb_ack_i,
+		input wire core_wb_stall_i,
+		input wire core_wb_error_i,
+		input wire[31:0] core_wb_data_i,
+
+		// Wishbone slave interface to sram
+		input wire localMemory_wb_cyc_i,
+		input wire localMemory_wb_stb_i,
+		input wire localMemory_wb_we_i,
+		input wire[3:0] localMemory_wb_sel_i,
+		input wire[31:0] localMemory_wb_data_i,
+		input wire[23:0] localMemory_wb_adr_i,
+		output wire localMemory_wb_ack_o,
+		output wire localMemory_wb_stall_o,
+		output wire localMemory_wb_error_o,
+		output wire[31:0] localMemory_wb_data_o,
+
+		// Flash interface
+		output wire[27:0] flashAddress,
+		output wire[3:0] flashByteSelect,
+		output wire flashWriteEnable,
+		output wire flashReadEnable,
+		output wire[31:0] flashDataWrite,
+		input wire[31:0] flashDataRead,
+		input wire flashBusy,
+
+		// SRAM rw port
+		output wire clk0, // Port clock
+		output wire csb0, // active low chip select
+		output wire web0, // active low write control
+		output wire[3:0] wmask0, // write mask
+		output wire[SRAM_ADDRESS_SIZE-1:0] addr0,
+		output wire[31:0] din0,
+		input  wire[31:0] dout0,
+
+		// SRAM r port
+		output wire clk1,
+		output wire csb1,
+		output wire[SRAM_ADDRESS_SIZE-1:0] addr1,
+		input  wire[31:0] dout1,
+
+		// Logic probes
+		output wire[1:0] probe_state,
+		output wire[31:0] probe_programCounter,
+		output wire[6:0] probe_opcode,
+		output wire[3:0] probe_errorCode,
+		output wire probe_isBranch,
+		output wire probe_takeBranch,
+		output wire probe_isStore,
+		output wire probe_isLoad,
+		output wire probe_isCompressed,
+		output wire[4:0] probe_jtagInstruction
+	);
+	
+	localparam SRAM_ADDRESS_SIZE = 9;
+
+	// Memory interface from core
+	wire[31:0] coreMemoryAddress;
+	wire[3:0] coreMemoryByteSelect;
+	wire coreMemoryWriteEnable;
+	wire coreMemoryReadEnable;
+	wire[31:0] coreMemoryDataWrite;
+	wire[31:0] coreMemoryDataRead;
+	wire coreMemoryBusy;
+
+	// Memory interface from core to local memory
+	wire[23:0] coreLocalMemoryAddress;
+	wire[3:0] coreLocalMemoryByteSelect;
+	wire coreLocalMemoryWriteEnable;
+	wire coreLocalMemoryReadEnable;
+	wire[31:0] coreLocalMemoryDataWrite;
+	wire[31:0] coreLocalMemoryDataRead;
+	wire coreLocalMemoryBusy;
+
+	// Memory interface from core to wb
+	wire[27:0] coreWBAddress;
+	wire[3:0] coreWBByteSelect;
+	wire coreWBWriteEnable;
+	wire coreWBReadEnable;
+	wire[31:0] coreWBDataWrite;
+	wire[31:0] coreWBDataRead;
+	wire coreWBBusy;
+
+	// Memory interface from wb to local memory
+	wire[23:0] wbLocalMemoryAddress;
+	wire[3:0] wbLocalMemoryByteSelect;
+	wire wbLocalMemoryWriteEnable;
+	wire wbLocalMemoryReadEnable;
+	wire[31:0] wbLocalMemoryDataWrite;
+	wire[31:0] wbLocalMemoryDataRead;
+	wire wbLocalMemoryWriteBusy;
+
+	RV32ICore core(
+`ifdef USE_POWER_PINS
+		.vccd1(vccd1),	// User area 1 1.8V power
+		.vssd1(vssd1),	// User area 1 digital ground
+`endif
+
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
+		.coreIndex(coreIndex),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.jtag_tck(jtag_tck),
+		.jtag_tms(jtag_tms),
+		.jtag_tdi(jtag_tdi),
+		.jtag_tdo(jtag_tdo),
+		.memoryAddress(coreMemoryAddress),
+		.memoryByteSelect(coreMemoryByteSelect),
+		.memoryWriteEnable(coreMemoryWriteEnable),
+		.memoryReadEnable(coreMemoryReadEnable),
+		.memoryDataWrite(coreMemoryDataWrite),
+		.memoryDataRead(coreMemoryDataRead),
+		.memoryBusy(coreMemoryBusy),
+		.probe_state(probe_state),
+		.probe_programCounter(probe_programCounter),
+		.probe_opcode(probe_opcode),
+		.probe_errorCode(probe_errorCode),
+		.probe_isBranch(probe_isBranch),
+		.probe_takeBranch(probe_takeBranch),
+		.probe_isStore(probe_isStore),
+		.probe_isLoad(probe_isLoad),
+		.probe_isCompressed(probe_isCompressed),
+		.probe_jtagInstruction(probe_jtagInstruction));
+
+	MemoryController memoryController(
+		.coreAddress(coreMemoryAddress),
+		.coreByteSelect(coreMemoryByteSelect),
+		.coreWriteEnable(coreMemoryWriteEnable),
+		.coreReadEnable(coreMemoryReadEnable),
+		.coreDataWrite(coreMemoryDataWrite),
+		.coreDataRead(coreMemoryDataRead),
+		.coreBusy(coreMemoryBusy),
+		.localMemoryAddress(coreLocalMemoryAddress),
+		.localMemoryByteSelect(coreLocalMemoryByteSelect),
+		.localMemoryWriteEnable(coreLocalMemoryWriteEnable),
+		.localMemoryReadEnable(coreLocalMemoryReadEnable),
+		.localMemoryDataWrite(coreLocalMemoryDataWrite),
+		.localMemoryDataRead(coreLocalMemoryDataRead),
+		.localMemoryBusy(coreLocalMemoryBusy),
+		.wbAddress(coreWBAddress),
+		.wbByteSelect(coreWBByteSelect),
+		.wbWriteEnable(coreWBWriteEnable),
+		.wbReadEnable(coreWBReadEnable),
+		.wbDataWrite(coreWBDataWrite),
+		.wbDataRead(coreWBDataRead),
+		.wbBusy(coreWBBusy));
+
+	LocalMemoryInterface #(.SRAM_ADDRESS_SIZE(SRAM_ADDRESS_SIZE)) localMemoryInterface (
+		.clk(wb_clk_i),
+		.coreAddress(coreLocalMemoryAddress),
+		.coreByteSelect(coreLocalMemoryByteSelect),
+		.coreWriteEnable(coreLocalMemoryWriteEnable),
+		.coreReadEnable(coreLocalMemoryReadEnable),
+		.coreDataWrite(coreLocalMemoryDataWrite),
+		.coreDataRead(coreLocalMemoryDataRead),
+		.coreBusy(coreLocalMemoryBusy),
+		.wbAddress(wbLocalMemoryAddress),
+		.wbByteSelect(wbLocalMemoryByteSelect),
+		.wbWriteEnable(wbLocalMemoryWriteEnable),
+		.wbReadEnable(wbLocalMemoryReadEnable),
+		.wbDataWrite(wbLocalMemoryDataWrite),
+		.wbDataRead(wbLocalMemoryDataRead),
+		.wbWriteBusy(wbLocalMemoryWriteBusy),
+		.flashAddress(flashAddress),
+		.flashByteSelect(flashByteSelect),
+		.flashWriteEnable(flashWriteEnable),
+		.flashReadEnable(flashReadEnable),
+		.flashDataWrite(flashDataWrite),
+		.flashDataRead(flashDataRead),
+		.flashBusy(flashBusy),
+		.clk0(clk0),
+		.csb0(csb0),
+		.web0(web0),
+		.wmask0(wmask0),
+		.addr0(addr0),
+		.din0(din0),
+		.dout0(dout0),
+		.clk1(clk1),
+		.csb1(csb1),
+		.addr1(addr1),
+		.dout1(dout1));
+
+	Core_WBInterface coreWBInterface(
+		.wb_clk_i(wb_clk_i),
+		.wb_rst_i(wb_rst_i),
+		.wb_cyc_o(core_wb_cyc_o),
+		.wb_stb_o(core_wb_stb_o),
+		.wb_we_o(core_wb_we_o),
+		.wb_sel_o(core_wb_sel_o),
+		.wb_data_o(core_wb_data_o),
+		.wb_adr_o(core_wb_adr_o),
+		.wb_ack_i(core_wb_ack_i),
+		.wb_stall_i(core_wb_stall_i),
+		.wb_error_i(core_wb_error_i),
+		.wb_data_i(core_wb_data_i),
+		.wbAddress(coreWBAddress),
+		.wbByteSelect(coreWBByteSelect),
+		.wbWriteEnable(coreWBWriteEnable),
+		.wbReadEnable(coreWBReadEnable),
+		.wbDataWrite(coreWBDataWrite),
+		.wbDataRead(coreWBDataRead),
+		.wbBusy(coreWBBusy));
+
+	WB_SRAMInterface wbSRAMInterface(
+		.wb_clk_i(wb_clk_i),
+		.wb_rst_i(wb_rst_i),
+		.wb_cyc_i(localMemory_wb_cyc_i),
+		.wb_stb_i(localMemory_wb_stb_i),
+		.wb_we_i(localMemory_wb_we_i),
+		.wb_sel_i(localMemory_wb_sel_i),
+		.wb_data_i(localMemory_wb_data_i),
+		.wb_adr_i(localMemory_wb_adr_i),
+		.wb_ack_o(localMemory_wb_ack_o),
+		.wb_stall_o(localMemory_wb_stall_o),
+		.wb_error_o(localMemory_wb_error_o),
+		.wb_data_o(localMemory_wb_data_o),
+		.localMemoryAddress(wbLocalMemoryAddress),
+		.localMemoryByteSelect(wbLocalMemoryByteSelect),
+		.localMemoryWriteEnable(wbLocalMemoryWriteEnable),
+		.localMemoryReadEnable(wbLocalMemoryReadEnable),
+		.localMemoryDataWrite(wbLocalMemoryDataWrite),
+		.localMemoryDataRead(wbLocalMemoryDataRead),
+		.localMemoryBusy(wbLocalMemoryWriteBusy));
+
+endmodule

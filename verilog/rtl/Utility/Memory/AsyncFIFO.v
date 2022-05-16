@@ -127,11 +127,11 @@ module AsyncFIFO
 
 	always @(posedge wclk) begin
 		if (wrst) begin
-			waddr <= 'b0;
-			wsync[0] <= 'b0;
-			wsync[1] <= 'b0;
-			wsync[2] <= 'b0;
-			gwsync <= 'b0;
+			waddr <= ADDR_SIZE'b0;
+			wsync[0] <= ADDR_SIZE'b0;
+			wsync[1] <= ADDR_SIZE'b0;
+			wsync[2] <= ADDR_SIZE'b0;
+			gwsync <= ADDR_SIZE'b0;
 		end else begin
 			gwsync <= waddr_gray;	
 
@@ -147,11 +147,11 @@ module AsyncFIFO
 
 	always @(posedge rclk) begin
 		if (rrst) begin
-			raddr <= 'b0;
-			rsync[0] <= 'b0;
-			rsync[1] <= 'b0;
-			rsync[2] <= 'b0;
-			grsync <= 'b0;
+			raddr <= ADDR_SIZE'b0;
+			rsync[0] <= ADDR_SIZE'b0;
+			rsync[1] <= ADDR_SIZE'b0;
+			rsync[2] <= ADDR_SIZE'b0;
+			grsync <= ADDR_SIZE'b0;
 		end else begin
 			grsync <= raddr_gray;
 

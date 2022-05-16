@@ -35,7 +35,7 @@ module GPIODevice #(
 	// OE register: Default 0x0
 	wire[31:0] oeRegisterOutputData;
 	wire oeRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h000), .DEFAULT(IO_COUNT'h0)) oeRegister(
+	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h000), .DEFAULT(~{IO_COUNT{1'b0}})) oeRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -51,7 +51,7 @@ module GPIODevice #(
 	// Output data register: Default 0x0
 	wire[31:0] outputRegisterOutputData;
 	wire outputRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h004), .DEFAULT(IO_COUNT'h0)) outputRegister(
+	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h004), .DEFAULT({IO_COUNT{1'b0}})) outputRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -67,23 +67,27 @@ module GPIODevice #(
 	// Input data register
 	wire[31:0] inputRegisterOutputData;
 	wire inputRegisterOutputRequest;
+	wire inputRegisterBusBusy_nc;
+	wire[IO_COUNT-1:0] inputRegisterWriteData_nc;
+	wire inputRegisterWriteDataEnable_nc;
+	wire inputRegisterReadDataEnable_nc;
 	DataRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h008)) inputRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
 		.peripheralBus_we(peripheralBus_we),
 		.peripheralBus_oe(peripheralBus_oe),
-		.peripheralBus_busy(),
+		.peripheralBus_busy(inputRegisterBusBusy_nc),
 		.peripheralBus_address(localAddress),
 		.peripheralBus_byteSelect(peripheralBus_byteSelect),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.peripheralBus_dataRead(inputRegisterOutputData),
 		.requestOutput(inputRegisterOutputRequest),
-		.writeData(),
-		.writeData_en(),
+		.writeData(inputRegisterWriteData_nc),
+		.writeData_en(inputRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
 		.readData(gpio_input),
-		.readData_en(),
+		.readData_en(inputRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
 	assign requestOutput = oeRegisterOutputRequest || outputRegisterOutputRequest || inputRegisterOutputRequest;

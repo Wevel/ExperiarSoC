@@ -1,6 +1,4 @@
-module WBPeripheralBusInterface #(
-		parameter ID = 4'h1
-	)(
+module WBPeripheralBusInterface (
 `ifdef USE_POWER_PINS
 		inout vccd1,	// User area 1 1.8V supply
 		inout vssd1,	// User area 1 digital ground
@@ -17,6 +15,7 @@ module WBPeripheralBusInterface #(
 		input wire[23:0] wb_adr_i,
 		output wire wb_ack_o,
 		output wire wb_stall_o,
+		output wire wb_error_o,
 		output wire[31:0] wb_data_o,
 
 		// Peripheral Bus
@@ -94,15 +93,16 @@ module WBPeripheralBusInterface #(
 	// Connect wishbone bus signals
 	assign wb_ack_o = acknowledge;
 	assign wb_stall_o = stall;
+	assign wb_error_o = 1'b0;
 
 	// Connect peripheral bus signals
 	assign peripheralBus_we = state == STATE_WRITE_SINGLE;
 	assign peripheralBus_oe = state == STATE_READ_SINGLE;
 
-	assign peripheralBus_address = state != STATE_IDLE ? currentAddress : 'b0;
+	assign peripheralBus_address = state != STATE_IDLE ? currentAddress : 24'b0;
 	assign peripheralBus_byteSelect = state != STATE_IDLE ? currentByteSelect : 4'b0;
 
-	assign wb_data_o = state == STATE_READ_SINGLE ? peripheralBus_dataRead : 'b0;
-	assign peripheralBus_dataWrite = state == STATE_WRITE_SINGLE ? wb_data_i : 'b0;
+	assign wb_data_o = state == STATE_READ_SINGLE ? peripheralBus_dataRead : 32'b0;
+	assign peripheralBus_dataWrite = state == STATE_WRITE_SINGLE ? wb_data_i : 32'b0;
 
 endmodule
