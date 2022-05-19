@@ -12,7 +12,7 @@ def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 
 def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	outputTypes = ["logs", "reports"]
-	outputSections = ["synthesis", "routing", "placement", "floorplan", "finishing"]
+	outputSections = ["synthesis", "routing", "placement", "floorplan", "signoff"]
 	macroName = os.path.basename(macroPath)
 
 	buildPath = os.path.join(macroPath, "runs", macroName)
@@ -106,7 +106,7 @@ def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[in
 					errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 					errorCount += 1
 			elif re.search("(?<![_\\-.\\w])(violated|violation|violations)(?![_\\-.\\w])", line, re.IGNORECASE) is not None:
-				if "Found 0 net violations" not in line and "violation count 0" not in line and "Number of violations = 0" not in line and "violated: 0" not in line and "violations: 0" not in line:
+				if "No hold violations found." not in line and "Found 0 net violations" not in line and "violation count 0" not in line and "Number of violations = 0" not in line and "violated: 0" not in line and "violations: 0" not in line:
 					errorFile.write(f"{fileName}[{i}]: {line.strip()}\n")
 					violationCount += 1
 			elif "Warning: Calma reading is not undoable!  I hope that's OK." not in line and "already existed before reading GDS!" not in line and "has no liberty cell." not in line and "Parent cell lists instance of" not in line and "Character in instance name converted to underscore." not in line and "is a placeholder, treated as a black box." not in line and "[WARNING GRT-" not in line and "[WARNING TAP-" not in line and "[WARNING ORD-" not in line and "[WARNING STA-" not in line and "[WARNING IFP-" not in line and "[WARNING PSM-" not in line:

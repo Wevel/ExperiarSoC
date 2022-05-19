@@ -1,7 +1,7 @@
 module ExperiarCore (
 `ifdef USE_POWER_PINS
-	inout vccd1,	// User area 1 1.8V supply
-	inout vssd1,	// User area 1 digital ground
+		inout vccd1,	// User area 1 1.8V supply
+		inout vssd1,	// User area 1 digital ground
 `endif
 
 		input wire wb_clk_i,
@@ -42,29 +42,20 @@ module ExperiarCore (
 		output wire localMemory_wb_error_o,
 		output wire[31:0] localMemory_wb_data_o,
 
-		// Flash interface
-		output wire[27:0] flashAddress,
-		output wire[3:0] flashByteSelect,
-		output wire flashWriteEnable,
-		output wire flashReadEnable,
-		output wire[31:0] flashDataWrite,
-		input wire[31:0] flashDataRead,
-		input wire flashBusy,
-
 		// SRAM rw port
 		output wire clk0, // Port clock
-		output wire csb0, // active low chip select
+		output wire[1:0] csb0, // active low chip select
 		output wire web0, // active low write control
 		output wire[3:0] wmask0, // write mask
 		output wire[SRAM_ADDRESS_SIZE-1:0] addr0,
 		output wire[31:0] din0,
-		input  wire[31:0] dout0,
+		input  wire[63:0] dout0,
 
 		// SRAM r port
 		output wire clk1,
-		output wire csb1,
+		output wire[1:0] csb1,
 		output wire[SRAM_ADDRESS_SIZE-1:0] addr1,
-		input  wire[31:0] dout1,
+		input  wire[63:0] dout1,
 
 		// Logic probes
 		output wire[1:0] probe_state,
@@ -81,51 +72,55 @@ module ExperiarCore (
 	
 	localparam SRAM_ADDRESS_SIZE = 9;
 
-	// Memory interface from core
-	wire[31:0] coreMemoryAddress;
-	wire[3:0] coreMemoryByteSelect;
-	wire coreMemoryWriteEnable;
-	wire coreMemoryReadEnable;
-	wire[31:0] coreMemoryDataWrite;
-	wire[31:0] coreMemoryDataRead;
-	wire coreMemoryBusy;
+	// Management
+	// Shortened form of misa register
+	// Modified extensions encounding
+	// Origional Bit | New Bit | Character | Description
+	// --------------|---------|-----------|------------------------------------------------------
+	// 0 			 | 0 	   | A 		   | Atomic extension
+	// 1 			 | 1 	   | B 		   | Tentatively reserved for Bit-Manipulation extension
+	// 2 			 | 2 	   | C 		   | Compressed extension
+	// 3 			 | 3 	   | D 		   | Double-precision floating-point extension
+	// 4 			 | 4 	   | E 		   | RV32E base ISA
+	// 5 			 | 5 	   | F 		   | Single-precision floating-point extension
+	// 6 			 | 6 	   | G 		   | Additional standard extensions present
+	// 7 			 | 7 	   | H 		   | Hypervisor extension
+	// 8 			 | 8 	   | I 		   | RV32I/64I/128I base ISA
+	// 12			 | 9 	   | M 		   | Integer Multiply/Divide extension
+	// 13			 | 10 	   | N 		   | User-level interrupts supported
+	// 16			 | 11 	   | Q 		   | Quad-precision floating-point extension
+	// 18			 | 12 	   | S 		   | Supervisor mode implemented
+	// 20			 | 13 	   | U 		   | User mode implemented
+	localparam CORE_MXL = 2'h1;
+	localparam CORE_EXTENSIONS = 14'b00_0001_0000_0000;
+	localparam CORE_VERSION = 8'h00;
 
-	// Memory interface from core to local memory
-	wire[23:0] coreLocalMemoryAddress;
-	wire[3:0] coreLocalMemoryByteSelect;
-	wire coreLocalMemoryWriteEnable;
-	wire coreLocalMemoryReadEnable;
-	wire[31:0] coreLocalMemoryDataWrite;
-	wire[31:0] coreLocalMemoryDataRead;
-	wire coreLocalMemoryBusy;
+	wire management_run;
+	wire management_writeEnable;
+	wire[3:0] management_byteSelect;
+	wire[15:0] management_address;
+	wire[31:0] management_writeData;
+	wire[31:0] management_readData;
 
-	// Memory interface from core to wb
-	wire[27:0] coreWBAddress;
-	wire[3:0] coreWBByteSelect;
-	wire coreWBWriteEnable;
-	wire coreWBReadEnable;
-	wire[31:0] coreWBDataWrite;
-	wire[31:0] coreWBDataRead;
-	wire coreWBBusy;
+	wire jtag_management_writeEnable;
+	wire jtag_management_readEnable;
+	wire[3:0] jtag_management_byteSelect;
+	wire[19:0] jtag_management_address;
+	wire[31:0] jtag_management_writeData;
+	wire[31:0] jtag_management_readData;
 
-	// Memory interface from wb to local memory
-	wire[23:0] wbLocalMemoryAddress;
-	wire[3:0] wbLocalMemoryByteSelect;
-	wire wbLocalMemoryWriteEnable;
-	wire wbLocalMemoryReadEnable;
-	wire[31:0] wbLocalMemoryDataWrite;
-	wire[31:0] wbLocalMemoryDataRead;
-	wire wbLocalMemoryWriteBusy;
+	wire wb_management_writeEnable;
+	wire wb_management_readEnable;
+	wire[3:0] wb_management_byteSelect;
+	wire[19:0] wb_management_address;
+	wire[31:0] wb_management_writeData;
+	wire[31:0] wb_management_readData;
+	wire wb_management_busy;
 
-	RV32ICore core(
-`ifdef USE_POWER_PINS
-		.vccd1(vccd1),	// User area 1 1.8V power
-		.vssd1(vssd1),	// User area 1 digital ground
-`endif
-
+	JTAG jtag(
 		.clk(wb_clk_i),
 		.rst(wb_rst_i),
-		.coreIndex(coreIndex),
+		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS }),
 		.manufacturerID(manufacturerID),
 		.partID(partID),
 		.versionID(versionID),
@@ -133,13 +128,94 @@ module ExperiarCore (
 		.jtag_tms(jtag_tms),
 		.jtag_tdi(jtag_tdi),
 		.jtag_tdo(jtag_tdo),
-		.memoryAddress(coreMemoryAddress),
-		.memoryByteSelect(coreMemoryByteSelect),
+		.management_writeEnable(jtag_management_writeEnable),
+		.management_readEnable(jtag_management_readEnable),
+		.management_byteSelect(jtag_management_byteSelect),
+		.management_address(jtag_management_address),
+		.management_writeData(jtag_management_writeData),
+		.management_readData(jtag_management_readData),
+		.probe_jtagInstruction(probe_jtagInstruction));
+
+	CoreManagement coreManagement(
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
+		.management_run(management_run),
+		.management_writeEnable(management_writeEnable),
+		.management_address(management_address),
+		.management_writeData(management_writeData),
+		.management_readData(management_readData),
+		.core_errorCode(probe_errorCode),
+		.jtag_management_writeEnable(jtag_management_writeEnable),
+		.jtag_management_readEnable(jtag_management_readEnable),
+		.jtag_management_byteSelect(jtag_management_byteSelect),
+		.jtag_management_address(jtag_management_address),
+		.jtag_management_writeData(jtag_management_writeData),
+		.jtag_management_readData(jtag_management_readData),
+		.wb_management_writeEnable(wb_management_writeEnable),
+		.wb_management_readEnable(wb_management_readEnable),
+		.wb_management_byteSelect(wb_management_byteSelect),
+		.wb_management_address(wb_management_address),
+		.wb_management_writeData(wb_management_writeData),
+		.wb_management_readData(wb_management_readData),
+		.wb_management_busy(wb_management_busy));
+
+	// Core
+	// Memory interface from core
+	wire coreMemoryWriteEnable;
+	wire coreMemoryReadEnable;
+	wire[31:0] coreMemoryAddress;
+	wire[3:0] coreMemoryByteSelect;
+	wire[31:0] coreMemoryDataWrite;
+	wire[31:0] coreMemoryDataRead;
+	wire coreMemoryBusy;
+
+	// Memory interface from core to local memory
+	wire coreLocalMemoryWriteEnable;
+	wire coreLocalMemoryReadEnable;
+	wire[23:0] coreLocalMemoryAddress;
+	wire[3:0] coreLocalMemoryByteSelect;
+	wire[31:0] coreLocalMemoryDataWrite;
+	wire[31:0] coreLocalMemoryDataRead;
+	wire coreLocalMemoryBusy;
+
+	// Memory interface from core to wb
+	wire coreWBWriteEnable;
+	wire coreWBReadEnable;
+	wire[27:0] coreWBAddress;
+	wire[3:0] coreWBByteSelect;
+	wire[31:0] coreWBDataWrite;
+	wire[31:0] coreWBDataRead;
+	wire coreWBBusy;
+
+	// Memory interface from wb to local memory
+	wire wbLocalMemoryWriteEnable;
+	wire wbLocalMemoryReadEnable;
+	wire[23:0] wbLocalMemoryAddress;
+	wire[3:0] wbLocalMemoryByteSelect;
+	wire[31:0] wbLocalMemoryDataWrite;
+	wire[31:0] wbLocalMemoryDataRead;
+	wire wbLocalMemoryBusy;
+
+	RV32ICore core(
+`ifdef USE_POWER_PINS
+		.vccd1(vccd1),	// User area 1 1.8V power
+		.vssd1(vssd1),	// User area 1 digital ground
+`endif
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
 		.memoryWriteEnable(coreMemoryWriteEnable),
 		.memoryReadEnable(coreMemoryReadEnable),
+		.memoryAddress(coreMemoryAddress),
+		.memoryByteSelect(coreMemoryByteSelect),
 		.memoryDataWrite(coreMemoryDataWrite),
 		.memoryDataRead(coreMemoryDataRead),
 		.memoryBusy(coreMemoryBusy),
+		.management_run(management_run),
+		.management_writeEnable(management_writeEnable),
+		.management_byteSelect(management_byteSelect),
+		.management_address(management_address),
+		.management_writeData(management_writeData),
+		.management_readData(management_readData),
 		.probe_state(probe_state),
 		.probe_programCounter(probe_programCounter),
 		.probe_opcode(probe_opcode),
@@ -148,8 +224,7 @@ module ExperiarCore (
 		.probe_takeBranch(probe_takeBranch),
 		.probe_isStore(probe_isStore),
 		.probe_isLoad(probe_isLoad),
-		.probe_isCompressed(probe_isCompressed),
-		.probe_jtagInstruction(probe_jtagInstruction));
+		.probe_isCompressed(probe_isCompressed));
 
 	MemoryController memoryController(
 		.coreAddress(coreMemoryAddress),
@@ -189,14 +264,7 @@ module ExperiarCore (
 		.wbReadEnable(wbLocalMemoryReadEnable),
 		.wbDataWrite(wbLocalMemoryDataWrite),
 		.wbDataRead(wbLocalMemoryDataRead),
-		.wbWriteBusy(wbLocalMemoryWriteBusy),
-		.flashAddress(flashAddress),
-		.flashByteSelect(flashByteSelect),
-		.flashWriteEnable(flashWriteEnable),
-		.flashReadEnable(flashReadEnable),
-		.flashDataWrite(flashDataWrite),
-		.flashDataRead(flashDataRead),
-		.flashBusy(flashBusy),
+		.wbBusy(wbLocalMemoryBusy),
 		.clk0(clk0),
 		.csb0(csb0),
 		.web0(web0),
@@ -249,6 +317,13 @@ module ExperiarCore (
 		.localMemoryReadEnable(wbLocalMemoryReadEnable),
 		.localMemoryDataWrite(wbLocalMemoryDataWrite),
 		.localMemoryDataRead(wbLocalMemoryDataRead),
-		.localMemoryBusy(wbLocalMemoryWriteBusy));
+		.localMemoryBusy(wbLocalMemoryBusy),
+		.management_writeEnable(wb_management_writeEnable),
+		.management_readEnable(wb_management_readEnable),
+		.management_byteSelect(wb_management_byteSelect),
+		.management_address(wb_management_address),
+		.management_writeData(wb_management_writeData),
+		.management_readData(wb_management_readData),
+		.management_busy(wb_management_busy));
 
 endmodule

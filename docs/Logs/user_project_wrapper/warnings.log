@@ -1,67 +1,72 @@
 [WARNING]: Skipping Tap/Decap Insertion.
-[WARNING]: All internal macros will not be connected to power.
-[WARNING]: All internal macros will not be connected to power.
-[WARNING]: All internal macros will not be connected to power.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[169]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[170]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[171]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[172]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[173]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[174]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[175]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[177]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[178]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[179]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[259]: Warnings: 11 unique messages, 14 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[170]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[171]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[172]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[252]: Warnings: 4 unique messages, 7 total
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[169]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[170]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[173]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[174]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[175]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[177]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[178]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[179]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[259]: Warnings: 11 unique messages, 14 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[85]: DEF Read: encountered 10 warnings total.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[926]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[927]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[402]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\25-gdsii-klayout.log[20]: WARNING: no fill config file specified
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\26-spice.log[85]: DEF Read: encountered 10 warnings total.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\27-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\30-drc.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\30-drc.log[420]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[3]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[4]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[5]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[6]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[7]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[8]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[9]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[11]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[12]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[13]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[3]: Warning: Wire ExperiarSoC.\irq_en is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[4]: Warning: Wire ExperiarSoC.\flash_sck is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[5]: Warning: Wire ExperiarSoC.\flash_io1_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[6]: Warning: Wire ExperiarSoC.\flash_io1_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[7]: Warning: Wire ExperiarSoC.\flash_io0_write is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[8]: Warning: Wire ExperiarSoC.\flash_io0_we is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[9]: Warning: Wire ExperiarSoC.\flash_csb is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[11]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[12]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[13]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[170]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[252]: Warnings: 4 unique messages, 7 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[15]: [WARNING PDN-0189] Supply pin vccd1 of instance art is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[16]: [WARNING PDN-0189] Supply pin vssd1 of instance art is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[17]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[18]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[19]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0SRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[20]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0SRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[21]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0SRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[22]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0SRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[23]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[24]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[25]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1SRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[26]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1SRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[27]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1SRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[28]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1SRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[29]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/flash is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[30]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/flash is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[31]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/flashSRAM is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[32]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/flashSRAM is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[33]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/peripherals is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[34]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/peripherals is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[35]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/video is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[36]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/video is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[37]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[38]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM0 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[39]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[40]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM1 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[41]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM2 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[42]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM2 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[43]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM3 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[44]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM3 is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[45]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/wishboneInterconnect is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[46]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/wishboneInterconnect is not connected to any net.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[65]: [WARNING PDN-0110] No via inserted between met4 and met5 at (323.9700, 149.3300) - (327.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[66]: [WARNING PDN-0110] No via inserted between met4 and met5 at (503.9700, 149.3300) - (507.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[67]: [WARNING PDN-0110] No via inserted between met4 and met5 at (683.9700, 149.3300) - (687.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[68]: [WARNING PDN-0110] No via inserted between met4 and met5 at (863.9700, 149.3300) - (867.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[69]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1043.9700, 149.3300) - (1047.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[70]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1223.9700, 149.3300) - (1227.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[71]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1313.9700, 2039.3300) - (1317.0700, 2040.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[72]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1403.9700, 149.3300) - (1407.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[73]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1426.4700, 2691.8300) - (1429.5700, 2693.0000) on vssa2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[74]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1493.9700, 2039.3300) - (1497.0700, 2040.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[75]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1606.4700, 2691.8300) - (1609.5700, 2693.0000) on vssa2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[76]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1673.9700, 2039.3300) - (1677.0700, 2040.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[77]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1786.4700, 2691.8300) - (1789.5700, 2693.0000) on vssa2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[78]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1943.9700, 149.3300) - (1947.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[79]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2123.9700, 149.3300) - (2127.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[80]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 149.3300) - (2307.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[81]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 149.3300) - (2487.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[4]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[5]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[6]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[4]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[5]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[6]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.

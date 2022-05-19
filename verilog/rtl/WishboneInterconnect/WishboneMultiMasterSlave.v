@@ -76,7 +76,7 @@ module WishboneMultiMasterSlave (
 	wire master1Select = currentMaster == 2'h1;
 	wire master2Select = currentMaster == 2'h2;
 	wire master3Select = currentMaster == 2'h3;
-
+	
 	assign slave_cyc_i =  master1Select ? master1_wb_cyc_o : 
 						  master2Select ? master2_wb_cyc_o : 
 						  master3Select ? master3_wb_cyc_o :

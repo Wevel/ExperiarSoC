@@ -7,17 +7,6 @@ module RV32ICore(
 		input wire clk,
 		input wire rst,
 
-		input wire[7:0] coreIndex,
-		input wire[10:0] manufacturerID,
-		input wire[15:0] partID,
-		input wire[3:0] versionID,
-
-		// JTAG interface
-		input wire jtag_tck,
-		input wire jtag_tms,
-		input wire jtag_tdi,
-		output wire jtag_tdo,
-
 		// SRAM interface
 		output wire[31:0] memoryAddress,
 		output wire[3:0] memoryByteSelect,
@@ -26,6 +15,14 @@ module RV32ICore(
 		output wire[31:0] memoryDataWrite,
 		input wire[31:0] memoryDataRead,
 		input wire memoryBusy,
+
+		// Management interface
+		input wire management_run,
+		input wire management_writeEnable,
+		input wire[3:0] management_byteSelect,
+		input wire[15:0] management_address,
+		input wire[31:0] management_writeData,
+		output wire[31:0] management_readData,
 
 		// Logic probes
 		output wire[1:0] probe_state,
@@ -36,32 +33,8 @@ module RV32ICore(
 		output wire probe_takeBranch,
 		output wire probe_isStore,
 		output wire probe_isLoad,
-		output wire probe_isCompressed,
-		output wire[4:0] probe_jtagInstruction
+		output wire probe_isCompressed
     );
-
-
-	// Shortened form of misa register
-	// Modified extensions encounding
-	// Origional Bit | New Bit | Character | Description
-	// --------------|---------|-----------|------------------------------------------------------
-	// 0 			 | 0 	   | A 		   | Atomic extension
-	// 1 			 | 1 	   | B 		   | Tentatively reserved for Bit-Manipulation extension
-	// 2 			 | 2 	   | C 		   | Compressed extension
-	// 3 			 | 3 	   | D 		   | Double-precision floating-point extension
-	// 4 			 | 4 	   | E 		   | RV32E base ISA
-	// 5 			 | 5 	   | F 		   | Single-precision floating-point extension
-	// 6 			 | 6 	   | G 		   | Additional standard extensions present
-	// 7 			 | 7 	   | H 		   | Hypervisor extension
-	// 8 			 | 8 	   | I 		   | RV32I/64I/128I base ISA
-	// 12			 | 9 	   | M 		   | Integer Multiply/Divide extension
-	// 13			 | 10 	   | N 		   | User-level interrupts supported
-	// 16			 | 11 	   | Q 		   | Quad-precision floating-point extension
-	// 18			 | 12 	   | S 		   | Supervisor mode implemented
-	// 20			 | 13 	   | U 		   | User mode implemented
-	localparam CORE_MXL = 2'h1;
-	localparam CORE_EXTENSIONS = 14'b00_0001_0000_0000;
-	localparam CORE_VERSION = 8'h00;
 
 	localparam STATE_HALT 	 = 2'b00;
 	localparam STATE_DEBUG	 = 2'b10;
@@ -74,20 +47,40 @@ module RV32ICore(
 	reg[31:0] currentInstruction;
 	reg[31:0] registers [0:31];
 
-	wire[3:0] currentError = { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
+	// Management control
+	localparam MANAGMENT_ADDRESS_PC 	   = 2'b00;
+	localparam MANAGMENT_ADDRESS_REGISTERS = 2'b01;
+	localparam MANAGMENT_ADDRESS_CSR 	   = 2'b10;
 
-	JTAG jtag(
-		.clk(clk),
-		.rst(rst),
-		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS }),
-		.manufacturerID(manufacturerID),
-		.partID(partID),
-		.versionID(versionID),
-		.jtag_tck(jtag_tck),
-		.jtag_tms(jtag_tms),
-		.jtag_tdi(jtag_tdi),
-		.jtag_tdo(jtag_tdo),
-		.probe_jtagInstruction(probe_jtagInstruction));
+	wire management_writeValid = !management_run && management_writeEnable;
+	wire management_writeProgramCounter = management_writeValid && (management_address[15:14] == MANAGMENT_ADDRESS_PC) && (management_address[13:4] == 10'h000);
+	wire management_writeProgramCounter_set = management_writeProgramCounter && (management_address[3:0] == 4'h0);
+	wire management_writeProgramCounter_jump = management_writeProgramCounter && (management_address[3:0] == 4'h4);
+	wire management_writeProgramCounter_step = management_writeProgramCounter && (management_address[3:0] == 4'h8);
+	wire management_writeRegister = management_writeValid && (management_address[15:14] == MANAGMENT_ADDRESS_REGISTERS) && (management_address[13:7] == 7'h00);
+	//wire management_writeCSR = management_writeValid && management_address[15:14] == MANAGMENT_ADDRESS_CSR;
+
+	wire[4:0] management_registerIndex = management_address[6:2];
+	wire[31:0] management_jumpTarget = programCounter + management_writeData;
+
+	reg[31:0] management_dataOut;
+
+	always @(*) begin
+		case (1'b1)
+			management_writeProgramCounter_set: management_dataOut <= programCounter;
+			management_writeProgramCounter_set: management_dataOut <= registers[management_registerIndex];
+			default: management_dataOut <= 32'b0;
+		endcase
+	end
+
+	assign management_readData = {
+		management_byteSelect[3] ? management_dataOut[31:24] : 8'h00,
+		management_byteSelect[2] ? management_dataOut[23:16] : 8'h00,
+		management_byteSelect[1] ? management_dataOut[15:8]  : 8'h00,
+		management_byteSelect[0] ? management_dataOut[7:0]   : 8'h00
+	};
+
+	wire[3:0] currentError = { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
 
 	// Immediate Decode
 	wire[31:0] imm_I = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[24:21], currentInstruction[20]};
@@ -275,9 +268,15 @@ module RV32ICore(
 			if (!(|currentError)) begin
 				case (state)
 					STATE_FETCH: begin
-						if (memoryReadReady) begin
-							currentInstruction <= memoryDataRead;
-							state <= STATE_EXECUTE;
+						if (management_run || management_writeProgramCounter_step) begin
+							if (memoryReadReady) begin
+								currentInstruction <= memoryDataRead;
+								state <= STATE_EXECUTE;
+							end
+						end else begin
+							if (management_writeProgramCounter_set) programCounter <= { management_writeData[31:1] , 1'b0};
+							else if (management_writeProgramCounter_jump) programCounter <= { management_jumpTarget[31:1] , 1'b0};
+							else if (management_writeRegister) registers[management_registerIndex] <= management_writeData;
 						end
 					end
 

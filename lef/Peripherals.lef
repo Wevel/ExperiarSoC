@@ -12,7 +12,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 134.870 0.000 135.150 4.000 ;
+        RECT 69.090 0.000 69.370 4.000 ;
     END
   END flash_csb
   PIN flash_io0_read
@@ -20,7 +20,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 156.030 0.000 156.310 4.000 ;
+        RECT 97.150 0.000 97.430 4.000 ;
     END
   END flash_io0_read
   PIN flash_io0_we
@@ -28,7 +28,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 176.730 0.000 177.010 4.000 ;
+        RECT 124.750 0.000 125.030 4.000 ;
     END
   END flash_io0_we
   PIN flash_io0_write
@@ -36,7 +36,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 197.430 0.000 197.710 4.000 ;
+        RECT 152.350 0.000 152.630 4.000 ;
     END
   END flash_io0_write
   PIN flash_io1_read
@@ -44,7 +44,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 218.130 0.000 218.410 4.000 ;
+        RECT 180.410 0.000 180.690 4.000 ;
     END
   END flash_io1_read
   PIN flash_io1_we
@@ -52,7 +52,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 239.290 0.000 239.570 4.000 ;
+        RECT 208.010 0.000 208.290 4.000 ;
     END
   END flash_io1_we
   PIN flash_io1_write
@@ -60,7 +60,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 259.990 0.000 260.270 4.000 ;
+        RECT 236.070 0.000 236.350 4.000 ;
     END
   END flash_io1_write
   PIN flash_sck
@@ -68,7 +68,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 280.690 0.000 280.970 4.000 ;
+        RECT 263.670 0.000 263.950 4.000 ;
     END
   END flash_sck
   PIN internal_uart_rx
@@ -76,7 +76,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 10.210 0.000 10.490 4.000 ;
+        RECT 13.890 0.000 14.170 4.000 ;
     END
   END internal_uart_rx
   PIN internal_uart_tx
@@ -84,7 +84,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 30.910 0.000 31.190 4.000 ;
+        RECT 41.490 0.000 41.770 4.000 ;
     END
   END internal_uart_tx
   PIN io_in[0]
@@ -999,52 +999,36 @@ MACRO Peripherals
         RECT 128.890 696.000 129.170 700.000 ;
     END
   END io_out[9]
-  PIN irq_en
-    DIRECTION INPUT ;
-    USE SIGNAL ;
-    PORT
-      LAYER met2 ;
-        RECT 301.850 0.000 302.130 4.000 ;
-    END
-  END irq_en
-  PIN irq_in
-    DIRECTION OUTPUT TRISTATE ;
-    USE SIGNAL ;
-    PORT
-      LAYER met2 ;
-        RECT 322.550 0.000 322.830 4.000 ;
-    END
-  END irq_in
   PIN jtag_tck
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 51.610 0.000 51.890 4.000 ;
+      LAYER met3 ;
+        RECT 496.000 291.080 500.000 291.680 ;
     END
   END jtag_tck
   PIN jtag_tdi
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 72.310 0.000 72.590 4.000 ;
+      LAYER met3 ;
+        RECT 496.000 407.360 500.000 407.960 ;
     END
   END jtag_tdi
   PIN jtag_tdo
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 93.470 0.000 93.750 4.000 ;
+      LAYER met3 ;
+        RECT 496.000 524.320 500.000 524.920 ;
     END
   END jtag_tdo
   PIN jtag_tms
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 114.170 0.000 114.450 4.000 ;
+      LAYER met3 ;
+        RECT 496.000 640.600 500.000 641.200 ;
     END
   END jtag_tms
   PIN probe_blink[0]
@@ -1052,7 +1036,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 496.000 174.800 500.000 175.400 ;
+        RECT 496.000 57.840 500.000 58.440 ;
     END
   END probe_blink[0]
   PIN probe_blink[1]
@@ -1060,11 +1044,11 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 496.000 524.320 500.000 524.920 ;
+        RECT 496.000 174.120 500.000 174.720 ;
     END
   END probe_blink[1]
   PIN vccd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER met4 ;
@@ -1088,7 +1072,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 385.110 0.000 385.390 4.000 ;
+        RECT 346.930 0.000 347.210 4.000 ;
     END
   END vga_b[0]
   PIN vga_b[1]
@@ -1096,7 +1080,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 447.670 0.000 447.950 4.000 ;
+        RECT 430.190 0.000 430.470 4.000 ;
     END
   END vga_b[1]
   PIN vga_g[0]
@@ -1104,7 +1088,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 405.810 0.000 406.090 4.000 ;
+        RECT 374.990 0.000 375.270 4.000 ;
     END
   END vga_g[0]
   PIN vga_g[1]
@@ -1112,7 +1096,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 468.370 0.000 468.650 4.000 ;
+        RECT 458.250 0.000 458.530 4.000 ;
     END
   END vga_g[1]
   PIN vga_hsync
@@ -1120,7 +1104,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 343.250 0.000 343.530 4.000 ;
+        RECT 291.270 0.000 291.550 4.000 ;
     END
   END vga_hsync
   PIN vga_r[0]
@@ -1128,7 +1112,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 426.510 0.000 426.790 4.000 ;
+        RECT 402.590 0.000 402.870 4.000 ;
     END
   END vga_r[0]
   PIN vga_r[1]
@@ -1136,7 +1120,7 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 489.070 0.000 489.350 4.000 ;
+        RECT 485.850 0.000 486.130 4.000 ;
     END
   END vga_r[1]
   PIN vga_vsync
@@ -1144,11 +1128,11 @@ MACRO Peripherals
     USE SIGNAL ;
     PORT
       LAYER met2 ;
-        RECT 363.950 0.000 364.230 4.000 ;
+        RECT 319.330 0.000 319.610 4.000 ;
     END
   END vga_vsync
   PIN vssd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met4 ;
@@ -1967,7 +1951,7 @@ MACRO Peripherals
       LAYER li1 ;
         RECT 5.520 10.795 494.040 688.245 ;
       LAYER met1 ;
-        RECT 5.520 10.640 497.650 688.400 ;
+        RECT 5.520 10.640 497.650 689.480 ;
       LAYER met2 ;
         RECT 6.630 695.720 10.390 696.730 ;
         RECT 11.230 695.720 14.530 696.730 ;
@@ -2082,31 +2066,25 @@ MACRO Peripherals
         RECT 489.170 695.720 492.470 696.730 ;
         RECT 493.310 695.720 497.070 696.730 ;
         RECT 6.080 4.280 497.620 695.720 ;
-        RECT 6.080 3.555 9.930 4.280 ;
-        RECT 10.770 3.555 30.630 4.280 ;
-        RECT 31.470 3.555 51.330 4.280 ;
-        RECT 52.170 3.555 72.030 4.280 ;
-        RECT 72.870 3.555 93.190 4.280 ;
-        RECT 94.030 3.555 113.890 4.280 ;
-        RECT 114.730 3.555 134.590 4.280 ;
-        RECT 135.430 3.555 155.750 4.280 ;
-        RECT 156.590 3.555 176.450 4.280 ;
-        RECT 177.290 3.555 197.150 4.280 ;
-        RECT 197.990 3.555 217.850 4.280 ;
-        RECT 218.690 3.555 239.010 4.280 ;
-        RECT 239.850 3.555 259.710 4.280 ;
-        RECT 260.550 3.555 280.410 4.280 ;
-        RECT 281.250 3.555 301.570 4.280 ;
-        RECT 302.410 3.555 322.270 4.280 ;
-        RECT 323.110 3.555 342.970 4.280 ;
-        RECT 343.810 3.555 363.670 4.280 ;
-        RECT 364.510 3.555 384.830 4.280 ;
-        RECT 385.670 3.555 405.530 4.280 ;
-        RECT 406.370 3.555 426.230 4.280 ;
-        RECT 427.070 3.555 447.390 4.280 ;
-        RECT 448.230 3.555 468.090 4.280 ;
-        RECT 468.930 3.555 488.790 4.280 ;
-        RECT 489.630 3.555 497.620 4.280 ;
+        RECT 6.080 3.555 13.610 4.280 ;
+        RECT 14.450 3.555 41.210 4.280 ;
+        RECT 42.050 3.555 68.810 4.280 ;
+        RECT 69.650 3.555 96.870 4.280 ;
+        RECT 97.710 3.555 124.470 4.280 ;
+        RECT 125.310 3.555 152.070 4.280 ;
+        RECT 152.910 3.555 180.130 4.280 ;
+        RECT 180.970 3.555 207.730 4.280 ;
+        RECT 208.570 3.555 235.790 4.280 ;
+        RECT 236.630 3.555 263.390 4.280 ;
+        RECT 264.230 3.555 290.990 4.280 ;
+        RECT 291.830 3.555 319.050 4.280 ;
+        RECT 319.890 3.555 346.650 4.280 ;
+        RECT 347.490 3.555 374.710 4.280 ;
+        RECT 375.550 3.555 402.310 4.280 ;
+        RECT 403.150 3.555 429.910 4.280 ;
+        RECT 430.750 3.555 457.970 4.280 ;
+        RECT 458.810 3.555 485.570 4.280 ;
+        RECT 486.410 3.555 497.620 4.280 ;
       LAYER met3 ;
         RECT 4.400 695.280 496.000 696.145 ;
         RECT 4.000 689.880 496.000 695.280 ;
@@ -2123,8 +2101,10 @@ MACRO Peripherals
         RECT 4.400 653.120 496.000 654.520 ;
         RECT 4.000 647.720 496.000 653.120 ;
         RECT 4.400 646.320 496.000 647.720 ;
-        RECT 4.000 640.920 496.000 646.320 ;
-        RECT 4.400 639.520 496.000 640.920 ;
+        RECT 4.000 641.600 496.000 646.320 ;
+        RECT 4.000 640.920 495.600 641.600 ;
+        RECT 4.400 640.200 495.600 640.920 ;
+        RECT 4.400 639.520 496.000 640.200 ;
         RECT 4.000 634.120 496.000 639.520 ;
         RECT 4.400 632.720 496.000 634.120 ;
         RECT 4.000 626.640 496.000 632.720 ;
@@ -2192,8 +2172,10 @@ MACRO Peripherals
         RECT 4.000 417.200 496.000 422.600 ;
         RECT 4.400 415.800 496.000 417.200 ;
         RECT 4.000 409.720 496.000 415.800 ;
-        RECT 4.400 408.320 496.000 409.720 ;
-        RECT 4.000 402.920 496.000 408.320 ;
+        RECT 4.400 408.360 496.000 409.720 ;
+        RECT 4.400 408.320 495.600 408.360 ;
+        RECT 4.000 406.960 495.600 408.320 ;
+        RECT 4.000 402.920 496.000 406.960 ;
         RECT 4.400 401.520 496.000 402.920 ;
         RECT 4.000 396.120 496.000 401.520 ;
         RECT 4.400 394.720 496.000 396.120 ;
@@ -2225,8 +2207,10 @@ MACRO Peripherals
         RECT 4.400 303.600 496.000 305.000 ;
         RECT 4.000 298.200 496.000 303.600 ;
         RECT 4.400 296.800 496.000 298.200 ;
-        RECT 4.000 290.720 496.000 296.800 ;
-        RECT 4.400 289.320 496.000 290.720 ;
+        RECT 4.000 292.080 496.000 296.800 ;
+        RECT 4.000 290.720 495.600 292.080 ;
+        RECT 4.400 290.680 495.600 290.720 ;
+        RECT 4.400 289.320 496.000 290.680 ;
         RECT 4.000 283.920 496.000 289.320 ;
         RECT 4.400 282.520 496.000 283.920 ;
         RECT 4.000 277.120 496.000 282.520 ;
@@ -2259,9 +2243,9 @@ MACRO Peripherals
         RECT 4.400 184.600 496.000 186.000 ;
         RECT 4.000 179.200 496.000 184.600 ;
         RECT 4.400 177.800 496.000 179.200 ;
-        RECT 4.000 175.800 496.000 177.800 ;
-        RECT 4.000 174.400 495.600 175.800 ;
-        RECT 4.000 171.720 496.000 174.400 ;
+        RECT 4.000 175.120 496.000 177.800 ;
+        RECT 4.000 173.720 495.600 175.120 ;
+        RECT 4.000 171.720 496.000 173.720 ;
         RECT 4.400 170.320 496.000 171.720 ;
         RECT 4.000 164.920 496.000 170.320 ;
         RECT 4.400 163.520 496.000 164.920 ;
@@ -2294,8 +2278,10 @@ MACRO Peripherals
         RECT 4.000 67.000 496.000 72.400 ;
         RECT 4.400 65.600 496.000 67.000 ;
         RECT 4.000 60.200 496.000 65.600 ;
-        RECT 4.400 58.800 496.000 60.200 ;
-        RECT 4.000 53.400 496.000 58.800 ;
+        RECT 4.400 58.840 496.000 60.200 ;
+        RECT 4.400 58.800 495.600 58.840 ;
+        RECT 4.000 57.440 495.600 58.800 ;
+        RECT 4.000 53.400 496.000 57.440 ;
         RECT 4.400 52.000 496.000 53.400 ;
         RECT 4.000 45.920 496.000 52.000 ;
         RECT 4.400 44.520 496.000 45.920 ;
@@ -2312,12 +2298,12 @@ MACRO Peripherals
         RECT 4.000 4.440 496.000 9.840 ;
         RECT 4.400 3.575 496.000 4.440 ;
       LAYER met4 ;
-        RECT 34.335 72.935 97.440 686.625 ;
-        RECT 99.840 72.935 174.240 686.625 ;
-        RECT 176.640 72.935 251.040 686.625 ;
-        RECT 253.440 72.935 327.840 686.625 ;
-        RECT 330.240 72.935 404.640 686.625 ;
-        RECT 407.040 72.935 409.105 686.625 ;
+        RECT 23.295 33.495 97.440 686.625 ;
+        RECT 99.840 33.495 174.240 686.625 ;
+        RECT 176.640 33.495 251.040 686.625 ;
+        RECT 253.440 33.495 327.840 686.625 ;
+        RECT 330.240 33.495 404.640 686.625 ;
+        RECT 407.040 33.495 411.865 686.625 ;
   END
 END Peripherals
 END LIBRARY

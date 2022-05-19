@@ -20,22 +20,18 @@ module Video (
 
 		// Video SRAM rw port
 		output wire sram_clk0,
-		output wire sram0_csb0,
-		output wire sram1_csb0,
+		output wire[3:0] sram_csb0,
 		output wire sram_web0,
 		output wire[3:0] sram_wmask0,
 		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr0,
 		output wire[31:0] sram_din0,
-		input wire[31:0] sram0_dout0,
-		input wire[31:0] sram1_dout0,
+		input wire[127:0] sram_dout0,
 
 		// Video SRAM r port
 		output wire sram_clk1,
-		output wire sram0_csb1,
-		output wire sram1_csb1,
+		output wire[3:0] sram_csb1,
 		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr1,
-		input wire[31:0] sram0_dout1,
-		input wire[31:0] sram1_dout1,
+		input wire[127:0] sram_dout1,
 
 		// VGA
 		//input wire vga_clk,
@@ -83,7 +79,7 @@ module Video (
 		.peripheralBus_dataRead(peripheralBus_dataRead),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite));
 	
-	wire[SRAM_ADDRESS_SIZE+2:0] vga_address;
+	wire[SRAM_ADDRESS_SIZE+3:0] vga_address;
 	wire[31:0] vga_data;
 
 	wire videoMemoryBusBusy;
@@ -108,25 +104,21 @@ module Video (
 		.video_address(vga_address),
 		.video_data(vga_data),
 		.sram_clk0(sram_clk0),
-		.sram0_csb0(sram0_csb0),
-		.sram0_csb1(sram0_csb1),
+		.sram_csb0(sram_csb0),
 		.sram_web0(sram_web0),
 		.sram_wmask0(sram_wmask0),
 		.sram_addr0(sram_addr0),
 		.sram_din0(sram_din0),
-		.sram0_dout0(sram0_dout0),
-		.sram1_dout0(sram1_dout0),
+		.sram_dout0(sram_dout0),
 		.sram_clk1(sram_clk1),
-		.sram1_csb0(sram1_csb0),
-		.sram1_csb1(sram1_csb1),
+		.sram_csb1(sram_csb1),
 		.sram_addr1(sram_addr1),
-		.sram0_dout1(sram0_dout1),
-		.sram1_dout1(sram1_dout1));
+		.sram_dout1(sram_dout1));
 
 	wire vgaBusBusy;
 	wire[31:0] vgaDataRead;
 	wire vgaRequestOutput;
-	VGA vga(
+	VGA #(.ADDRESS_BITS(SRAM_ADDRESS_SIZE + 4)) vga(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground

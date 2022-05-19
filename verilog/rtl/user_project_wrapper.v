@@ -113,6 +113,13 @@ module user_project_wrapper #(
 	wire caravel_uart_rx;
 	wire caravel_uart_tx;
 
+	// Configuration
+	wire[7:0] core0Index;
+	wire[7:0] core1Index;
+	wire[10:0] manufacturerID;
+	wire[15:0] partID;
+	wire[3:0] versionID;
+
 	ExperiarSoC experiarSoC(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -137,7 +144,12 @@ module user_project_wrapper #(
 		.caravel_uart_tx(caravel_uart_tx),
 		.la_data_in(la_data_in),
 		.la_data_out(la_data_out),
-		.la_oenb(la_oenb));
+		.la_oenb(la_oenb),
+		.core0Index(core0Index),
+		.core1Index(core1Index),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID));
 
 	CaravelHost caravelHost(
 `ifdef USE_POWER_PINS
@@ -166,7 +178,12 @@ module user_project_wrapper #(
 		.caravel_wb_data_i(caravel_wb_data_i),
 		// Swap Tx and Rx pins, as these are with reference to the interface
 		.caravel_uart_rx(caravel_uart_tx),
-		.caravel_uart_tx(caravel_uart_rx));
+		.caravel_uart_tx(caravel_uart_rx),
+		.core0Index(core0Index),
+		.core1Index(core1Index),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID));
 
 	// Add dumby module for art
 	wire dumyPin;

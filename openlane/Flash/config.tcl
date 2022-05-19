@@ -9,7 +9,10 @@ set ::env(DESIGN_NAME) Flash
 
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
-	$script_dir/../../verilog/rtl/Flash/Flash_top.v"
+	$script_dir/../../verilog/rtl/Flash/Flash_top.v \
+	$script_dir/../../verilog/rtl/Flash/FlashBuffer.v \
+	$script_dir/../../verilog/rtl/Flash/QSPIDevice.v \
+	$script_dir/../../verilog/rtl/Flash/WBFlashInterface.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0
@@ -23,7 +26,7 @@ set ::env(PL_TIME_DRIVEN) 0
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 200 500"
+set ::env(DIE_AREA) "0 0 600 200"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"

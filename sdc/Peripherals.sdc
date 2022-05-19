@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Sat May 14 21:10:16 2022
+# Thu May 19 20:05:22 2022
 ###############################################################################
 current_design Peripherals
 ###############################################################################
@@ -55,7 +55,6 @@ set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[7]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[8]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_in[9]}]
-set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {irq_en}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tdo}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vga_b[0]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vga_b[1]}]
@@ -208,7 +207,6 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[7]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[8]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io_out[9]}]
-set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {irq_in}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tck}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tdi}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tms}]
@@ -255,7 +253,6 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wb
 set_load -pin_load 0.0334 [get_ports {flash_io0_read}]
 set_load -pin_load 0.0334 [get_ports {flash_io1_read}]
 set_load -pin_load 0.0334 [get_ports {internal_uart_tx}]
-set_load -pin_load 0.0334 [get_ports {irq_in}]
 set_load -pin_load 0.0334 [get_ports {jtag_tck}]
 set_load -pin_load 0.0334 [get_ports {jtag_tdi}]
 set_load -pin_load 0.0334 [get_ports {jtag_tms}]
@@ -379,7 +376,6 @@ set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_ris
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {flash_io1_write}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {flash_sck}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {internal_uart_rx}]
-set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {irq_en}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {jtag_tdo}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {vga_hsync}]
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin {Y} -input_transition_rise 0.0000 -input_transition_fall 0.0000 [get_ports {vga_vsync}]

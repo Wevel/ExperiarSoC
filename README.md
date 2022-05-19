@@ -7,13 +7,13 @@ RISC-V SoC designed for the Efabless Open MPW Program.
 
 - Dual RV32I cores
 - Per core SRAM
+- JTAG interface
 - External flash controller
-- Larger shared block SRAM
-- VGA output using frame buffer in block SRAM
-- 4x UART ports + 1 internal to caravel
-- 2x SPI ports
-- 4x PWM counters with 4x seperate outputs
-- DMA for UART peripheral
+- Shared video SRAM
+- Configurable VGA output
+- 3x UART ports + 1 internal to caravel
+- 1x SPI ports
+- 4x PWM counters with 4x seperate outputs (2 are internal read only)
 
 # Memory Map
 
@@ -24,11 +24,10 @@ RISC-V SoC designed for the Efabless Open MPW Program.
 ![Experiar SoC Macro Layout](docs/Design/MacrosPlacement.png "Experiar SoC Macro Layout")
 
 # ToDo
+- Get it to build
 - Flash controller
-- DMA
-- Block SRAM
-- VGA
-- Multi core controller
+- JTAG core managment controller
+- CSRs
 - Test
 - Fix all of the errors
 

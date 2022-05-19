@@ -49,7 +49,6 @@ set ::env(CLOCK_PERIOD) "25"
 ## Internal Macros
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
-	configuration vccd1 vssd1 \
 	caravelHost vccd1 vssd1 \
 	wishboneInterconnect vccd1 vssd1 \
 	core0 vccd1 vssd1 \
@@ -70,7 +69,6 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
 	$script_dir/../../verilog/rtl/Art/Art_top.v \
 	$script_dir/../../verilog/rtl/CaravelHost/CaravelHost_top.v \
-	$script_dir/../../verilog/rtl/Configuration/Configuration_top.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v \
 	$script_dir/../../verilog/rtl/Flash/Flash_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/Peripherals_top.v \
@@ -81,7 +79,6 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
 set ::env(EXTRA_LEFS) "\
 	$script_dir/../../lef/Art.lef \
 	$script_dir/../../lef/CaravelHost.lef \
-	$script_dir/../../lef/Configuration.lef \
 	$script_dir/../../lef/ExperiarCore.lef \
 	$script_dir/../../lef/Flash.lef \
 	$script_dir/../../lef/Peripherals.lef \
@@ -92,7 +89,6 @@ set ::env(EXTRA_LEFS) "\
 set ::env(EXTRA_GDS_FILES) "\
 	$script_dir/../../gds/Art.gds \
 	$script_dir/../../gds/CaravelHost.gds \
-	$script_dir/../../gds/Configuration.gds \
 	$script_dir/../../gds/ExperiarCore.gds \
 	$script_dir/../../gds/Flash.gds \
 	$script_dir/../../gds/Peripherals.gds \
@@ -101,27 +97,69 @@ set ::env(EXTRA_GDS_FILES) "\
 	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/gds/sky130_sram_2kbyte_1rw1r_32x512_8.gds"
 
 # Exclude regions for Art and SRAM
+set ::env(GLB_RT_OBS) "\
+	li1  750 2250 1166.54 2933.1,\
+ 	met1 750 2250 1166.54 2933.1,\
+ 	met2 750 2250 1166.54 2933.1,\
+ 	met3 750 2250 1166.54 2933.1,\
+  	li1  200 2250  616.54 2933.1,\
+  	met1 200 2250  616.54 2933.1,\
+  	met2 200 2250  616.54 2933.1,\
+  	met3 200 2250  616.54 2933.1,\
+  	li1  750  160 1433.1   576.54,\
+  	met1 750  160 1433.1   576.54,\
+  	met2 750  160 1433.1   576.54,\
+  	met3 750  160 1433.1   576.54,\
+  	li1  200  160  883.1   576.54,\
+  	met1 200  160  883.1   576.54,\
+  	met2 200  160  883.1   576.54,\
+  	met3 200  160  883.1   576.54,\
+ 	li1  1970 1900 2653.1  2316.54,\
+ 	met1 1970 1900 2653.1  2316.54,\
+ 	met2 1970 1900 2653.1  2316.54,\
+ 	met3 1970 1900 2653.1  2316.54,\
+ 	li1  1970 2440 2653.1  2856.54,\
+ 	met1 1970 2440 2653.1  2856.54,\
+ 	met2 1970 2440 2653.1  2856.54,\
+ 	met3 1970 2440 2653.1  2856.54,\
+ 	li1  1970 2970 2653.1  3386.54,\
+ 	met1 1970 2970 2653.1  3386.54,\
+ 	met2 1970 2970 2653.1  3386.54,\
+ 	met3 1970 2970 2653.1  3386.54,\
+ 	li1  1366 2703 1782.54 3386.1,\
+ 	met1 1366 2703 1782.54 3386.1,\
+ 	met2 1366 2703 1782.54 3386.1,\
+ 	met3 1366 2703 1782.54 3386.1,\
+ 	li1  1930  160 2613.1   576.54,\
+ 	met1 1930  160 2613.1   576.54,\
+ 	met2 1930  160 2613.1   576.54,\
+ 	met3 1930  160 2613.1   576.54,\
+	li1  340 3090 1090 3390,\
+	met1 340 3090 1090 3390,\
+	met2 340 3090 1090 3390,\
+	met3 340 3090 1090 3390"
+
 #set ::env(GLB_RT_OBS) "\
-	li1  400 175 1083.1 591.54,\
-	met1 400 175 1083.1 591.54,\
-	met2 400 175 1083.1 591.54,\
-	met3 400 175 1083.1 591.54,\
-	li1  400 2100 1083.1 2516.54,\
-	met1 400 2100 1083.1 2516.54,\
-	met2 400 2100 1083.1 2516.54,\
-	met3 400 2100 1083.1 2516.54,\
-	li1  1870 2050 2553.1 2466.54,\
-	met1 1870 2050 2553.1 2466.54,\
-	met2 1870 2050 2553.1 2466.54,\
-	met3 1870 2050 2553.1 2466.54,\
-	li1  1870 2600 2553.1 3016.54,\
-	met1 1870 2600 2553.1 3016.54,\
-	met2 1870 2600 2553.1 3016.54,\
-	met3 1870 2600 2553.1 3016.54,\
-	li1  100 2700 600 3200,\
-	met1 100 2700 600 3200,\
-	met2 100 2700 600 3200,\
-	met3 100 2700 600 3200"
+#	li1   400  175 683.1 416.54,\
+#	met1  400  175 683.1 416.54,\
+#	met2  400  175 683.1 416.54,\
+#	met3  400  175 683.1 416.54,\
+#	li1   400 2100 683.1 416.54,\
+#	met1  400 2100 683.1 416.54,\
+#	met2  400 2100 683.1 416.54,\
+#	met3  400 2100 683.1 416.54,\
+#	li1  1870 2050 683.1 416.54,\
+#	met1 1870 2050 683.1 416.54,\
+#	met2 1870 2050 683.1 416.54,\
+#	met3 1870 2050 683.1 416.54,\
+#	li1  1870 2600 683.1 416.54,\
+#	met1 1870 2600 683.1 416.54,\
+#	met2 1870 2600 683.1 416.54,\
+#	met3 1870 2600 683.1 416.54,\
+#	li1   100 2700 500   500,\
+#	met1  100 2700 500   500,\
+#	met2  100 2700 500   500,\
+#	met3  100 2700 500   500"
 
 # Allow top level to use metal4 for routing
 set ::env(RT_MAX_LAYER) {met5}
@@ -131,7 +169,7 @@ set ::env(RT_MAX_LAYER) {met5}
 
 # disable pdn check nodes becuase it hangs with multiple power domains.
 # any issue with pdn connections will be flagged with LVS so it is not a critical check.
-set ::env(FP_PDN_CHECK_NODES) 0
+set ::env(FP_PDN_CHECK_NODES) 1
 
 # The following is because there are no std cells in the example wrapper project.
 set ::env(SYNTH_TOP_LEVEL) 1
@@ -156,3 +194,8 @@ set ::env(CLOCK_TREE_SYNTH) 0
 # Disable running XOR tests as it is very slow
 # This should be reenabled before submission
 set ::env(RUN_KLAYOUT_XOR) 0
+
+#set ::env(GLB_RT_ADJUSTMENT) 0.25
+
+#set ::env(GLB_RT_OVERFLOW_ITERS) 100
+#set ::env(GLB_RT_ALLOW_CONGESTION) 1

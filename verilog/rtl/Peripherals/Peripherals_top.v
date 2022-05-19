@@ -44,8 +44,8 @@ module Peripherals (
 		output wire flash_io1_read,
 
 		// IRQ
-		input wire irq_en,
-		output wire irq_in,
+		// input wire irq_en,
+		// output wire irq_in,
 
 		// VGA
 		input wire[1:0] vga_r,
@@ -57,6 +57,9 @@ module Peripherals (
 		// Logic Analyzer Signals
 		output wire[1:0] probe_blink
 	);
+
+	wire irq_en = 1'b0;
+	wire irq_in;
 
 	wire peripheralBus_we;
 	wire peripheralBus_oe;

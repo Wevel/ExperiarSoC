@@ -1,25 +1,42 @@
 0x0xxx_xxxx: Per core local memory
-	0x0000_0xxx: Flash
-	0x0100_0xxx: SRAM
-		0x0100_0xxx: Bank 0
+	0x0000_0000-0x007F_FFFF: SRAM
 0x1xxx_xxxx: Wishbone bus
-	0x10xx_xxxx: Slave 0 (Core 0 SRAM)
-		0x1000_0xxx: Bank 0
-	0x11xx_xxxx: Slave 1 (Core 1 SRAM)
-		0x1100_0xxx: Bank 0
+	0x10xx_xxxx: Slave 0 (Core 0 local memory)
+		0x1000_0000-0x107F_FFFF: SRAM
+		0x1080_xxxx: Management
+			0x1080_xxxx: Control
+				0x1080_0000: Management control
+				0x1080_0004: Core state
+			0x1081_xxxx: Core registers
+				0x1081_0000: PC
+				0x1081_0004: Relative Jump
+				0x1081_0008: Step
+				0x1081_1000-0x1081_101F: Register
+				0x1081_2000-0x1081_2FFF: CSRs			
+	0x11xx_xxxx: Slave 1 (Core 1 local memory)
+		0x1100_0000-0x117F_FFFF: SRAM
+		0x1180_xxxx: Management
+			0x1180_xxxx: Control
+				0x1180_0000: Management control
+				0x1180_0004: Core state
+			0x1181_xxxx: Core registers
+				0x1181_0000: PC
+				0x1181_0004: Relative Jump
+				0x1181_0008: Step
+				0x1181_1000-0x1181_101F: Register
+				0x1181_2000-0x1181_2FFF: CSRs		
 	0x12xx_xxxx: Slave 2 (Video SRAM)
-		0x1200_0xxx: Bank 0
-		0x1200_1xxx: Bank 1
-		0x1201_0xxx: VGA Configuration
-			0x1201_0000: Configuration register
-			0x1201_0010: Horizontal visible area compare
-			0x1201_0014: Horizontal front porch compare
-			0x1201_0018: Horizontal sync pulse compare
-			0x1201_001C: Horizontal whole line compare
-			0x1201_0020: Vertical visible area compare
-			0x1201_0024: Vertical front porch compare
-			0x1201_0028: Vertical sync pulse compare
-			0x1201_002C: Vertical whole line compare			
+		0x1200_0000-0x127F_FFFF
+		0x1280_0xxx: VGA Configuration
+			0x1280_0000: Configuration register
+			0x1280_0010: Horizontal visible area compare
+			0x1280_0014: Horizontal front porch compare
+			0x1280_0018: Horizontal sync pulse compare
+			0x1280_001C: Horizontal whole line compare
+			0x1280_0020: Vertical visible area compare
+			0x1280_0024: Vertical front porch compare
+			0x1280_0028: Vertical sync pulse compare
+			0x1280_002C: Vertical whole line compare			
 	0x13xx_xxxx: Slave 3 (Peripherals)
 		0x1300_xxxx: Peripheral 0 (UART)
 			0x1300_0xxx: Peripheral configuration
@@ -30,32 +47,24 @@
 				0x1300_1008: Status register
 				0x1300_1010: Rx register
 				0x1300_1014: Tx register
-				0x1300_1020: DMA configuration
-				0x1300_1024: DMA base address
 			0x1300_2xxx: Device 1
 				0x1300_2000: Configuration register
 				0x1300_2004: Clear register
 				0x1300_2008: Status register
 				0x1300_2010: Rx register
 				0x1300_2014: Tx register
-				0x1300_2020: DMA configuration
-				0x1300_2024: DMA base address
 			0x1300_3xxx: Device 2
 				0x1300_3000: Configuration register
 				0x1300_3004: Clear register
 				0x1300_3008: Status register
 				0x1300_3010: Rx register
 				0x1300_3014: Tx register
-				0x1300_3020: DMA configuration
-				0x1300_3024: DMA base address
 			0x1300_4xxx: Device 3
 				0x1300_4000: Configuration register
 				0x1300_4004: Clear register
 				0x1300_4008: Status register
 				0x1300_4010: Rx register
 				0x1300_4014: Tx register
-				0x1300_4020: DMA configuration
-				0x1300_4024: DMA base address
 		0x1301_xxxx: Peripheral 1 (SPI)
 			0x1301_0xxx: Peripheral configuration
 				0x1301_0000: Peripheral configuration register (Might not exist)
@@ -107,6 +116,8 @@
 				0x1303_2000: OutputEnable
 				0x1303_2004: Output
 				0x1303_2008: Input
+	0x14xx_xxxx: Slave 4 (Flash)
+		0x1400_00000-0x1400_0FFFF: Flash cache
 	0x1Fxx_xxxx: Reserved for caravel interface
 		Caravel accessed everything with 0x3xxx_xxxx, but has its own UART interface at 0x3F00_0000 so would not be able to access 0x1Fxx_xxxx
 0x3xxx_xxxx: Reserved for caravel interface
@@ -114,6 +125,7 @@
 	0x31xx_xxxx: SoC wishbone slave 1 (Core 1 SRAM)
 	0x32xx_xxxx: SoC wishbone slave 2 (Block SRAM)
 	0x33xx_xxxx: SoC wishbone slave 3 (Peripherals)
+	0x33xx_xxxx: SoC wishbone slave 3 (Flash)
 	0x3F00_xxxx: Peripheral 0 (UART)
 		0x3F00_0xxx: Peripheral configuration
 			0x3000_0000: Peripheral configuration register (Might not exist)

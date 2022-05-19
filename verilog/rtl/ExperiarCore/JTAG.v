@@ -13,14 +13,22 @@ module JTAG (
 		input wire jtag_tdi,
 		output wire jtag_tdo,
 
-		// // Core interface
-		// output wire dataAvaliable,
-		// output wire[WIDTH:0] dataRead,
-		// input wire[WIDTH:0] dataWrite,
-		// input wire writeEnable
+		// Management interface
+		output wire management_writeEnable,
+		output wire management_readEnable,
+		output wire[3:0] management_byteSelect,
+		output wire[19:0] management_address,
+		output wire[31:0] management_writeData,
+		input wire[31:0] management_readData,
 
 		output wire[4:0] probe_jtagInstruction
 	);
+
+	assign management_writeEnable = 1'b0;
+	assign management_writeEnable = 1'b0;
+	assign management_byteSelect = 4'b1111;
+	assign management_address = 20'h0_0000;
+	assign management_writeData = 32'b0;
 	
 	wire[31:0] idcode = { versionID, partID, manufacturerID, 1'b1 };
 

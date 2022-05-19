@@ -1,4 +1,6 @@
-module VGA (
+module VGA #(
+		parameter ADDRESS_BITS = 13
+	)(
 `ifdef USE_POWER_PINS
 		inout vccd1,	// User area 1 1.8V supply
 		inout vssd1,	// User area 1 digital ground
@@ -18,7 +20,7 @@ module VGA (
 
 		// Memory interface
 		input wire vga_clk,
-		output reg[VERTICAL_BITS+HORIZONTAL_BITS+1:0] vga_address,
+		output reg[ADDRESS_BITS-1:0] vga_address,
 		input wire[31:0] vga_data,
 
 		// VGA output
@@ -32,7 +34,7 @@ module VGA (
 	// MAX_ROW_WIDTH = 2^ROW_BITS = 64;
 	// MAX_COLUMN_WIDTH = 2^COLUMN_BITS * (MAX_SUB_PIXEL_VALUE+1) = 80;
 
-	localparam VERTICAL_BITS = 6;
+	localparam VERTICAL_BITS = 7;
 	localparam HORIZONTAL_BITS = 4;
 	localparam MAX_SUB_PIXEL_VALUE = 3'h4;
 
@@ -342,7 +344,7 @@ module VGA (
 			// Directly use the pixel index to access memory
 			// This better uses memory, but is also slightly more complex for the cpu to write to the frame buffer
 			DRAW_MODE_RAW_TIGHT_MEM: begin
-				vga_address <= { raw_directPixelCounter[VERTICAL_BITS+HORIZONTAL_BITS-1:0], 2'b00 };
+				vga_address <= { raw_directPixelCounter[ADDRESS_BITS-1:0], 2'b00 };
 			end
 
 			// TODO: Use some portion of memory to store colours, then index them with the frame buffer

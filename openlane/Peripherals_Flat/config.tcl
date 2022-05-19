@@ -44,7 +44,7 @@ set ::env(PL_TIME_DRIVEN) 0
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 500 700"
+set ::env(DIE_AREA) "0 0 600 700"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"

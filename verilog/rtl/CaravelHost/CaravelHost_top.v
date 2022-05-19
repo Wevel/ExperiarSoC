@@ -30,11 +30,24 @@ module CaravelHost (
 		
 		// Caravel UART
 		input wire caravel_uart_rx,
-		output wire caravel_uart_tx
+		output wire caravel_uart_tx,
+
+		// Configuration constants
+		output wire[7:0] core0Index,
+		output wire[7:0] core1Index,
+		output wire[10:0] manufacturerID,
+		output wire[15:0] partID,
+		output wire[3:0] versionID
 	);
 
 	localparam USER_SPACE_ADDRESS = 4'h3;
 	localparam HOST_PERIPHERAL_ADDRESS = 4'hF;
+
+	assign core0Index = 8'h00;
+	assign core1Index = 8'h01;
+	assign manufacturerID = 11'h000;
+	assign partID = 16'hCD55;
+	assign versionID = 4'h0;
 
 	wire userSpaceEnable = wbs_adr_i[31:28] == USER_SPACE_ADDRESS;
 	reg hostConfigEnable = 1'b0;

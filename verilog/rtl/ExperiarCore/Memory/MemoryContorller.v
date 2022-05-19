@@ -15,7 +15,7 @@ module MemoryController (
 		output wire localMemoryReadEnable,
 		output wire[31:0] localMemoryDataWrite,
 		input wire[31:0] localMemoryDataRead,
-		input wire localMemoryBusy;
+		input wire localMemoryBusy,
 
 		// WB interface
 		output wire[27:0] wbAddress,

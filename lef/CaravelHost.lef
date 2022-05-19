@@ -839,8 +839,352 @@ MACRO CaravelHost
         RECT 18.490 346.000 18.770 350.000 ;
     END
   END caravel_wb_we_o
+  PIN core0Index[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 3.440 4.000 4.040 ;
+    END
+  END core0Index[0]
+  PIN core0Index[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 10.240 4.000 10.840 ;
+    END
+  END core0Index[1]
+  PIN core0Index[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 17.720 4.000 18.320 ;
+    END
+  END core0Index[2]
+  PIN core0Index[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 25.200 4.000 25.800 ;
+    END
+  END core0Index[3]
+  PIN core0Index[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 32.680 4.000 33.280 ;
+    END
+  END core0Index[4]
+  PIN core0Index[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 40.160 4.000 40.760 ;
+    END
+  END core0Index[5]
+  PIN core0Index[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 47.640 4.000 48.240 ;
+    END
+  END core0Index[6]
+  PIN core0Index[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 55.120 4.000 55.720 ;
+    END
+  END core0Index[7]
+  PIN core1Index[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 62.600 4.000 63.200 ;
+    END
+  END core1Index[0]
+  PIN core1Index[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 70.080 4.000 70.680 ;
+    END
+  END core1Index[1]
+  PIN core1Index[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 77.560 4.000 78.160 ;
+    END
+  END core1Index[2]
+  PIN core1Index[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 85.040 4.000 85.640 ;
+    END
+  END core1Index[3]
+  PIN core1Index[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 92.520 4.000 93.120 ;
+    END
+  END core1Index[4]
+  PIN core1Index[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 100.000 4.000 100.600 ;
+    END
+  END core1Index[5]
+  PIN core1Index[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 107.480 4.000 108.080 ;
+    END
+  END core1Index[6]
+  PIN core1Index[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 114.960 4.000 115.560 ;
+    END
+  END core1Index[7]
+  PIN manufacturerID[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 122.440 4.000 123.040 ;
+    END
+  END manufacturerID[0]
+  PIN manufacturerID[10]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 196.560 4.000 197.160 ;
+    END
+  END manufacturerID[10]
+  PIN manufacturerID[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 129.920 4.000 130.520 ;
+    END
+  END manufacturerID[1]
+  PIN manufacturerID[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 137.400 4.000 138.000 ;
+    END
+  END manufacturerID[2]
+  PIN manufacturerID[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 144.880 4.000 145.480 ;
+    END
+  END manufacturerID[3]
+  PIN manufacturerID[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 152.360 4.000 152.960 ;
+    END
+  END manufacturerID[4]
+  PIN manufacturerID[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 159.840 4.000 160.440 ;
+    END
+  END manufacturerID[5]
+  PIN manufacturerID[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 167.320 4.000 167.920 ;
+    END
+  END manufacturerID[6]
+  PIN manufacturerID[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 174.800 4.000 175.400 ;
+    END
+  END manufacturerID[7]
+  PIN manufacturerID[8]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 181.600 4.000 182.200 ;
+    END
+  END manufacturerID[8]
+  PIN manufacturerID[9]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 189.080 4.000 189.680 ;
+    END
+  END manufacturerID[9]
+  PIN partID[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 204.040 4.000 204.640 ;
+    END
+  END partID[0]
+  PIN partID[10]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 278.840 4.000 279.440 ;
+    END
+  END partID[10]
+  PIN partID[11]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 286.320 4.000 286.920 ;
+    END
+  END partID[11]
+  PIN partID[12]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 293.800 4.000 294.400 ;
+    END
+  END partID[12]
+  PIN partID[13]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 301.280 4.000 301.880 ;
+    END
+  END partID[13]
+  PIN partID[14]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 308.760 4.000 309.360 ;
+    END
+  END partID[14]
+  PIN partID[15]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 316.240 4.000 316.840 ;
+    END
+  END partID[15]
+  PIN partID[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 211.520 4.000 212.120 ;
+    END
+  END partID[1]
+  PIN partID[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 219.000 4.000 219.600 ;
+    END
+  END partID[2]
+  PIN partID[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 226.480 4.000 227.080 ;
+    END
+  END partID[3]
+  PIN partID[4]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 233.960 4.000 234.560 ;
+    END
+  END partID[4]
+  PIN partID[5]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 241.440 4.000 242.040 ;
+    END
+  END partID[5]
+  PIN partID[6]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 248.920 4.000 249.520 ;
+    END
+  END partID[6]
+  PIN partID[7]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 256.400 4.000 257.000 ;
+    END
+  END partID[7]
+  PIN partID[8]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 263.880 4.000 264.480 ;
+    END
+  END partID[8]
+  PIN partID[9]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 271.360 4.000 271.960 ;
+    END
+  END partID[9]
   PIN vccd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
     PORT
       LAYER met4 ;
@@ -855,8 +1199,40 @@ MACRO CaravelHost
         RECT 328.240 10.640 329.840 337.520 ;
     END
   END vccd1
+  PIN versionID[0]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 323.720 4.000 324.320 ;
+    END
+  END versionID[0]
+  PIN versionID[1]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 331.200 4.000 331.800 ;
+    END
+  END versionID[1]
+  PIN versionID[2]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 338.680 4.000 339.280 ;
+    END
+  END versionID[2]
+  PIN versionID[3]
+    DIRECTION OUTPUT TRISTATE ;
+    USE SIGNAL ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 346.160 4.000 346.760 ;
+    END
+  END versionID[3]
   PIN vssd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met4 ;
@@ -1719,9 +2095,8 @@ MACRO CaravelHost
       LAYER li1 ;
         RECT 5.520 10.795 344.080 337.365 ;
       LAYER met1 ;
-        RECT 0.070 8.200 348.150 337.520 ;
+        RECT 1.450 6.840 348.150 337.520 ;
       LAYER met2 ;
-        RECT 0.100 345.720 1.190 346.530 ;
         RECT 2.030 345.720 4.410 346.530 ;
         RECT 5.250 345.720 7.630 346.530 ;
         RECT 8.470 345.720 11.310 346.530 ;
@@ -1823,8 +2198,7 @@ MACRO CaravelHost
         RECT 338.290 345.720 340.670 346.530 ;
         RECT 341.510 345.720 344.350 346.530 ;
         RECT 345.190 345.720 347.570 346.530 ;
-        RECT 0.100 4.280 348.120 345.720 ;
-        RECT 0.100 3.670 1.190 4.280 ;
+        RECT 1.480 4.280 348.120 345.720 ;
         RECT 2.030 3.670 4.410 4.280 ;
         RECT 5.250 3.670 7.630 4.280 ;
         RECT 8.470 3.670 10.850 4.280 ;
@@ -1931,15 +2305,107 @@ MACRO CaravelHost
         RECT 341.970 3.670 344.350 4.280 ;
         RECT 345.190 3.670 347.570 4.280 ;
       LAYER met3 ;
-        RECT 21.040 262.840 346.000 337.445 ;
-        RECT 21.040 261.440 345.600 262.840 ;
-        RECT 21.040 88.080 346.000 261.440 ;
-        RECT 21.040 86.680 345.600 88.080 ;
-        RECT 21.040 10.715 346.000 86.680 ;
+        RECT 4.400 345.760 346.000 346.610 ;
+        RECT 4.000 339.680 346.000 345.760 ;
+        RECT 4.400 338.280 346.000 339.680 ;
+        RECT 4.000 332.200 346.000 338.280 ;
+        RECT 4.400 330.800 346.000 332.200 ;
+        RECT 4.000 324.720 346.000 330.800 ;
+        RECT 4.400 323.320 346.000 324.720 ;
+        RECT 4.000 317.240 346.000 323.320 ;
+        RECT 4.400 315.840 346.000 317.240 ;
+        RECT 4.000 309.760 346.000 315.840 ;
+        RECT 4.400 308.360 346.000 309.760 ;
+        RECT 4.000 302.280 346.000 308.360 ;
+        RECT 4.400 300.880 346.000 302.280 ;
+        RECT 4.000 294.800 346.000 300.880 ;
+        RECT 4.400 293.400 346.000 294.800 ;
+        RECT 4.000 287.320 346.000 293.400 ;
+        RECT 4.400 285.920 346.000 287.320 ;
+        RECT 4.000 279.840 346.000 285.920 ;
+        RECT 4.400 278.440 346.000 279.840 ;
+        RECT 4.000 272.360 346.000 278.440 ;
+        RECT 4.400 270.960 346.000 272.360 ;
+        RECT 4.000 264.880 346.000 270.960 ;
+        RECT 4.400 263.480 346.000 264.880 ;
+        RECT 4.000 262.840 346.000 263.480 ;
+        RECT 4.000 261.440 345.600 262.840 ;
+        RECT 4.000 257.400 346.000 261.440 ;
+        RECT 4.400 256.000 346.000 257.400 ;
+        RECT 4.000 249.920 346.000 256.000 ;
+        RECT 4.400 248.520 346.000 249.920 ;
+        RECT 4.000 242.440 346.000 248.520 ;
+        RECT 4.400 241.040 346.000 242.440 ;
+        RECT 4.000 234.960 346.000 241.040 ;
+        RECT 4.400 233.560 346.000 234.960 ;
+        RECT 4.000 227.480 346.000 233.560 ;
+        RECT 4.400 226.080 346.000 227.480 ;
+        RECT 4.000 220.000 346.000 226.080 ;
+        RECT 4.400 218.600 346.000 220.000 ;
+        RECT 4.000 212.520 346.000 218.600 ;
+        RECT 4.400 211.120 346.000 212.520 ;
+        RECT 4.000 205.040 346.000 211.120 ;
+        RECT 4.400 203.640 346.000 205.040 ;
+        RECT 4.000 197.560 346.000 203.640 ;
+        RECT 4.400 196.160 346.000 197.560 ;
+        RECT 4.000 190.080 346.000 196.160 ;
+        RECT 4.400 188.680 346.000 190.080 ;
+        RECT 4.000 182.600 346.000 188.680 ;
+        RECT 4.400 181.200 346.000 182.600 ;
+        RECT 4.000 175.800 346.000 181.200 ;
+        RECT 4.400 174.400 346.000 175.800 ;
+        RECT 4.000 168.320 346.000 174.400 ;
+        RECT 4.400 166.920 346.000 168.320 ;
+        RECT 4.000 160.840 346.000 166.920 ;
+        RECT 4.400 159.440 346.000 160.840 ;
+        RECT 4.000 153.360 346.000 159.440 ;
+        RECT 4.400 151.960 346.000 153.360 ;
+        RECT 4.000 145.880 346.000 151.960 ;
+        RECT 4.400 144.480 346.000 145.880 ;
+        RECT 4.000 138.400 346.000 144.480 ;
+        RECT 4.400 137.000 346.000 138.400 ;
+        RECT 4.000 130.920 346.000 137.000 ;
+        RECT 4.400 129.520 346.000 130.920 ;
+        RECT 4.000 123.440 346.000 129.520 ;
+        RECT 4.400 122.040 346.000 123.440 ;
+        RECT 4.000 115.960 346.000 122.040 ;
+        RECT 4.400 114.560 346.000 115.960 ;
+        RECT 4.000 108.480 346.000 114.560 ;
+        RECT 4.400 107.080 346.000 108.480 ;
+        RECT 4.000 101.000 346.000 107.080 ;
+        RECT 4.400 99.600 346.000 101.000 ;
+        RECT 4.000 93.520 346.000 99.600 ;
+        RECT 4.400 92.120 346.000 93.520 ;
+        RECT 4.000 88.080 346.000 92.120 ;
+        RECT 4.000 86.680 345.600 88.080 ;
+        RECT 4.000 86.040 346.000 86.680 ;
+        RECT 4.400 84.640 346.000 86.040 ;
+        RECT 4.000 78.560 346.000 84.640 ;
+        RECT 4.400 77.160 346.000 78.560 ;
+        RECT 4.000 71.080 346.000 77.160 ;
+        RECT 4.400 69.680 346.000 71.080 ;
+        RECT 4.000 63.600 346.000 69.680 ;
+        RECT 4.400 62.200 346.000 63.600 ;
+        RECT 4.000 56.120 346.000 62.200 ;
+        RECT 4.400 54.720 346.000 56.120 ;
+        RECT 4.000 48.640 346.000 54.720 ;
+        RECT 4.400 47.240 346.000 48.640 ;
+        RECT 4.000 41.160 346.000 47.240 ;
+        RECT 4.400 39.760 346.000 41.160 ;
+        RECT 4.000 33.680 346.000 39.760 ;
+        RECT 4.400 32.280 346.000 33.680 ;
+        RECT 4.000 26.200 346.000 32.280 ;
+        RECT 4.400 24.800 346.000 26.200 ;
+        RECT 4.000 18.720 346.000 24.800 ;
+        RECT 4.400 17.320 346.000 18.720 ;
+        RECT 4.000 11.240 346.000 17.320 ;
+        RECT 4.400 9.840 346.000 11.240 ;
+        RECT 4.000 4.440 346.000 9.840 ;
+        RECT 4.400 3.590 346.000 4.440 ;
       LAYER met4 ;
-        RECT 96.895 12.415 97.440 332.345 ;
-        RECT 99.840 12.415 174.240 332.345 ;
-        RECT 176.640 12.415 250.865 332.345 ;
+        RECT 25.135 64.775 97.440 333.705 ;
+        RECT 99.840 64.775 174.240 333.705 ;
+        RECT 176.640 64.775 238.905 333.705 ;
   END
 END CaravelHost
 END LIBRARY
