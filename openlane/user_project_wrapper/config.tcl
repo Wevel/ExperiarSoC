@@ -98,14 +98,14 @@ set ::env(EXTRA_GDS_FILES) "\
 
 # Exclude regions for Art and SRAM
 set ::env(GLB_RT_OBS) "\
-	li1  750 2250 1166.54 2933.1,\
- 	met1 750 2250 1166.54 2933.1,\
- 	met2 750 2250 1166.54 2933.1,\
- 	met3 750 2250 1166.54 2933.1,\
-  	li1  200 2250  616.54 2933.1,\
-  	met1 200 2250  616.54 2933.1,\
-  	met2 200 2250  616.54 2933.1,\
-  	met3 200 2250  616.54 2933.1,\
+	li1  750 2285 1166.54 2933.1,\
+ 	met1 750 2285 1166.54 2933.1,\
+ 	met2 750 2285 1166.54 2933.1,\
+ 	met3 750 2285 1166.54 2933.1,\
+  	li1  200 2285  616.54 2933.1,\
+  	met1 200 2285  616.54 2933.1,\
+  	met2 200 2285  616.54 2933.1,\
+  	met3 200 2285  616.54 2933.1,\
   	li1  750  160 1433.1   576.54,\
   	met1 750  160 1433.1   576.54,\
   	met2 750  160 1433.1   576.54,\
@@ -126,14 +126,14 @@ set ::env(GLB_RT_OBS) "\
  	met1 1970 2970 2653.1  3386.54,\
  	met2 1970 2970 2653.1  3386.54,\
  	met3 1970 2970 2653.1  3386.54,\
- 	li1  1366 2703 1782.54 3386.1,\
- 	met1 1366 2703 1782.54 3386.1,\
- 	met2 1366 2703 1782.54 3386.1,\
- 	met3 1366 2703 1782.54 3386.1,\
- 	li1  1930  160 2613.1   576.54,\
- 	met1 1930  160 2613.1   576.54,\
- 	met2 1930  160 2613.1   576.54,\
- 	met3 1930  160 2613.1   576.54,\
+ 	li1  1366 2730 1782.54 3413.1,\
+ 	met1 1366 2730 1782.54 3413.1,\
+ 	met2 1366 2730 1782.54 3413.1,\
+ 	met3 1366 2730 1782.54 3413.1,\
+ 	li1  1930  120 2613.1   536.54,\
+ 	met1 1930  120 2613.1   536.54,\
+ 	met2 1930  120 2613.1   536.54,\
+ 	met3 1930  120 2613.1   536.54,\
 	li1  340 3090 1090 3390,\
 	met1 340 3090 1090 3390,\
 	met2 340 3090 1090 3390,\
@@ -163,9 +163,6 @@ set ::env(GLB_RT_OBS) "\
 
 # Allow top level to use metal4 for routing
 set ::env(RT_MAX_LAYER) {met5}
-
-# Only generate the PDN grid for the rails needed
-#set ::env(FP_PDN_POWER_STRAPS) "vccd1 vssd1 1, vccd2 vssd2 0, vdda1 vssa1 0, vdda2 vssa2 0"
 
 # disable pdn check nodes becuase it hangs with multiple power domains.
 # any issue with pdn connections will be flagged with LVS so it is not a critical check.

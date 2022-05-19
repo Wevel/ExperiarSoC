@@ -64,7 +64,7 @@ module CaravelHost (
 
 	// Caravel wishbone master
 	assign caravel_wb_cyc_o = wbs_cyc_i && userSpaceEnable && !hostConfigEnable;
-	assign caravel_wb_stb_o = wbs_stb_i && userSpaceEnable && !hostConfigEnable;
+	assign caravel_wb_stb_o = !wbs_stb_i && userSpaceEnable && !hostConfigEnable;
 	assign caravel_wb_we_o = wbs_we_i;
 	assign caravel_wb_sel_o = wbs_sel_i;
 	assign caravel_wb_data_o = wbs_data_i;
@@ -90,7 +90,7 @@ module CaravelHost (
 	`endif
 		.wb_clk_i(wb_clk_i),
 		.wb_rst_i(wb_rst_i),
-		.wb_stb_i(wbs_stb_i && hostConfigEnable),
+		.wb_stb_i(!wbs_stb_i && hostConfigEnable),
 		.wb_cyc_i(wbs_cyc_i && hostConfigEnable),
 		.wb_we_i(wbs_we_i),
 		.wb_sel_i(wbs_sel_i),
