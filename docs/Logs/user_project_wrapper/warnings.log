@@ -1,4 +1,6 @@
 [WARNING]: Skipping Tap/Decap Insertion.
+[WARNING]: Specifying a routing obstruction is now done using the coordinates
+[WARNING]: of its bounding box instead of the now deprecated (x, y, size_x, size_y).
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
@@ -50,14 +52,11 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[46]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/wishboneInterconnect is not connected to any net.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[65]: [WARNING PDN-0110] No via inserted between met4 and met5 at (323.9700, 149.3300) - (327.0700, 150.0000) on vssa1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[66]: [WARNING PDN-0110] No via inserted between met4 and met5 at (503.9700, 149.3300) - (507.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[67]: [WARNING PDN-0110] No via inserted between met4 and met5 at (683.9700, 149.3300) - (687.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[68]: [WARNING PDN-0110] No via inserted between met4 and met5 at (863.9700, 149.3300) - (867.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[69]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1043.9700, 149.3300) - (1047.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[70]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1223.9700, 149.3300) - (1227.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[71]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1403.9700, 149.3300) - (1407.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[72]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2123.9700, 689.3300) - (2127.0700, 690.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[73]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 689.3300) - (2307.0700, 690.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[74]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 689.3300) - (2487.0700, 690.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[67]: [WARNING PDN-0110] No via inserted between met4 and met5 at (863.9700, 149.3300) - (867.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[68]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1043.9700, 149.3300) - (1047.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[69]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2123.9700, 689.3300) - (2127.0700, 690.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[70]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 689.3300) - (2307.0700, 690.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[71]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 689.3300) - (2487.0700, 690.0000) on vssa1
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[4]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[5]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[6]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.

@@ -1,22 +1,90 @@
-[ERROR]: during executing openroad script /openlane/scripts/openroad/resizer_routing_timing.tcl
-[ERROR]: Exit code: 1
-[ERROR]: full log: user_project_wrapper/runs/user_project_wrapper/logs/routing/13-resizer.log
-[ERROR]: Last 10 lines:
-
-[INFO GRT-0101] Running extra iterations to remove overflow.
-[INFO GRT-0197] Via related to pin nodes: 7870
-[INFO GRT-0198] Via related Steiner nodes: 178
-[INFO GRT-0199] Via filling finished.
-[INFO GRT-0111] Final number of vias: 14721
-[INFO GRT-0112] Final usage 3D: 389312
-[ERROR GRT-0118] Routing congestion too high.
-Error: resizer_routing_timing.tcl, 53 GRT-0118
-child process exited abnormally
-
+[ERROR]: There are violations in the design after detailed routing.
+[ERROR]: Total Number of violations is 1
 [ERROR]: Flow failed.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[104]: wb_rst_i                                  5      7     -2 (VIOLATED)
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[109]: max fanout violation count 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2466]: [ERROR GRT-0118] Routing congestion too high.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2467]: Error: resizer_routing_timing.tcl, 53 GRT-0118
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2536]: wb_clk_i                                1.50    3.24   -1.74 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2542]: wb_clk_i                                  5      7     -2 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2548]: wb_clk_i                                0.33    0.72   -0.39 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2552]: max slew violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2553]: max fanout violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\13-resizer.log[2554]: max cap violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2525]: wb_clk_i                                1.50    3.24   -1.74 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2531]: wb_clk_i                                  5      7     -2 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2537]: wb_clk_i                                0.33    0.72   -0.39 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2541]: max slew violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2542]: max fanout violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\17-global.log[2543]: max cap violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[186]: [INFO DRT-0199]   Number of violations = 2687.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[230]: [INFO DRT-0199]   Number of violations = 351.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[274]: [INFO DRT-0199]   Number of violations = 255.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[318]: [INFO DRT-0199]   Number of violations = 68.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[362]: [INFO DRT-0199]   Number of violations = 53.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[406]: [INFO DRT-0199]   Number of violations = 52.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[450]: [INFO DRT-0199]   Number of violations = 51.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[494]: [INFO DRT-0199]   Number of violations = 51.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[538]: [INFO DRT-0199]   Number of violations = 51.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[582]: [INFO DRT-0199]   Number of violations = 50.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[626]: [INFO DRT-0199]   Number of violations = 32.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[670]: [INFO DRT-0199]   Number of violations = 5.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[714]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[758]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[802]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[846]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[890]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[934]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[978]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1022]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1066]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1110]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1154]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1198]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1242]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1286]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1330]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1374]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1418]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1462]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1506]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1550]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1594]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1638]: [INFO DRT-0199]   Number of violations = 2.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1682]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1726]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1770]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1814]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1858]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1902]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1946]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[1990]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2034]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2078]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2122]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2166]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2210]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2254]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2298]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2342]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2386]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2430]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2474]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2518]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2562]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2606]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2650]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2694]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2738]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2782]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2826]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2870]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2914]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[2958]: [INFO DRT-0199]   Number of violations = 1.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\19-detailed.log[3002]: [INFO DRT-0199]   Number of violations = 1.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-syn_sta.slew.rpt[8]: wb_rst_i                                  5      7     -2 (VIOLATED)
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-syn_sta.slew.rpt[13]: max fanout violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[8]: wb_clk_i                                1.50    3.24   -1.74 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[14]: wb_clk_i                                  5      7     -2 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[20]: wb_clk_i                                0.33    0.72   -0.39 (VIOLATED)
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[24]: max slew violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[25]: max fanout violation count 1
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\13-rt_rsz_sta.slew.rpt[26]: max cap violation count 1

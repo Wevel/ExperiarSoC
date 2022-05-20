@@ -27,7 +27,7 @@ source $::env(CARAVEL_ROOT)/openlane/user_project_wrapper/default_wrapper_cfgs.t
 
 set script_dir [file dirname [file normalize [info script]]]
 
-set ::env(ROUTING_CORES) "8"
+set ::env(ROUTING_CORES) "12"
 
 set ::env(DESIGN_NAME) user_project_wrapper
 #section end
@@ -98,22 +98,22 @@ set ::env(EXTRA_GDS_FILES) "\
 
 # Exclude regions for Art and SRAM
 set ::env(GLB_RT_OBS) "\
-	li1  750 2285 1166.54 2933.1,\
- 	met1 750 2285 1166.54 2933.1,\
- 	met2 750 2285 1166.54 2933.1,\
- 	met3 750 2285 1166.54 2933.1,\
-  	li1  200 2285  616.54 2933.1,\
-  	met1 200 2285  616.54 2933.1,\
-  	met2 200 2285  616.54 2933.1,\
-  	met3 200 2285  616.54 2933.1,\
-  	li1  750  160 1433.1   576.54,\
-  	met1 750  160 1433.1   576.54,\
-  	met2 750  160 1433.1   576.54,\
-  	met3 750  160 1433.1   576.54,\
-  	li1  200  160  883.1   576.54,\
-  	met1 200  160  883.1   576.54,\
-  	met2 200  160  883.1   576.54,\
-  	met3 200  160  883.1   576.54,\
+	li1   750 2285 1166.54 2933.1,\
+ 	met1  750 2285 1166.54 2933.1,\
+ 	met2  750 2285 1166.54 2933.1,\
+ 	met3  750 2285 1166.54 2933.1,\
+  	li1   200 2285  616.54 2933.1,\
+  	met1  200 2285  616.54 2933.1,\
+  	met2  200 2285  616.54 2933.1,\
+  	met3  200 2285  616.54 2933.1,\
+  	li1   750  160 1166.54  576.54,\
+  	met1  750  160 1166.54  576.54,\
+  	met2  750  160 1166.54  576.54,\
+  	met3  750  160 1166.54  576.54,\
+  	li1   200  160  416.54  843.1,\
+  	met1  200  160  416.54  843.1,\
+  	met2  200  160  416.54  843.1,\
+  	met3  200  160  416.54  843.1,\
  	li1  1970 1900 2653.1  2316.54,\
  	met1 1970 1900 2653.1  2316.54,\
  	met2 1970 1900 2653.1  2316.54,\
@@ -195,5 +195,7 @@ set ::env(RUN_KLAYOUT_XOR) 0
 
 #set ::env(GLB_RT_ADJUSTMENT) 0.25
 
+#set ::env(GLOBAL_ROUTER) cugr
+
 #set ::env(GLB_RT_OVERFLOW_ITERS) 100
-#set ::env(GLB_RT_ALLOW_CONGESTION) 1
+set ::env(GLB_RT_ALLOW_CONGESTION) 1
