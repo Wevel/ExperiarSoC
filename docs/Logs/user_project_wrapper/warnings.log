@@ -53,17 +53,10 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[68]: [WARNING PDN-0110] No via inserted between met4 and met5 at (863.9700, 149.3300) - (867.0700, 150.0000) on vssa1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[69]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1043.9700, 149.3300) - (1047.0700, 150.0000) on vssa1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[70]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1223.9700, 149.3300) - (1227.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[71]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1313.9700, 2039.3300) - (1317.0700, 2040.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[72]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1403.9700, 149.3300) - (1407.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[73]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1426.4700, 2691.8300) - (1429.5700, 2693.0000) on vssa2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[74]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1493.9700, 2039.3300) - (1497.0700, 2040.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[75]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1606.4700, 2691.8300) - (1609.5700, 2693.0000) on vssa2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[76]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1673.9700, 2039.3300) - (1677.0700, 2040.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[77]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1786.4700, 2691.8300) - (1789.5700, 2693.0000) on vssa2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[78]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1943.9700, 149.3300) - (1947.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[79]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2123.9700, 149.3300) - (2127.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[80]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 149.3300) - (2307.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[81]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 149.3300) - (2487.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[71]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1403.9700, 149.3300) - (1407.0700, 150.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[72]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2123.9700, 689.3300) - (2127.0700, 690.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[73]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 689.3300) - (2307.0700, 690.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[74]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 689.3300) - (2487.0700, 690.0000) on vssa1
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[4]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[5]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synthesis.chk.rpt[6]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.

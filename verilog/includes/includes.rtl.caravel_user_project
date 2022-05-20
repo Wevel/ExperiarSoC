@@ -2,6 +2,7 @@
 -v $(USER_PROJECT_VERILOG)/rtl/user_project_wrapper.v  
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarSoC/ExperiarSoC_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/CaravelHost/CaravelHost_top.v 
+-v $(USER_PROJECT_VERILOG)/rtl/CaravelHost/WBAddressExtension.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/ExperiarCore_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CoreManagement.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/RV32ICore.v 

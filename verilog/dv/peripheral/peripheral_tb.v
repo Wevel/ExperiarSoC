@@ -28,7 +28,7 @@ module peripheral_tb;
 	wire [37:0] mprj_io;
 
 	wire blink = mprj_io[32];
-	wire gpioTestData = mprj_io[15:12];
+	wire[3:0] gpioTestData = mprj_io[15:12];
 
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 	// assign mprj_io[3] = 1'b1;
@@ -48,15 +48,15 @@ module peripheral_tb;
 		$dumpvars(0, peripheral_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (25) begin
+		repeat (100) begin
 			repeat (1000) @(posedge clock);
-			$display("+1000 cycles");
+			//$display("+1000 cycles");
 		end
 		$display("%c[1;31m",27);
 		`ifdef GL
-			$display ("Monitor: Timeout, Test Mega-Project IO Ports (GL) Failed");
+			$display ("Monitor: Timeout, Peripheral Test (GL) Failed");
 		`else
-			$display ("Monitor: Timeout, Test Mega-Project IO Ports (RTL) Failed");
+			$display ("Monitor: Timeout, Peripheral Test (RTL) Failed");
 		`endif
 		$display("%c[0m",27);
 		$finish;
@@ -64,9 +64,7 @@ module peripheral_tb;
 
 	initial begin
 	    // Observe Output pins
-		wait(blink == 1'b0);
-		wait(blink == 1'b1);
-		wait(blink == 1'b0);
+		wait(gpioTestData == 4'b0000);
 		wait(gpioTestData == 4'b0001);
 		wait(gpioTestData == 4'b0011);
 		wait(gpioTestData == 4'b0111);
@@ -77,9 +75,9 @@ module peripheral_tb;
 		wait(gpioTestData == 4'b0000);
 		
 		`ifdef GL
-	    	$display("Monitor: Test 1 Mega-Project IO (GL) Passed");
+	    	$display("Monitor: Test 1 GPIO (GL) Passed");
 		`else
-		    $display("Monitor: Test 1 Mega-Project IO (RTL) Passed");
+		    $display("Monitor: Test 1 GPIO (RTL) Passed");
 		`endif
 	    $finish;
 	end
@@ -109,7 +107,8 @@ module peripheral_tb;
 	end
 
 	always @(mprj_io) begin
-		#1 $display("MPRJ-IO state = %b ", mprj_io);
+		//#1 $display("MPRJ-IO state = %b ", mprj_io);
+		#1 $display("GPIO Test = %b ", gpioTestData);
 	end
 
 	wire flash_csb;

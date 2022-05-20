@@ -1,22 +1,22 @@
-[ERROR]: during executing openroad script /openlane/scripts/openroad/pdn.tcl
+[ERROR]: during executing openroad script /openlane/scripts/openroad/resizer_routing_timing.tcl
 [ERROR]: Exit code: 1
-[ERROR]: full log: user_project_wrapper/runs/user_project_wrapper/logs/floorplan/6-pdn.log
+[ERROR]: full log: user_project_wrapper/runs/user_project_wrapper/logs/routing/9-resizer.log
 [ERROR]: Last 10 lines:
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (1090.800um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (907.200um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (723.600um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (729.000um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (545.400um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (550.800um, 1545.000um), layer: 5.
-[WARNING PSM-0038] Unconnected PDN node on net vccd1 at location (367.200um, 1545.000um), layer: 5.
-[ERROR PSM-0069] Check connectivity failed.
-Error: pdn.tcl, 51 PSM-0069
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0103] Extra Run for hard benchmark.
+[INFO GRT-0197] Via related to pin nodes: 7176
+[INFO GRT-0198] Via related Steiner nodes: 163
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 14139
+[INFO GRT-0112] Final usage 3D: 384272
+[ERROR GRT-0118] Routing congestion too high.
+Error: resizer_routing_timing.tcl, 53 GRT-0118
 child process exited abnormally
 
 [ERROR]: Flow failed.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[104]: wb_rst_i                                  5      7     -2 (VIOLATED)
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-sta.log[109]: max fanout violation count 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[463]: [ERROR PSM-0069] Check connectivity failed.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[464]: Error: pdn.tcl, 51 PSM-0069
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\9-resizer.log[2466]: [ERROR GRT-0118] Routing congestion too high.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\9-resizer.log[2467]: Error: resizer_routing_timing.tcl, 53 GRT-0118
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-syn_sta.slew.rpt[8]: wb_rst_i                                  5      7     -2 (VIOLATED)
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-syn_sta.slew.rpt[13]: max fanout violation count 1

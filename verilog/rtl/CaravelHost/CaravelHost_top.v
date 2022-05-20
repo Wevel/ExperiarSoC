@@ -49,31 +49,61 @@ module CaravelHost (
 	assign partID = 16'hCD55;
 	assign versionID = 4'h0;
 
-	wire userSpaceEnable = wbs_adr_i[31:28] == USER_SPACE_ADDRESS;
-	reg hostConfigEnable = 1'b0;
+	wire userSpace_wb_stb_i;
+	wire userSpace_wb_cyc_i;
+	wire userSpace_wb_we_i;
+	wire[3:0] userSpace_wb_sel_i;
+	wire[31:0] userSpace_wb_data_i;
+	wire[31:0] userSpace_wb_adr_i;
+	wire userSpace_wb_ack_o;
+	wire[31:0] userSpace_wb_data_o;
 
-	always @(posedge wb_clk_i) begin
-		if (wb_rst_i || caravelHost_wb_ack_o) hostConfigEnable <= 1'b0;
-		else if (userSpaceEnable && wbs_adr_i[27:24] == HOST_PERIPHERAL_ADDRESS) hostConfigEnable <= 1'b1;
-	end
+	WBAddressExtension wbAddressExtension(
+		.wb_clk_i(wb_clk_i),
+		.wb_rst_i(wb_rst_i),
+		.wbs_cyc_i(wbs_cyc_i),
+		.wbs_stb_i(wbs_stb_i),
+		.wbs_we_i(wbs_we_i),
+		.wbs_sel_i(wbs_sel_i),
+		.wbs_adr_i(wbs_adr_i),
+		.wbs_data_i(wbs_data_i),
+		.wbs_ack_o(wbs_ack_o),
+		.wbs_data_o(wbs_data_o),
+		.userSpace_wb_cyc_i(userSpace_wb_cyc_i),
+		.userSpace_wb_stb_i(userSpace_wb_stb_i),
+		.userSpace_wb_we_i(userSpace_wb_we_i),
+		.userSpace_wb_sel_i(userSpace_wb_sel_i),
+		.userSpace_wb_adr_i(userSpace_wb_adr_i),
+		.userSpace_wb_data_i(userSpace_wb_data_i),
+		.userSpace_wb_ack_o(userSpace_wb_ack_o),
+		.userSpace_wb_data_o(userSpace_wb_data_o));
+
+	wire userSpaceEnable = userSpace_wb_adr_i[31:28] == USER_SPACE_ADDRESS;
+	reg hostConfigEnable = 1'b0;
 
 	wire caravelHost_wb_ack_o;
 	wire caravelHost_wb_stall_o;
 	wire caravelHost_wb_error_o;
 	wire[31:0] caravelHost_wb_data_o;
 
-	// Caravel wishbone master
-	assign caravel_wb_cyc_o = wbs_cyc_i && userSpaceEnable && !hostConfigEnable;
-	assign caravel_wb_stb_o = !wbs_stb_i && userSpaceEnable && !hostConfigEnable;
-	assign caravel_wb_we_o = wbs_we_i;
-	assign caravel_wb_sel_o = wbs_sel_i;
-	assign caravel_wb_data_o = wbs_data_i;
-	assign caravel_wb_adr_o = wbs_adr_i[27:0];
+	always @(posedge wb_clk_i) begin
+		if (wb_rst_i || caravelHost_wb_ack_o) hostConfigEnable <= 1'b0;
+		else if (userSpaceEnable && userSpace_wb_adr_i[27:24] == HOST_PERIPHERAL_ADDRESS) hostConfigEnable <= 1'b1;
+	end
 
-	assign wbs_ack_o   = hostConfigEnable ? caravelHost_wb_ack_o   : caravel_wb_ack_i;
-	//assign wbs_stall_i = hostConfigEnable ? caravelHost_wb_stall_o : caravel_wb_stall_i;
-	//assign wbs_error_i = hostConfigEnable ? caravelHost_wb_error_o : caravel_wb_error_i;
-	assign wbs_data_o  = hostConfigEnable ? caravelHost_wb_data_o  : caravel_wb_data_i;
+	// Caravel wishbone master
+	wire caravelEnable = userSpace_wb_cyc_i && userSpaceEnable && !hostConfigEnable;
+	assign caravel_wb_cyc_o = caravelEnable;
+	assign caravel_wb_stb_o = userSpace_wb_stb_i && caravelEnable;
+	assign caravel_wb_we_o = userSpace_wb_we_i && caravelEnable;
+	assign caravel_wb_sel_o = caravelEnable ? userSpace_wb_sel_i : 4'b0000;
+	assign caravel_wb_data_o = caravelEnable ? userSpace_wb_data_i : 32'b0;
+	assign caravel_wb_adr_o = caravelEnable ? userSpace_wb_adr_i[27:0] : 28'b0;
+
+	assign userSpace_wb_ack_o   = hostConfigEnable ? caravelHost_wb_ack_o : caravel_wb_ack_i || caravel_wb_error_i;
+	//assign userSpace_wb_stall_i = hostConfigEnable ? caravelHost_wb_stall_o : caravel_wb_stall_i;
+	//assign userSpace_wb_error_i = hostConfigEnable ? caravelHost_wb_error_o : caravel_wb_error_i;
+	assign userSpace_wb_data_o  = hostConfigEnable ? caravelHost_wb_data_o : caravel_wb_data_i;
 
 	// Peripheral bus
 	wire peripheralBus_we;
@@ -90,12 +120,12 @@ module CaravelHost (
 	`endif
 		.wb_clk_i(wb_clk_i),
 		.wb_rst_i(wb_rst_i),
-		.wb_stb_i(!wbs_stb_i && hostConfigEnable),
-		.wb_cyc_i(wbs_cyc_i && hostConfigEnable),
-		.wb_we_i(wbs_we_i),
-		.wb_sel_i(wbs_sel_i),
-		.wb_data_i(wbs_data_i),
-		.wb_adr_i(wbs_adr_i[23:0]),
+		.wb_stb_i(userSpace_wb_stb_i && hostConfigEnable),
+		.wb_cyc_i(userSpace_wb_cyc_i && hostConfigEnable),
+		.wb_we_i(userSpace_wb_we_i),
+		.wb_sel_i(userSpace_wb_sel_i),
+		.wb_data_i(userSpace_wb_data_i),
+		.wb_adr_i(userSpace_wb_adr_i[23:0]),
 		.wb_ack_o(caravelHost_wb_ack_o),
 		.wb_stall_o(caravelHost_wb_stall_o),
 		.wb_error_o(caravelHost_wb_error_o),

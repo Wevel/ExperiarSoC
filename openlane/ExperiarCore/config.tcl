@@ -10,13 +10,16 @@ set ::env(DESIGN_NAME) ExperiarCore
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CoreManagement.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/RV32ICore.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAG.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAGRegister.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Memory/LocalMemoryInterface.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Memory/MemoryContorller.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Wishbone/Core_WBInterface.v \
-	$script_dir/../../verilog/rtl/ExperiarCore/Wishbone/WB_SRAMInterface.v"
+	$script_dir/../../verilog/rtl/ExperiarCore/Wishbone/WB_SRAMInterface.v \
+	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \
+	$script_dir/../../verilog/rtl/Peripherals/Registers/DataRegister.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0

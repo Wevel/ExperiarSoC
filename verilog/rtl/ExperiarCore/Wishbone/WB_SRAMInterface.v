@@ -34,9 +34,10 @@ module WB_SRAMInterface (
 		input wire management_busy
 	);
 	
-	localparam STATE_IDLE  = 2'h0;
+	localparam STATE_IDLE  		  = 2'h0;
 	localparam STATE_WRITE_SINGLE = 2'h1;
 	localparam STATE_READ_SINGLE  = 2'h2;
+	localparam STATE_FINISH 	  = 2'h3;
 	
 	reg[1:0] state = STATE_IDLE;
 	reg[23:0] currentAddress;
@@ -81,16 +82,21 @@ module WB_SRAMInterface (
 
 				STATE_WRITE_SINGLE: begin
 					if (!peripheralBus_busy) begin
-						state <= STATE_IDLE;
+						state <= STATE_FINISH;
 						acknowledge <= 1'b1;
 					end
 				end
 
 				STATE_READ_SINGLE: begin
 					if (!peripheralBus_busy) begin
-						state <= STATE_IDLE;
+						state <= STATE_FINISH;
 						acknowledge <= 1'b1;
 					end
+				end
+
+				STATE_FINISH: begin
+					state <= STATE_IDLE;
+					acknowledge <= 1'b0;
 				end
 
 				default: begin

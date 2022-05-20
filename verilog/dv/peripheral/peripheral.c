@@ -25,14 +25,47 @@
 		- Observes counter value through the MPRJ lower 8 IO pins (in the testbench)
 */
 
-#define GPIO0_OE (*(volatile uint32_t*)0x33031000)
-#define GPIO0_OUTPUT (*(volatile uint32_t*)0x33031004)
-#define GPIO0_INPUT (*(volatile uint32_t*)0x33031008)
+// #define GPIO0_OE (*(volatile uint32_t*)0x33031000)
+// #define GPIO0_OUTPUT (*(volatile uint32_t*)0x33031004)
+// #define GPIO0_INPUT (*(volatile uint32_t*)0x33031008)
+
+#define GPIO0_OE_ADDR ((uint32_t*)0x33031000)
+#define GPIO0_OUTPUT_ADDR ((uint32_t*)0x33031004)
+#define GPIO0_INPUT_ADDR ((uint32_t*)0x33031008)
+
+#define GPIO0_OE (*GPIO0_OE_ADDR)
+#define GPIO0_OUTPUT (*GPIO0_OUTPUT_ADDR)
+#define GPIO0_INPUT (*GPIO0_INPUT_ADDR)
 
 //#define test (*(volatile uint32_t*)0x3F001000)
 #define test (*(volatile uint32_t*)0x30000000)
 
 #define MPRJ_WB_IENA_OUT (*(volatile uint32_t*)0xf0003800)
+
+#define MPRJ_WB_ADDRESS (*(volatile uint32_t*)0x30000000)
+#define MPRJ_WB_DATA_LOCATION 0x30008000
+
+void wbWrite (uint32_t* location, uint32_t value)
+{
+	// Write the address
+	uint32_t locationData = (uint32_t)location;
+	MPRJ_WB_ADDRESS = locationData & 0xFFFF8000;
+
+	// Write the data
+	uint32_t writeAddress = (locationData & 0x00007FFF) | MPRJ_WB_DATA_LOCATION;
+	*((volatile uint32_t*)writeAddress) = value;
+}
+
+uint32_t wbRead (uint32_t* location)
+{
+	// Write the address
+	uint32_t locationData = (uint32_t)location;
+	MPRJ_WB_ADDRESS = locationData & 0xFFFF8000;
+
+	// Write the data
+	uint32_t writeAddress = (locationData & 0x00007FFF) | MPRJ_WB_DATA_LOCATION;
+	return *((volatile uint32_t*)writeAddress);
+}
 
 void digitalWrite (int pin, int state)
 {
@@ -94,6 +127,8 @@ void main ()
 
 	// https://github.com/efabless/caravel/blob/main/docs/other/gpio.txt
 
+	reg_wb_enable = 1;
+
 	// Enable GPIO
 	reg_mprj_io_12 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
@@ -103,23 +138,23 @@ void main ()
 	// Enable blink
 	// reg_mprj_io_32 = GPIO_MODE_USER_STD_OUTPUT;
 
-	// VGA
-	reg_mprj_io_30 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_31 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_32 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_33 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_34 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_35 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_36 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_37 = GPIO_MODE_USER_STD_OUTPUT;
+	// // VGA
+	// reg_mprj_io_30 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_31 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_32 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_33 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_34 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_35 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_36 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_37 = GPIO_MODE_USER_STD_OUTPUT;
 
-	// Debug
-	reg_mprj_io_0 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_1 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_2 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_3 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_4 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_5 = GPIO_MODE_USER_STD_OUTPUT;
+	// // Debug
+	// reg_mprj_io_0 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_1 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_2 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_3 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_4 = GPIO_MODE_USER_STD_OUTPUT;
+	// reg_mprj_io_5 = GPIO_MODE_USER_STD_OUTPUT;
 
 	/* Apply configuration */
 	reg_mprj_xfer = 1;
@@ -139,15 +174,27 @@ void main ()
 	// // uint32_t value = test;
 	// test = 0x1;
 
-	GPIO0_OE = ~0x0F000;
-	digitalWrite (12, 1);
-	digitalWrite (13, 1);
-	digitalWrite (14, 1);
-	digitalWrite (15, 1);
-	digitalWrite (12, 0);
-	digitalWrite (13, 0);
-	digitalWrite (14, 0);
-	digitalWrite (15, 0);
+	wbWrite (GPIO0_OE_ADDR, ~0x0F000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x01000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x03000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x07000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x0F000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x0E000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x0C000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x08000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x00000);
+
+	// MPRJ_WB_ADDRESS = 0x33030000;
+
+	// GPIO0_OE = ~0x0F000;
+	// digitalWrite (12, 1);
+	// digitalWrite (13, 1);
+	// digitalWrite (14, 1);
+	// digitalWrite (15, 1);
+	// digitalWrite (12, 0);
+	// digitalWrite (13, 0);
+	// digitalWrite (14, 0);
+	// digitalWrite (15, 0);
 
 	// GPIO0_OUTPUT = 0x01000;
 	// GPIO0_OUTPUT = 0x03000;

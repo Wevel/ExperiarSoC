@@ -10,6 +10,7 @@ set ::env(DESIGN_NAME) CaravelHost
 set ::env(VERILOG_FILES) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
 	$script_dir/../../verilog/rtl/CaravelHost/CaravelHost_top.v \
+	$script_dir/../../verilog/rtl/CaravelHost/WBAddressExtension.v \
 	$script_dir/../../verilog/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v \
 	$script_dir/../../verilog/rtl/Peripherals/UART/UARTDevice.v \
 	$script_dir/../../verilog/rtl/Peripherals/UART/UART_rx.v \
@@ -45,7 +46,7 @@ set ::env(DIE_AREA) "0 0 350 350"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.355
+set ::env(PL_TARGET_DENSITY) 0.385
 
 # If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
 # If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN

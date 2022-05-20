@@ -1,17 +1,16 @@
 openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1693]: ABC: Error: The network is combinational.
-openlane/Video\runs\Video\logs\routing\18-global.log[1204]: [INFO GRT-0012] Antenna violations: 12
-openlane/Video\runs\Video\logs\routing\18-global.log[1466]: [INFO GRT-0012] Antenna violations: 17
-openlane/Video\runs\Video\logs\routing\18-global_2.log[1209]: [INFO GRT-0012] Antenna violations: 4
-openlane/Video\runs\Video\logs\routing\21-detailed.log[185]: [INFO DRT-0199]   Number of violations = 3224.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[229]: [INFO DRT-0199]   Number of violations = 1349.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[273]: [INFO DRT-0199]   Number of violations = 1177.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[317]: [INFO DRT-0199]   Number of violations = 593.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[361]: [INFO DRT-0199]   Number of violations = 266.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[405]: [INFO DRT-0199]   Number of violations = 184.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[449]: [INFO DRT-0199]   Number of violations = 72.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[493]: [INFO DRT-0199]   Number of violations = 13.
-openlane/Video\runs\Video\logs\routing\21-detailed.log[537]: [INFO DRT-0199]   Number of violations = 1.
-openlane/Video\runs\Video\logs\signoff\32-Video.lef.log[797]: HI                                         |(no matching pin)
-openlane/Video\runs\Video\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 14 net violations in 2159 nets.
-openlane/Video\runs\Video\reports\signoff\antenna.rpt[109495]: Number of pins violated: 14
-openlane/Video\runs\Video\reports\signoff\antenna.rpt[109496]: Number of nets violated: 14
+openlane/Video\runs\Video\logs\routing\18-global.log[1126]: [INFO GRT-0012] Antenna violations: 17
+openlane/Video\runs\Video\logs\routing\18-global.log[1315]: [INFO GRT-0012] Antenna violations: 8
+openlane/Video\runs\Video\logs\routing\18-global.log[1507]: [INFO GRT-0012] Antenna violations: 1
+openlane/Video\runs\Video\logs\routing\18-global_2.log[1129]: [INFO GRT-0012] Antenna violations: 7
+openlane/Video\runs\Video\logs\routing\18-global_2.log[1323]: [INFO GRT-0012] Antenna violations: 1
+openlane/Video\runs\Video\logs\routing\21-detailed.log[183]: [INFO DRT-0199]   Number of violations = 2553.
+openlane/Video\runs\Video\logs\routing\21-detailed.log[227]: [INFO DRT-0199]   Number of violations = 1068.
+openlane/Video\runs\Video\logs\routing\21-detailed.log[271]: [INFO DRT-0199]   Number of violations = 731.
+openlane/Video\runs\Video\logs\routing\21-detailed.log[315]: [INFO DRT-0199]   Number of violations = 347.
+openlane/Video\runs\Video\logs\routing\21-detailed.log[359]: [INFO DRT-0199]   Number of violations = 185.
+openlane/Video\runs\Video\logs\routing\21-detailed.log[403]: [INFO DRT-0199]   Number of violations = 69.
+openlane/Video\runs\Video\logs\signoff\32-Video.lef.log[801]: HI                                         |(no matching pin)
+openlane/Video\runs\Video\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 14 net violations in 2145 nets.
+openlane/Video\runs\Video\reports\signoff\antenna.rpt[113605]: Number of pins violated: 14
+openlane/Video\runs\Video\reports\signoff\antenna.rpt[113606]: Number of nets violated: 14
