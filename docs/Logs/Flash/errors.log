@@ -1,10 +1,10 @@
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[870]: ABC: Error: The network is combinational.
-openlane/Flash\runs\Flash\logs\routing\18-global.log[626]: [INFO GRT-0012] Antenna violations: 20
-openlane/Flash\runs\Flash\logs\routing\18-global.log[709]: [INFO GRT-0012] Antenna violations: 1
-openlane/Flash\runs\Flash\logs\routing\18-global_2.log[622]: [INFO GRT-0012] Antenna violations: 2
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[175]: [INFO DRT-0199]   Number of violations = 86.
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[219]: [INFO DRT-0199]   Number of violations = 29.
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[263]: [INFO DRT-0199]   Number of violations = 18.
-openlane/Flash\runs\Flash\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 5 net violations in 475 nets.
-openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[11906]: Number of pins violated: 5
-openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[11907]: Number of nets violated: 5
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[853]: ABC: Error: The network is combinational.
+openlane/Flash\runs\Flash\logs\routing\18-global.log[635]: [INFO GRT-0012] Antenna violations: 23
+openlane/Flash\runs\Flash\logs\routing\18-global.log[738]: [INFO GRT-0012] Antenna violations: 1
+openlane/Flash\runs\Flash\logs\routing\18-global_2.log[642]: [INFO GRT-0012] Antenna violations: 3
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[175]: [INFO DRT-0199]   Number of violations = 127.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[219]: [INFO DRT-0199]   Number of violations = 50.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[263]: [INFO DRT-0199]   Number of violations = 24.
+openlane/Flash\runs\Flash\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 4 net violations in 476 nets.
+openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12289]: Number of pins violated: 4
+openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12290]: Number of nets violated: 4

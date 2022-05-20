@@ -1,16 +1,19 @@
-[ERROR]: during executing: "yosys -c /openlane/scripts/yosys/synth.tcl -l /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/runs/ExperiarCore/logs/synthesis/1-synthesis.log |& tee /dev/null"
-[ERROR]: Exit code: 1
-[ERROR]: Last 10 lines:
-Successfully finished Verilog frontend.
-
-2. Executing Verilog-2005 frontend: /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v
-Parsing SystemVerilog input from `/home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v' to AST representation.
-Generating RTLIL representation for module `\ExperiarCore'.
-Successfully finished Verilog frontend.
-
-3. Executing Verilog-2005 frontend: /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/RV32ICore.v
-/home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/RV32ICore.v:49: ERROR: syntax error, unexpected '='
-child process exited abnormally
-
-[ERROR]: Flow failed.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[40]: /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/RV32ICore.v:49: ERROR: syntax error, unexpected '='
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2111]: ABC: Error: The network is combinational.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[185]: [INFO DRT-0199]   Number of violations = 498.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[229]: [INFO DRT-0199]   Number of violations = 97.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[273]: [INFO DRT-0199]   Number of violations = 62.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[317]: [INFO DRT-0199]   Number of violations = 23.
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1509]: _0626_/X                                1.51    1.62   -0.11 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1510]: _0628_/X                                1.51    1.61   -0.10 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1511]: _1145_/A                                1.50    1.52   -0.02 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1512]: _1022_/C1                               1.50    1.52   -0.02 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1513]: _1208_/C1                               1.50    1.52   -0.02 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1514]: _1209_/B1                               1.50    1.52   -0.02 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1515]: _1192_/B                                1.50    1.52   -0.02 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1516]: _1021_/X                                1.51    1.52   -0.01 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1522]: _1021_/X                                0.13    0.13   -0.00 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1526]: max slew violation count 8
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1528]: max cap violation count 1
+openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\36-antenna.log[17]: [INFO ANT-0002] Found 14 net violations in 1418 nets.
+openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[55118]: Number of pins violated: 14
+openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[55119]: Number of nets violated: 14

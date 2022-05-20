@@ -15,6 +15,7 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthes
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[252]: Warnings: 4 unique messages, 7 total
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\placement\8-resizer.log[1374]: [WARNING RSZ-0020] found 4 floatiing nets.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[15]: [WARNING PDN-0189] Supply pin vccd1 of instance art is not connected to any net.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[16]: [WARNING PDN-0189] Supply pin vssd1 of instance art is not connected to any net.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[17]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0 is not connected to any net.

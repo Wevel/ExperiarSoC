@@ -1,40 +1,47 @@
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[4172]: ABC: Error: The network is combinational.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[1513]: [INFO GRT-0012] Antenna violations: 63
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[2406]: [INFO GRT-0012] Antenna violations: 19
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[3284]: [INFO GRT-0012] Antenna violations: 5
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global_2.log[1432]: [INFO GRT-0012] Antenna violations: 14
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[210]: [INFO DRT-0199]   Number of violations = 7848.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[254]: [INFO DRT-0199]   Number of violations = 2569.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[298]: [INFO DRT-0199]   Number of violations = 2442.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[342]: [INFO DRT-0199]   Number of violations = 372.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[386]: [INFO DRT-0199]   Number of violations = 31.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[430]: [INFO DRT-0199]   Number of violations = 10.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[474]: [INFO DRT-0199]   Number of violations = 7.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[518]: [INFO DRT-0199]   Number of violations = 2.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1154]: _11843_/Y                               1.50    2.01   -0.51 (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1160]: _13270_/X                               0.13    0.13   -0.00 (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1164]: max slew violation count 1
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1166]: max cap violation count 1
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[243987]: -0.05   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244144]: -0.04   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244304]: -0.03   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244464]: -0.03   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244624]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244784]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[244944]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[245101]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[245258]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[245331]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 11 net violations in 11890 nets.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[243472]: -0.05   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[243629]: -0.04   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[243789]: -0.03   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[243949]: -0.03   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244109]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244269]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244429]: -0.02   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244586]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244743]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[244816]: -0.01   slack (VIOLATED)
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\antenna.rpt[665298]: Number of pins violated: 11
-openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\antenna.rpt[665299]: Number of nets violated: 11
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[4174]: ABC: Error: The network is combinational.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[1537]: [INFO GRT-0012] Antenna violations: 61
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[2490]: [INFO GRT-0012] Antenna violations: 34
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global.log[3447]: [INFO GRT-0012] Antenna violations: 7
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\18-global_2.log[1512]: [INFO GRT-0012] Antenna violations: 10
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[210]: [INFO DRT-0199]   Number of violations = 7634.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[254]: [INFO DRT-0199]   Number of violations = 2267.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[298]: [INFO DRT-0199]   Number of violations = 2156.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[342]: [INFO DRT-0199]   Number of violations = 313.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\routing\21-detailed.log[386]: [INFO DRT-0199]   Number of violations = 29.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1136]: _15635_/A                               1.50    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1137]: _15067_/A                               1.50    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1138]: _16055_/A                               1.50    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1139]: _13963_/A1                              1.50    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1140]: _13209_/A2                              1.50    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1141]: _13207_/X                               1.51    1.74   -0.24 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1142]: _15068_/A                               1.50    1.72   -0.22 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1143]: _15636_/A                               1.50    1.72   -0.22 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1144]: _16056_/A                               1.50    1.72   -0.22 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1145]: _13204_/A2                              1.50    1.72   -0.22 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1146]: _13961_/A1                              1.50    1.72   -0.22 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1147]: _13202_/X                               1.51    1.72   -0.21 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1148]: _15634_/A                               1.50    1.70   -0.20 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1149]: _15066_/A                               1.50    1.70   -0.20 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1150]: _13965_/A1                              1.50    1.70   -0.20 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1151]: _16054_/A                               1.50    1.70   -0.20 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1152]: _13214_/A2                              1.50    1.70   -0.20 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1153]: _13211_/X                               1.51    1.70   -0.19 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1154]: _15640_/A                               1.50    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1155]: _15072_/A                               1.50    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1156]: _16060_/A                               1.50    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1157]: _13181_/A2                              1.50    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1158]: _13952_/A1                              1.50    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1159]: _13179_/X                               1.51    1.54   -0.04 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1165]: _13207_/X                               0.13    0.15   -0.02 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1166]: _13202_/X                               0.13    0.15   -0.02 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1167]: _13211_/X                               0.13    0.15   -0.02 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1168]: _13179_/X                               0.13    0.13   -0.00 (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1172]: max slew violation count 24
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\placement\7-global.log[1174]: max cap violation count 4
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[250728]: -0.01   slack (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\25-parasitics_multi_corner_sta.log[250891]: 0.00   slack (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 20 net violations in 11913 nets.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[250213]: -0.01   slack (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\25-rcx_mca_sta.min.rpt[250376]: 0.00   slack (VIOLATED)
+openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\antenna.rpt[661806]: Number of pins violated: 20
+openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\signoff\antenna.rpt[661807]: Number of nets violated: 20
