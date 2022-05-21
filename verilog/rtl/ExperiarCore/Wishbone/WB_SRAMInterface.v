@@ -48,21 +48,25 @@ module WB_SRAMInterface (
 	wire isStateWriteSingle = state == STATE_WRITE_SINGLE;
 	wire isStateIdle = state == STATE_IDLE;
 
+	wire[31:0] peripheralBus_dataRead;
 	wire peripheralBus_busy;
 
 	reg stall = 1'b0;
 	reg acknowledge = 1'b0;
+	reg[31:0] dataRead_buffered;
 	
 	always @(posedge wb_clk_i) begin
 		if (wb_rst_i) begin
 			state <= STATE_IDLE;
 			stall <= 1'b0;
 			acknowledge <= 1'b0;
+			dataRead_buffered <= 32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= 32'b0;
 
 					if (wb_cyc_i) begin
 						if (wb_stb_i) begin
@@ -91,6 +95,7 @@ module WB_SRAMInterface (
 					if (!peripheralBus_busy) begin
 						state <= STATE_FINISH;
 						acknowledge <= 1'b1;
+						dataRead_buffered <= peripheralBus_dataRead;
 					end
 				end
 
@@ -118,9 +123,8 @@ module WB_SRAMInterface (
 	wire peripheralBus_oe = isStateReadSingle;
 	wire[19:0] peripheralBus_address = !isStateIdle ? currentAddress : 24'b0;
 	wire[3:0] peripheralBus_byteSelect = !isStateIdle ? currentByteSelect : 4'b0;
-	wire[31:0] peripheralBus_dataWrite = isStateWriteSingle ? wb_data_i : 32'b0;
-	wire[31:0] peripheralBus_dataRead;
-	assign wb_data_o = isStateReadSingle ? peripheralBus_dataRead : 32'b0;
+	wire[31:0] peripheralBus_dataWrite = isStateWriteSingle ? wb_data_i : 32'b0;	
+	assign wb_data_o = dataRead_buffered;
 
 	// Connect local memory and management interface signals
 	wire localMemoryEnable = wb_adr_i[23] == 1'b0;

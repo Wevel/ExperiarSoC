@@ -33,17 +33,20 @@ module WBFlashInterface (
 
 	reg stall = 1'b0;
 	reg acknowledge = 1'b0;
+	reg[31:0] dataRead_buffered;
 
 	always @(posedge wb_clk_i) begin
 		if (wb_rst_i) begin
 			state <= STATE_IDLE;
 			stall <= 1'b0;
 			acknowledge <= 1'b0;
+			dataRead_buffered <= 32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= 32'b0;
 
 					if (wb_cyc_i) begin
 						if (wb_stb_i) begin
@@ -71,6 +74,7 @@ module WBFlashInterface (
 					if (!flashCache_busy) begin
 						state <= STATE_FINISH;
 						acknowledge <= 1'b1;
+						dataRead_buffered <= flashCache_dataRead;
 					end
 				end
 
@@ -99,6 +103,6 @@ module WBFlashInterface (
 	assign flashCache_address = state != STATE_IDLE ? currentAddress : 24'b0;
 	assign flashCache_byteSelect = state != STATE_IDLE ? currentByteSelect : 4'b0;
 
-	assign wb_data_o = state == STATE_READ_SINGLE ? flashCache_dataRead : 32'b0;
+	assign wb_data_o = dataRead_buffered;
 	
 endmodule

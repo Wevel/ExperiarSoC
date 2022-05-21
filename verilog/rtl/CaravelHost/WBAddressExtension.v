@@ -47,15 +47,18 @@ module WBAddressExtension (
 	reg[31:0] currentDataIn;
 
 	reg acknowledge = 1'b0;
+	reg[31:0] dataRead_buffered;
 
 	always @(posedge wb_clk_i) begin
 		if (wb_rst_i) begin
 			state <= STATE_IDLE;
 			acknowledge <= 1'b0;
+			dataRead_buffered <= 32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					acknowledge <= 1'b0;
+					dataRead_buffered <= 32'b0;
 
 					if (wbs_cyc_i && !userSpaceSelect) begin
 						if (wbs_stb_i) begin
@@ -80,6 +83,7 @@ module WBAddressExtension (
 				STATE_READ_SINGLE: begin
 					state <= STATE_FINISH;
 					acknowledge <= 1'b1;
+					dataRead_buffered <= currentAddress;
 				end
 
 				STATE_FINISH: begin
@@ -97,6 +101,6 @@ module WBAddressExtension (
 
 	// Connect wishbone return signals
 	assign wbs_ack_o = userSpaceSelect ? userSpace_wb_ack_o : acknowledge;
-	assign wbs_data_o = userSpaceSelect ? userSpace_wb_data_o : currentAddress;
+	assign wbs_data_o = userSpaceSelect ? userSpace_wb_data_o : dataRead_buffered;
 	
 endmodule

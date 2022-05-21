@@ -40,17 +40,20 @@ module WBPeripheralBusInterface (
 
 	reg stall = 1'b0;
 	reg acknowledge = 1'b0;
+	reg[31:0] dataRead_buffered;
 
 	always @(posedge wb_clk_i) begin
 		if (wb_rst_i) begin
 			state <= STATE_IDLE;
 			stall <= 1'b0;
 			acknowledge <= 1'b0;
+			dataRead_buffered <= 32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= 32'b0;
 
 					if (wb_cyc_i) begin
 						if (wb_stb_i) begin
@@ -79,6 +82,7 @@ module WBPeripheralBusInterface (
 					if (!peripheralBus_busy) begin
 						state <= STATE_FINISH;
 						acknowledge <= 1'b1;
+						dataRead_buffered <= peripheralBus_dataRead;
 					end
 				end
 
@@ -108,7 +112,7 @@ module WBPeripheralBusInterface (
 	assign peripheralBus_address = state != STATE_IDLE ? currentAddress : 24'b0;
 	assign peripheralBus_byteSelect = state != STATE_IDLE ? currentByteSelect : 4'b0;
 
-	assign wb_data_o = state == STATE_READ_SINGLE ? peripheralBus_dataRead : 32'b0;
+	assign wb_data_o = dataRead_buffered;
 	assign peripheralBus_dataWrite = state == STATE_WRITE_SINGLE ? wb_data_i : 32'b0;
 
 endmodule
