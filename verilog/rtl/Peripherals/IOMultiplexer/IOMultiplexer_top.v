@@ -64,6 +64,14 @@ module IOMultiplexer (
 		output wire[1:0] probe_blink
 	);
 
+	// Buffer inputs
+	wire[`MPRJ_IO_PADS-1:0] inputBuffer;
+
+	genvar i;
+	generate
+		for (i = 0; i < `MPRJ_IO_PADS; i = i + 1) assign inputBuffer[i] = (io_in[i] === 1'dx) ? 1'b0 : io_in[i];
+	endgenerate
+
 	// Test blink
 	localparam BLINK_CLOCK_DIV = 26;
 	reg blinkEnabled = 1'b1;
@@ -140,7 +148,7 @@ module IOMultiplexer (
 	assign gpio_input[PIN_JTAG] = 1'b0;
 	assign io_out[PIN_JTAG] = 1'b0;
 	assign io_oeb[PIN_JTAG] = 1'b1;
-	assign jtag = io_in[PIN_JTAG];
+	assign jtag = inputBuffer[PIN_JTAG];
 	
 	// IO01-PIN_SDO: Output
 	localparam PIN_SDO = 1;
@@ -153,28 +161,28 @@ module IOMultiplexer (
 	assign gpio_input[PIN_SDI] = 1'b0;
 	assign io_out[PIN_SDI] = 1'b0;
 	assign io_oeb[PIN_SDI] = 1'b1;
-	assign sdi = io_in[PIN_SDI];
+	assign sdi = inputBuffer[PIN_SDI];
 	
 	// IO03-PIN_CSB: Input
 	localparam PIN_CSB = 3;
 	assign gpio_input[PIN_CSB] = 1'b0;
 	assign io_out[PIN_CSB] = 1'b0;
 	assign io_oeb[PIN_CSB] = 1'b1;
-	assign csb = io_in[PIN_CSB];
+	assign csb = inputBuffer[PIN_CSB];
 	
 	// IO04-PIN_SCK: Input
 	localparam PIN_SCK = 4;
 	assign gpio_input[PIN_SCK] = 1'b0;
 	assign io_out[PIN_SCK] = 1'b0;
 	assign io_oeb[PIN_SCK] = 1'b1;
-	assign sck = io_in[PIN_SCK];
+	assign sck = inputBuffer[PIN_SCK];
 	
 	// IO05-PIN_UART1_RX: Input
 	localparam PIN_UART1_RX = 5;
 	assign gpio_input[PIN_UART1_RX] = 1'b0;
 	assign io_out[PIN_UART1_RX] = 1'b0;
 	assign io_oeb[PIN_UART1_RX] = 1'b1;
-	assign uart_rx[1] = io_in[PIN_UART1_RX];
+	assign uart_rx[1] = inputBuffer[PIN_UART1_RX];
 	
 	// IO06-PIN_UART1_TX: Output
 	localparam PIN_UART1_TX = 6;
@@ -184,10 +192,10 @@ module IOMultiplexer (
 	
 	// IO07-PIN_IRQ: Input
 	localparam PIN_IRQ = 7;
-	assign gpio_input[PIN_IRQ] = irq_en ? 1'b0 : io_in[PIN_IRQ];
+	assign gpio_input[PIN_IRQ] = irq_en ? 1'b0 : gpio_oe[PIN_IRQ] ? inputBuffer[PIN_IRQ] : 1'b0;
 	assign io_out[PIN_IRQ] = irq_en ? 1'b0 : gpio_output[PIN_IRQ];
 	assign io_oeb[PIN_IRQ] = irq_en ? 1'b1 : gpio_oe[PIN_IRQ];
-	assign irq_in = irq_en ? io_in[PIN_IRQ] : 1'b0;
+	assign irq_in = irq_en ? inputBuffer[PIN_IRQ] : 1'b0;
 	
 	// IO08-PIN_FLASH_CSB: Output
 	localparam PIN_FLASH_CSB = 8;
@@ -206,123 +214,123 @@ module IOMultiplexer (
 	assign gpio_input[PIN_FLASH_IO0] = 1'b0;
 	assign io_out[PIN_FLASH_IO0] = flash_io0_write;
 	assign io_oeb[PIN_FLASH_IO0] = !flash_io0_we;
-	assign flash_io0_read = !flash_io0_we ? io_in[PIN_FLASH_IO0] : 1'b0;
+	assign flash_io0_read = !flash_io0_we ? inputBuffer[PIN_FLASH_IO0] : 1'b0;
 	
 	// IO11-PIN_FLASH_IO1: InOut
 	localparam PIN_FLASH_IO1 = 11;
 	assign gpio_input[PIN_FLASH_IO1] = 1'b0;
 	assign io_out[PIN_FLASH_IO1] = flash_io1_write;
 	assign io_oeb[PIN_FLASH_IO1] = !flash_io1_we;
-	assign flash_io1_read = !flash_io1_we ? io_in[PIN_FLASH_IO1] : 1'b0;
+	assign flash_io1_read = !flash_io1_we ? inputBuffer[PIN_FLASH_IO1] : 1'b0;
 	
 	// IO12-PIN_PWM0: Output
 	localparam PIN_PWM0 = 12;
-	assign gpio_input[PIN_PWM0] = pwm_en[0] ? 1'b0 : io_in[PIN_PWM0];
+	assign gpio_input[PIN_PWM0] = pwm_en[0] ? 1'b0 : gpio_oe[PIN_PWM0] ? inputBuffer[PIN_PWM0] : 1'b0;
 	assign io_out[PIN_PWM0] = pwm_en[0] ? pwm_out[0] : gpio_output[PIN_PWM0];
 	assign io_oeb[PIN_PWM0] = pwm_en[0] ? 1'b0 : gpio_oe[PIN_PWM0];
 	
 	// IO13-PIN_PWM1: Output
 	localparam PIN_PWM1 = 13;
-	assign gpio_input[PIN_PWM1] = pwm_en[1] ? 1'b0 : io_in[PIN_PWM1];
+	assign gpio_input[PIN_PWM1] = pwm_en[1] ? 1'b0 : gpio_oe[PIN_PWM1] ? inputBuffer[PIN_PWM1] : 1'b0;
 	assign io_out[PIN_PWM1] = pwm_en[1] ? pwm_out[1] : gpio_output[PIN_PWM1];
 	assign io_oeb[PIN_PWM1] = pwm_en[1] ? 1'b0 : gpio_oe[PIN_PWM1];
 	
 	// IO14-PIN_PWM2: Output
 	localparam PIN_PWM2 = 14;
-	assign gpio_input[PIN_PWM2] = pwm_en[2] ? 1'b0 : io_in[PIN_PWM2];
+	assign gpio_input[PIN_PWM2] = pwm_en[2] ? 1'b0 : gpio_oe[PIN_PWM2] ? inputBuffer[PIN_PWM2] : 1'b0;
 	assign io_out[PIN_PWM2] = pwm_en[2] ? pwm_out[2] : gpio_output[PIN_PWM2];
 	assign io_oeb[PIN_PWM2] = pwm_en[2] ? 1'b0 : gpio_oe[PIN_PWM2];
 	
 	// IO15-PIN_PWM3: Output
 	localparam PIN_PWM3 = 15;
-	assign gpio_input[PIN_PWM3] = pwm_en[3] ? 1'b0 : io_in[PIN_PWM3];
+	assign gpio_input[PIN_PWM3] = pwm_en[3] ? 1'b0 : gpio_oe[PIN_PWM3] ? inputBuffer[PIN_PWM3] : 1'b0;
 	assign io_out[PIN_PWM3] = pwm_en[3] ? pwm_out[3] : gpio_output[PIN_PWM3];
 	assign io_oeb[PIN_PWM3] = pwm_en[3] ? 1'b0 : gpio_oe[PIN_PWM3];
 	
 	// IO16-PIN_PWM4: Output
 	localparam PIN_PWM4 = 16;
-	assign gpio_input[PIN_PWM4] = pwm_en[4] ? 1'b0 : io_in[PIN_PWM4];
+	assign gpio_input[PIN_PWM4] = pwm_en[4] ? 1'b0 : gpio_oe[PIN_PWM4] ? inputBuffer[PIN_PWM4] : 1'b0;
 	assign io_out[PIN_PWM4] = pwm_en[4] ? pwm_out[4] : gpio_output[PIN_PWM4];
 	assign io_oeb[PIN_PWM4] = pwm_en[4] ? 1'b0 : gpio_oe[PIN_PWM4];
 	
 	// IO17-PIN_PWM5: Output
 	localparam PIN_PWM5 = 17;
-	assign gpio_input[PIN_PWM5] = pwm_en[5] ? 1'b0 : io_in[PIN_PWM5];
+	assign gpio_input[PIN_PWM5] = pwm_en[5] ? 1'b0 : gpio_oe[PIN_PWM5] ? inputBuffer[PIN_PWM5] : 1'b0;
 	assign io_out[PIN_PWM5] = pwm_en[5] ? pwm_out[5] : gpio_output[PIN_PWM5];
 	assign io_oeb[PIN_PWM5] = pwm_en[5] ? 1'b0 : gpio_oe[PIN_PWM5];
 	
 	// IO18-PIN_PWM6: Output
 	localparam PIN_PWM6 = 18;
-	assign gpio_input[PIN_PWM6] = pwm_en[6] ? 1'b0 : io_in[PIN_PWM6];
+	assign gpio_input[PIN_PWM6] = pwm_en[6] ? 1'b0 : gpio_oe[PIN_PWM6] ? inputBuffer[PIN_PWM6] : 1'b0;
 	assign io_out[PIN_PWM6] = pwm_en[6] ? pwm_out[6] : gpio_output[PIN_PWM6];
 	assign io_oeb[PIN_PWM6] = pwm_en[6] ? 1'b0 : gpio_oe[PIN_PWM6];
 	
 	// IO19-PIN_UART2_RX: Input
 	localparam PIN_UART2_RX = 19;
-	assign gpio_input[PIN_UART2_RX] = uart_en[2] ? 1'b0 : io_in[PIN_UART2_RX];
+	assign gpio_input[PIN_UART2_RX] = uart_en[2] ? 1'b0 : gpio_oe[PIN_UART2_RX] ? inputBuffer[PIN_UART2_RX] : 1'b0;
 	assign io_out[PIN_UART2_RX] = uart_en[2] ? 1'b0 : gpio_output[PIN_UART2_RX];
 	assign io_oeb[PIN_UART2_RX] = uart_en[2] ? 1'b1 : gpio_oe[PIN_UART2_RX];
-	assign uart_rx[2] = uart_en[2] ? io_in[PIN_UART2_RX] : 1'b1;
+	assign uart_rx[2] = uart_en[2] ? inputBuffer[PIN_UART2_RX] : 1'b1;
 	
 	// IO20-PIN_UART2_TX: Output
 	localparam PIN_UART2_TX = 20;
-	assign gpio_input[PIN_UART2_TX] = uart_en[2] ? 1'b0 : io_in[PIN_UART2_TX];
+	assign gpio_input[PIN_UART2_TX] = uart_en[2] ? 1'b0 : gpio_oe[PIN_UART2_TX] ? inputBuffer[PIN_UART2_TX] : 1'b0;
 	assign io_out[PIN_UART2_TX] = uart_en[2] ? uart_tx[2] : gpio_output[PIN_UART2_TX];
 	assign io_oeb[PIN_UART2_TX] = uart_en[2] ? 1'b0 : gpio_oe[PIN_UART2_TX];
 	
 	// IO21-PIN_PWM7: Output
 	localparam PIN_PWM7 = 21;
-	assign gpio_input[PIN_PWM7] = pwm_en[7] ? 1'b0 : io_in[PIN_PWM7];
+	assign gpio_input[PIN_PWM7] = pwm_en[7] ? 1'b0 : gpio_oe[PIN_PWM7] ? inputBuffer[PIN_PWM7] : 1'b0;
 	assign io_out[PIN_PWM7] = pwm_en[7] ? pwm_out[7] : gpio_output[PIN_PWM7];
 	assign io_oeb[PIN_PWM7] = pwm_en[7] ? 1'b0 : gpio_oe[PIN_PWM7];
 	
 	// IO22-PIN_SPI0_CLK: Output
 	localparam PIN_SPI0_CLK = 22;
-	assign gpio_input[PIN_SPI0_CLK] = spi_en[0] ? 1'b0 : io_in[PIN_SPI0_CLK];
+	assign gpio_input[PIN_SPI0_CLK] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_CLK] ? inputBuffer[PIN_SPI0_CLK] : 1'b0;
 	assign io_out[PIN_SPI0_CLK] = spi_en[0] ? spi_clk[0] : gpio_output[PIN_SPI0_CLK];
 	assign io_oeb[PIN_SPI0_CLK] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_CLK];
 	
 	// IO23-PIN_SPI0_MOSI: Output
 	localparam PIN_SPI0_MOSI = 23;
-	assign gpio_input[PIN_SPI0_MOSI] = spi_en[0] ? 1'b0 : io_in[PIN_SPI0_MOSI];
+	assign gpio_input[PIN_SPI0_MOSI] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_MOSI] ? inputBuffer[PIN_SPI0_MOSI] : 1'b0;
 	assign io_out[PIN_SPI0_MOSI] = spi_en[0] ? spi_mosi[0] : gpio_output[PIN_SPI0_MOSI];
 	assign io_oeb[PIN_SPI0_MOSI] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_MOSI];
 	
 	// IO24-PIN_SPI0_MISO: Input
 	localparam PIN_SPI0_MISO = 24;
-	assign gpio_input[PIN_SPI0_MISO] = spi_en[0] ? 1'b0 : io_in[PIN_SPI0_MISO];
+	assign gpio_input[PIN_SPI0_MISO] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_MISO] ? inputBuffer[PIN_SPI0_MISO] : 1'b0;
 	assign io_out[PIN_SPI0_MISO] = spi_en[0] ? 1'b0 : gpio_output[PIN_SPI0_MISO];
 	assign io_oeb[PIN_SPI0_MISO] = spi_en[0] ? 1'b1 : gpio_oe[PIN_SPI0_MISO];
-	assign spi_miso[0] = spi_en[0] ? io_in[PIN_SPI0_MISO] : 1'b0;
+	assign spi_miso[0] = spi_en[0] ? inputBuffer[PIN_SPI0_MISO] : 1'b0;
 	
 	// IO25-PIN_SPI0_CS: Output
 	localparam PIN_SPI0_CS = 25;
-	assign gpio_input[PIN_SPI0_CS] = spi_en[0] ? 1'b0 : io_in[PIN_SPI0_CS];
+	assign gpio_input[PIN_SPI0_CS] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_CS] ? inputBuffer[PIN_SPI0_CS] : 1'b0;
 	assign io_out[PIN_SPI0_CS] = spi_en[0] ? spi_cs[0] : gpio_output[PIN_SPI0_CS];
 	assign io_oeb[PIN_SPI0_CS] = spi_en[0] ? 1'b0 : gpio_oe[PIN_SPI0_CS];
 	
 	// IO26-PIN_UART3_RX: Input
 	localparam PIN_UART3_RX = 26;
-	assign gpio_input[PIN_UART3_RX] = uart_en[3] ? 1'b0 : io_in[PIN_UART3_RX];
+	assign gpio_input[PIN_UART3_RX] = uart_en[3] ? 1'b0 : gpio_oe[PIN_UART3_RX] ? inputBuffer[PIN_UART3_RX] : 1'b0;
 	assign io_out[PIN_UART3_RX] = uart_en[3] ? 1'b0 : gpio_output[PIN_UART3_RX];
 	assign io_oeb[PIN_UART3_RX] = uart_en[3] ? 1'b1 : gpio_oe[PIN_UART3_RX];
-	assign uart_rx[3] = uart_en[3] ? io_in[PIN_UART3_RX] : 1'b1;
+	assign uart_rx[3] = uart_en[3] ? inputBuffer[PIN_UART3_RX] : 1'b1;
 	
 	// IO27-PIN_UART3_TX: Output
 	localparam PIN_UART3_TX = 27;
-	assign gpio_input[PIN_UART3_TX] = uart_en[3] ? 1'b0 : io_in[PIN_UART3_TX];
+	assign gpio_input[PIN_UART3_TX] = uart_en[3] ? 1'b0 : gpio_oe[PIN_UART3_TX] ? inputBuffer[PIN_UART3_TX] : 1'b0;
 	assign io_out[PIN_UART3_TX] = uart_en[3] ? uart_tx[3] : gpio_output[PIN_UART3_TX];
 	assign io_oeb[PIN_UART3_TX] = uart_en[3] ? 1'b0 : gpio_oe[PIN_UART3_TX];
 	
 	// IO28-PIN_BLINK0: Output
 	localparam PIN_BLINK0 = 28;
-	assign gpio_input[PIN_BLINK0] = blinkEnabled ? 1'b0 : io_in[PIN_BLINK0];
+	assign gpio_input[PIN_BLINK0] = blinkEnabled ? 1'b0 : gpio_oe[PIN_BLINK0] ? inputBuffer[PIN_BLINK0] : 1'b0;
 	assign io_out[PIN_BLINK0] = blinkEnabled ? blink[0] : gpio_output[PIN_BLINK0];
 	assign io_oeb[PIN_BLINK0] = blinkEnabled ? 1'b0 : gpio_oe[PIN_BLINK0];
 	
 	// IO29-PIN_BLINK1: Output
 	localparam PIN_BLINK1 = 29;
-	assign gpio_input[PIN_BLINK1] = blinkEnabled ? 1'b0 : io_in[PIN_BLINK1];
+	assign gpio_input[PIN_BLINK1] = blinkEnabled ? 1'b0 : gpio_oe[PIN_BLINK1] ? inputBuffer[PIN_BLINK1] : 1'b0;
 	assign io_out[PIN_BLINK1] = blinkEnabled ? blink[1] : gpio_output[PIN_BLINK1];
 	assign io_oeb[PIN_BLINK1] = blinkEnabled ? 1'b0 : gpio_oe[PIN_BLINK1];
 	
