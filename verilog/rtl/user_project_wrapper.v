@@ -82,21 +82,6 @@ module user_project_wrapper #(
 	/* User project is instantiated  here   */
 	/*--------------------------------------*/
 
-	wire [`MPRJ_IO_PADS-1:0] io_out2;
-	wire [`MPRJ_IO_PADS-1:0] io_oeb2;
-	assign io_out = io_out2;
-	assign io_oeb = io_oeb2;
-
-	// assign io_out = { 
-	// 	io_out2[`MPRJ_IO_PADS-1:5],
-	// 	caravel_wb_cyc_o,
-	// 	caravel_wb_ack_i,
-	// 	wbs_cyc_i && wbs_stb_i,
-	// 	wbs_ack_o,
-	// 	wbs_we_i
-	// };
-	//assign io_oeb = { io_oeb2[`MPRJ_IO_PADS-1:5], 5'b0 };
-
 	// Caravel wishbone master
 	wire caravel_wb_cyc_o;
 	wire caravel_wb_stb_o;
@@ -138,8 +123,8 @@ module user_project_wrapper #(
 		.caravel_wb_error_i(caravel_wb_error_i),
 		.caravel_wb_data_i(caravel_wb_data_i),
 		.io_in(io_in),
-		.io_out(io_out2),
-		.io_oeb(io_oeb2),
+		.io_out(io_out),
+		.io_oeb(io_oeb),
 		.caravel_uart_rx(caravel_uart_rx),
 		.caravel_uart_tx(caravel_uart_tx),
 		.la_data_in(la_data_in),
@@ -186,13 +171,12 @@ module user_project_wrapper #(
 		.versionID(versionID));
 
 	// Add dumby module for art
-	wire dumyPin;
 	Art art(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
-		.vssd1(vssd1),	// User area 1 digital ground
+		.vssd1(vssd1)	// User area 1 digital ground
 `endif
-		.dumyPin(dumyPin));
+		);
 
 endmodule	// user_project_wrapper
 

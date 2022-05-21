@@ -162,25 +162,45 @@ module ExperiarSoC (
 	wire flash_wb_error_o;
 	wire[31:0] flash_wb_data_o;
 
-	wire[2:0] probe_master0_currentSlave;
-	wire[2:0] probe_master1_currentSlave;
-	wire[2:0] probe_master2_currentSlave;
-	wire[2:0] probe_master3_currentSlave;
+	// wire[2:0] probe_master0_currentSlave;
+	// wire[2:0] probe_master1_currentSlave;
+	// wire[2:0] probe_master2_currentSlave;
+	// wire[2:0] probe_master3_currentSlave;
+	// wire[1:0] probe_slave0_currentMaster;
+	// wire[1:0] probe_slave1_currentMaster;
+	// wire[1:0] probe_slave2_currentMaster;
+	// wire[1:0] probe_slave3_currentMaster;
+	// wire[1:0] probe_slave4_currentMaster;
+
+	// wire[15:0] probe_wishboneInterconnect = {
+	// 	probe_slave3_currentMaster,
+	// 	probe_slave2_currentMaster,
+	// 	probe_slave1_currentMaster,
+	// 	probe_slave0_currentMaster,
+	// 	probe_master3_currentSlave[1:0],
+	// 	probe_master2_currentSlave[1:0],
+	// 	probe_master1_currentSlave[1:0],
+	// 	probe_master0_currentSlave[1:0]
+	// };
+
+	wire[1:0] probe_master0_currentSlave;
+	wire[1:0] probe_master1_currentSlave;
+	wire[1:0] probe_master2_currentSlave;
+	wire[1:0] probe_master3_currentSlave;
 	wire[1:0] probe_slave0_currentMaster;
 	wire[1:0] probe_slave1_currentMaster;
 	wire[1:0] probe_slave2_currentMaster;
 	wire[1:0] probe_slave3_currentMaster;
-	wire[1:0] probe_slave4_currentMaster;
 
 	wire[15:0] probe_wishboneInterconnect = {
 		probe_slave3_currentMaster,
 		probe_slave2_currentMaster,
 		probe_slave1_currentMaster,
 		probe_slave0_currentMaster,
-		probe_master3_currentSlave[1:0],
-		probe_master2_currentSlave[1:0],
-		probe_master1_currentSlave[1:0],
-		probe_master0_currentSlave[1:0]
+		probe_master3_currentSlave,
+		probe_master2_currentSlave,
+		probe_master1_currentSlave,
+		probe_master0_currentSlave
 	};
 
 	//-------------------------------------------------//
@@ -291,8 +311,8 @@ module ExperiarSoC (
 		.probe_slave0_currentMaster(probe_slave0_currentMaster),
 		.probe_slave1_currentMaster(probe_slave1_currentMaster),
 		.probe_slave2_currentMaster(probe_slave2_currentMaster),
-		.probe_slave3_currentMaster(probe_slave3_currentMaster),
-		.probe_slave4_currentMaster(probe_slave4_currentMaster));
+		.probe_slave3_currentMaster(probe_slave3_currentMaster));//,
+		//.probe_slave4_currentMaster(probe_slave4_currentMaster));
 
 	//-------------------------------------------------//
 	//----------------------CORE0----------------------//

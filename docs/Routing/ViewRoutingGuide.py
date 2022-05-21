@@ -24,16 +24,16 @@ def ParseGuideFile(fileName:str) -> dict[str, list[tuple[float, float, float, fl
 
 	return data
 
-def ViewGuideFile(fileName:str):
-	if not os.path.exists(fileName):
-		print(f"Can't find file '{fileName}' to render")
+def ViewGuideFile(guideFileName:str, macroFileName:str):
+	if not os.path.exists(guideFileName):
+		print(f"Can't find guide file '{guideFileName}' to render")
 		return
 
-	if os.path.splitext(fileName)[1] != ".guide":
-		print(f"Can't find file '{fileName}' as it isn't a guide file")
+	if os.path.splitext(guideFileName)[1] != ".guide":
+		print(f"Can't find file '{guideFileName}' as it isn't a guide file")
 		return
 
-	data = ParseGuideFile(fileName)
+	data = ParseGuideFile(guideFileName)
 
 	chipWidth = 2908.58
 	chipHeight = 3497.92
@@ -46,6 +46,10 @@ def ViewGuideFile(fileName:str):
 	imBase = Image.new(mode="RGBA", size=(imageWidth, imageHeight), color=(15, 15, 15, 255))
 	draw = ImageDraw.Draw(imBase)
 
+	# if os.path.exists(macroFileName) and os.path.splitext(macroFileName)[1] == ".cfg":
+	# 	with open(macroFileName, "r") as f:
+	# 		lines = f.readlines()
+
 	def drawRect(r, c):
 		px0 = (r[0] + boarder) * imageScale
 		py0 = (chipHeight - r[1] + boarder) * imageScale
@@ -54,8 +58,9 @@ def ViewGuideFile(fileName:str):
 		draw.rectangle((px0, py0, px1, py1), fill=c, outline=None, width=0)
 
 	def drawLayer(name, c):
-		for	r in data[name]:
-			drawRect(r, c)
+		if name in data:
+			for	r in data[name]:
+				drawRect(r, c)
 
 	drawLayer("li1"  , (100, 100, 100, 127))
 	drawLayer("met1" , (  0,   0, 255, 127))
@@ -66,20 +71,19 @@ def ViewGuideFile(fileName:str):
 	drawLayer("other", (255, 255, 255, 127))
 
 	# write to stdout
-	imBase.save(f"{fileName}.jpg", "PNG")
-	print(f"Saved output image: '{fileName}.jpg'")
+	imBase.save(f"{guideFileName}.jpg", "PNG")
+	print(f"Saved output image: '{guideFileName}.jpg'")
 
 def main():
 	if len(sys.argv) > 1:
 		for i in range(1, len(sys.argv)):
 			item = sys.argv[i]
 			if type(item) is str:
-				ViewGuideFile(str(item))
+				ViewGuideFile(str(item), "")
 			else:
 				print(f"Invalid argument '{item}' but be a path to a guide file")
 	else:
-		ViewGuideFile("docs/Routing/17-global.guide")
-		ViewGuideFile("docs/Routing/detailed.guide")
+		ViewGuideFile("docs/Routing/detailed.guide", "")
 
 if __name__ == "__main__":
 	main()

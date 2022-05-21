@@ -135,7 +135,6 @@ module WB_SRAMInterface (
 	assign localMemoryAddress = peripheralBus_address;
 	assign localMemoryByteSelect = peripheralBus_byteSelect;
 	assign localMemoryDataWrite = peripheralBus_dataWrite;
-	assign wb_data_o = isStateReadSingle ? localMemoryDataRead : 32'b0;
 
 	assign management_writeEnable = managementEnable && peripheralBus_we;
 	assign management_readEnable = managementEnable && peripheralBus_oe;

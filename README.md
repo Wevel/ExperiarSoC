@@ -24,7 +24,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 ## Build Status
 - CaravelHost: Success
-- ExperiarCore: Success
+- ExperiarCore: Success (Seem to be missing much of the core from the gds)
 - Flash: Success
 - Peripherals: Success
 - Video: Success
@@ -34,8 +34,21 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 # Tests
 ## verify-peripheral-rtl (-gl)
-### Status: Success
+### Status: Success (Partially implemented)
 Runs a number of tests (currently just a very basic gpio test) from the management core to ensure the peripherals work correctly.
+
+## verify-memory-rtl (-gl)
+### Status: Not implemented
+Tests the managment core has access to each sram region, and that data can be correctly writen and read.
+
+## verify-video-rtl (-gl)
+### Status: Not implemented
+Tests that the managment core can initialise the VGA device, and that the signal coresponding to this is generated. This will not produce a valid VGA signal as the simulation time would be too long.
+
+## verify-core-rtl (-gl)
+### Status: Not implemented
+Runs a number of tests on each core to ensure they function correctly, and can access all peripherals on the SoC.
+
 
 # ToDo
 - Get it to build

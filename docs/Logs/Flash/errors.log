@@ -1,10 +1,10 @@
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[853]: ABC: Error: The network is combinational.
-openlane/Flash\runs\Flash\logs\routing\18-global.log[635]: [INFO GRT-0012] Antenna violations: 23
-openlane/Flash\runs\Flash\logs\routing\18-global.log[738]: [INFO GRT-0012] Antenna violations: 1
-openlane/Flash\runs\Flash\logs\routing\18-global_2.log[642]: [INFO GRT-0012] Antenna violations: 3
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[175]: [INFO DRT-0199]   Number of violations = 127.
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[219]: [INFO DRT-0199]   Number of violations = 50.
-openlane/Flash\runs\Flash\logs\routing\21-detailed.log[263]: [INFO DRT-0199]   Number of violations = 24.
-openlane/Flash\runs\Flash\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 4 net violations in 476 nets.
-openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12289]: Number of pins violated: 4
-openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12290]: Number of nets violated: 4
+openlane/Flash\runs\Flash\logs\routing\18-global.log[611]: [INFO GRT-0012] Antenna violations: 4
+openlane/Flash\runs\Flash\logs\routing\18-global.log[680]: [INFO GRT-0012] Antenna violations: 1
+openlane/Flash\runs\Flash\logs\routing\18-global_2.log[608]: [INFO GRT-0012] Antenna violations: 4
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[173]: [INFO DRT-0199]   Number of violations = 40.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[217]: [INFO DRT-0199]   Number of violations = 9.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[261]: [INFO DRT-0199]   Number of violations = 4.
+openlane/Flash\runs\Flash\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 3 net violations in 476 nets.
+openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12609]: Number of pins violated: 3
+openlane/Flash\runs\Flash\reports\signoff\antenna.rpt[12610]: Number of nets violated: 3

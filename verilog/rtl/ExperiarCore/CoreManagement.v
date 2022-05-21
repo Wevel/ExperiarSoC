@@ -50,8 +50,8 @@ module CoreManagement (
 	assign wb_management_readData = peripheralBus_dataRead;
 	assign wb_management_busy = jtagSelect && wbRequest;
 
-	assign registerEnable = peripheralBus_address[19:12] == 8'h00;
-	assign coreEnable = peripheralBus_address[19:16] == 4'h1 && !management_run;
+	wire registerEnable = peripheralBus_address[19:12] == 8'h00;
+	wire coreEnable = peripheralBus_address[19:16] == 4'h1 && !management_run;
 
 	// Registers
 	// Control register: Default 0x0
@@ -71,8 +71,6 @@ module CoreManagement (
 		.peripheralBus_dataRead(controlOutputData),
 		.requestOutput(controlOutputRequest),
 		.currentValue(control));
-
-	assign management_run = control;
 
 	// State register
 	// b00-b03: probe_errorCode
@@ -102,7 +100,15 @@ module CoreManagement (
 		.readData_en(stateReadDataEnable_nc),
 		.readData_busy(1'b0));
 
-	assign peripheralBus_dataRead = controlOutputRequest ? controlOutputData :
-									stateOutputRequest   ? stateOutputData   : 32'b0;
+	// Core
+	assign management_run = control;
+	assign management_writeEnable = peripheralBus_we;
+	assign management_byteSelect = peripheralBus_byteSelect;
+	assign management_address = peripheralBus_address[15:0];
+	assign management_writeData = peripheralBus_dataWrite;
+
+	assign peripheralBus_dataRead = coreEnable 			 ? management_readData :
+									controlOutputRequest ? controlOutputData   :
+									stateOutputRequest   ? stateOutputData     : 32'b0;
 	
 endmodule

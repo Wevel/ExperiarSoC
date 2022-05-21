@@ -1,309 +1,229 @@
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[41]: /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/CoreManagement.v:53: Warning: Identifier `\registerEnable' is implicitly declared.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[42]: /home/crab/windows/ASIC/ExperiarSoC/openlane/ExperiarCore/../../verilog/rtl/ExperiarCore/CoreManagement.v:54: Warning: Identifier `\coreEnable' is implicitly declared.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[536]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [31]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[539]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [30]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[542]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [29]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[545]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [28]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[548]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [27]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[551]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [26]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[554]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [25]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[557]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [24]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[560]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [23]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[563]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [22]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[566]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [21]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[569]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [20]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[572]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [19]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[575]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [18]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[578]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [17]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[581]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [16]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[584]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [15]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[587]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [14]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[590]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [13]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[593]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [12]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[596]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [11]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[599]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [10]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[602]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [9]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[605]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [8]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[608]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [7]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[611]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [6]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[614]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [5]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[617]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [4]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[620]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [3]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[623]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [2]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[626]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [1]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[629]: Warning: multiple conflicting drivers for ExperiarCore.\localMemory_wb_data_o [0]:
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[632]: Warning: Wire ExperiarCore.\coreManagement.jtagSelect is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[633]: Warning: Wire ExperiarCore.\core.management_writeEnable is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[634]: Warning: Wire ExperiarCore.\core.management_address [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[635]: Warning: Wire ExperiarCore.\core.management_address [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[636]: Warning: Wire ExperiarCore.\core.management_address [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[637]: Warning: Wire ExperiarCore.\core.management_address [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[638]: Warning: Wire ExperiarCore.\core.management_address [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[639]: Warning: Wire ExperiarCore.\core.management_address [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[640]: Warning: Wire ExperiarCore.\core.management_address [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[641]: Warning: Wire ExperiarCore.\core.management_address [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[642]: Warning: Wire ExperiarCore.\core.management_address [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[643]: Warning: Wire ExperiarCore.\core.management_address [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[644]: Warning: Wire ExperiarCore.\core.management_address [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[645]: Warning: Wire ExperiarCore.\core.management_address [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[646]: Warning: Wire ExperiarCore.\core.management_address [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[647]: Warning: Wire ExperiarCore.\core.management_address [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[648]: Warning: Wire ExperiarCore.\core.management_address [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[649]: Warning: Wire ExperiarCore.\core.management_address [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[650]: Warning: Wire ExperiarCore.\core.management_writeData [31] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[651]: Warning: Wire ExperiarCore.\core.management_writeData [30] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[652]: Warning: Wire ExperiarCore.\core.management_writeData [29] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[653]: Warning: Wire ExperiarCore.\core.management_writeData [28] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[654]: Warning: Wire ExperiarCore.\core.management_writeData [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[655]: Warning: Wire ExperiarCore.\core.management_writeData [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[656]: Warning: Wire ExperiarCore.\core.management_writeData [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[657]: Warning: Wire ExperiarCore.\core.management_writeData [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[658]: Warning: Wire ExperiarCore.\core.management_writeData [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[659]: Warning: Wire ExperiarCore.\core.management_writeData [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[660]: Warning: Wire ExperiarCore.\core.management_writeData [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[661]: Warning: Wire ExperiarCore.\core.management_writeData [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[662]: Warning: Wire ExperiarCore.\core.management_writeData [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[663]: Warning: Wire ExperiarCore.\core.management_writeData [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[664]: Warning: Wire ExperiarCore.\core.management_writeData [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[665]: Warning: Wire ExperiarCore.\core.management_writeData [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[666]: Warning: Wire ExperiarCore.\core.management_writeData [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[667]: Warning: Wire ExperiarCore.\core.management_writeData [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[668]: Warning: Wire ExperiarCore.\core.management_writeData [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[669]: Warning: Wire ExperiarCore.\core.management_writeData [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[670]: Warning: Wire ExperiarCore.\core.management_writeData [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[671]: Warning: Wire ExperiarCore.\core.management_writeData [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[672]: Warning: Wire ExperiarCore.\core.management_writeData [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[673]: Warning: Wire ExperiarCore.\core.management_writeData [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[674]: Warning: Wire ExperiarCore.\core.management_writeData [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[675]: Warning: Wire ExperiarCore.\core.management_writeData [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[676]: Warning: Wire ExperiarCore.\core.management_writeData [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[677]: Warning: Wire ExperiarCore.\core.management_writeData [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[678]: Warning: Wire ExperiarCore.\core.management_writeData [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[679]: Warning: Wire ExperiarCore.\core.management_writeData [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[680]: Warning: Wire ExperiarCore.\core.management_writeData [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[681]: Warning: Wire ExperiarCore.\core.management_writeData [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2089]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2238]: Warning: Wire ExperiarCore.\wmask0 [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2239]: Warning: Wire ExperiarCore.\wmask0 [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2240]: Warning: Wire ExperiarCore.\wmask0 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2241]: Warning: Wire ExperiarCore.\wmask0 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2242]: Warning: Wire ExperiarCore.\web0 is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2243]: Warning: Wire ExperiarCore.\probe_takeBranch is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2244]: Warning: Wire ExperiarCore.\probe_state [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2245]: Warning: Wire ExperiarCore.\probe_state [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2246]: Warning: Wire ExperiarCore.\probe_programCounter [31] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2247]: Warning: Wire ExperiarCore.\probe_programCounter [30] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2248]: Warning: Wire ExperiarCore.\probe_programCounter [29] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2249]: Warning: Wire ExperiarCore.\probe_programCounter [28] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2250]: Warning: Wire ExperiarCore.\probe_programCounter [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2251]: Warning: Wire ExperiarCore.\probe_programCounter [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2252]: Warning: Wire ExperiarCore.\probe_programCounter [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2253]: Warning: Wire ExperiarCore.\probe_programCounter [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2254]: Warning: Wire ExperiarCore.\probe_programCounter [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2255]: Warning: Wire ExperiarCore.\probe_programCounter [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2256]: Warning: Wire ExperiarCore.\probe_programCounter [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2257]: Warning: Wire ExperiarCore.\probe_programCounter [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2258]: Warning: Wire ExperiarCore.\probe_programCounter [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2259]: Warning: Wire ExperiarCore.\probe_programCounter [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2260]: Warning: Wire ExperiarCore.\probe_programCounter [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2261]: Warning: Wire ExperiarCore.\probe_programCounter [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2262]: Warning: Wire ExperiarCore.\probe_programCounter [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2263]: Warning: Wire ExperiarCore.\probe_programCounter [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2264]: Warning: Wire ExperiarCore.\probe_programCounter [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2265]: Warning: Wire ExperiarCore.\probe_programCounter [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2266]: Warning: Wire ExperiarCore.\probe_programCounter [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2267]: Warning: Wire ExperiarCore.\probe_programCounter [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2268]: Warning: Wire ExperiarCore.\probe_programCounter [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2269]: Warning: Wire ExperiarCore.\probe_programCounter [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2270]: Warning: Wire ExperiarCore.\probe_programCounter [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2271]: Warning: Wire ExperiarCore.\probe_programCounter [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2272]: Warning: Wire ExperiarCore.\probe_programCounter [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2273]: Warning: Wire ExperiarCore.\probe_programCounter [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2274]: Warning: Wire ExperiarCore.\probe_programCounter [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2275]: Warning: Wire ExperiarCore.\probe_programCounter [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2276]: Warning: Wire ExperiarCore.\probe_programCounter [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2277]: Warning: Wire ExperiarCore.\probe_programCounter [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2278]: Warning: Wire ExperiarCore.\probe_opcode [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2279]: Warning: Wire ExperiarCore.\probe_opcode [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2280]: Warning: Wire ExperiarCore.\probe_opcode [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2281]: Warning: Wire ExperiarCore.\probe_opcode [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2282]: Warning: Wire ExperiarCore.\probe_opcode [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2283]: Warning: Wire ExperiarCore.\probe_opcode [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2284]: Warning: Wire ExperiarCore.\probe_opcode [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2285]: Warning: Wire ExperiarCore.\probe_jtagInstruction [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2286]: Warning: Wire ExperiarCore.\probe_jtagInstruction [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2287]: Warning: Wire ExperiarCore.\probe_jtagInstruction [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2288]: Warning: Wire ExperiarCore.\probe_jtagInstruction [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2289]: Warning: Wire ExperiarCore.\probe_jtagInstruction [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2290]: Warning: Wire ExperiarCore.\probe_isStore is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2291]: Warning: Wire ExperiarCore.\probe_isLoad is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2292]: Warning: Wire ExperiarCore.\probe_isCompressed is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2293]: Warning: Wire ExperiarCore.\probe_isBranch is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2294]: Warning: Wire ExperiarCore.\probe_errorCode [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2295]: Warning: Wire ExperiarCore.\probe_errorCode [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2296]: Warning: Wire ExperiarCore.\probe_errorCode [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2297]: Warning: Wire ExperiarCore.\probe_errorCode [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2298]: Warning: Wire ExperiarCore.\localMemory_wb_stall_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2299]: Warning: Wire ExperiarCore.\localMemory_wb_error_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2300]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [31] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2301]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [30] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2302]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [29] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2303]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [28] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2304]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2305]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2306]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2307]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2308]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2309]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2310]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2311]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2312]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2313]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2314]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2315]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2316]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2317]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2318]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2319]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2320]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2321]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2322]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2323]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2324]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2325]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2326]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2327]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2328]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2329]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2330]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2331]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2332]: Warning: Wire ExperiarCore.\localMemory_wb_ack_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2333]: Warning: Wire ExperiarCore.\jtag_tdo is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2334]: Warning: Wire ExperiarCore.\din0 [31] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2335]: Warning: Wire ExperiarCore.\din0 [30] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2336]: Warning: Wire ExperiarCore.\din0 [29] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2337]: Warning: Wire ExperiarCore.\din0 [28] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2338]: Warning: Wire ExperiarCore.\din0 [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2339]: Warning: Wire ExperiarCore.\din0 [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2340]: Warning: Wire ExperiarCore.\din0 [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2341]: Warning: Wire ExperiarCore.\din0 [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2342]: Warning: Wire ExperiarCore.\din0 [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2343]: Warning: Wire ExperiarCore.\din0 [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2344]: Warning: Wire ExperiarCore.\din0 [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2345]: Warning: Wire ExperiarCore.\din0 [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2346]: Warning: Wire ExperiarCore.\din0 [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2347]: Warning: Wire ExperiarCore.\din0 [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2348]: Warning: Wire ExperiarCore.\din0 [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2349]: Warning: Wire ExperiarCore.\din0 [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2350]: Warning: Wire ExperiarCore.\din0 [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2351]: Warning: Wire ExperiarCore.\din0 [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2352]: Warning: Wire ExperiarCore.\din0 [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2353]: Warning: Wire ExperiarCore.\din0 [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2354]: Warning: Wire ExperiarCore.\din0 [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2355]: Warning: Wire ExperiarCore.\din0 [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2356]: Warning: Wire ExperiarCore.\din0 [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2357]: Warning: Wire ExperiarCore.\din0 [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2358]: Warning: Wire ExperiarCore.\din0 [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2359]: Warning: Wire ExperiarCore.\din0 [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2360]: Warning: Wire ExperiarCore.\din0 [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2361]: Warning: Wire ExperiarCore.\din0 [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2362]: Warning: Wire ExperiarCore.\din0 [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2363]: Warning: Wire ExperiarCore.\din0 [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2364]: Warning: Wire ExperiarCore.\din0 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2365]: Warning: Wire ExperiarCore.\din0 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2366]: Warning: Wire ExperiarCore.\csb1 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2367]: Warning: Wire ExperiarCore.\csb1 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2368]: Warning: Wire ExperiarCore.\csb0 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2369]: Warning: Wire ExperiarCore.\csb0 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2370]: Warning: Wire ExperiarCore.\core_wb_we_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2371]: Warning: Wire ExperiarCore.\core_wb_stb_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2372]: Warning: Wire ExperiarCore.\core_wb_sel_o [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2373]: Warning: Wire ExperiarCore.\core_wb_sel_o [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2374]: Warning: Wire ExperiarCore.\core_wb_sel_o [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2375]: Warning: Wire ExperiarCore.\core_wb_sel_o [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2376]: Warning: Wire ExperiarCore.\core_wb_data_o [31] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2377]: Warning: Wire ExperiarCore.\core_wb_data_o [30] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2378]: Warning: Wire ExperiarCore.\core_wb_data_o [29] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2379]: Warning: Wire ExperiarCore.\core_wb_data_o [28] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2380]: Warning: Wire ExperiarCore.\core_wb_data_o [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2381]: Warning: Wire ExperiarCore.\core_wb_data_o [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2382]: Warning: Wire ExperiarCore.\core_wb_data_o [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2383]: Warning: Wire ExperiarCore.\core_wb_data_o [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2384]: Warning: Wire ExperiarCore.\core_wb_data_o [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2385]: Warning: Wire ExperiarCore.\core_wb_data_o [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2386]: Warning: Wire ExperiarCore.\core_wb_data_o [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2387]: Warning: Wire ExperiarCore.\core_wb_data_o [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2388]: Warning: Wire ExperiarCore.\core_wb_data_o [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2389]: Warning: Wire ExperiarCore.\core_wb_data_o [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2390]: Warning: Wire ExperiarCore.\core_wb_data_o [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2391]: Warning: Wire ExperiarCore.\core_wb_data_o [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2392]: Warning: Wire ExperiarCore.\core_wb_data_o [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2393]: Warning: Wire ExperiarCore.\core_wb_data_o [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2394]: Warning: Wire ExperiarCore.\core_wb_data_o [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2395]: Warning: Wire ExperiarCore.\core_wb_data_o [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2396]: Warning: Wire ExperiarCore.\core_wb_data_o [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2397]: Warning: Wire ExperiarCore.\core_wb_data_o [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2398]: Warning: Wire ExperiarCore.\core_wb_data_o [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2399]: Warning: Wire ExperiarCore.\core_wb_data_o [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2400]: Warning: Wire ExperiarCore.\core_wb_data_o [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2401]: Warning: Wire ExperiarCore.\core_wb_data_o [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2402]: Warning: Wire ExperiarCore.\core_wb_data_o [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2403]: Warning: Wire ExperiarCore.\core_wb_data_o [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2404]: Warning: Wire ExperiarCore.\core_wb_data_o [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2405]: Warning: Wire ExperiarCore.\core_wb_data_o [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2406]: Warning: Wire ExperiarCore.\core_wb_data_o [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2407]: Warning: Wire ExperiarCore.\core_wb_data_o [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2408]: Warning: Wire ExperiarCore.\core_wb_cyc_o is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2409]: Warning: Wire ExperiarCore.\core_wb_adr_o [27] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2410]: Warning: Wire ExperiarCore.\core_wb_adr_o [26] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2411]: Warning: Wire ExperiarCore.\core_wb_adr_o [25] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2412]: Warning: Wire ExperiarCore.\core_wb_adr_o [24] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2413]: Warning: Wire ExperiarCore.\core_wb_adr_o [23] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2414]: Warning: Wire ExperiarCore.\core_wb_adr_o [22] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2415]: Warning: Wire ExperiarCore.\core_wb_adr_o [21] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2416]: Warning: Wire ExperiarCore.\core_wb_adr_o [20] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2417]: Warning: Wire ExperiarCore.\core_wb_adr_o [19] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2418]: Warning: Wire ExperiarCore.\core_wb_adr_o [18] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2419]: Warning: Wire ExperiarCore.\core_wb_adr_o [17] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2420]: Warning: Wire ExperiarCore.\core_wb_adr_o [16] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2421]: Warning: Wire ExperiarCore.\core_wb_adr_o [15] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2422]: Warning: Wire ExperiarCore.\core_wb_adr_o [14] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2423]: Warning: Wire ExperiarCore.\core_wb_adr_o [13] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2424]: Warning: Wire ExperiarCore.\core_wb_adr_o [12] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2425]: Warning: Wire ExperiarCore.\core_wb_adr_o [11] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2426]: Warning: Wire ExperiarCore.\core_wb_adr_o [10] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2427]: Warning: Wire ExperiarCore.\core_wb_adr_o [9] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2428]: Warning: Wire ExperiarCore.\core_wb_adr_o [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2429]: Warning: Wire ExperiarCore.\core_wb_adr_o [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2430]: Warning: Wire ExperiarCore.\core_wb_adr_o [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2431]: Warning: Wire ExperiarCore.\core_wb_adr_o [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2432]: Warning: Wire ExperiarCore.\core_wb_adr_o [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2433]: Warning: Wire ExperiarCore.\core_wb_adr_o [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2434]: Warning: Wire ExperiarCore.\core_wb_adr_o [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2435]: Warning: Wire ExperiarCore.\core_wb_adr_o [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2436]: Warning: Wire ExperiarCore.\core_wb_adr_o [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2437]: Warning: Wire ExperiarCore.\clk1 is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2438]: Warning: Wire ExperiarCore.\clk0 is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2439]: Warning: Wire ExperiarCore.\addr1 [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2440]: Warning: Wire ExperiarCore.\addr1 [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2441]: Warning: Wire ExperiarCore.\addr1 [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2442]: Warning: Wire ExperiarCore.\addr1 [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2443]: Warning: Wire ExperiarCore.\addr1 [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2444]: Warning: Wire ExperiarCore.\addr1 [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2445]: Warning: Wire ExperiarCore.\addr1 [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2446]: Warning: Wire ExperiarCore.\addr1 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2447]: Warning: Wire ExperiarCore.\addr1 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2448]: Warning: Wire ExperiarCore.\addr0 [8] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2449]: Warning: Wire ExperiarCore.\addr0 [7] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2450]: Warning: Wire ExperiarCore.\addr0 [6] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2451]: Warning: Wire ExperiarCore.\addr0 [5] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2452]: Warning: Wire ExperiarCore.\addr0 [4] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2453]: Warning: Wire ExperiarCore.\addr0 [3] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2454]: Warning: Wire ExperiarCore.\addr0 [2] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2455]: Warning: Wire ExperiarCore.\addr0 [1] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2456]: Warning: Wire ExperiarCore.\addr0 [0] is used but has no driver.
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2519]: Warnings: 303 unique messages, 303 total
-openlane/ExperiarCore\runs\ExperiarCore\logs\floorplan\4-place_io_ol.log[15]: Warning: Some pins weren't matched by the config file
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[534]: Warning: Wire ExperiarCore.\coreManagement.jtagSelect is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[535]: Warning: Wire ExperiarCore.\core.management_byteSelect [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[536]: Warning: Wire ExperiarCore.\core.management_byteSelect [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[537]: Warning: Wire ExperiarCore.\core.management_byteSelect [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[538]: Warning: Wire ExperiarCore.\core.management_byteSelect [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[1945]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2094]: Warning: Wire ExperiarCore.\wmask0 [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2095]: Warning: Wire ExperiarCore.\wmask0 [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2096]: Warning: Wire ExperiarCore.\wmask0 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2097]: Warning: Wire ExperiarCore.\wmask0 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2098]: Warning: Wire ExperiarCore.\web0 is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2099]: Warning: Wire ExperiarCore.\probe_takeBranch is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2100]: Warning: Wire ExperiarCore.\probe_state [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2101]: Warning: Wire ExperiarCore.\probe_state [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2102]: Warning: Wire ExperiarCore.\probe_programCounter [31] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2103]: Warning: Wire ExperiarCore.\probe_programCounter [30] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2104]: Warning: Wire ExperiarCore.\probe_programCounter [29] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2105]: Warning: Wire ExperiarCore.\probe_programCounter [28] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2106]: Warning: Wire ExperiarCore.\probe_programCounter [27] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2107]: Warning: Wire ExperiarCore.\probe_programCounter [26] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2108]: Warning: Wire ExperiarCore.\probe_programCounter [25] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2109]: Warning: Wire ExperiarCore.\probe_programCounter [24] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2110]: Warning: Wire ExperiarCore.\probe_programCounter [23] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2111]: Warning: Wire ExperiarCore.\probe_programCounter [22] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2112]: Warning: Wire ExperiarCore.\probe_programCounter [21] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2113]: Warning: Wire ExperiarCore.\probe_programCounter [20] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2114]: Warning: Wire ExperiarCore.\probe_programCounter [19] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2115]: Warning: Wire ExperiarCore.\probe_programCounter [18] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2116]: Warning: Wire ExperiarCore.\probe_programCounter [17] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2117]: Warning: Wire ExperiarCore.\probe_programCounter [16] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2118]: Warning: Wire ExperiarCore.\probe_programCounter [15] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2119]: Warning: Wire ExperiarCore.\probe_programCounter [14] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2120]: Warning: Wire ExperiarCore.\probe_programCounter [13] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2121]: Warning: Wire ExperiarCore.\probe_programCounter [12] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2122]: Warning: Wire ExperiarCore.\probe_programCounter [11] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2123]: Warning: Wire ExperiarCore.\probe_programCounter [10] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2124]: Warning: Wire ExperiarCore.\probe_programCounter [9] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2125]: Warning: Wire ExperiarCore.\probe_programCounter [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2126]: Warning: Wire ExperiarCore.\probe_programCounter [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2127]: Warning: Wire ExperiarCore.\probe_programCounter [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2128]: Warning: Wire ExperiarCore.\probe_programCounter [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2129]: Warning: Wire ExperiarCore.\probe_programCounter [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2130]: Warning: Wire ExperiarCore.\probe_programCounter [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2131]: Warning: Wire ExperiarCore.\probe_programCounter [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2132]: Warning: Wire ExperiarCore.\probe_programCounter [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2133]: Warning: Wire ExperiarCore.\probe_programCounter [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2134]: Warning: Wire ExperiarCore.\probe_opcode [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2135]: Warning: Wire ExperiarCore.\probe_opcode [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2136]: Warning: Wire ExperiarCore.\probe_opcode [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2137]: Warning: Wire ExperiarCore.\probe_opcode [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2138]: Warning: Wire ExperiarCore.\probe_opcode [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2139]: Warning: Wire ExperiarCore.\probe_opcode [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2140]: Warning: Wire ExperiarCore.\probe_opcode [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2141]: Warning: Wire ExperiarCore.\probe_jtagInstruction [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2142]: Warning: Wire ExperiarCore.\probe_jtagInstruction [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2143]: Warning: Wire ExperiarCore.\probe_jtagInstruction [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2144]: Warning: Wire ExperiarCore.\probe_jtagInstruction [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2145]: Warning: Wire ExperiarCore.\probe_jtagInstruction [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2146]: Warning: Wire ExperiarCore.\probe_isStore is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2147]: Warning: Wire ExperiarCore.\probe_isLoad is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2148]: Warning: Wire ExperiarCore.\probe_isCompressed is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2149]: Warning: Wire ExperiarCore.\probe_isBranch is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2150]: Warning: Wire ExperiarCore.\probe_errorCode [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2151]: Warning: Wire ExperiarCore.\probe_errorCode [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2152]: Warning: Wire ExperiarCore.\probe_errorCode [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2153]: Warning: Wire ExperiarCore.\probe_errorCode [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2154]: Warning: Wire ExperiarCore.\localMemory_wb_stall_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2155]: Warning: Wire ExperiarCore.\localMemory_wb_error_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2156]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [31] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2157]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [30] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2158]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [29] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2159]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [28] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2160]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [27] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2161]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [26] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2162]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [25] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2163]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [24] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2164]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [23] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2165]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [22] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2166]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [21] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2167]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [20] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2168]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [19] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2169]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [18] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2170]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [17] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2171]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [16] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2172]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [15] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2173]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [14] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2174]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [13] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2175]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [12] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2176]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [11] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2177]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [10] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2178]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [9] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2179]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2180]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2181]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2182]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2183]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2184]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2185]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2186]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2187]: Warning: Wire ExperiarCore.\localMemory_wb_data_o [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2188]: Warning: Wire ExperiarCore.\localMemory_wb_ack_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2189]: Warning: Wire ExperiarCore.\jtag_tdo is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2190]: Warning: Wire ExperiarCore.\din0 [31] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2191]: Warning: Wire ExperiarCore.\din0 [30] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2192]: Warning: Wire ExperiarCore.\din0 [29] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2193]: Warning: Wire ExperiarCore.\din0 [28] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2194]: Warning: Wire ExperiarCore.\din0 [27] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2195]: Warning: Wire ExperiarCore.\din0 [26] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2196]: Warning: Wire ExperiarCore.\din0 [25] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2197]: Warning: Wire ExperiarCore.\din0 [24] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2198]: Warning: Wire ExperiarCore.\din0 [23] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2199]: Warning: Wire ExperiarCore.\din0 [22] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2200]: Warning: Wire ExperiarCore.\din0 [21] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2201]: Warning: Wire ExperiarCore.\din0 [20] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2202]: Warning: Wire ExperiarCore.\din0 [19] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2203]: Warning: Wire ExperiarCore.\din0 [18] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2204]: Warning: Wire ExperiarCore.\din0 [17] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2205]: Warning: Wire ExperiarCore.\din0 [16] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2206]: Warning: Wire ExperiarCore.\din0 [15] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2207]: Warning: Wire ExperiarCore.\din0 [14] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2208]: Warning: Wire ExperiarCore.\din0 [13] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2209]: Warning: Wire ExperiarCore.\din0 [12] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2210]: Warning: Wire ExperiarCore.\din0 [11] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2211]: Warning: Wire ExperiarCore.\din0 [10] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2212]: Warning: Wire ExperiarCore.\din0 [9] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2213]: Warning: Wire ExperiarCore.\din0 [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2214]: Warning: Wire ExperiarCore.\din0 [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2215]: Warning: Wire ExperiarCore.\din0 [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2216]: Warning: Wire ExperiarCore.\din0 [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2217]: Warning: Wire ExperiarCore.\din0 [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2218]: Warning: Wire ExperiarCore.\din0 [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2219]: Warning: Wire ExperiarCore.\din0 [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2220]: Warning: Wire ExperiarCore.\din0 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2221]: Warning: Wire ExperiarCore.\din0 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2222]: Warning: Wire ExperiarCore.\csb1 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2223]: Warning: Wire ExperiarCore.\csb1 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2224]: Warning: Wire ExperiarCore.\csb0 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2225]: Warning: Wire ExperiarCore.\csb0 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2226]: Warning: Wire ExperiarCore.\core_wb_we_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2227]: Warning: Wire ExperiarCore.\core_wb_stb_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2228]: Warning: Wire ExperiarCore.\core_wb_sel_o [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2229]: Warning: Wire ExperiarCore.\core_wb_sel_o [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2230]: Warning: Wire ExperiarCore.\core_wb_sel_o [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2231]: Warning: Wire ExperiarCore.\core_wb_sel_o [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2232]: Warning: Wire ExperiarCore.\core_wb_data_o [31] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2233]: Warning: Wire ExperiarCore.\core_wb_data_o [30] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2234]: Warning: Wire ExperiarCore.\core_wb_data_o [29] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2235]: Warning: Wire ExperiarCore.\core_wb_data_o [28] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2236]: Warning: Wire ExperiarCore.\core_wb_data_o [27] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2237]: Warning: Wire ExperiarCore.\core_wb_data_o [26] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2238]: Warning: Wire ExperiarCore.\core_wb_data_o [25] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2239]: Warning: Wire ExperiarCore.\core_wb_data_o [24] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2240]: Warning: Wire ExperiarCore.\core_wb_data_o [23] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2241]: Warning: Wire ExperiarCore.\core_wb_data_o [22] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2242]: Warning: Wire ExperiarCore.\core_wb_data_o [21] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2243]: Warning: Wire ExperiarCore.\core_wb_data_o [20] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2244]: Warning: Wire ExperiarCore.\core_wb_data_o [19] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2245]: Warning: Wire ExperiarCore.\core_wb_data_o [18] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2246]: Warning: Wire ExperiarCore.\core_wb_data_o [17] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2247]: Warning: Wire ExperiarCore.\core_wb_data_o [16] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2248]: Warning: Wire ExperiarCore.\core_wb_data_o [15] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2249]: Warning: Wire ExperiarCore.\core_wb_data_o [14] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2250]: Warning: Wire ExperiarCore.\core_wb_data_o [13] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2251]: Warning: Wire ExperiarCore.\core_wb_data_o [12] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2252]: Warning: Wire ExperiarCore.\core_wb_data_o [11] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2253]: Warning: Wire ExperiarCore.\core_wb_data_o [10] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2254]: Warning: Wire ExperiarCore.\core_wb_data_o [9] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2255]: Warning: Wire ExperiarCore.\core_wb_data_o [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2256]: Warning: Wire ExperiarCore.\core_wb_data_o [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2257]: Warning: Wire ExperiarCore.\core_wb_data_o [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2258]: Warning: Wire ExperiarCore.\core_wb_data_o [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2259]: Warning: Wire ExperiarCore.\core_wb_data_o [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2260]: Warning: Wire ExperiarCore.\core_wb_data_o [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2261]: Warning: Wire ExperiarCore.\core_wb_data_o [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2262]: Warning: Wire ExperiarCore.\core_wb_data_o [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2263]: Warning: Wire ExperiarCore.\core_wb_data_o [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2264]: Warning: Wire ExperiarCore.\core_wb_cyc_o is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2265]: Warning: Wire ExperiarCore.\core_wb_adr_o [27] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2266]: Warning: Wire ExperiarCore.\core_wb_adr_o [26] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2267]: Warning: Wire ExperiarCore.\core_wb_adr_o [25] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2268]: Warning: Wire ExperiarCore.\core_wb_adr_o [24] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2269]: Warning: Wire ExperiarCore.\core_wb_adr_o [23] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2270]: Warning: Wire ExperiarCore.\core_wb_adr_o [22] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2271]: Warning: Wire ExperiarCore.\core_wb_adr_o [21] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2272]: Warning: Wire ExperiarCore.\core_wb_adr_o [20] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2273]: Warning: Wire ExperiarCore.\core_wb_adr_o [19] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2274]: Warning: Wire ExperiarCore.\core_wb_adr_o [18] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2275]: Warning: Wire ExperiarCore.\core_wb_adr_o [17] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2276]: Warning: Wire ExperiarCore.\core_wb_adr_o [16] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2277]: Warning: Wire ExperiarCore.\core_wb_adr_o [15] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2278]: Warning: Wire ExperiarCore.\core_wb_adr_o [14] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2279]: Warning: Wire ExperiarCore.\core_wb_adr_o [13] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2280]: Warning: Wire ExperiarCore.\core_wb_adr_o [12] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2281]: Warning: Wire ExperiarCore.\core_wb_adr_o [11] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2282]: Warning: Wire ExperiarCore.\core_wb_adr_o [10] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2283]: Warning: Wire ExperiarCore.\core_wb_adr_o [9] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2284]: Warning: Wire ExperiarCore.\core_wb_adr_o [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2285]: Warning: Wire ExperiarCore.\core_wb_adr_o [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2286]: Warning: Wire ExperiarCore.\core_wb_adr_o [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2287]: Warning: Wire ExperiarCore.\core_wb_adr_o [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2288]: Warning: Wire ExperiarCore.\core_wb_adr_o [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2289]: Warning: Wire ExperiarCore.\core_wb_adr_o [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2290]: Warning: Wire ExperiarCore.\core_wb_adr_o [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2291]: Warning: Wire ExperiarCore.\core_wb_adr_o [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2292]: Warning: Wire ExperiarCore.\core_wb_adr_o [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2293]: Warning: Wire ExperiarCore.\clk1 is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2294]: Warning: Wire ExperiarCore.\clk0 is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2295]: Warning: Wire ExperiarCore.\addr1 [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2296]: Warning: Wire ExperiarCore.\addr1 [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2297]: Warning: Wire ExperiarCore.\addr1 [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2298]: Warning: Wire ExperiarCore.\addr1 [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2299]: Warning: Wire ExperiarCore.\addr1 [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2300]: Warning: Wire ExperiarCore.\addr1 [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2301]: Warning: Wire ExperiarCore.\addr1 [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2302]: Warning: Wire ExperiarCore.\addr1 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2303]: Warning: Wire ExperiarCore.\addr1 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2304]: Warning: Wire ExperiarCore.\addr0 [8] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2305]: Warning: Wire ExperiarCore.\addr0 [7] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2306]: Warning: Wire ExperiarCore.\addr0 [6] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2307]: Warning: Wire ExperiarCore.\addr0 [5] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2308]: Warning: Wire ExperiarCore.\addr0 [4] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2309]: Warning: Wire ExperiarCore.\addr0 [3] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2310]: Warning: Wire ExperiarCore.\addr0 [2] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2311]: Warning: Wire ExperiarCore.\addr0 [1] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2312]: Warning: Wire ExperiarCore.\addr0 [0] is used but has no driver.
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2375]: Warnings: 224 unique messages, 224 total
 openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\29-gdsii-klayout.log[12]: WARNING: no fill config file specified
 openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\34-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
 openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\34-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'

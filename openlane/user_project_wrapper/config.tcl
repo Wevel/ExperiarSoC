@@ -50,15 +50,21 @@ set ::env(CLOCK_PERIOD) "25"
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
 	caravelHost vccd1 vssd1 \
-	wishboneInterconnect vccd1 vssd1 \
-	core0 vccd1 vssd1 \
-	core1 vccd1 vssd1 \
-	peripherals vccd1 vssd1 \
-	video vccd1 vssd1 \
-	core0SRAM vccd1 vssd1 \
-	core1SRAM vccd1 vssd1 \
-	videoSRAM0 vccd1 vssd1 \
-	videoSRAM1 vccd1 vssd1 \
+	experiarSoC/wishboneInterconnect vccd1 vssd1 \
+	experiarSoC/core0 vccd1 vssd1 \
+	experiarSoC/core1 vccd1 vssd1 \
+	experiarSoC/flash vccd1 vssd1 \
+	experiarSoC/peripherals vccd1 vssd1 \
+	experiarSoC/video vccd1 vssd1 \
+	experiarSoC/core0SRAM0 vccd1 vssd1 \
+	experiarSoC/core0SRAM1 vccd1 vssd1 \
+	experiarSoC/core1SRAM0 vccd1 vssd1 \
+	experiarSoC/core1SRAM1 vccd1 vssd1 \
+	experiarSoC/videoSRAM0 vccd1 vssd1 \
+	experiarSoC/videoSRAM1 vccd1 vssd1 \
+	experiarSoC/videoSRAM2 vccd1 vssd1 \
+	experiarSoC/videoSRAM3 vccd1 vssd1 \
+	experiarSoC/flashSRAM vccd1 vssd1 \
 	art vccd1 vssd1"
 
 ### Macro Placement
@@ -172,13 +178,13 @@ set ::env(FP_PDN_CHECK_NODES) 1
 set ::env(SYNTH_TOP_LEVEL) 1
 set ::env(PL_RANDOM_GLB_PLACEMENT) 1
 
-# Resizer optimizations are disabled by default
-#set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 0
-#set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
+set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 0
+set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 0
 set ::env(PL_RESIZER_BUFFER_INPUT_PORTS) 0
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 
 set ::env(FP_PDN_ENABLE_RAILS) 0
+set ::env(FP_PDN_HORIZONTAL_HALO) 5
 
 set ::env(DIODE_INSERTION_STRATEGY) 0
 set ::env(FILL_INSERTION) 0
@@ -193,9 +199,9 @@ set ::env(CLOCK_TREE_SYNTH) 0
 # This should be reenabled before submission
 set ::env(RUN_KLAYOUT_XOR) 0
 
-#set ::env(GLB_RT_ADJUSTMENT) 0.25
+# Defaults to 0.3. Set lower to give more space to routing
+# This can help reduce congestion
+set ::env(GLB_RT_ADJUSTMENT) 0.25
 
-#set ::env(GLOBAL_ROUTER) cugr
-
-#set ::env(GLB_RT_OVERFLOW_ITERS) 100
+# If there is congestion allow it in the build, then look at the .guide files
 set ::env(GLB_RT_ALLOW_CONGESTION) 1

@@ -103,7 +103,6 @@ openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1048]: Warning: Wire Fl
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1049]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1050]: Warning: Wire Flash.\flash_csb is used but has no driver.
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1088]: Warnings: 102 unique messages, 103 total
-openlane/Flash\runs\Flash\logs\floorplan\4-place_io_ol.log[15]: Warning: Some pins weren't matched by the config file
 openlane/Flash\runs\Flash\logs\signoff\27-gdsii-klayout.log[12]: WARNING: no fill config file specified
 openlane/Flash\runs\Flash\logs\signoff\32-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
 openlane/Flash\runs\Flash\logs\signoff\32-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'

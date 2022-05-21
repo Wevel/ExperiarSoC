@@ -7,12 +7,6 @@ MACRO Art
   FOREIGN Art ;
   ORIGIN -0.200 0.000 ;
   SIZE 753.320 BY 300.000 ;
-  PIN dumyPin
-    PORT
-      LAYER met2 ;
-        RECT 9.000 1.000 11.000 3.000 ;
-    END
-  END dumyPin
   PIN vccd1
     DIRECTION INPUT ;
     USE POWER ;

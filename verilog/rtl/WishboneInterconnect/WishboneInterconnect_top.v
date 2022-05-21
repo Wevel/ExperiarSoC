@@ -115,15 +115,23 @@ module WishboneInterconnect (
 		input wire slave4_wb_error_o,
 		input wire[31:0] slave4_wb_data_o,
 
-		output wire[2:0] probe_master0_currentSlave,
-		output wire[2:0] probe_master1_currentSlave,
-		output wire[2:0] probe_master2_currentSlave,
-		output wire[2:0] probe_master3_currentSlave,
+		// output wire[2:0] probe_master0_currentSlave,
+		// output wire[2:0] probe_master1_currentSlave,
+		// output wire[2:0] probe_master2_currentSlave,
+		// output wire[2:0] probe_master3_currentSlave,
+		// output wire[1:0] probe_slave0_currentMaster,
+		// output wire[1:0] probe_slave1_currentMaster,
+		// output wire[1:0] probe_slave2_currentMaster,
+		// output wire[1:0] probe_slave3_currentMaster,
+		// output wire[1:0] probe_slave4_currentMaster
+		output wire[1:0] probe_master0_currentSlave,
+		output wire[1:0] probe_master1_currentSlave,
+		output wire[1:0] probe_master2_currentSlave,
+		output wire[1:0] probe_master3_currentSlave,
 		output wire[1:0] probe_slave0_currentMaster,
 		output wire[1:0] probe_slave1_currentMaster,
 		output wire[1:0] probe_slave2_currentMaster,
-		output wire[1:0] probe_slave3_currentMaster,
-		output wire[1:0] probe_slave4_currentMaster
+		output wire[1:0] probe_slave3_currentMaster
 	);
 
 	localparam SLAVE0_ADDRESS = 4'h0;
@@ -487,6 +495,7 @@ module WishboneInterconnect (
 		.probe_currentMaster(probe_slave3_currentMaster));
 
 	// Slave 4
+	wire[1:0] probe_slave4_currentMaster;
 	WishboneMultiMasterSlave slave4MultiMaster(
 		.wb_clk_i(wb_clk_i),
 		.wb_rst_i(wb_rst_i),
@@ -735,9 +744,14 @@ module WishboneInterconnect (
 		endcase
 	end
 
-	assign probe_master0_currentSlave = master0_wb_adr_o[26:24];
-	assign probe_master1_currentSlave = master1_wb_adr_o[26:24];
-	assign probe_master2_currentSlave = master2_wb_adr_o[26:24];
-	assign probe_master3_currentSlave = master3_wb_adr_o[26:24];
+	// assign probe_master0_currentSlave = master0_wb_adr_o[26:24];
+	// assign probe_master1_currentSlave = master1_wb_adr_o[26:24];
+	// assign probe_master2_currentSlave = master2_wb_adr_o[26:24];
+	// assign probe_master3_currentSlave = master3_wb_adr_o[26:24];
+
+	assign probe_master0_currentSlave = master0_wb_adr_o[25:24];
+	assign probe_master1_currentSlave = master1_wb_adr_o[25:24];
+	assign probe_master2_currentSlave = master2_wb_adr_o[25:24];
+	assign probe_master3_currentSlave = master3_wb_adr_o[25:24];
 
 endmodule
