@@ -49,22 +49,22 @@ set ::env(CLOCK_PERIOD) "25"
 ## Internal Macros
 ### Macro PDN Connections
 set ::env(FP_PDN_MACRO_HOOKS) "\
-	caravelHost vccd1 vssd1 \
-	experiarSoC/wishboneInterconnect vccd1 vssd1 \
-	experiarSoC/core0 vccd1 vssd1 \
-	experiarSoC/core1 vccd1 vssd1 \
-	experiarSoC/flash vccd1 vssd1 \
-	experiarSoC/peripherals vccd1 vssd1 \
-	experiarSoC/video vccd1 vssd1 \
-	experiarSoC/core0SRAM0 vccd1 vssd1 \
-	experiarSoC/core0SRAM1 vccd1 vssd1 \
-	experiarSoC/core1SRAM0 vccd1 vssd1 \
-	experiarSoC/core1SRAM1 vccd1 vssd1 \
-	experiarSoC/videoSRAM0 vccd1 vssd1 \
-	experiarSoC/videoSRAM1 vccd1 vssd1 \
-	experiarSoC/videoSRAM2 vccd1 vssd1 \
-	experiarSoC/videoSRAM3 vccd1 vssd1 \
-	experiarSoC/flashSRAM vccd1 vssd1 \
+	caravelHost vccd1 vssd1, \
+	experiarSoC/wishboneInterconnect vccd1 vssd1, \
+	experiarSoC/core0 vccd1 vssd1, \
+	experiarSoC/core1 vccd1 vssd1, \
+	experiarSoC/flash vccd1 vssd1, \
+	experiarSoC/peripherals vccd1 vssd1, \
+	experiarSoC/video vccd1 vssd1, \
+	experiarSoC/core0SRAM0 vccd1 vssd1, \
+	experiarSoC/core0SRAM1 vccd1 vssd1, \
+	experiarSoC/core1SRAM0 vccd1 vssd1, \
+	experiarSoC/core1SRAM1 vccd1 vssd1, \
+	experiarSoC/videoSRAM0 vccd1 vssd1, \
+	experiarSoC/videoSRAM1 vccd1 vssd1, \
+	experiarSoC/videoSRAM2 vccd1 vssd1, \
+	experiarSoC/videoSRAM3 vccd1 vssd1, \
+	experiarSoC/flashSRAM vccd1 vssd1, \
 	art vccd1 vssd1"
 
 ### Macro Placement

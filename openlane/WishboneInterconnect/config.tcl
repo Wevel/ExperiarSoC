@@ -24,8 +24,6 @@ set ::env(CTS_CLK_BUFFER_LIST) "sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbu
 set ::env(CTS_SINK_CLUSTERING_SIZE) "16"
 set ::env(CLOCK_BUFFER_FANOUT) "8"
 
-set ::env(PL_TIME_DRIVEN) 0
-
 # Absolute module size
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
@@ -53,8 +51,8 @@ set ::env(GND_NETS) [list {vssd1}]
 # If you're going to use multiple power domains, then disable cvc run.
 set ::env(RUN_CVC) 1
 
-# set ::env(GLB_RT_MAX_DIODE_INS_ITERS) 10
-set ::env(DIODE_INSERTION_STRATEGY) 4
+set ::env(GLB_RT_MAX_DIODE_INS_ITERS) 10
+set ::env(DIODE_INSERTION_STRATEGY) 3
 
 # Save a .png after each SYNTH_TOP_LEVEL
 # This doesn't work right now :(
