@@ -9,14 +9,14 @@ module Mux #(
 	);
 	
 	generate
-		if (WIDTH == 1) begin
+		if (INPUTS == 1) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 2) begin
+		end else if (INPUTS == 2) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -24,7 +24,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 3) begin
+		end else if (INPUTS == 3) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -33,7 +33,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 4) begin
+		end else if (INPUTS == 4) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -43,7 +43,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 5) begin
+		end else if (INPUTS == 5) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -54,7 +54,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 6) begin
+		end else if (INPUTS == 6) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -66,7 +66,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 7) begin
+		end else if (INPUTS == 7) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
@@ -79,7 +79,7 @@ module Mux #(
 					default: out <= {WIDTH{1'b0}};
 				endcase
 			end
-		end else if (WIDTH == 8) begin
+		end else if (INPUTS == 8) begin
 			always @(*) begin
 				case (1'b1)
 					select[0]: out <= in[WIDTH-1:0];
