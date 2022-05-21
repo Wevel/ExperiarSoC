@@ -32,7 +32,7 @@ module UART_tx
 			delayCounter = {CLOCK_SCALE_BITS{1'b0}};
 			bitCounter = 3'b0;
 			savedData = 8'b0;
-			outputBuffer = 1'b0;
+			outputBuffer = 1'b1;
 		end else begin
 			busy = 1'b1;
 			
