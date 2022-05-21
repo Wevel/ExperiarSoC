@@ -181,7 +181,7 @@ module UARTDevice  #(
 		.clk(clk),
 		.rst(rst || (clearWriteData[0] && clearWriteEnable && peripheralBus_byteSelect[0])),
 		.cyclesPerBit(cyclesPerBit),
-		.rx(uart_rx),
+		.rx(uart_en ? uart_rx : 1'b1),
 		.dataOut(rxByteIn),
 		.dataAvailable(rxOutAvailable));
 	
@@ -192,7 +192,7 @@ module UARTDevice  #(
 		.rst(rst || (clearWriteData[1] && clearWriteEnable && peripheralBus_byteSelect[0])),
 		.cyclesPerBit(cyclesPerBit),
 		.tx(uart_tx),
-		.blockTransmition(1'b0),
+		.blockTransmition(!uart_en),
     	.busy(txSendBusy),
     	.dataIn(txByteOut),
     	.dataAvailable(txByteOutAvailable));

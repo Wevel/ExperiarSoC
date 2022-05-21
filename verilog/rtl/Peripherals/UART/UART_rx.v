@@ -15,14 +15,15 @@ module UART_rx
 	localparam STATE_WAIT_FULL 	= 2'b10;
 	localparam STATE_WAIT_HIGH 	= 2'b11;
 
-	reg [1:0] state = STATE_IDLE;
-	reg [CLOCK_SCALE_BITS-1:0] delayCounter = {CLOCK_SCALE_BITS{1'b0}};
-	reg [2:0] bitCounter = 3'b0;
-	reg [7:0] savedData = 8'b0;
+	reg[1:0] state = STATE_IDLE;
+	reg[CLOCK_SCALE_BITS-1:0] delayCounter = {CLOCK_SCALE_BITS{1'b0}};
+	wire[CLOCK_SCALE_BITS-1:0] nextDelayCounter = delayCounter + 1;
+
+	reg[2:0] bitCounter = 3'b0;
+	reg[7:0] savedData = 8'b0;
 	reg newData = 1'b0;
 
 	wire[CLOCK_SCALE_BITS-1:0] halfBitCounterValue = { 1'b0, cyclesPerBit[CLOCK_SCALE_BITS-1:1] };
-	wire[CLOCK_SCALE_BITS-1:0] fullBitCounterValue = cyclesPerBit[CLOCK_SCALE_BITS-1:1] - 1;
 
 	always @(posedge clk) begin
 		if (rst) begin
@@ -51,16 +52,16 @@ module UART_rx
 				end
 
 				STATE_WAIT_HALF: begin
-					if (delayCounter == halfBitCounterValue) begin						
+					if (nextDelayCounter == halfBitCounterValue) begin						
 						delayCounter = 0;
 						state = STATE_WAIT_FULL;
 					end else begin
-						delayCounter = delayCounter + 1;
+						delayCounter = nextDelayCounter;
 					end
 				end
 
 				STATE_WAIT_FULL: begin
-					if (delayCounter == fullBitCounterValue) begin
+					if (nextDelayCounter == cyclesPerBit) begin
 						savedData = {rx, savedData[7:1]};
 						delayCounter = 0;
 						if (bitCounter == 3'h7) begin
@@ -68,7 +69,7 @@ module UART_rx
 							newData = 1'b1;
 						end else bitCounter = bitCounter + 1;
 					end else begin
-						delayCounter = delayCounter + 1;
+						delayCounter = nextDelayCounter;
 					end
 				end
 
