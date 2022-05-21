@@ -25,22 +25,19 @@
 		- Observes counter value through the MPRJ lower 8 IO pins (in the testbench)
 */
 
-// #define GPIO0_OE (*(volatile uint32_t*)0x33031000)
-// #define GPIO0_OUTPUT (*(volatile uint32_t*)0x33031004)
-// #define GPIO0_INPUT (*(volatile uint32_t*)0x33031008)
-
 #define GPIO0_OE_ADDR ((uint32_t*)0x33031000)
 #define GPIO0_OUTPUT_ADDR ((uint32_t*)0x33031004)
 #define GPIO0_INPUT_ADDR ((uint32_t*)0x33031008)
+#define GPIO1_OE_ADDR ((uint32_t*)0x33032000)
+#define GPIO1_OUTPUT_ADDR ((uint32_t*)0x33032004)
+#define GPIO1_INPUT_ADDR ((uint32_t*)0x33032008)
 
 #define GPIO0_OE (*GPIO0_OE_ADDR)
 #define GPIO0_OUTPUT (*GPIO0_OUTPUT_ADDR)
 #define GPIO0_INPUT (*GPIO0_INPUT_ADDR)
-
-//#define test (*(volatile uint32_t*)0x3F001000)
-#define test (*(volatile uint32_t*)0x30000000)
-
-#define MPRJ_WB_IENA_OUT (*(volatile uint32_t*)0xf0003800)
+#define GPIO1_OE (*GPIO1_OE_ADDR)
+#define GPIO1_OUTPUT (*GPIO1_OUTPUT_ADDR)
+#define GPIO1_INPUT (*GPIO1_INPUT_ADDR)
 
 #define MPRJ_WB_ADDRESS (*(volatile uint32_t*)0x30000000)
 #define MPRJ_WB_DATA_LOCATION 0x30008000
@@ -67,30 +64,11 @@ uint32_t wbRead (uint32_t* location)
 	return *((volatile uint32_t*)writeAddress);
 }
 
-void digitalWrite (int pin, int state)
+void nextTest (bool testPassing)
 {
-	if (state)
-	{
-		if (pin == 12)
-			GPIO0_OUTPUT |= 0x01000;
-		else if (pin == 13)
-			GPIO0_OUTPUT |= 0x02000;
-		else if (pin == 14)
-			GPIO0_OUTPUT |= 0x04000;
-		else if (pin == 15)
-			GPIO0_OUTPUT |= 0x08000;
-	}
-	else
-	{
-		if (pin == 12)
-			GPIO0_OUTPUT &= ~0x01000;
-		else if (pin == 13)
-			GPIO0_OUTPUT &= ~0x02000;
-		else if (pin == 14)
-			GPIO0_OUTPUT &= ~0x04000;
-		else if (pin == 15)
-			GPIO0_OUTPUT &= ~0x08000;
-	}
+	uint32_t testPassingOutput = testPassing ? 0x1 << 12 : 0;
+	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput | (0x1 << 13));
+	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput);
 }
 
 void main ()
@@ -114,19 +92,13 @@ void main ()
 	/* Set up the housekeeping SPI to be connected internally so	*/
 	/* that external pin changes don't affect it.			*/
 
-	// reg_spi_enable = 1;
-	// reg_spimaster_cs = 0x10001;
-	// reg_spimaster_control = 0x0801;
-
-	// reg_spimaster_control = 0xa002; // Enable, prescaler = 2,
-	// connect to housekeeping SPI
-
 	// Connect the housekeeping SPI to the SPI master
 	// so that the CSB line is not left floating.  This allows
 	// all of the GPIO pins to be used for user functions.
 
 	// https://github.com/efabless/caravel/blob/main/docs/other/gpio.txt
 
+	// Enable the wishbone bus
 	reg_wb_enable = 1;
 
 	// Enable GPIO
@@ -134,74 +106,49 @@ void main ()
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_14 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_15 = GPIO_MODE_USER_STD_OUTPUT;
-
-	// Enable blink
-	// reg_mprj_io_32 = GPIO_MODE_USER_STD_OUTPUT;
-
-	// // VGA
-	// reg_mprj_io_30 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_31 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_32 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_33 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_34 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_35 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_36 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_37 = GPIO_MODE_USER_STD_OUTPUT;
-
-	// // Debug
-	// reg_mprj_io_0 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_1 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_2 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_3 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_4 = GPIO_MODE_USER_STD_OUTPUT;
-	// reg_mprj_io_5 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_16 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_17 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_18 = GPIO_MODE_USER_STD_INPUT_NOPULL;
+	reg_mprj_io_19 = GPIO_MODE_USER_STD_INPUT_NOPULL;
 
 	/* Apply configuration */
 	reg_mprj_xfer = 1;
 	while (reg_mprj_xfer == 1) {}
 
-	// reg_uart_enable = 1;
-	// print ("hi\n");
+	wbWrite (GPIO0_OE_ADDR, ~0x3F000);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x1 << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x3 << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x7 << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0xF << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0xE << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0xC << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x8 << 14);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0);
 
-	// MPRJ_WB_IENA_OUT = 1;
+	bool inputTestPass = true;
 
-	// // Remove Wishbone Reset
-	// // reg_mprj_wbhost_reg0 = 0x1;
+	wbWrite (GPIO1_OE_ADDR, ~0x00000);
 
-	// // Remove All Reset
-	// // reg_pinmux_gbl_cfg0 = 0x11F;
+	nextTest (inputTestPass);
+	uint32_t ioData = wbRead (GPIO1_INPUT_ADDR);
+	wbWrite (GPIO0_OUTPUT_ADDR, (inputTestPass ? 0x1 << 12 : 0) | (ioData << 15));
+	if (ioData != 0x2) inputTestPass = false; // input = 2'b10
 
-	// // uint32_t value = test;
-	// test = 0x1;
+	nextTest (inputTestPass);
+	ioData = wbRead (GPIO1_INPUT_ADDR);
+	wbWrite (GPIO0_OUTPUT_ADDR, (inputTestPass ? 0x1 << 12 : 0) | (ioData << 15));
+	if (ioData != 0x1) inputTestPass = false; // input = 2'b01
 
-	wbWrite (GPIO0_OE_ADDR, ~0x0F000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x01000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x03000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x07000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x0F000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x0E000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x0C000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x08000);
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x00000);
+	nextTest (inputTestPass);
+	ioData = wbRead (GPIO1_INPUT_ADDR);
+	wbWrite (GPIO0_OUTPUT_ADDR, (inputTestPass ? 0x1 << 12 : 0) | (ioData << 15));
+	if (ioData != 0x3) inputTestPass = false; // input = 2'b11
 
-	// MPRJ_WB_ADDRESS = 0x33030000;
+	nextTest (inputTestPass);
+	ioData = wbRead (GPIO1_INPUT_ADDR);
+	wbWrite (GPIO0_OUTPUT_ADDR, (inputTestPass ? 0x1 << 12 : 0) | (ioData << 15));
+	if (ioData != 0) inputTestPass = false; // input = 2'b00
 
-	// GPIO0_OE = ~0x0F000;
-	// digitalWrite (12, 1);
-	// digitalWrite (13, 1);
-	// digitalWrite (14, 1);
-	// digitalWrite (15, 1);
-	// digitalWrite (12, 0);
-	// digitalWrite (13, 0);
-	// digitalWrite (14, 0);
-	// digitalWrite (15, 0);
-
-	// GPIO0_OUTPUT = 0x01000;
-	// GPIO0_OUTPUT = 0x03000;
-	// GPIO0_OUTPUT = 0x07000;
-	// GPIO0_OUTPUT = 0x0F000;
-	// GPIO0_OUTPUT = 0x0E000;
-	// GPIO0_OUTPUT = 0x0C000;
-	// GPIO0_OUTPUT = 0x08000;
-	// GPIO0_OUTPUT = 0x00000;
+	// Finish test
+	nextTest (inputTestPass);
 }

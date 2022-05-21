@@ -17,7 +17,7 @@
 
 `timescale 1 ns / 1 ps
 
-module peripheral_tb;
+module peripheralsGPIO_tb;
 	reg clock;
 	reg RSTB;
 	reg CSB;
@@ -27,36 +27,53 @@ module peripheral_tb;
 	wire gpio;
 	wire [37:0] mprj_io;
 
-	wire blink = mprj_io[32];
-	wire[3:0] gpioTestData = mprj_io[15:12];
+	reg[1:0] inputTestData;
+	wire succesOutput = mprj_io[12];
+	wire nextTestOutput = mprj_io[13];
+	wire[3:0] outputTestData = mprj_io[17:14];
 
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
-	// assign mprj_io[3] = 1'b1;
+	assign mprj_io[20:19] = inputTestData;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
 	// would be the fast clock.
-
 	always #12.5 clock <= (clock === 1'b0);
 
 	initial begin
 		clock = 0;
+		inputTestData = 4'b0;
+	end
+
+	// Generate input signal
+	initial begin
+		@(posedge nextTestOutput);
+		inputTestData = 2'b10;
+		
+		@(posedge nextTestOutput);
+		inputTestData = 2'b01;
+		
+		@(posedge nextTestOutput);
+		inputTestData = 2'b11;
+
+		@(posedge nextTestOutput);
+		inputTestData = 2'b00;
 	end
 
 	initial begin
-		$dumpfile("peripheral.vcd");
-		$dumpvars(0, peripheral_tb);
+		$dumpfile("peripheralsGPIO.vcd");
+		$dumpvars(0, peripheralsGPIO_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (100) begin
+		repeat (250) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
-		$display("%c[1;31m",27);
+		$display("%c[1;35m",27);
 		`ifdef GL
-			$display ("Monitor: Timeout, Peripheral Test (GL) Failed");
+			$display ("Monitor: Timeout, Peripherals GPIO Test (GL) Failed");
 		`else
-			$display ("Monitor: Timeout, Peripheral Test (RTL) Failed");
+			$display ("Monitor: Timeout, Peripherals GPIO Test (RTL) Failed");
 		`endif
 		$display("%c[0m",27);
 		$finish;
@@ -64,21 +81,42 @@ module peripheral_tb;
 
 	initial begin
 	    // Observe Output pins
-		wait(gpioTestData == 4'b0000);
-		wait(gpioTestData == 4'b0001);
-		wait(gpioTestData == 4'b0011);
-		wait(gpioTestData == 4'b0111);
-		wait(gpioTestData == 4'b1111);
-		wait(gpioTestData == 4'b1110);
-		wait(gpioTestData == 4'b1100);
-		wait(gpioTestData == 4'b1000);
-		wait(gpioTestData == 4'b0000);
+		wait(outputTestData == 4'b0000);
+		wait(outputTestData == 4'b0001);
+		wait(outputTestData == 4'b0011);
+		wait(outputTestData == 4'b0111);
+		wait(outputTestData == 4'b1111);
+		wait(outputTestData == 4'b1110);
+		wait(outputTestData == 4'b1100);
+		wait(outputTestData == 4'b1000);
+		wait(outputTestData == 4'b0000);
+
+		// Wait for tests
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+
+		// Wait for management core to output a output test result
+		@(posedge nextTestOutput);
 		
-		`ifdef GL
-	    	$display("Monitor: Test 1 GPIO (GL) Passed");
-		`else
-		    $display("Monitor: Test 1 GPIO (RTL) Passed");
-		`endif
+		if (succesOutput) begin
+			$display("%c[1;92m",27);
+			`ifdef GL
+				$display("Monitor: Peripherals GPIO Test (GL) Passed");
+			`else
+				$display("Monitor: Peripherals GPIO Test (RTL) Passed");
+			`endif
+			$display("%c[0m",27);
+		end else begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Peripherals GPIO Test (GL) Failed");
+			`else
+				$display ("Monitor: Peripherals GPIO Test (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+		end
 	    $finish;
 	end
 
@@ -107,8 +145,7 @@ module peripheral_tb;
 	end
 
 	always @(mprj_io) begin
-		//#1 $display("MPRJ-IO state = %b ", mprj_io);
-		#1 $display("GPIO Test = %b ", gpioTestData);
+		#1 $display("Success:0b%b Next test:0b%b Output:0b%b Input:0b%b", succesOutput, nextTestOutput, outputTestData, inputTestData);
 	end
 
 	wire flash_csb;
@@ -154,7 +191,7 @@ module peripheral_tb;
 	);
 
 	spiflash #(
-		.FILENAME("peripheral.hex")
+		.FILENAME("peripheralsGPIO.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),
@@ -162,10 +199,6 @@ module peripheral_tb;
 		.io1(flash_io1),
 		.io2(),			// not used
 		.io3()			// not used
-	);
-
-	tbuart tbuart (
-		.ser_rx(mprj_io[6])
 	);
 
 endmodule

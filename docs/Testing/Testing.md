@@ -1,21 +1,23 @@
 # Experiar Core Tests
-A number of tests can (when they have been implemented) be run on both the managment core and user core, to ensure all aspects of the SoC work correctly. All tests should be compatible with fabricated hardware, with success measurable from changes to GPIO states.
+A number of tests can (when they have been implemented) be run on both the management core and user core, to ensure all aspects of the SoC work correctly. All tests should be compatible with fabricated hardware, with success measurable from changes to GPIO states.
 
-## Peripheral: verify-peripheral-rtl (-gl)
-- GPIO
+## Peripherals
+- GPIO verify-peripheralsGPIO-rtl (-gl)
 	- Try outputs
 	- Try inputs
-- UART
-	- Send byte from caravel to uart0
-	- Sent byte from uart0 to caravel
+- UART verify-peripheralsUART-rtl (-gl)
+	- Configure devices
+	- Verify config is set
+	- Send bytes from caravel to uart0
+	- Sent bytes from uart0 to caravel
 	- Set GPIO high if pass
-- SPI
+- SPI verify-peripheralsSPI-rtl (-gl)
 	- Connect test device as a 16 bit shift register
 	- Set SPI output (will need a high frequency)
 	- Write 3 bytes
 	- Check that 3 bytes back are correct
 	- Set GPIO high if pass
-- PWM
+- PWM verify-peripheralsPWM-rtl (-gl)
 	- Set PWM output on two different devices
 	- Check that they alternate
 		- Maybe also check frequency and on time
@@ -26,6 +28,8 @@ A number of tests can (when they have been implemented) be run on both the manag
 ## Memory verify-memory-rtl (-gl)
 - Write data to each SRAM macro
 - Read back from each SRAM macro and compare data
+- Read back as byte and half values and compare data
+- Read back byte and half with offset and compare data
 - Set GPIO high if pass
 
 ## Video verify-video-rtl (-gl)
@@ -64,12 +68,12 @@ A number of tests can (when they have been implemented) be run on both the manag
 	- Step through instructions
 	- Read back program counter
 	- Set GPIO high if pass
-- Mempory access
-	- Run managment memory test on user core
+- Memory access
+	- Run management memory test on user core
 - Peripheral access
-	- Run managment peripheral test on user core
-		- UART test modified so user core transferes data to managment core, which transferes data back 
+	- Run management peripheral test on user core
+		- UART test modified so user core transfers data to management core, which transfers data back 
 - Video access
-	- Run managment video test on user core
+	- Run management video test on user core
 - riscv-arch-test
 	- Integrate test into makefile

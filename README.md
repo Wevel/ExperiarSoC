@@ -12,7 +12,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - Configurable VGA output
 - 3x UART ports + 1 internal to caravel
 - 1x SPI ports
-- 4x PWM counters with 4x seperate outputs (2 are internal read only)
+- 4x PWM counters with 4x separate outputs (2 are internal read only)
 
 ## Memory Map
 
@@ -29,31 +29,31 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - Peripherals: Success
 - Video: Success
 - WishboneInterconnect: Success
-- user_project_wrapper: Error at step 13
-	- Running Global Routing Resizer Timing Optimizations: Routing congestion too high
+- user_project_wrapper: Rotated SRAM macoros not connected to power
 
 # Tests
-## verify-peripheral-rtl (-gl)
-### Status: Success (Partially implemented)
-Runs a number of tests (currently just a very basic gpio test) from the management core to ensure the peripherals work correctly.
+## RTL
+### verify-peripheralsGPIO-rtl: Success
+### verify-peripheralsUART-rtl: Not implemented
+### verify-peripheralsSPI-rtl: Not implemented
+### verify-peripheralsPWM-rtl: Not implemented
+### verify-memory-rtl: Not implemented
+### verify-video-rtl: Not implemented
+### verify-core-rtl: Not implemented
 
-## verify-memory-rtl (-gl)
-### Status: Not implemented
-Tests the managment core has access to each sram region, and that data can be correctly writen and read.
-
-## verify-video-rtl (-gl)
-### Status: Not implemented
-Tests that the managment core can initialise the VGA device, and that the signal coresponding to this is generated. This will not produce a valid VGA signal as the simulation time would be too long.
-
-## verify-core-rtl (-gl)
-### Status: Not implemented
-Runs a number of tests on each core to ensure they function correctly, and can access all peripherals on the SoC.
-
+## GL
+### verify-peripheralsGPIO-gl: Failed
+### verify-peripheralsUART-gl: Not implemented
+### verify-peripheralsSPI-gl: Not implemented
+### verify-peripheralsPWM-gl: Not implemented
+### verify-memory-gl: Not implemented
+### verify-video-gl: Not implemented
+### verify-core-gl: Not implemented
 
 # ToDo
 - Get it to build
 - Flash controller
-- JTAG core managment controller
+- JTAG core management controller
 - CSRs
 - Write more tests
 - Fix all of the errors
