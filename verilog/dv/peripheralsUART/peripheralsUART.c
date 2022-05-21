@@ -153,7 +153,7 @@ void main ()
 	wbWrite (CARAVEL_UART_TX__ADDR, testData[0]);
 
 	// Check that the data is there
-	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0) testPass = false;
+	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0x8) testPass = false;
 	nextTest (testPass);
 
 	// Check that no data has arrived at the SoC UART device
@@ -167,11 +167,19 @@ void main ()
 	wbWrite (CARAVEL_UART_TX__ADDR, testData[2]);
 	wbWrite (CARAVEL_UART_TX__ADDR, testData[3]);
 
+	// Make sure all of the data has been sent
+	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0) testPass = false;
+	nextTest (testPass);
+
 	// Read back data from peripheral
 	if (wbRead (SOC_UART0_RX_ADDR) != testData[0]) testPass = false;
 	if (wbRead (SOC_UART0_RX_ADDR) != testData[1]) testPass = false;
 	if (wbRead (SOC_UART0_RX_ADDR) != testData[2]) testPass = false;
 	if (wbRead (SOC_UART0_RX_ADDR) != testData[3]) testPass = false;
+	nextTest (testPass);
+
+	// Make sure all of the data is marked as read
+	if (wbRead (SOC_UART0_STATUS_ADDR) != 0) testPass = false;
 	nextTest (testPass);
 
 	// Send data from peripheral
@@ -180,11 +188,19 @@ void main ()
 	wbWrite (SOC_UART0_TX__ADDR, testData[2]);
 	wbWrite (SOC_UART0_TX__ADDR, testData[3]);
 
+	// Make sure all of the data has been sent
+	if (wbRead (SOC_UART0_STATUS_ADDR) != 0) testPass = false;
+	nextTest (testPass);
+
 	// Read back data from caravel
 	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[0]) testPass = false;
 	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[1]) testPass = false;
 	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[2]) testPass = false;
 	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[3]) testPass = false;
+	nextTest (testPass);
+
+	// Make sure all of the data is marked as read
+	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0) testPass = false;
 
 	// Finish test
 	nextTest (testPass);
