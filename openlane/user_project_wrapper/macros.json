@@ -1,0 +1,252 @@
+{
+	"macros": [
+		{
+			"name": "art",
+			"position": {
+				"x": 210,
+				"y": 2508
+			},
+			"size": {
+				"x": 305,
+				"y": 750
+			},
+			"rotation": "N",
+			"obstructions": [
+				"li1",
+				"met1",
+				"met2",
+				"met3",
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "caravelHost",
+			"position": {
+				"x": 1550,
+				"y": 250
+			},
+			"size": {
+				"x": 350,
+				"y": 350
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/core0",
+			"position": {
+				"x": 950,
+				"y": 250
+			},
+			"size": {
+				"x": 400,
+				"y": 800
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/core1",
+			"position": {
+				"x": 950,
+				"y": 1400
+			},
+			"size": {
+				"x": 400,
+				"y": 800
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/flash",
+			"position": {
+				"x": 2100,
+				"y": 750
+			},
+			"size": {
+				"x": 600,
+				"y": 200
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/peripherals",
+			"position": {
+				"x": 2100,
+				"y": 1100
+			},
+			"size": {
+				"x": 600,
+				"y": 700
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/video",
+			"position": {
+				"x": 1550,
+				"y": 2633
+			},
+			"size": {
+				"x": 350,
+				"y": 500
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/wishboneInterconnect",
+			"position": {
+				"x": 1550,
+				"y": 725
+			},
+			"size": {
+				"x": 350,
+				"y": 1100
+			},
+			"rotation": "N"
+		},
+		{
+			"name": "experiarSoC/core0SRAM0",
+			"position": {
+				"x": 140,
+				"y": 150
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/core0SRAM1",
+			"position": {
+				"x": 140,
+				"y": 715
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/core1SRAM0",
+			"position": {
+				"x": 140,
+				"y": 1300
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/core1SRAM1",
+			"position": {
+				"x": 140,
+				"y": 1865
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/videoSRAM0",
+			"position": {
+				"x": 717,
+				"y": 2400
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/videoSRAM1",
+			"position": {
+				"x": 717,
+				"y": 2950
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/videoSRAM2",
+			"position": {
+				"x": 2050,
+				"y": 2400
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "N",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/videoSRAM3",
+			"position": {
+				"x": 2050,
+				"y": 2950
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "N",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		},
+		{
+			"name": "experiarSoC/flashSRAM",
+			"position": {
+				"x": 2050,
+				"y": 150
+			},
+			"size": {
+				"x": 683.1,
+				"y": 416.54
+			},
+			"rotation": "S",
+			"obstructions": [
+				"met4",
+				"met5"
+			]
+		}
+	]
+}
