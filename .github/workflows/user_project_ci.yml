@@ -143,21 +143,30 @@ jobs:
 
       - name: Harden using Openlane
         run: |
-          make user_proj_example
+          make CaravelHost
+          make ExperiarCore
+          make Flash
+          make Peripherals_Flat
+          make Video
+          make WishboneInterconnect
           make user_project_wrapper
 
       - name: Run DV RTL tests
         run: |
-          make verify-io_ports-rtl 
-          make verify-la_test1-rtl 
-          make verify-la_test2-rtl 
-          make verify-mprj_stimulus-rtl 
-          make verify-wb_port-rtl
+          make verify-peripheralsGPIO-rtl
+          make verify-peripheralsUART-rtl
+          make verify-peripheralsSPI-rtl
+          make verify-peripheralsPWM-rtl
+          make verify-memory-rtl
+          make verify-video-rtl
+          make verify-core-rtl
 
       - name: Run DV GL tests
         run: |
-          make verify-io_ports-gl 
-          make verify-la_test1-gl 
-          make verify-la_test2-gl 
-          make verify-mprj_stimulus-gl 
-          make verify-wb_port-gl
+          make verify-peripheralsGPIO-gl
+          make verify-peripheralsUART-gl
+          make verify-peripheralsSPI-gl
+          make verify-peripheralsPWM-gl
+          make verify-memory-gl
+          make verify-video-gl
+          make verify-core-gl
