@@ -41,8 +41,13 @@ A number of tests can (when they have been implemented) be run on both the manag
 - Program Counter			
 	- Write to program counter
 	- Check that the program counter is correct
+	- Write NOP for step (this does require instruction reads to work)
 	- Step core
-	- Check that program counter is correct
+	- Check that the program counter is correct
+	- Jump the program counter
+	- Check that the program counter is correct
+	- Free run the program counter
+	- Check that the program counter increases
 	- Set GPIO high if pass
 - Registers				
 	- Write to r0, r1, r2

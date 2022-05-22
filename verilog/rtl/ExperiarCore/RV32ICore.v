@@ -36,15 +36,14 @@ module RV32ICore(
 		output wire probe_isCompressed
     );
 
-	localparam STATE_HALT 	 = 2'b00;
-	localparam STATE_DEBUG	 = 2'b10;
-	localparam STATE_FETCH   = 2'b01;
-	localparam STATE_EXECUTE = 2'b11;
+	localparam STATE_FETCH   = 1'b0;
+	localparam STATE_EXECUTE = 1'b1;
 
 	// System registers
-	reg[1:0] state;
-	reg[31:0] programCounter;
-	reg[31:0] currentInstruction;
+	reg state = STATE_FETCH;
+	reg[3:0] currentError = 4'b0;
+	reg[31:0] programCounter = 32'b0;
+	reg[31:0] currentInstruction = 32'b0;
 	reg[31:0] registers [0:31];
 
 	// Management control
@@ -80,8 +79,6 @@ module RV32ICore(
 		management_byteSelect[0] ? management_dataOut[7:0]   : 8'h00
 	};
 
-	wire[3:0] currentError = { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
-
 	// Immediate Decode
 	wire[31:0] imm_I = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[24:21], currentInstruction[20]};
 	wire[31:0] imm_S = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[11:8] , currentInstruction[7]};
@@ -96,7 +93,7 @@ module RV32ICore(
 	wire[4:0] rs2Index = currentInstruction[24:20];
 	wire[2:0] funct3 = currentInstruction[14:12];
 	wire[6:0] funct7 = currentInstruction[31:25];
-	wire isCompressed = !(opcode[0] && opcode[1]);
+	wire isCompressed = opcode[1:0] != 2'b11;
 
 	// Instruction decode
 	wire isLUI 	  = (opcode == 7'b0110111);
@@ -264,6 +261,9 @@ module RV32ICore(
 		if (rst) begin
 			state <= STATE_FETCH;
 			programCounter <= 32'b0;
+			currentError <= 4'b0;
+			programCounter <= 32'b0;
+			currentInstruction <= 32'b0;
 		end else begin
 			if (!(|currentError)) begin
 				case (state)
@@ -281,11 +281,15 @@ module RV32ICore(
 					end
 
 					STATE_EXECUTE: begin
-						if (progressExecute) begin
-							if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
+						if (addressMissaligned || invalidInstruction) begin
+							currentError <= { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
+						end else begin
+							if (progressExecute) begin
+								if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
 
-							programCounter <= { nextProgramCounter[31:1] , 1'b0};
-							state <= STATE_FETCH;
+								programCounter <= { nextProgramCounter[31:1] , 1'b0};
+								state <= STATE_FETCH;
+							end
 						end
 					end
 
@@ -297,7 +301,7 @@ module RV32ICore(
 
 	// Debug
 
-	assign probe_state = state;
+	assign probe_state = { 1'b0, state };
 	assign probe_programCounter = programCounter;
 	assign probe_opcode = opcode;
 	assign probe_errorCode = currentError;
