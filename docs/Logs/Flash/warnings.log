@@ -1,108 +1,108 @@
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[36]: /home/crab/windows/ASIC/ExperiarSoC/openlane/Flash/../../verilog/rtl/Flash/Flash_top.v:112: Warning: Identifier `\clk' is implicitly declared.
 openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[37]: /home/crab/windows/ASIC/ExperiarSoC/openlane/Flash/../../verilog/rtl/Flash/Flash_top.v:113: Warning: Identifier `\rst' is implicitly declared.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[192]: Warning: Wire Flash.\flash_sck is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[832]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[951]: Warning: Wire Flash.\wb_stall_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[952]: Warning: Wire Flash.\wb_error_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[953]: Warning: Wire Flash.\wb_data_o [31] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[954]: Warning: Wire Flash.\wb_data_o [30] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[955]: Warning: Wire Flash.\wb_data_o [29] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[956]: Warning: Wire Flash.\wb_data_o [28] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[957]: Warning: Wire Flash.\wb_data_o [27] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[958]: Warning: Wire Flash.\wb_data_o [26] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[959]: Warning: Wire Flash.\wb_data_o [25] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[960]: Warning: Wire Flash.\wb_data_o [24] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[961]: Warning: Wire Flash.\wb_data_o [23] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[962]: Warning: Wire Flash.\wb_data_o [22] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[963]: Warning: Wire Flash.\wb_data_o [21] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[964]: Warning: Wire Flash.\wb_data_o [20] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[965]: Warning: Wire Flash.\wb_data_o [19] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[966]: Warning: Wire Flash.\wb_data_o [18] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[967]: Warning: Wire Flash.\wb_data_o [17] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[968]: Warning: Wire Flash.\wb_data_o [16] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[969]: Warning: Wire Flash.\wb_data_o [15] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[970]: Warning: Wire Flash.\wb_data_o [14] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[971]: Warning: Wire Flash.\wb_data_o [13] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[972]: Warning: Wire Flash.\wb_data_o [12] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[973]: Warning: Wire Flash.\wb_data_o [11] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[974]: Warning: Wire Flash.\wb_data_o [10] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[975]: Warning: Wire Flash.\wb_data_o [9] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[976]: Warning: Wire Flash.\wb_data_o [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[977]: Warning: Wire Flash.\wb_data_o [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[978]: Warning: Wire Flash.\wb_data_o [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[979]: Warning: Wire Flash.\wb_data_o [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[980]: Warning: Wire Flash.\wb_data_o [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[981]: Warning: Wire Flash.\wb_data_o [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[982]: Warning: Wire Flash.\wb_data_o [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[983]: Warning: Wire Flash.\wb_data_o [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[984]: Warning: Wire Flash.\wb_data_o [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[985]: Warning: Wire Flash.\wb_ack_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[986]: Warning: Wire Flash.\sram_wmask0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[987]: Warning: Wire Flash.\sram_wmask0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[988]: Warning: Wire Flash.\sram_wmask0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[989]: Warning: Wire Flash.\sram_wmask0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[990]: Warning: Wire Flash.\sram_web0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[991]: Warning: Wire Flash.\sram_din0 [31] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[992]: Warning: Wire Flash.\sram_din0 [30] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[993]: Warning: Wire Flash.\sram_din0 [29] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[994]: Warning: Wire Flash.\sram_din0 [28] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[995]: Warning: Wire Flash.\sram_din0 [27] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[996]: Warning: Wire Flash.\sram_din0 [26] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[997]: Warning: Wire Flash.\sram_din0 [25] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[998]: Warning: Wire Flash.\sram_din0 [24] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[999]: Warning: Wire Flash.\sram_din0 [23] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1000]: Warning: Wire Flash.\sram_din0 [22] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1001]: Warning: Wire Flash.\sram_din0 [21] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1002]: Warning: Wire Flash.\sram_din0 [20] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1003]: Warning: Wire Flash.\sram_din0 [19] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1004]: Warning: Wire Flash.\sram_din0 [18] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1005]: Warning: Wire Flash.\sram_din0 [17] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1006]: Warning: Wire Flash.\sram_din0 [16] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1007]: Warning: Wire Flash.\sram_din0 [15] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1008]: Warning: Wire Flash.\sram_din0 [14] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1009]: Warning: Wire Flash.\sram_din0 [13] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1010]: Warning: Wire Flash.\sram_din0 [12] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1011]: Warning: Wire Flash.\sram_din0 [11] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1012]: Warning: Wire Flash.\sram_din0 [10] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1013]: Warning: Wire Flash.\sram_din0 [9] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1014]: Warning: Wire Flash.\sram_din0 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1015]: Warning: Wire Flash.\sram_din0 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1016]: Warning: Wire Flash.\sram_din0 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1017]: Warning: Wire Flash.\sram_din0 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1018]: Warning: Wire Flash.\sram_din0 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1019]: Warning: Wire Flash.\sram_din0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1020]: Warning: Wire Flash.\sram_din0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1021]: Warning: Wire Flash.\sram_din0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1022]: Warning: Wire Flash.\sram_din0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1023]: Warning: Wire Flash.\sram_csb1 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1024]: Warning: Wire Flash.\sram_csb0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1025]: Warning: Wire Flash.\sram_clk1 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1026]: Warning: Wire Flash.\sram_clk0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1027]: Warning: Wire Flash.\sram_addr1 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1028]: Warning: Wire Flash.\sram_addr1 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1029]: Warning: Wire Flash.\sram_addr1 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1030]: Warning: Wire Flash.\sram_addr1 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1031]: Warning: Wire Flash.\sram_addr1 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1032]: Warning: Wire Flash.\sram_addr1 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1033]: Warning: Wire Flash.\sram_addr1 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1034]: Warning: Wire Flash.\sram_addr1 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1035]: Warning: Wire Flash.\sram_addr1 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1036]: Warning: Wire Flash.\sram_addr0 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1037]: Warning: Wire Flash.\sram_addr0 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1038]: Warning: Wire Flash.\sram_addr0 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1039]: Warning: Wire Flash.\sram_addr0 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1040]: Warning: Wire Flash.\sram_addr0 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1041]: Warning: Wire Flash.\sram_addr0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1042]: Warning: Wire Flash.\sram_addr0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1043]: Warning: Wire Flash.\sram_addr0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1044]: Warning: Wire Flash.\sram_addr0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1045]: Warning: Wire Flash.\flash_sck is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1046]: Warning: Wire Flash.\flash_io1_write is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1047]: Warning: Wire Flash.\flash_io1_we is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1048]: Warning: Wire Flash.\flash_io0_write is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1049]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1050]: Warning: Wire Flash.\flash_csb is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1088]: Warnings: 102 unique messages, 103 total
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[195]: Warning: Wire Flash.\flash_sck is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[836]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[957]: Warning: Wire Flash.\wb_stall_o is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[958]: Warning: Wire Flash.\wb_error_o is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[959]: Warning: Wire Flash.\wb_data_o [31] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[960]: Warning: Wire Flash.\wb_data_o [30] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[961]: Warning: Wire Flash.\wb_data_o [29] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[962]: Warning: Wire Flash.\wb_data_o [28] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[963]: Warning: Wire Flash.\wb_data_o [27] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[964]: Warning: Wire Flash.\wb_data_o [26] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[965]: Warning: Wire Flash.\wb_data_o [25] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[966]: Warning: Wire Flash.\wb_data_o [24] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[967]: Warning: Wire Flash.\wb_data_o [23] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[968]: Warning: Wire Flash.\wb_data_o [22] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[969]: Warning: Wire Flash.\wb_data_o [21] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[970]: Warning: Wire Flash.\wb_data_o [20] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[971]: Warning: Wire Flash.\wb_data_o [19] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[972]: Warning: Wire Flash.\wb_data_o [18] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[973]: Warning: Wire Flash.\wb_data_o [17] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[974]: Warning: Wire Flash.\wb_data_o [16] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[975]: Warning: Wire Flash.\wb_data_o [15] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[976]: Warning: Wire Flash.\wb_data_o [14] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[977]: Warning: Wire Flash.\wb_data_o [13] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[978]: Warning: Wire Flash.\wb_data_o [12] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[979]: Warning: Wire Flash.\wb_data_o [11] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[980]: Warning: Wire Flash.\wb_data_o [10] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[981]: Warning: Wire Flash.\wb_data_o [9] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[982]: Warning: Wire Flash.\wb_data_o [8] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[983]: Warning: Wire Flash.\wb_data_o [7] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[984]: Warning: Wire Flash.\wb_data_o [6] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[985]: Warning: Wire Flash.\wb_data_o [5] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[986]: Warning: Wire Flash.\wb_data_o [4] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[987]: Warning: Wire Flash.\wb_data_o [3] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[988]: Warning: Wire Flash.\wb_data_o [2] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[989]: Warning: Wire Flash.\wb_data_o [1] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[990]: Warning: Wire Flash.\wb_data_o [0] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[991]: Warning: Wire Flash.\wb_ack_o is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[992]: Warning: Wire Flash.\sram_wmask0 [3] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[993]: Warning: Wire Flash.\sram_wmask0 [2] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[994]: Warning: Wire Flash.\sram_wmask0 [1] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[995]: Warning: Wire Flash.\sram_wmask0 [0] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[996]: Warning: Wire Flash.\sram_web0 is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[997]: Warning: Wire Flash.\sram_din0 [31] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[998]: Warning: Wire Flash.\sram_din0 [30] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[999]: Warning: Wire Flash.\sram_din0 [29] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1000]: Warning: Wire Flash.\sram_din0 [28] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1001]: Warning: Wire Flash.\sram_din0 [27] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1002]: Warning: Wire Flash.\sram_din0 [26] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1003]: Warning: Wire Flash.\sram_din0 [25] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1004]: Warning: Wire Flash.\sram_din0 [24] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1005]: Warning: Wire Flash.\sram_din0 [23] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1006]: Warning: Wire Flash.\sram_din0 [22] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1007]: Warning: Wire Flash.\sram_din0 [21] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1008]: Warning: Wire Flash.\sram_din0 [20] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1009]: Warning: Wire Flash.\sram_din0 [19] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1010]: Warning: Wire Flash.\sram_din0 [18] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1011]: Warning: Wire Flash.\sram_din0 [17] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1012]: Warning: Wire Flash.\sram_din0 [16] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1013]: Warning: Wire Flash.\sram_din0 [15] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1014]: Warning: Wire Flash.\sram_din0 [14] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1015]: Warning: Wire Flash.\sram_din0 [13] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1016]: Warning: Wire Flash.\sram_din0 [12] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1017]: Warning: Wire Flash.\sram_din0 [11] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1018]: Warning: Wire Flash.\sram_din0 [10] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1019]: Warning: Wire Flash.\sram_din0 [9] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1020]: Warning: Wire Flash.\sram_din0 [8] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1021]: Warning: Wire Flash.\sram_din0 [7] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1022]: Warning: Wire Flash.\sram_din0 [6] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1023]: Warning: Wire Flash.\sram_din0 [5] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1024]: Warning: Wire Flash.\sram_din0 [4] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1025]: Warning: Wire Flash.\sram_din0 [3] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1026]: Warning: Wire Flash.\sram_din0 [2] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1027]: Warning: Wire Flash.\sram_din0 [1] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1028]: Warning: Wire Flash.\sram_din0 [0] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1029]: Warning: Wire Flash.\sram_csb1 is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1030]: Warning: Wire Flash.\sram_csb0 is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1031]: Warning: Wire Flash.\sram_clk1 is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1032]: Warning: Wire Flash.\sram_clk0 is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1033]: Warning: Wire Flash.\sram_addr1 [8] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1034]: Warning: Wire Flash.\sram_addr1 [7] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1035]: Warning: Wire Flash.\sram_addr1 [6] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1036]: Warning: Wire Flash.\sram_addr1 [5] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1037]: Warning: Wire Flash.\sram_addr1 [4] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1038]: Warning: Wire Flash.\sram_addr1 [3] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1039]: Warning: Wire Flash.\sram_addr1 [2] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1040]: Warning: Wire Flash.\sram_addr1 [1] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1041]: Warning: Wire Flash.\sram_addr1 [0] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1042]: Warning: Wire Flash.\sram_addr0 [8] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1043]: Warning: Wire Flash.\sram_addr0 [7] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1044]: Warning: Wire Flash.\sram_addr0 [6] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1045]: Warning: Wire Flash.\sram_addr0 [5] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1046]: Warning: Wire Flash.\sram_addr0 [4] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1047]: Warning: Wire Flash.\sram_addr0 [3] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1048]: Warning: Wire Flash.\sram_addr0 [2] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1049]: Warning: Wire Flash.\sram_addr0 [1] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1050]: Warning: Wire Flash.\sram_addr0 [0] is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1051]: Warning: Wire Flash.\flash_sck is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1052]: Warning: Wire Flash.\flash_io1_write is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1053]: Warning: Wire Flash.\flash_io1_we is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1054]: Warning: Wire Flash.\flash_io0_write is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1055]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1056]: Warning: Wire Flash.\flash_csb is used but has no driver.
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1096]: Warnings: 102 unique messages, 103 total
 openlane/Flash\runs\Flash\logs\signoff\27-gdsii-klayout.log[12]: WARNING: no fill config file specified
 openlane/Flash\runs\Flash\logs\signoff\32-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
 openlane/Flash\runs\Flash\logs\signoff\32-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'

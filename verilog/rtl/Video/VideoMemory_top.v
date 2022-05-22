@@ -21,23 +21,73 @@ module VideoMemory (
 		input wire[SRAM_ADDRESS_SIZE+3:0] video_address,
 		output reg[31:0] video_data,
 
-		// Video SRAM rw port
-		output wire sram_clk0,
-		output reg[3:0] sram_csb0,
-		output wire sram_web0,
-		output wire[3:0] sram_wmask0,
-		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr0,
-		output wire[31:0] sram_din0,
-		input wire[127:0] sram_dout0,
+		// Left Video SRAM rw port
+		output wire sram0_clk0,
+		output wire[1:0] sram0_csb0,
+		output wire sram0_web0,
+		output wire[3:0] sram0_wmask0,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram0_addr0,
+		output wire[31:0] sram0_din0,
+		input wire[63:0] sram0_dout0,
 
-		// Video SRAM r port
-		output wire sram_clk1,
-		output reg[3:0] sram_csb1,
-		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr1,
-		input wire[127:0] sram_dout1
+		// Left Video SRAM r port
+		output wire sram0_clk1,
+		output wire[1:0] sram0_csb1,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram0_addr1,
+		input wire[63:0] sram0_dout1,
+
+		// Right Video SRAM rw port
+		output wire sram1_clk0,
+		output wire[1:0] sram1_csb0,
+		output wire sram1_web0,
+		output wire[3:0] sram1_wmask0,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram1_addr0,
+		output wire[31:0] sram1_din0,
+		input wire[63:0] sram1_dout0,
+
+		// Right Video SRAM r port
+		output wire sram1_clk1,
+		output wire[1:0] sram1_csb1,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram1_addr1,
+		input wire[63:0] sram1_dout1
 	);
 
 	localparam SRAM_ADDRESS_SIZE = 9;
+
+	// Merge two ports into one
+	wire sram_clk0;
+	reg[3:0] sram_csb0;
+	wire sram_web0;
+	wire[3:0] sram_wmask0;
+	wire[SRAM_ADDRESS_SIZE-1:0] sram_addr0;
+	wire[31:0] sram_din0;
+	wire[127:0] sram_dout0;
+	wire sram_clk1;
+	reg[3:0] sram_csb1;
+	wire[SRAM_ADDRESS_SIZE-1:0] sram_addr1;
+	wire[127:0] sram_dout1;
+
+	assign sram0_clk0 = sram_clk0;
+	assign sram0_csb0 = sram_csb0[1:0];
+	assign sram0_web0 = sram_web0;
+	assign sram0_wmask0 = sram_wmask0;
+	assign sram0_addr0 = sram_addr0;
+	assign sram0_din0 = sram_din0;
+	assign sram0_clk1 = sram_clk1;
+	assign sram0_csb1 = sram_csb1[1:0];
+	assign sram0_addr1 = sram_addr1;
+	assign sram1_clk0 = sram_clk0;
+	assign sram1_csb0 = sram_csb0[3:2];
+	assign sram1_web0 = sram_web0;
+	assign sram1_wmask0 = sram_wmask0;
+	assign sram1_addr0 = sram_addr0;
+	assign sram1_din0 = sram_din0;
+	assign sram1_clk1 = sram_clk1;
+	assign sram1_csb1 = sram_csb1[3:2];
+	assign sram1_addr1 = sram_addr1;
+
+	assign sram_dout0 = { sram1_dout0, sram0_dout0 };
+	assign sram_dout1 = { sram1_dout1, sram0_dout1 };
 
 	wire peripheralBusEnableSRAM = (peripheralBus_we || peripheralBus_oe);
 	wire[1:0] peripheralBusSRAMBank = peripheralBus_address[SRAM_ADDRESS_SIZE+3:SRAM_ADDRESS_SIZE+2];

@@ -13,7 +13,7 @@ class JSONWrapper:
 			#self.__iterData = [ MetaData.Entry(self.metaData, f"{self.dataPath}/{key}", item) for key, item in self.value.items()]
 			self.__iterData = list(self.value.keys())
 		else:
-			raise Exception(f"Can't iterate over ")
+			raise Exception(f"Can't iterate over object of type '{type(self.value)}'")
 		return self
 
 	def __next__(self):

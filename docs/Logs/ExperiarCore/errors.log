@@ -1,19 +1,18 @@
-openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[1967]: ABC: Error: The network is combinational.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[185]: [INFO DRT-0199]   Number of violations = 544.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[229]: [INFO DRT-0199]   Number of violations = 66.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[273]: [INFO DRT-0199]   Number of violations = 58.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[317]: [INFO DRT-0199]   Number of violations = 1.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[361]: [INFO DRT-0199]   Number of violations = 1.
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1538]: _1145_/A                                1.50    1.72   -0.22 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1539]: _1022_/C1                               1.50    1.72   -0.22 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1540]: _1208_/C1                               1.50    1.72   -0.22 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1541]: _1209_/B1                               1.50    1.72   -0.22 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1542]: _1192_/B                                1.50    1.72   -0.22 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1543]: _1021_/X                                1.51    1.72   -0.21 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1549]: _1021_/X                                0.13    0.15   -0.02 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1550]: _0588_/X                                0.13    0.13   -0.00 (VIOLATED)
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1554]: max slew violation count 6
-openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1556]: max cap violation count 2
-openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\36-antenna.log[17]: [INFO ANT-0002] Found 14 net violations in 1418 nets.
-openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[55092]: Number of pins violated: 14
-openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[55093]: Number of nets violated: 14
+openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[1969]: ABC: Error: The network is combinational.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[185]: [INFO DRT-0199]   Number of violations = 687.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[229]: [INFO DRT-0199]   Number of violations = 36.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[273]: [INFO DRT-0199]   Number of violations = 67.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[317]: [INFO DRT-0199]   Number of violations = 10.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\23-detailed.log[361]: [INFO DRT-0199]   Number of violations = 3.
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1530]: _1041_/B                                1.50    1.56   -0.06 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1531]: _1043_/A                                1.50    1.56   -0.06 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1532]: _1170_/A                                1.50    1.56   -0.06 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1533]: _1209_/A                                1.50    1.56   -0.06 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1534]: _0998_/C1                               1.50    1.56   -0.06 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1535]: _0997_/X                                1.51    1.56   -0.05 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1541]: _0997_/X                                0.13    0.14   -0.01 (VIOLATED)
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1545]: max slew violation count 6
+openlane/ExperiarCore\runs\ExperiarCore\logs\placement\7-global.log[1547]: max cap violation count 1
+openlane/ExperiarCore\runs\ExperiarCore\logs\signoff\36-antenna.log[17]: [INFO ANT-0002] Found 5 net violations in 1439 nets.
+openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[56358]: Number of pins violated: 5
+openlane/ExperiarCore\runs\ExperiarCore\reports\signoff\antenna.rpt[56359]: Number of nets violated: 5

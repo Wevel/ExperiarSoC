@@ -1,113 +1,170 @@
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1678]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1837]: Warning: Wire Video.\wb_stall_o is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1838]: Warning: Wire Video.\wb_error_o is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1839]: Warning: Wire Video.\wb_data_o [31] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1840]: Warning: Wire Video.\wb_data_o [30] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1841]: Warning: Wire Video.\wb_data_o [29] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1842]: Warning: Wire Video.\wb_data_o [28] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1843]: Warning: Wire Video.\wb_data_o [27] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1844]: Warning: Wire Video.\wb_data_o [26] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1845]: Warning: Wire Video.\wb_data_o [25] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1846]: Warning: Wire Video.\wb_data_o [24] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1847]: Warning: Wire Video.\wb_data_o [23] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1848]: Warning: Wire Video.\wb_data_o [22] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1849]: Warning: Wire Video.\wb_data_o [21] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1850]: Warning: Wire Video.\wb_data_o [20] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1851]: Warning: Wire Video.\wb_data_o [19] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1852]: Warning: Wire Video.\wb_data_o [18] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1853]: Warning: Wire Video.\wb_data_o [17] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1854]: Warning: Wire Video.\wb_data_o [16] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1855]: Warning: Wire Video.\wb_data_o [15] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1856]: Warning: Wire Video.\wb_data_o [14] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1857]: Warning: Wire Video.\wb_data_o [13] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1858]: Warning: Wire Video.\wb_data_o [12] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1859]: Warning: Wire Video.\wb_data_o [11] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1860]: Warning: Wire Video.\wb_data_o [10] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1861]: Warning: Wire Video.\wb_data_o [9] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1862]: Warning: Wire Video.\wb_data_o [8] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1863]: Warning: Wire Video.\wb_data_o [7] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1864]: Warning: Wire Video.\wb_data_o [6] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1865]: Warning: Wire Video.\wb_data_o [5] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1866]: Warning: Wire Video.\wb_data_o [4] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1867]: Warning: Wire Video.\wb_data_o [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1868]: Warning: Wire Video.\wb_data_o [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1869]: Warning: Wire Video.\wb_data_o [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1870]: Warning: Wire Video.\wb_data_o [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1871]: Warning: Wire Video.\wb_ack_o is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1872]: Warning: Wire Video.\vga_vsync is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1873]: Warning: Wire Video.\vga_r [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1874]: Warning: Wire Video.\vga_r [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1875]: Warning: Wire Video.\vga_hsync is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1876]: Warning: Wire Video.\vga_g [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1877]: Warning: Wire Video.\vga_g [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1878]: Warning: Wire Video.\vga_b [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1879]: Warning: Wire Video.\vga_b [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1880]: Warning: Wire Video.\sram_wmask0 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1881]: Warning: Wire Video.\sram_wmask0 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1882]: Warning: Wire Video.\sram_wmask0 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1883]: Warning: Wire Video.\sram_wmask0 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1884]: Warning: Wire Video.\sram_web0 is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1885]: Warning: Wire Video.\sram_din0 [31] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1886]: Warning: Wire Video.\sram_din0 [30] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1887]: Warning: Wire Video.\sram_din0 [29] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1888]: Warning: Wire Video.\sram_din0 [28] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1889]: Warning: Wire Video.\sram_din0 [27] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1890]: Warning: Wire Video.\sram_din0 [26] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1891]: Warning: Wire Video.\sram_din0 [25] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1892]: Warning: Wire Video.\sram_din0 [24] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1893]: Warning: Wire Video.\sram_din0 [23] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1894]: Warning: Wire Video.\sram_din0 [22] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1895]: Warning: Wire Video.\sram_din0 [21] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1896]: Warning: Wire Video.\sram_din0 [20] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1897]: Warning: Wire Video.\sram_din0 [19] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1898]: Warning: Wire Video.\sram_din0 [18] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1899]: Warning: Wire Video.\sram_din0 [17] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1900]: Warning: Wire Video.\sram_din0 [16] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1901]: Warning: Wire Video.\sram_din0 [15] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1902]: Warning: Wire Video.\sram_din0 [14] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1903]: Warning: Wire Video.\sram_din0 [13] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1904]: Warning: Wire Video.\sram_din0 [12] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1905]: Warning: Wire Video.\sram_din0 [11] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1906]: Warning: Wire Video.\sram_din0 [10] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1907]: Warning: Wire Video.\sram_din0 [9] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1908]: Warning: Wire Video.\sram_din0 [8] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1909]: Warning: Wire Video.\sram_din0 [7] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1910]: Warning: Wire Video.\sram_din0 [6] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1911]: Warning: Wire Video.\sram_din0 [5] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1912]: Warning: Wire Video.\sram_din0 [4] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1913]: Warning: Wire Video.\sram_din0 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1914]: Warning: Wire Video.\sram_din0 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1915]: Warning: Wire Video.\sram_din0 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1916]: Warning: Wire Video.\sram_din0 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1917]: Warning: Wire Video.\sram_csb1 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1918]: Warning: Wire Video.\sram_csb1 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1919]: Warning: Wire Video.\sram_csb1 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1920]: Warning: Wire Video.\sram_csb1 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1921]: Warning: Wire Video.\sram_csb0 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1922]: Warning: Wire Video.\sram_csb0 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1923]: Warning: Wire Video.\sram_csb0 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1924]: Warning: Wire Video.\sram_csb0 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1925]: Warning: Wire Video.\sram_clk1 is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1926]: Warning: Wire Video.\sram_clk0 is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1927]: Warning: Wire Video.\sram_addr1 [8] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1928]: Warning: Wire Video.\sram_addr1 [7] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1929]: Warning: Wire Video.\sram_addr1 [6] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1930]: Warning: Wire Video.\sram_addr1 [5] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1931]: Warning: Wire Video.\sram_addr1 [4] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1932]: Warning: Wire Video.\sram_addr1 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1933]: Warning: Wire Video.\sram_addr1 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1934]: Warning: Wire Video.\sram_addr1 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1935]: Warning: Wire Video.\sram_addr1 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1936]: Warning: Wire Video.\sram_addr0 [8] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1937]: Warning: Wire Video.\sram_addr0 [7] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1938]: Warning: Wire Video.\sram_addr0 [6] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1939]: Warning: Wire Video.\sram_addr0 [5] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1940]: Warning: Wire Video.\sram_addr0 [4] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1941]: Warning: Wire Video.\sram_addr0 [3] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1942]: Warning: Wire Video.\sram_addr0 [2] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1943]: Warning: Wire Video.\sram_addr0 [1] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1944]: Warning: Wire Video.\sram_addr0 [0] is used but has no driver.
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2019]: Warnings: 108 unique messages, 108 total
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1680]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1897]: Warning: Wire Video.\wb_stall_o is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1898]: Warning: Wire Video.\wb_error_o is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1899]: Warning: Wire Video.\wb_data_o [31] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1900]: Warning: Wire Video.\wb_data_o [30] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1901]: Warning: Wire Video.\wb_data_o [29] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1902]: Warning: Wire Video.\wb_data_o [28] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1903]: Warning: Wire Video.\wb_data_o [27] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1904]: Warning: Wire Video.\wb_data_o [26] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1905]: Warning: Wire Video.\wb_data_o [25] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1906]: Warning: Wire Video.\wb_data_o [24] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1907]: Warning: Wire Video.\wb_data_o [23] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1908]: Warning: Wire Video.\wb_data_o [22] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1909]: Warning: Wire Video.\wb_data_o [21] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1910]: Warning: Wire Video.\wb_data_o [20] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1911]: Warning: Wire Video.\wb_data_o [19] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1912]: Warning: Wire Video.\wb_data_o [18] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1913]: Warning: Wire Video.\wb_data_o [17] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1914]: Warning: Wire Video.\wb_data_o [16] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1915]: Warning: Wire Video.\wb_data_o [15] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1916]: Warning: Wire Video.\wb_data_o [14] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1917]: Warning: Wire Video.\wb_data_o [13] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1918]: Warning: Wire Video.\wb_data_o [12] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1919]: Warning: Wire Video.\wb_data_o [11] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1920]: Warning: Wire Video.\wb_data_o [10] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1921]: Warning: Wire Video.\wb_data_o [9] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1922]: Warning: Wire Video.\wb_data_o [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1923]: Warning: Wire Video.\wb_data_o [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1924]: Warning: Wire Video.\wb_data_o [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1925]: Warning: Wire Video.\wb_data_o [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1926]: Warning: Wire Video.\wb_data_o [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1927]: Warning: Wire Video.\wb_data_o [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1928]: Warning: Wire Video.\wb_data_o [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1929]: Warning: Wire Video.\wb_data_o [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1930]: Warning: Wire Video.\wb_data_o [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1931]: Warning: Wire Video.\wb_ack_o is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1932]: Warning: Wire Video.\vga_vsync is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1933]: Warning: Wire Video.\vga_r [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1934]: Warning: Wire Video.\vga_r [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1935]: Warning: Wire Video.\vga_hsync is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1936]: Warning: Wire Video.\vga_g [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1937]: Warning: Wire Video.\vga_g [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1938]: Warning: Wire Video.\vga_b [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1939]: Warning: Wire Video.\vga_b [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1940]: Warning: Wire Video.\sram1_wmask0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1941]: Warning: Wire Video.\sram1_wmask0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1942]: Warning: Wire Video.\sram1_wmask0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1943]: Warning: Wire Video.\sram1_wmask0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1944]: Warning: Wire Video.\sram1_web0 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1945]: Warning: Wire Video.\sram1_din0 [31] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1946]: Warning: Wire Video.\sram1_din0 [30] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1947]: Warning: Wire Video.\sram1_din0 [29] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1948]: Warning: Wire Video.\sram1_din0 [28] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1949]: Warning: Wire Video.\sram1_din0 [27] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1950]: Warning: Wire Video.\sram1_din0 [26] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1951]: Warning: Wire Video.\sram1_din0 [25] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1952]: Warning: Wire Video.\sram1_din0 [24] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1953]: Warning: Wire Video.\sram1_din0 [23] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1954]: Warning: Wire Video.\sram1_din0 [22] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1955]: Warning: Wire Video.\sram1_din0 [21] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1956]: Warning: Wire Video.\sram1_din0 [20] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1957]: Warning: Wire Video.\sram1_din0 [19] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1958]: Warning: Wire Video.\sram1_din0 [18] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1959]: Warning: Wire Video.\sram1_din0 [17] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1960]: Warning: Wire Video.\sram1_din0 [16] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1961]: Warning: Wire Video.\sram1_din0 [15] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1962]: Warning: Wire Video.\sram1_din0 [14] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1963]: Warning: Wire Video.\sram1_din0 [13] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1964]: Warning: Wire Video.\sram1_din0 [12] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1965]: Warning: Wire Video.\sram1_din0 [11] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1966]: Warning: Wire Video.\sram1_din0 [10] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1967]: Warning: Wire Video.\sram1_din0 [9] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1968]: Warning: Wire Video.\sram1_din0 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1969]: Warning: Wire Video.\sram1_din0 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1970]: Warning: Wire Video.\sram1_din0 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1971]: Warning: Wire Video.\sram1_din0 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1972]: Warning: Wire Video.\sram1_din0 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1973]: Warning: Wire Video.\sram1_din0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1974]: Warning: Wire Video.\sram1_din0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1975]: Warning: Wire Video.\sram1_din0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1976]: Warning: Wire Video.\sram1_din0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1977]: Warning: Wire Video.\sram1_csb1 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1978]: Warning: Wire Video.\sram1_csb1 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1979]: Warning: Wire Video.\sram1_csb0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1980]: Warning: Wire Video.\sram1_csb0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1981]: Warning: Wire Video.\sram1_clk1 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1982]: Warning: Wire Video.\sram1_clk0 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1983]: Warning: Wire Video.\sram1_addr1 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1984]: Warning: Wire Video.\sram1_addr1 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1985]: Warning: Wire Video.\sram1_addr1 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1986]: Warning: Wire Video.\sram1_addr1 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1987]: Warning: Wire Video.\sram1_addr1 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1988]: Warning: Wire Video.\sram1_addr1 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1989]: Warning: Wire Video.\sram1_addr1 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1990]: Warning: Wire Video.\sram1_addr1 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1991]: Warning: Wire Video.\sram1_addr1 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1992]: Warning: Wire Video.\sram1_addr0 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1993]: Warning: Wire Video.\sram1_addr0 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1994]: Warning: Wire Video.\sram1_addr0 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1995]: Warning: Wire Video.\sram1_addr0 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1996]: Warning: Wire Video.\sram1_addr0 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1997]: Warning: Wire Video.\sram1_addr0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1998]: Warning: Wire Video.\sram1_addr0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1999]: Warning: Wire Video.\sram1_addr0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2000]: Warning: Wire Video.\sram1_addr0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2001]: Warning: Wire Video.\sram0_wmask0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2002]: Warning: Wire Video.\sram0_wmask0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2003]: Warning: Wire Video.\sram0_wmask0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2004]: Warning: Wire Video.\sram0_wmask0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2005]: Warning: Wire Video.\sram0_web0 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2006]: Warning: Wire Video.\sram0_din0 [31] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2007]: Warning: Wire Video.\sram0_din0 [30] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2008]: Warning: Wire Video.\sram0_din0 [29] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2009]: Warning: Wire Video.\sram0_din0 [28] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2010]: Warning: Wire Video.\sram0_din0 [27] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2011]: Warning: Wire Video.\sram0_din0 [26] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2012]: Warning: Wire Video.\sram0_din0 [25] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2013]: Warning: Wire Video.\sram0_din0 [24] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2014]: Warning: Wire Video.\sram0_din0 [23] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2015]: Warning: Wire Video.\sram0_din0 [22] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2016]: Warning: Wire Video.\sram0_din0 [21] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2017]: Warning: Wire Video.\sram0_din0 [20] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2018]: Warning: Wire Video.\sram0_din0 [19] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2019]: Warning: Wire Video.\sram0_din0 [18] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2020]: Warning: Wire Video.\sram0_din0 [17] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2021]: Warning: Wire Video.\sram0_din0 [16] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2022]: Warning: Wire Video.\sram0_din0 [15] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2023]: Warning: Wire Video.\sram0_din0 [14] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2024]: Warning: Wire Video.\sram0_din0 [13] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2025]: Warning: Wire Video.\sram0_din0 [12] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2026]: Warning: Wire Video.\sram0_din0 [11] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2027]: Warning: Wire Video.\sram0_din0 [10] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2028]: Warning: Wire Video.\sram0_din0 [9] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2029]: Warning: Wire Video.\sram0_din0 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2030]: Warning: Wire Video.\sram0_din0 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2031]: Warning: Wire Video.\sram0_din0 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2032]: Warning: Wire Video.\sram0_din0 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2033]: Warning: Wire Video.\sram0_din0 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2034]: Warning: Wire Video.\sram0_din0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2035]: Warning: Wire Video.\sram0_din0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2036]: Warning: Wire Video.\sram0_din0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2037]: Warning: Wire Video.\sram0_din0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2038]: Warning: Wire Video.\sram0_csb1 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2039]: Warning: Wire Video.\sram0_csb1 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2040]: Warning: Wire Video.\sram0_csb0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2041]: Warning: Wire Video.\sram0_csb0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2042]: Warning: Wire Video.\sram0_clk1 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2043]: Warning: Wire Video.\sram0_clk0 is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2044]: Warning: Wire Video.\sram0_addr1 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2045]: Warning: Wire Video.\sram0_addr1 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2046]: Warning: Wire Video.\sram0_addr1 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2047]: Warning: Wire Video.\sram0_addr1 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2048]: Warning: Wire Video.\sram0_addr1 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2049]: Warning: Wire Video.\sram0_addr1 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2050]: Warning: Wire Video.\sram0_addr1 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2051]: Warning: Wire Video.\sram0_addr1 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2052]: Warning: Wire Video.\sram0_addr1 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2053]: Warning: Wire Video.\sram0_addr0 [8] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2054]: Warning: Wire Video.\sram0_addr0 [7] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2055]: Warning: Wire Video.\sram0_addr0 [6] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2056]: Warning: Wire Video.\sram0_addr0 [5] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2057]: Warning: Wire Video.\sram0_addr0 [4] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2058]: Warning: Wire Video.\sram0_addr0 [3] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2059]: Warning: Wire Video.\sram0_addr0 [2] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2060]: Warning: Wire Video.\sram0_addr0 [1] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2061]: Warning: Wire Video.\sram0_addr0 [0] is used but has no driver.
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[2136]: Warnings: 165 unique messages, 165 total
 openlane/Video\runs\Video\logs\signoff\27-gdsii-klayout.log[12]: WARNING: no fill config file specified
 openlane/Video\runs\Video\logs\signoff\32-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
 openlane/Video\runs\Video\logs\signoff\32-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
@@ -155,69 +212,126 @@ openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[42]: Warn
 openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[43]: Warning: Wire Video.\vga_g [0] is used but has no driver.
 openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[44]: Warning: Wire Video.\vga_b [1] is used but has no driver.
 openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[45]: Warning: Wire Video.\vga_b [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[46]: Warning: Wire Video.\sram_wmask0 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[47]: Warning: Wire Video.\sram_wmask0 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[48]: Warning: Wire Video.\sram_wmask0 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[49]: Warning: Wire Video.\sram_wmask0 [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[50]: Warning: Wire Video.\sram_web0 is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[51]: Warning: Wire Video.\sram_din0 [31] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[52]: Warning: Wire Video.\sram_din0 [30] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[53]: Warning: Wire Video.\sram_din0 [29] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[54]: Warning: Wire Video.\sram_din0 [28] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[55]: Warning: Wire Video.\sram_din0 [27] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[56]: Warning: Wire Video.\sram_din0 [26] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[57]: Warning: Wire Video.\sram_din0 [25] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[58]: Warning: Wire Video.\sram_din0 [24] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[59]: Warning: Wire Video.\sram_din0 [23] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[60]: Warning: Wire Video.\sram_din0 [22] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[61]: Warning: Wire Video.\sram_din0 [21] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[62]: Warning: Wire Video.\sram_din0 [20] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[63]: Warning: Wire Video.\sram_din0 [19] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[64]: Warning: Wire Video.\sram_din0 [18] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[65]: Warning: Wire Video.\sram_din0 [17] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[66]: Warning: Wire Video.\sram_din0 [16] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[67]: Warning: Wire Video.\sram_din0 [15] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[68]: Warning: Wire Video.\sram_din0 [14] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[69]: Warning: Wire Video.\sram_din0 [13] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[70]: Warning: Wire Video.\sram_din0 [12] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[71]: Warning: Wire Video.\sram_din0 [11] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[72]: Warning: Wire Video.\sram_din0 [10] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[73]: Warning: Wire Video.\sram_din0 [9] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[74]: Warning: Wire Video.\sram_din0 [8] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[75]: Warning: Wire Video.\sram_din0 [7] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[76]: Warning: Wire Video.\sram_din0 [6] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[77]: Warning: Wire Video.\sram_din0 [5] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[78]: Warning: Wire Video.\sram_din0 [4] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[79]: Warning: Wire Video.\sram_din0 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[80]: Warning: Wire Video.\sram_din0 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[81]: Warning: Wire Video.\sram_din0 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[82]: Warning: Wire Video.\sram_din0 [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[83]: Warning: Wire Video.\sram_csb1 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[84]: Warning: Wire Video.\sram_csb1 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[85]: Warning: Wire Video.\sram_csb1 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[86]: Warning: Wire Video.\sram_csb1 [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[87]: Warning: Wire Video.\sram_csb0 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[88]: Warning: Wire Video.\sram_csb0 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[89]: Warning: Wire Video.\sram_csb0 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[90]: Warning: Wire Video.\sram_csb0 [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[91]: Warning: Wire Video.\sram_clk1 is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[92]: Warning: Wire Video.\sram_clk0 is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[93]: Warning: Wire Video.\sram_addr1 [8] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[94]: Warning: Wire Video.\sram_addr1 [7] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[95]: Warning: Wire Video.\sram_addr1 [6] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[96]: Warning: Wire Video.\sram_addr1 [5] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[97]: Warning: Wire Video.\sram_addr1 [4] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[98]: Warning: Wire Video.\sram_addr1 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[99]: Warning: Wire Video.\sram_addr1 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[100]: Warning: Wire Video.\sram_addr1 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[101]: Warning: Wire Video.\sram_addr1 [0] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[102]: Warning: Wire Video.\sram_addr0 [8] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[103]: Warning: Wire Video.\sram_addr0 [7] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[104]: Warning: Wire Video.\sram_addr0 [6] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[105]: Warning: Wire Video.\sram_addr0 [5] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[106]: Warning: Wire Video.\sram_addr0 [4] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[107]: Warning: Wire Video.\sram_addr0 [3] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[108]: Warning: Wire Video.\sram_addr0 [2] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[109]: Warning: Wire Video.\sram_addr0 [1] is used but has no driver.
-openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[110]: Warning: Wire Video.\sram_addr0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[46]: Warning: Wire Video.\sram1_wmask0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[47]: Warning: Wire Video.\sram1_wmask0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[48]: Warning: Wire Video.\sram1_wmask0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[49]: Warning: Wire Video.\sram1_wmask0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[50]: Warning: Wire Video.\sram1_web0 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[51]: Warning: Wire Video.\sram1_din0 [31] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[52]: Warning: Wire Video.\sram1_din0 [30] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[53]: Warning: Wire Video.\sram1_din0 [29] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[54]: Warning: Wire Video.\sram1_din0 [28] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[55]: Warning: Wire Video.\sram1_din0 [27] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[56]: Warning: Wire Video.\sram1_din0 [26] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[57]: Warning: Wire Video.\sram1_din0 [25] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[58]: Warning: Wire Video.\sram1_din0 [24] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[59]: Warning: Wire Video.\sram1_din0 [23] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[60]: Warning: Wire Video.\sram1_din0 [22] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[61]: Warning: Wire Video.\sram1_din0 [21] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[62]: Warning: Wire Video.\sram1_din0 [20] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[63]: Warning: Wire Video.\sram1_din0 [19] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[64]: Warning: Wire Video.\sram1_din0 [18] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[65]: Warning: Wire Video.\sram1_din0 [17] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[66]: Warning: Wire Video.\sram1_din0 [16] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[67]: Warning: Wire Video.\sram1_din0 [15] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[68]: Warning: Wire Video.\sram1_din0 [14] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[69]: Warning: Wire Video.\sram1_din0 [13] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[70]: Warning: Wire Video.\sram1_din0 [12] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[71]: Warning: Wire Video.\sram1_din0 [11] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[72]: Warning: Wire Video.\sram1_din0 [10] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[73]: Warning: Wire Video.\sram1_din0 [9] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[74]: Warning: Wire Video.\sram1_din0 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[75]: Warning: Wire Video.\sram1_din0 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[76]: Warning: Wire Video.\sram1_din0 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[77]: Warning: Wire Video.\sram1_din0 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[78]: Warning: Wire Video.\sram1_din0 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[79]: Warning: Wire Video.\sram1_din0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[80]: Warning: Wire Video.\sram1_din0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[81]: Warning: Wire Video.\sram1_din0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[82]: Warning: Wire Video.\sram1_din0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[83]: Warning: Wire Video.\sram1_csb1 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[84]: Warning: Wire Video.\sram1_csb1 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[85]: Warning: Wire Video.\sram1_csb0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[86]: Warning: Wire Video.\sram1_csb0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[87]: Warning: Wire Video.\sram1_clk1 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[88]: Warning: Wire Video.\sram1_clk0 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[89]: Warning: Wire Video.\sram1_addr1 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[90]: Warning: Wire Video.\sram1_addr1 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[91]: Warning: Wire Video.\sram1_addr1 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[92]: Warning: Wire Video.\sram1_addr1 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[93]: Warning: Wire Video.\sram1_addr1 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[94]: Warning: Wire Video.\sram1_addr1 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[95]: Warning: Wire Video.\sram1_addr1 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[96]: Warning: Wire Video.\sram1_addr1 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[97]: Warning: Wire Video.\sram1_addr1 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[98]: Warning: Wire Video.\sram1_addr0 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[99]: Warning: Wire Video.\sram1_addr0 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[100]: Warning: Wire Video.\sram1_addr0 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[101]: Warning: Wire Video.\sram1_addr0 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[102]: Warning: Wire Video.\sram1_addr0 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[103]: Warning: Wire Video.\sram1_addr0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[104]: Warning: Wire Video.\sram1_addr0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[105]: Warning: Wire Video.\sram1_addr0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[106]: Warning: Wire Video.\sram1_addr0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[107]: Warning: Wire Video.\sram0_wmask0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[108]: Warning: Wire Video.\sram0_wmask0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[109]: Warning: Wire Video.\sram0_wmask0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[110]: Warning: Wire Video.\sram0_wmask0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[111]: Warning: Wire Video.\sram0_web0 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[112]: Warning: Wire Video.\sram0_din0 [31] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[113]: Warning: Wire Video.\sram0_din0 [30] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[114]: Warning: Wire Video.\sram0_din0 [29] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[115]: Warning: Wire Video.\sram0_din0 [28] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[116]: Warning: Wire Video.\sram0_din0 [27] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[117]: Warning: Wire Video.\sram0_din0 [26] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[118]: Warning: Wire Video.\sram0_din0 [25] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[119]: Warning: Wire Video.\sram0_din0 [24] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[120]: Warning: Wire Video.\sram0_din0 [23] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[121]: Warning: Wire Video.\sram0_din0 [22] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[122]: Warning: Wire Video.\sram0_din0 [21] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[123]: Warning: Wire Video.\sram0_din0 [20] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[124]: Warning: Wire Video.\sram0_din0 [19] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[125]: Warning: Wire Video.\sram0_din0 [18] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[126]: Warning: Wire Video.\sram0_din0 [17] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[127]: Warning: Wire Video.\sram0_din0 [16] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[128]: Warning: Wire Video.\sram0_din0 [15] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[129]: Warning: Wire Video.\sram0_din0 [14] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[130]: Warning: Wire Video.\sram0_din0 [13] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[131]: Warning: Wire Video.\sram0_din0 [12] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[132]: Warning: Wire Video.\sram0_din0 [11] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[133]: Warning: Wire Video.\sram0_din0 [10] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[134]: Warning: Wire Video.\sram0_din0 [9] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[135]: Warning: Wire Video.\sram0_din0 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[136]: Warning: Wire Video.\sram0_din0 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[137]: Warning: Wire Video.\sram0_din0 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[138]: Warning: Wire Video.\sram0_din0 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[139]: Warning: Wire Video.\sram0_din0 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[140]: Warning: Wire Video.\sram0_din0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[141]: Warning: Wire Video.\sram0_din0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[142]: Warning: Wire Video.\sram0_din0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[143]: Warning: Wire Video.\sram0_din0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[144]: Warning: Wire Video.\sram0_csb1 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[145]: Warning: Wire Video.\sram0_csb1 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[146]: Warning: Wire Video.\sram0_csb0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[147]: Warning: Wire Video.\sram0_csb0 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[148]: Warning: Wire Video.\sram0_clk1 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[149]: Warning: Wire Video.\sram0_clk0 is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[150]: Warning: Wire Video.\sram0_addr1 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[151]: Warning: Wire Video.\sram0_addr1 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[152]: Warning: Wire Video.\sram0_addr1 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[153]: Warning: Wire Video.\sram0_addr1 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[154]: Warning: Wire Video.\sram0_addr1 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[155]: Warning: Wire Video.\sram0_addr1 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[156]: Warning: Wire Video.\sram0_addr1 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[157]: Warning: Wire Video.\sram0_addr1 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[158]: Warning: Wire Video.\sram0_addr1 [0] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[159]: Warning: Wire Video.\sram0_addr0 [8] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[160]: Warning: Wire Video.\sram0_addr0 [7] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[161]: Warning: Wire Video.\sram0_addr0 [6] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[162]: Warning: Wire Video.\sram0_addr0 [5] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[163]: Warning: Wire Video.\sram0_addr0 [4] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[164]: Warning: Wire Video.\sram0_addr0 [3] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[165]: Warning: Wire Video.\sram0_addr0 [2] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[166]: Warning: Wire Video.\sram0_addr0 [1] is used but has no driver.
+openlane/Video\runs\Video\reports\synthesis\1-synthesis.AREA 0.chk.rpt[167]: Warning: Wire Video.\sram0_addr0 [0] is used but has no driver.
 openlane/Video\runs\Video\reports\signoff\antenna.rpt[0]: Warning - class CORE ANTENNACELL is not found. This message can be ignored if not in the antenna-avoid flow

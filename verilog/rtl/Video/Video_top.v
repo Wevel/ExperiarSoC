@@ -18,20 +18,35 @@ module Video (
 		output wire wb_error_o,
 		output wire[31:0] wb_data_o,
 
-		// Video SRAM rw port
-		output wire sram_clk0,
-		output wire[3:0] sram_csb0,
-		output wire sram_web0,
-		output wire[3:0] sram_wmask0,
-		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr0,
-		output wire[31:0] sram_din0,
-		input wire[127:0] sram_dout0,
+		// Left Video SRAM rw port
+		output wire sram0_clk0,
+		output wire[1:0] sram0_csb0,
+		output wire sram0_web0,
+		output wire[3:0] sram0_wmask0,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram0_addr0,
+		output wire[31:0] sram0_din0,
+		input wire[63:0] sram0_dout0,
 
-		// Video SRAM r port
-		output wire sram_clk1,
-		output wire[3:0] sram_csb1,
-		output wire[SRAM_ADDRESS_SIZE-1:0] sram_addr1,
-		input wire[127:0] sram_dout1,
+		// Left Video SRAM r port
+		output wire sram0_clk1,
+		output wire[1:0] sram0_csb1,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram0_addr1,
+		input wire[63:0] sram0_dout1,
+
+		// Right Video SRAM rw port
+		output wire sram1_clk0,
+		output wire[1:0] sram1_csb0,
+		output wire sram1_web0,
+		output wire[3:0] sram1_wmask0,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram1_addr0,
+		output wire[31:0] sram1_din0,
+		input wire[63:0] sram1_dout0,
+
+		// Right Video SRAM r port
+		output wire sram1_clk1,
+		output wire[1:0] sram1_csb1,
+		output wire[SRAM_ADDRESS_SIZE-1:0] sram1_addr1,
+		input wire[63:0] sram1_dout1,
 
 		// VGA
 		//input wire vga_clk,
@@ -103,17 +118,28 @@ module Video (
 		.video_clk(vga_clk),
 		.video_address(vga_address),
 		.video_data(vga_data),
-		.sram_clk0(sram_clk0),
-		.sram_csb0(sram_csb0),
-		.sram_web0(sram_web0),
-		.sram_wmask0(sram_wmask0),
-		.sram_addr0(sram_addr0),
-		.sram_din0(sram_din0),
-		.sram_dout0(sram_dout0),
-		.sram_clk1(sram_clk1),
-		.sram_csb1(sram_csb1),
-		.sram_addr1(sram_addr1),
-		.sram_dout1(sram_dout1));
+		.sram0_clk0(sram0_clk0),
+		.sram0_csb0(sram0_csb0),
+		.sram0_web0(sram0_web0),
+		.sram0_wmask0(sram0_wmask0),
+		.sram0_addr0(sram0_addr0),
+		.sram0_din0(sram0_din0),
+		.sram0_dout0(sram0_dout0),
+		.sram0_clk1(sram0_clk1),
+		.sram0_csb1(sram0_csb1),
+		.sram0_addr1(sram0_addr1),
+		.sram0_dout1(sram0_dout1),
+		.sram1_clk0(sram1_clk0),
+		.sram1_csb0(sram1_csb0),
+		.sram1_web0(sram1_web0),
+		.sram1_wmask0(sram1_wmask0),
+		.sram1_addr0(sram1_addr0),
+		.sram1_din0(sram1_din0),
+		.sram1_dout0(sram1_dout0),
+		.sram1_clk1(sram1_clk1),
+		.sram1_csb1(sram1_csb1),
+		.sram1_addr1(sram1_addr1),
+		.sram1_dout1(sram1_dout1));
 
 	wire vgaBusBusy;
 	wire[31:0] vgaDataRead;

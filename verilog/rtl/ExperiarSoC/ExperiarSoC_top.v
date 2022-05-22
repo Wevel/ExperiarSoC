@@ -677,20 +677,35 @@ module ExperiarSoC (
 	wire vga_vsync;
 	wire vga_hsync;
 
-	// Video SRAM rw port
-	wire videoSRAM_clk0;
-	wire[3:0] videoSRAM_csb0;
-	wire videoSRAM_web0;
-	wire[3:0] videoSRAM_wmask0;
-	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAM_addr0;
-	wire[31:0] videoSRAM_din0;
-	wire[127:0] videoSRAM_dout0;
+	// Left Video SRAM rw port
+	wire videoSRAMLeft_clk0;
+	wire[1:0] videoSRAMLeft_csb0;
+	wire videoSRAMLeft_web0;
+	wire[3:0] videoSRAMLeft_wmask0;
+	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAMLeft_addr0;
+	wire[31:0] videoSRAMLeft_din0;
+	wire[63:0] videoSRAMLeft_dout0;
 
-	// Video SRAM r port
-	wire videoSRAM_clk1;
-	wire[3:0] videoSRAM_csb1;
-	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAM_addr1;
-	wire[127:0] videoSRAM_dout1;
+	// Left Video SRAM r port
+	wire videoSRAMLeft_clk1;
+	wire[1:0] videoSRAMLeft_csb1;
+	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAMLeft_addr1;
+	wire[63:0] videoSRAMLeft_dout1;
+
+	// Right Video SRAM rw port
+	wire videoSRAMRight_clk0;
+	wire[1:0] videoSRAMRight_csb0;
+	wire videoSRAMRight_web0;
+	wire[3:0] videoSRAMRight_wmask0;
+	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAMRight_addr0;
+	wire[31:0] videoSRAMRight_din0;
+	wire[63:0] videoSRAMRight_dout0;
+
+	// Right Video SRAM r port
+	wire videoSRAMRight_clk1;
+	wire[1:0] videoSRAMRight_csb1;
+	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAMRight_addr1;
+	wire[63:0] videoSRAMRight_dout1;
 
 	Video video(
 `ifdef USE_POWER_PINS
@@ -709,17 +724,28 @@ module ExperiarSoC (
 		.wb_stall_o(videoMemory_wb_stall_o),
 		.wb_error_o(videoMemory_wb_error_o),
 		.wb_data_o(videoMemory_wb_data_o),
-		.sram_clk0(videoSRAM_clk0),
-		.sram_csb0(videoSRAM_csb0),
-		.sram_web0(videoSRAM_web0),
-		.sram_wmask0(videoSRAM_wmask0),
-		.sram_addr0(videoSRAM_addr0),
-		.sram_din0(videoSRAM_din0),
-		.sram_dout0(videoSRAM_dout0),
-		.sram_clk1(videoSRAM_clk1),
-		.sram_csb1(videoSRAM_csb1),
-		.sram_addr1(videoSRAM_addr1),
-		.sram_dout1(videoSRAM_dout1),
+		.sram0_clk0(videoSRAMLeft_clk0),
+		.sram0_csb0(videoSRAMLeft_csb0),
+		.sram0_web0(videoSRAMLeft_web0),
+		.sram0_wmask0(videoSRAMLeft_wmask0),
+		.sram0_addr0(videoSRAMLeft_addr0),
+		.sram0_din0(videoSRAMLeft_din0),
+		.sram0_dout0(videoSRAMLeft_dout0),
+		.sram0_clk1(videoSRAMLeft_clk1),
+		.sram0_csb1(videoSRAMLeft_csb1),
+		.sram0_addr1(videoSRAMLeft_addr1),
+		.sram0_dout1(videoSRAMLeft_dout1),
+		.sram1_clk0(videoSRAMRight_clk0),
+		.sram1_csb0(videoSRAMRight_csb0),
+		.sram1_web0(videoSRAMRight_web0),
+		.sram1_wmask0(videoSRAMRight_wmask0),
+		.sram1_addr0(videoSRAMRight_addr0),
+		.sram1_din0(videoSRAMRight_din0),
+		.sram1_dout0(videoSRAMRight_dout0),
+		.sram1_clk1(videoSRAMRight_clk1),
+		.sram1_csb1(videoSRAMRight_csb1),
+		.sram1_addr1(videoSRAMRight_addr1),
+		.sram1_dout1(videoSRAMRight_dout1),
 		//.vga_clk(wb_clk_i),
 		.vga_r(vga_r),
 		.vga_g(vga_g),
@@ -727,77 +753,91 @@ module ExperiarSoC (
 		.vga_vsync(vga_vsync),
 		.vga_hsync(vga_hsync));
 
+	wire[31:0] videoSRAM0_dout0;
+	wire[31:0] videoSRAM0_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 videoSRAM0(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground
 `endif
-		.clk0(videoSRAM_clk0),
-		.csb0(videoSRAM_csb0[0]),
-		.web0(videoSRAM_web0),
-		.wmask0(videoSRAM_wmask0),
-		.addr0(videoSRAM_addr0),
-		.din0(videoSRAM_din0),
-		.dout0(videoSRAM_dout0[31:0]),
-		.clk1(videoSRAM_clk1),
-		.csb1(videoSRAM_csb1[0]),
-		.addr1(videoSRAM_addr1),
-		.dout1(videoSRAM_dout1[31:0])
+		.clk0(videoSRAMLeft_clk0),
+		.csb0(videoSRAMLeft_csb0[0]),
+		.web0(videoSRAMLeft_web0),
+		.wmask0(videoSRAMLeft_wmask0),
+		.addr0(videoSRAMLeft_addr0),
+		.din0(videoSRAMLeft_din0),
+		.dout0(videoSRAM0_dout0),
+		.clk1(videoSRAMLeft_clk1),
+		.csb1(videoSRAMLeft_csb1[0]),
+		.addr1(videoSRAMLeft_addr1),
+		.dout1(videoSRAM0_dout1)
 	);
 
+	wire[31:0] videoSRAM1_dout0;
+	wire[31:0] videoSRAM1_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 videoSRAM1(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground
 `endif
-		.clk0(videoSRAM_clk0),
-		.csb0(videoSRAM_csb0[1]),
-		.web0(videoSRAM_web0),
-		.wmask0(videoSRAM_wmask0),
-		.addr0(videoSRAM_addr0),
-		.din0(videoSRAM_din0),
-		.dout0(videoSRAM_dout0[63:32]),
-		.clk1(videoSRAM_clk1),
-		.csb1(videoSRAM_csb1[1]),
-		.addr1(videoSRAM_addr1),
-		.dout1(videoSRAM_dout1[63:32])
+		.clk0(videoSRAMLeft_clk0),
+		.csb0(videoSRAMLeft_csb0[1]),
+		.web0(videoSRAMLeft_web0),
+		.wmask0(videoSRAMLeft_wmask0),
+		.addr0(videoSRAMLeft_addr0),
+		.din0(videoSRAMLeft_din0),
+		.dout0(videoSRAM1_dout0),
+		.clk1(videoSRAMLeft_clk1),
+		.csb1(videoSRAMLeft_csb1[1]),
+		.addr1(videoSRAMLeft_addr1),
+		.dout1(videoSRAM1_dout1)
 	);
 
+	assign videoSRAMLeft_dout0 = { videoSRAM1_dout0, videoSRAM0_dout0 };
+	assign videoSRAMLeft_dout1 = { videoSRAM1_dout1, videoSRAM0_dout1 };
+
+	wire[31:0] videoSRAM2_dout0;
+	wire[31:0] videoSRAM2_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 videoSRAM2(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground
 `endif
-		.clk0(videoSRAM_clk0),
-		.csb0(videoSRAM_csb0[2]),
-		.web0(videoSRAM_web0),
-		.wmask0(videoSRAM_wmask0),
-		.addr0(videoSRAM_addr0),
-		.din0(videoSRAM_din0),
-		.dout0(videoSRAM_dout0[95:64]),
-		.clk1(videoSRAM_clk1),
-		.csb1(videoSRAM_csb1[2]),
-		.addr1(videoSRAM_addr1),
-		.dout1(videoSRAM_dout1[95:64])
+		.clk0(videoSRAMRight_clk0),
+		.csb0(videoSRAMRight_csb0[0]),
+		.web0(videoSRAMRight_web0),
+		.wmask0(videoSRAMRight_wmask0),
+		.addr0(videoSRAMRight_addr0),
+		.din0(videoSRAMRight_din0),
+		.dout0(videoSRAM2_dout0),
+		.clk1(videoSRAMRight_clk1),
+		.csb1(videoSRAMRight_csb1[0]),
+		.addr1(videoSRAMRight_addr1),
+		.dout1(videoSRAM2_dout1)
 	);
 
+	wire[31:0] videoSRAM3_dout0;
+	wire[31:0] videoSRAM3_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 videoSRAM3(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground
 `endif
-		.clk0(videoSRAM_clk0),
-		.csb0(videoSRAM_csb0[3]),
-		.web0(videoSRAM_web0),
-		.wmask0(videoSRAM_wmask0),
-		.addr0(videoSRAM_addr0),
-		.din0(videoSRAM_din0),
-		.dout0(videoSRAM_dout0[127:96]),
-		.clk1(videoSRAM_clk1),
-		.csb1(videoSRAM_csb1[3]),
-		.addr1(videoSRAM_addr1),
-		.dout1(videoSRAM_dout1[127:96])
+		.clk0(videoSRAMRight_clk0),
+		.csb0(videoSRAMRight_csb0[1]),
+		.web0(videoSRAMRight_web0),
+		.wmask0(videoSRAMRight_wmask0),
+		.addr0(videoSRAMRight_addr0),
+		.din0(videoSRAMRight_din0),
+		.dout0(videoSRAM3_dout0),
+		.clk1(videoSRAMRight_clk1),
+		.csb1(videoSRAMRight_csb1[1]),
+		.addr1(videoSRAMRight_addr1),
+		.dout1(videoSRAM3_dout1)
 	);
+
+	assign videoSRAMRight_dout0 = { videoSRAM3_dout0, videoSRAM2_dout0 };
+	assign videoSRAMRight_dout1 = { videoSRAM3_dout1, videoSRAM2_dout1 };
 
 	//-------------------------------------------------//
 	//-------------------Peripherals-------------------//

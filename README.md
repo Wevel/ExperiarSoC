@@ -20,7 +20,10 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 ## Macro Layout
 
-![Experiar SoC Macro Layout](docs/Design/MacrosPlacement.png "Experiar SoC Macro Layout")
+<p float="left">
+  <img alt="Experiar SoC macro layout" src="docs/Design/MacrosPlacement.png" width = 49% />
+  <img alt="Experiar SoC macro layout with detailed routing guide overlay" src="docs/Scripts/detailed.guide.jpg" width = 49% />
+</p>
 
 ## Build Status
 - CaravelHost: Success
@@ -29,7 +32,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - Peripherals: Success
 - Video: Success
 - WishboneInterconnect: Success
-- user_project_wrapper: Rotated SRAM macoros not connected to power
+- user_project_wrapper: Success (Max slew violations)
 
 # Tests
 ## RTL
@@ -50,13 +53,17 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-video-gl: Not implemented
 ### verify-core-gl: Not implemented
 
-# ToDo
-- Get it to build
+# Need to do
+- Investigate why core is not actually being built
+- Write remaining tests (and fix everything until they pass)
+- Fix timing violations
+
+# Could do
 - Flash controller
 - JTAG core management controller
 - CSRs
-- Write more tests
-- Fix all of the errors
+- More tests
+- Tile map rendering 
 
 # Reference work and inspiration
 - [Zero to ASIC Course](https://www.zerotoasiccourse.com/): Complete course on ASIC design. Also has useful references and terminology definitions.

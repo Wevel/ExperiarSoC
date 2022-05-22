@@ -28,7 +28,7 @@ set ::env(CLOCK_BUFFER_FANOUT) "8"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 350 1000"
+set ::env(DIE_AREA) "0 0 350 1100"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"

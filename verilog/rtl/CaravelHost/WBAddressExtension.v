@@ -88,7 +88,6 @@ module WBAddressExtension (
 
 				STATE_FINISH: begin
 					state <= STATE_IDLE;
-					stall <= 1'b0;
 					acknowledge <= 1'b0;
 				end
 

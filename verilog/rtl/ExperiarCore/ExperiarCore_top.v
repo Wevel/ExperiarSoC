@@ -141,6 +141,7 @@ module ExperiarCore (
 		.rst(wb_rst_i),
 		.management_run(management_run),
 		.management_writeEnable(management_writeEnable),
+		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
 		.management_writeData(management_writeData),
 		.management_readData(management_readData),

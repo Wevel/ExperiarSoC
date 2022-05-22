@@ -1,6 +1,7 @@
 [WARNING]: Skipping Tap/Decap Insertion.
 [WARNING]: Specifying a routing obstruction is now done using the coordinates
 [WARNING]: of its bounding box instead of the now deprecated (x, y, size_x, size_y).
+[WARNING]: There are max slew violations in the design at the typical corner. Please refer to 'user_project_wrapper/runs/user_project_wrapper/reports/signoff/18-rcx_sta.slew.rpt'.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
@@ -17,49 +18,17 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthes
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[252]: Warnings: 4 unique messages, 7 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[15]: [WARNING PDN-0189] Supply pin vccd1 of instance art is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[16]: [WARNING PDN-0189] Supply pin vssd1 of instance art is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[17]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[18]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[19]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0SRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[20]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0SRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[21]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core0SRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[22]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core0SRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[23]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[24]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[25]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1SRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[26]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1SRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[27]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/core1SRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[28]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/core1SRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[29]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/flash is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[30]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/flash is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[31]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/flashSRAM is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[32]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/flashSRAM is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[33]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/peripherals is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[34]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/peripherals is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[35]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/video is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[36]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/video is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[37]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[38]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM0 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[39]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[40]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM1 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[41]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM2 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[42]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM2 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[43]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/videoSRAM3 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[44]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/videoSRAM3 is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[45]: [WARNING PDN-0189] Supply pin vccd1 of instance experiarSoC/wishboneInterconnect is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[46]: [WARNING PDN-0189] Supply pin vssd1 of instance experiarSoC/wishboneInterconnect is not connected to any net.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[65]: [WARNING PDN-0110] No via inserted between met4 and met5 at (323.9700, 149.3300) - (327.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[66]: [WARNING PDN-0110] No via inserted between met4 and met5 at (503.9700, 149.3300) - (507.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[67]: [WARNING PDN-0110] No via inserted between met4 and met5 at (863.9700, 149.3300) - (867.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[68]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1043.9700, 149.3300) - (1047.0700, 150.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[69]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2303.9700, 1049.3300) - (2307.0700, 1050.0000) on vssa1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[70]: [WARNING PDN-0110] No via inserted between met4 and met5 at (2483.9700, 1049.3300) - (2487.0700, 1050.0000) on vssa1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[33]: [WARNING PDN-0110] No via inserted between met4 and met5 at (953.9700, 239.3300) - (957.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[34]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1133.9700, 239.3300) - (1137.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[35]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1313.9700, 239.3300) - (1317.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[36]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1673.9700, 239.3300) - (1677.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[37]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1853.9700, 239.3300) - (1857.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\17-parasitics_extraction.nom.log[23]: [WARNING RCX-0111] Net 541 wb_rst_i has a loop at x=1349180 y=255340 , on iterm 747 experiarSoC/core0/wb_rst_i.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[90]: DEF Read: encountered 15 warnings total.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[102]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[103]: CIF file read warning: Input off lambda grid by 3/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[354]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[386]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\21-gdsii-klayout.log[20]: WARNING: no fill config file specified
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\22-spice.log[90]: DEF Read: encountered 15 warnings total.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\23-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.
@@ -72,3 +41,4 @@ openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\1-synt
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[4]: Warning: Wire user_project_wrapper.\user_irq [2] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[5]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis.chk.rpt[6]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
+openlane/user_project_wrapper\runs\user_project_wrapper\reports\signoff\antenna.rpt[0]: Warning - class CORE ANTENNACELL is not found. This message can be ignored if not in the antenna-avoid flow
