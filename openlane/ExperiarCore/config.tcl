@@ -15,7 +15,7 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAG.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAGRegister.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Memory/LocalMemoryInterface.v \
-	$script_dir/../../verilog/rtl/ExperiarCore/Memory/MemoryContorller.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Memory/MemoryController.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Wishbone/Core_WBInterface.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Wishbone/WB_SRAMInterface.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \

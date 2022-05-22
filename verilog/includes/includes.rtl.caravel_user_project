@@ -9,7 +9,7 @@
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/JTAG.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/JTAGRegister.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Memory/LocalMemoryInterface.v 
--v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Memory/MemoryContorller.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Memory/MemoryController.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Wishbone/Core_WBInterface.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Wishbone/WB_SRAMInterface.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Flash/Flash_top.v 
