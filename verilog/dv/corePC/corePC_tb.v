@@ -75,6 +75,9 @@ module corePC_tb;
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
 
 		// Wait for management core to output a output test result
 		@(posedge nextTestOutput);

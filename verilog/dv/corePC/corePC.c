@@ -142,7 +142,17 @@ void main ()
 	// This does assume that instructions can be read
 	// Maybe test current instruction
 	wbWrite (CORE0_SRAM_ADDR, RV32I_NOP);
+	wbWrite (CORE0_SRAM_ADDR + 4, RV32I_NOP);
 	wbWrite (CORE1_SRAM_ADDR, RV32I_NOP);
+	wbWrite (CORE1_SRAM_ADDR + 4, RV32I_NOP);
+
+	// Make sure the test data has been written correctly
+	// If it isn't probably run a specific memory test, rather than this one
+	if (wbRead (CORE0_SRAM_ADDR) != CORE_HALT) testPass = false;
+	if (wbRead (CORE0_SRAM_ADDR + 4) != CORE_HALT) testPass = false;
+	if (wbRead (CORE1_SRAM_ADDR) != CORE_HALT) testPass = false;
+	if (wbRead (CORE1_SRAM_ADDR + 4) != CORE_HALT) testPass = false;
+	nextTest (testPass);
 
 	// Test core 0
 	// Read that the config defaulted to 0
