@@ -1,0 +1,5 @@
+openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[857]: ABC: Error: The network is combinational.
+openlane/Flash\runs\Flash\logs\routing\18-global.log[620]: [INFO GRT-0012] Antenna violations: 3
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[173]: [INFO DRT-0199]   Number of violations = 157.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[217]: [INFO DRT-0199]   Number of violations = 17.
+openlane/Flash\runs\Flash\logs\routing\21-detailed.log[261]: [INFO DRT-0199]   Number of violations = 12.

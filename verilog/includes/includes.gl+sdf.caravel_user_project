@@ -1,3 +1,10 @@
 // Caravel user project includes		
-$USER_PROJECT_VERILOG/gl/user_project_wrapper.v	     
-$USER_PROJECT_VERILOG/gl/user_proj_example.v
+$USER_PROJECT_VERILOG/gl/user_project_wrapper.v 
+$USER_PROJECT_VERILOG/gl/CaravelHost.v 
+$USER_PROJECT_VERILOG/gl/ExperiarCore.v 
+$USER_PROJECT_VERILOG/gl/Flash.v 
+$USER_PROJECT_VERILOG/gl/Peripherals.v 
+$USER_PROJECT_VERILOG/gl/Video.v 
+$USER_PROJECT_VERILOG/gl/WishboneInterconnect.v 
+$USER_PROJECT_VERILOG/rtl/Art/Art_top.v 
+# Make sure there is a blank line at the end, otherwise things wont work

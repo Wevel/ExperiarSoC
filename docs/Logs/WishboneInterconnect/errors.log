@@ -1,0 +1,81 @@
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\synthesis\1-synthesis.log[1192]: ABC: Error: The network is combinational.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global.log[1876]: [INFO GRT-0012] Antenna violations: 168
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global.log[2120]: [INFO GRT-0012] Antenna violations: 90
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global.log[2390]: [INFO GRT-0012] Antenna violations: 45
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global_2.log[1987]: [INFO GRT-0012] Antenna violations: 42
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global_2.log[2277]: [INFO GRT-0012] Antenna violations: 18
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\18-global_2.log[2571]: [INFO GRT-0012] Antenna violations: 4
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\21-detailed.log[188]: [INFO DRT-0199]   Number of violations = 3579.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\21-detailed.log[232]: [INFO DRT-0199]   Number of violations = 865.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\21-detailed.log[276]: [INFO DRT-0199]   Number of violations = 803.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\21-detailed.log[320]: [INFO DRT-0199]   Number of violations = 71.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\routing\21-detailed.log[364]: [INFO DRT-0199]   Number of violations = 2.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2326]: _2110_/Y                                1.49    2.60   -1.11 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2327]: _2675_/A1                               1.50    2.60   -1.10 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2328]: _2679_/A1                               1.50    2.60   -1.10 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2329]: _1162_/Y                                1.49    1.82   -0.33 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2330]: _2660_/B1                               1.50    1.82   -0.32 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2331]: _1744_/B                                1.50    1.82   -0.32 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2332]: _1163_/A                                1.50    1.82   -0.32 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2333]: _1305_/A                                1.50    1.82   -0.32 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2334]: _1264_/A                                1.50    1.82   -0.32 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2335]: _1148_/Y                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2336]: _2465_/B                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2337]: _1287_/A                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2338]: _1149_/A                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2339]: _1348_/S                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2340]: _1169_/A                                1.50    1.73   -0.23 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2346]: _1162_/Y                                0.06    0.08   -0.02 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2347]: _1148_/Y                                0.07    0.08   -0.01 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2351]: max slew violation count 15
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\placement\7-global.log[2353]: max cap violation count 2
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126938]: _1162_/Y                                1.50    2.08   -0.59 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126939]: _1744_/B                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126940]: _2660_/B1                               1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126941]: _1163_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126942]: _1305_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126943]: _1264_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126944]: _1148_/Y                                1.49    1.93   -0.44 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126945]: _2465_/B                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126946]: _1287_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126947]: _1149_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126948]: _1348_/S                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126949]: _1169_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126950]: _1746_/Y                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126951]: _2663_/A2                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126952]: _1747_/B                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126953]: _2653_/A2                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126954]: _2478_/A                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126955]: _2651_/B1                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126961]: _1162_/Y                                0.07    0.10   -0.03 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126962]: _1148_/Y                                0.07    0.09   -0.02 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126963]: _1746_/Y                                0.07    0.07   -0.00 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126973]: max slew violation count 18
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\25-parasitics_multi_corner_sta.log[126975]: max cap violation count 3
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\32-WishboneInterconnect.lef.log[972]: HI                                         |(no matching pin)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 85 net violations in 2772 nets.
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[11]: _1162_/Y                                1.50    2.08   -0.59 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[12]: _1744_/B                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[13]: _2660_/B1                               1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[14]: _1163_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[15]: _1305_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[16]: _1264_/A                                1.50    2.08   -0.58 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[17]: _1148_/Y                                1.49    1.93   -0.44 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[18]: _2465_/B                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[19]: _1287_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[20]: _1149_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[21]: _1348_/S                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[22]: _1169_/A                                1.50    1.93   -0.43 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[23]: _1746_/Y                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[24]: _2663_/A2                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[25]: _1747_/B                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[26]: _2653_/A2                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[27]: _2478_/A                                1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[28]: _2651_/B1                               1.50    1.54   -0.04 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[34]: _1162_/Y                                0.07    0.10   -0.03 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[35]: _1148_/Y                                0.07    0.09   -0.02 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[36]: _1746_/Y                                0.07    0.07   -0.00 (VIOLATED)
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[46]: max slew violation count 18
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\25-rcx_mca_sta.slew.rpt[48]: max cap violation count 3
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\antenna.rpt[160244]: Number of pins violated: 119
+openlane/WishboneInterconnect\runs\WishboneInterconnect\reports\signoff\antenna.rpt[160245]: Number of nets violated: 85

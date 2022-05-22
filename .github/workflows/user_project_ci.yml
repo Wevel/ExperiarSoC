@@ -3,8 +3,12 @@ name: CI
 on:
   # Runs on Every Push
   push:
+    branches:
+      - main
   # Runs on Pull Requests
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:

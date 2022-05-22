@@ -15,21 +15,24 @@
 # SPDX-License-Identifier: Apache-2.0
 MAKEFLAGS+=--warn-undefined-variables
 
-CARAVEL_ROOT?=$(PWD)/caravel
+WORKING_DIR = $(PWD)#$(shell pwd -P)
+CARAVEL_ROOT?=$(WORKING_DIR)/caravel
 PRECHECK_ROOT?=${HOME}/mpw_precheck
-MCW_ROOT?=$(PWD)/mgmt_core_wrapper
+MCW_ROOT?=$(WORKING_DIR)/mgmt_core_wrapper
 SIM?=RTL
 
 export SKYWATER_COMMIT=c094b6e83a4f9298e47f696ec5a7fd53535ec5eb
 export OPEN_PDKS_COMMIT?=7519dfb04400f224f140749cda44ee7de6f5e095
 export PDK_MAGIC_COMMIT=7d601628e4e05fd17fcb80c3552dacb64e9f6e7b
-export OPENLANE_TAG=2022.02.23_02.50.41
+export OPENLANE_TAG=2022.05.18_02.12.32
 export MISMATCHES_OK=1
+export PDKPATH?=$(PDK_ROOT)/sky130A
+export PDK?=sky130A
 
 # Install lite version of caravel, (1): caravel-lite, (0): caravel
 CARAVEL_LITE?=1
 
-MPW_TAG ?= mpw-6b
+MPW_TAG ?= mpw-6c
 
 ifeq ($(CARAVEL_LITE),1)
 	CARAVEL_NAME := caravel-lite
@@ -67,14 +70,14 @@ setup: install check-env install_mcw openlane pdk-with-volare
 blocks=$(shell cd openlane && find * -maxdepth 0 -type d)
 .PHONY: $(blocks)
 $(blocks): % :
-	export CARAVEL_ROOT=$(CARAVEL_ROOT) && cd openlane && $(MAKE) $*
+	export CARAVEL_ROOT=$(CARAVEL_ROOT) && export MCW_ROOT=$(MCW_ROOT) && cd openlane && $(MAKE) $*
 
 dv_patterns=$(shell cd verilog/dv && find * -maxdepth 0 -type d)
 dv-targets-rtl=$(dv_patterns:%=verify-%-rtl)
 dv-targets-gl=$(dv_patterns:%=verify-%-gl)
 dv-targets-gl-sdf=$(dv_patterns:%=verify-%-gl-sdf)
 
-TARGET_PATH=$(shell pwd)
+TARGET_PATH=$(PWD)#$(shell pwd -P)
 verify_command="cd ${TARGET_PATH}/verilog/dv/$* && export SIM=${SIM} && make"
 dv_base_dependencies=simenv
 docker_run_verify=\
@@ -84,6 +87,7 @@ docker_run_verify=\
 		-e CARAVEL_ROOT=${CARAVEL_ROOT} \
 		-e TOOLS=/opt/riscv32i \
 		-e DESIGNS=$(TARGET_PATH) \
+		-e PDK=$(PDK) \
 		-e CORE_VERILOG_PATH=$(TARGET_PATH)/mgmt_core_wrapper/verilog \
 		-e GCC_PREFIX=riscv32-unknown-elf \
 		-e MCW_ROOT=$(MCW_ROOT) \
@@ -174,10 +178,16 @@ precheck:
 
 .PHONY: run-precheck
 run-precheck: check-pdk check-precheck
-	$(eval INPUT_DIRECTORY := $(shell pwd))
+	$(eval INPUT_DIRECTORY := $(shell pwd -P))
 	cd $(PRECHECK_ROOT) && \
-	docker run -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) -v $(INPUT_DIRECTORY):$(INPUT_DIRECTORY) -v $(PDK_ROOT):$(PDK_ROOT) -e INPUT_DIRECTORY=$(INPUT_DIRECTORY) -e PDK_ROOT=$(PDK_ROOT) \
-	-u $(shell id -u $(USER)):$(shell id -g $(USER)) efabless/mpw_precheck:latest bash -c "cd $(PRECHECK_ROOT) ; python3 mpw_precheck.py --input_directory $(INPUT_DIRECTORY) --pdk_root $(PDK_ROOT)"
+	docker run -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) \
+	-v $(INPUT_DIRECTORY):$(INPUT_DIRECTORY) \
+	-v $(PDK_ROOT):$(PDK_ROOT) \
+	-e INPUT_DIRECTORY=$(INPUT_DIRECTORY) \
+	-e PDK_ROOT=$(PDK_ROOT) \
+	-e PDKPATH=$(PDKPATH) \
+	-u $(shell id -u $(USER)):$(shell id -g $(USER)) \
+	efabless/mpw_precheck:latest bash -c "cd $(PRECHECK_ROOT) ; python3 mpw_precheck.py --input_directory $(INPUT_DIRECTORY) --pdk_root $(PDK_ROOT)"
 
 
 

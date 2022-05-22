@@ -1,0 +1,35 @@
+openlane/CaravelHost\runs\CaravelHost\logs\synthesis\1-synthesis.log[1966]: ABC: Error: The network is combinational.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\18-global.log[1014]: [INFO GRT-0012] Antenna violations: 37
+openlane/CaravelHost\runs\CaravelHost\logs\routing\18-global.log[1409]: [INFO GRT-0012] Antenna violations: 33
+openlane/CaravelHost\runs\CaravelHost\logs\routing\18-global.log[1816]: [INFO GRT-0012] Antenna violations: 7
+openlane/CaravelHost\runs\CaravelHost\logs\routing\18-global_2.log[1002]: [INFO GRT-0012] Antenna violations: 10
+openlane/CaravelHost\runs\CaravelHost\logs\routing\21-detailed.log[191]: [INFO DRT-0199]   Number of violations = 4144.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\21-detailed.log[235]: [INFO DRT-0199]   Number of violations = 1852.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\21-detailed.log[279]: [INFO DRT-0199]   Number of violations = 1513.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\21-detailed.log[323]: [INFO DRT-0199]   Number of violations = 284.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\21-detailed.log[367]: [INFO DRT-0199]   Number of violations = 5.
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[243891]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[243997]: -4.16   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244103]: -3.76   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244209]: -3.75   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244315]: -3.70   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244421]: -3.56   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244527]: -3.56   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244636]: -3.07   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[244736]: -1.55   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[453457]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\25-parasitics_multi_corner_sta.log[453797]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\signoff\34-antenna.log[17]: [INFO ANT-0002] Found 12 net violations in 5030 nets.
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[113]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[219]: -4.16   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[325]: -3.76   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[431]: -3.75   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[537]: -3.70   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[643]: -3.56   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[749]: -3.56   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[858]: -3.07   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.max.rpt[958]: -1.55   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.rpt[113]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\25-rcx_mca_sta.rpt[453]: -4.33   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\antenna.rpt[267016]: Number of pins violated: 14
+openlane/CaravelHost\runs\CaravelHost\reports\signoff\antenna.rpt[267017]: Number of nets violated: 12
