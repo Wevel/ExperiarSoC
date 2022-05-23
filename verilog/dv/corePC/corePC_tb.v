@@ -46,7 +46,7 @@ module corePC_tb;
 		$dumpvars(0, corePC_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (500) begin
+		repeat (700) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -62,6 +62,7 @@ module corePC_tb;
 
 	initial begin
 		// Wait for tests
+		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);

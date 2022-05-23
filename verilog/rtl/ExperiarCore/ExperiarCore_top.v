@@ -252,6 +252,7 @@ module ExperiarCore (
 
 	LocalMemoryInterface #(.SRAM_ADDRESS_SIZE(SRAM_ADDRESS_SIZE)) localMemoryInterface (
 		.clk(wb_clk_i),
+		.rst(wb_rst_i),
 		.coreAddress(coreLocalMemoryAddress),
 		.coreByteSelect(coreLocalMemoryByteSelect),
 		.coreWriteEnable(coreLocalMemoryWriteEnable),

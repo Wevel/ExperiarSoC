@@ -47,7 +47,7 @@ module MemoryController (
 
 	assign coreDataRead = enableLocalMemory ? localMemoryDataRead :
 						  enableWB 	 		? wbDataRead 		  : 
-						  			   		  32'b0;
+						  			   		  ~32'b0;
 
 	assign coreBusy = enableLocalMemory ? localMemoryBusy :
 					  enableWB		    ? wbBusy 		  : 

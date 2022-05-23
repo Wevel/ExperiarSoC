@@ -242,7 +242,7 @@ module VGA #(
 				peripheralBus_dataRead <= verticalSyncPulseCompareRegisterOutputData;
 			verticalWholeLineCompareRegisterOutputRequest:
 				peripheralBus_dataRead <= verticalWholeLineCompareRegisterOutputData;
-			default: peripheralBus_dataRead <= 32'b0;
+			default: peripheralBus_dataRead <= ~32'b0;
 		endcase
 	end
 

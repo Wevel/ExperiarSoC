@@ -42,7 +42,9 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-peripheralsPWM-rtl: Not implemented
 ### verify-memory-rtl: Not implemented
 ### verify-video-rtl: Not implemented
-### verify-core-rtl: Not implemented
+### verify-corePC-rtl: Not implemented
+### verify-coreMem-rtl: Not implemented
+### verify-coreArch-rtl: Not implemented
 
 ## GL
 ### verify-peripheralsGPIO-gl: Failed
@@ -54,7 +56,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-core-gl: Not implemented
 
 # Need to do
-- Investigate why core is not actually being built
+- Add gpio registers for set, clear, and toggle which use the write data as a mask
 - Write remaining tests (and fix everything until they pass)
 - Fix timing violations
 
@@ -64,6 +66,8 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - CSRs
 - More tests
 - Tile map rendering 
+- Change peripheral bus design to have a read ready signal
+- Fetch next instruction a clock cycle earlier so instructions only take 2 cycles
 
 # Reference work and inspiration
 - [Zero to ASIC Course](https://www.zerotoasiccourse.com/): Complete course on ASIC design. Also has useful references and terminology definitions.

@@ -36,7 +36,7 @@ set ::env(CLOCK_BUFFER_FANOUT) "8"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 400 800"
+set ::env(DIE_AREA) "0 0 450 800"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -65,3 +65,5 @@ set ::env(DIODE_INSERTION_STRATEGY) 4
 # Save a .png after each SYNTH_TOP_LEVEL
 # This doesn't work right now :(
 #set ::env(TAKE_LAYOUT_SCROT) 1
+
+#set ::env(GLB_RT_ALLOW_CONGESTION) 1

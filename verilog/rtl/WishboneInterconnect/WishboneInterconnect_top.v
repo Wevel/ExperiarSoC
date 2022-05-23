@@ -145,7 +145,7 @@ module WishboneInterconnect (
 	wire master3_wb_stb_o = 1'b0;
 	wire master3_wb_we_o = 1'b0;
 	wire[3:0] master3_wb_sel_o = 4'b0;
-	wire[31:0] master3_wb_data_o = 32'b0;
+	wire[31:0] master3_wb_data_o = ~32'b0;
 	wire[27:0] master3_wb_adr_o = 28'b0;
 	reg master3_wb_ack_i;
 	reg master3_wb_stall_i;
@@ -594,7 +594,7 @@ module WishboneInterconnect (
 				master0_wb_ack_i <= master0_wb_cyc_o;
 				master0_wb_stall_i <= 1'b0;
 				master0_wb_error_i <= 1'b0;
-				master0_wb_data_i <= 32'b0;
+				master0_wb_data_i <= ~32'b0;
 			end
 			
 		endcase
@@ -642,7 +642,7 @@ module WishboneInterconnect (
 				master1_wb_ack_i <= master1_wb_cyc_o;
 				master1_wb_stall_i <= 1'b0;
 				master1_wb_error_i <= 1'b0;
-				master1_wb_data_i <= 32'b0;
+				master1_wb_data_i <= ~32'b0;
 			end
 			
 		endcase
@@ -690,7 +690,7 @@ module WishboneInterconnect (
 				master2_wb_ack_i <= master2_wb_cyc_o;
 				master2_wb_stall_i <= 1'b0;
 				master2_wb_error_i <= 1'b0;
-				master2_wb_data_i <= 32'b0;
+				master2_wb_data_i <= ~32'b0;
 			end
 			
 		endcase
@@ -738,7 +738,7 @@ module WishboneInterconnect (
 				master3_wb_ack_i <= master3_wb_cyc_o;
 				master3_wb_stall_i <= 1'b0;
 				master3_wb_error_i <= 1'b0;
-				master3_wb_data_i <= 32'b0;
+				master3_wb_data_i <= ~32'b0;
 			end
 			
 		endcase

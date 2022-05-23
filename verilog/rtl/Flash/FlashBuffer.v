@@ -37,6 +37,23 @@ module FlashBuffer #(
 	assign dataRequest_address = flashCache_address;
 	assign dataRequest_enable = 1'b0;
 
+	// Remember that the read data is only valid on the next clock cycle
+	reg flashCacheReadReady = 1'b0;
+	always @(posedge clk) begin
+		if (rst) flashCacheReadReady <= 1'b0;
+		else if (flashCache_readEnable) flashCacheReadReady <= 1'b1;
+		else flashCacheReadReady <= 1'b0;
+	end
+
+	assign flashCache_dataRead = {
+		flashCache_byteSelect[3] && flashCacheReadReady ? sram_dout1[31:24] : 8'h00,
+		flashCache_byteSelect[2] && flashCacheReadReady ? sram_dout1[23:16] : 8'h00,
+		flashCache_byteSelect[1] && flashCacheReadReady ? sram_dout1[15:8]  : 8'h00,
+		flashCache_byteSelect[0] && flashCacheReadReady ? sram_dout1[7:0]   : 8'h00
+	};
+
+	assign flashCache_busy = flashCache_readEnable && !flashCacheReadReady;
+
 	assign sram_clk0 = clk;
 	assign sram_csb0 = 1'b1;	// Active low chip enable
 	assign sram_web0 = 1'b1;	// Active low write enable (probably keep as always write)
@@ -49,7 +66,5 @@ module FlashBuffer #(
 	assign sram_clk1 = clk;
 	assign sram_csb1 = !(validAddress && flashCache_readEnable);
 	assign sram_addr1 = flashCache_address[SRAM_ADDRESS_SIZE+1:2];
-	assign flashCache_dataRead = sram_dout1;
-	assign flashCache_busy = 1'b0;
 
 endmodule

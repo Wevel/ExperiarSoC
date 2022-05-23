@@ -218,7 +218,7 @@ module SPIDevice #(
 	assign requestOutput = configurationRegisterOutputRequest || dataRegisterOutputRequest;
 	assign peripheralBus_dataRead = configurationRegisterOutputRequest ? configurationRegisterOutputData :
 								    dataRegisterOutputRequest 		   ? dataRegisterOutputData :
-													   					 32'b0;																			
+													   					 ~32'b0;																			
 	assign peripheralBus_busy = busy;
 
 	assign spi_clk = spiClockPolarity ? !(spiClock && busy) : spiClock && busy;

@@ -47,18 +47,18 @@ module WBAddressExtension (
 	reg[31:0] currentDataIn;
 
 	reg acknowledge = 1'b0;
-	reg[31:0] dataRead_buffered;
+	reg[31:0] dataRead_buffered = ~32'b0;
 
 	always @(posedge wb_clk_i) begin
 		if (wb_rst_i) begin
 			state <= STATE_IDLE;
 			acknowledge <= 1'b0;
-			dataRead_buffered <= 32'b0;
+			dataRead_buffered <= ~32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					acknowledge <= 1'b0;
-					dataRead_buffered <= 32'b0;
+					dataRead_buffered <= ~32'b0;
 
 					if (wbs_cyc_i && !userSpaceSelect) begin
 						if (wbs_stb_i) begin
@@ -89,6 +89,7 @@ module WBAddressExtension (
 				STATE_FINISH: begin
 					state <= STATE_IDLE;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= ~32'b0;
 				end
 
 				default: begin

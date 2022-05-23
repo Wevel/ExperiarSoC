@@ -60,13 +60,13 @@ module WB_SRAMInterface (
 			state <= STATE_IDLE;
 			stall <= 1'b0;
 			acknowledge <= 1'b0;
-			dataRead_buffered <= 32'b0;
+			dataRead_buffered <= ~32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
-					dataRead_buffered <= 32'b0;
+					dataRead_buffered <= ~32'b0;
 
 					if (wb_cyc_i) begin
 						if (wb_stb_i) begin
@@ -103,6 +103,7 @@ module WB_SRAMInterface (
 					state <= STATE_IDLE;
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= ~32'b0;
 				end
 
 				default: begin
@@ -132,7 +133,7 @@ module WB_SRAMInterface (
 	wire managementEnable = wb_adr_i[23:20] == 4'h8;
 
 	assign peripheralBus_dataRead = localMemoryEnable ? localMemoryDataRead : 
-									managementEnable   ? management_readData : 32'b0;
+									managementEnable   ? management_readData : ~32'b0;
 	assign peripheralBus_busy = (localMemoryEnable && localMemoryBusy) || (managementEnable && management_busy);
 
 	assign localMemoryWriteEnable = localMemoryEnable && peripheralBus_we;

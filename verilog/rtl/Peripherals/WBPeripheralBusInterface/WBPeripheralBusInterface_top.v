@@ -47,13 +47,13 @@ module WBPeripheralBusInterface (
 			state <= STATE_IDLE;
 			stall <= 1'b0;
 			acknowledge <= 1'b0;
-			dataRead_buffered <= 32'b0;
+			dataRead_buffered <= ~32'b0;
 		end else begin
 			case (state)
 				STATE_IDLE: begin
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
-					dataRead_buffered <= 32'b0;
+					dataRead_buffered <= ~32'b0;
 
 					if (wb_cyc_i) begin
 						if (wb_stb_i) begin
@@ -90,6 +90,7 @@ module WBPeripheralBusInterface (
 					state <= STATE_IDLE;
 					stall <= 1'b0;
 					acknowledge <= 1'b0;
+					dataRead_buffered <= ~32'b0;
 				end
 
 				default: begin

@@ -75,11 +75,11 @@ module Core_WBInterface (
 	assign wb_stb_o = stb;
 
 	assign wb_we_o = state == STATE_WRITE_SINGLE;
-	assign wb_sel_o = stb ? wbByteSelect : 4'b0;
-	assign wb_data_o = stb ? wbDataWrite : 32'b0;
-	assign wb_adr_o = stb ? wbAddress : 28'b0;
+	assign wb_sel_o = wbByteSelect;
+	assign wb_data_o = wbDataWrite;
+	assign wb_adr_o = wbAddress;
 	
-	assign wbDataRead = wb_ack_i ? wb_data_i : 32'b0;
+	assign wbDataRead = wb_data_i;
 	assign wbBusy = state != STATE_IDLE;
 
 endmodule

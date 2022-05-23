@@ -65,6 +65,7 @@
 #define CORE_RUNNING_NOERROR 0x10
 
 #define RV32I_NOP 0x00000013
+#define RV32I_JMP_PREV 0xFFDFF06F
 
 void wbWrite (uint32_t* location, uint32_t value)
 {
@@ -142,16 +143,26 @@ void main ()
 	// This does assume that instructions can be read
 	// Maybe test current instruction
 	wbWrite (CORE0_SRAM_ADDR, RV32I_NOP);
-	wbWrite (CORE0_SRAM_ADDR + 4, RV32I_NOP);
+	wbWrite (CORE0_SRAM_ADDR + 0x40, RV32I_NOP);
+	wbWrite (CORE0_SRAM_ADDR + 0x41, RV32I_NOP);
+	wbWrite (CORE0_SRAM_ADDR + 0x42, RV32I_JMP_PREV);
 	wbWrite (CORE1_SRAM_ADDR, RV32I_NOP);
-	wbWrite (CORE1_SRAM_ADDR + 4, RV32I_NOP);
+	wbWrite (CORE1_SRAM_ADDR + 0x40, RV32I_NOP);
+	wbWrite (CORE1_SRAM_ADDR + 0x41, RV32I_NOP);
+	wbWrite (CORE1_SRAM_ADDR + 0x42, RV32I_JMP_PREV);
 
 	// Make sure the test data has been written correctly
 	// If it isn't probably run a specific memory test, rather than this one
-	if (wbRead (CORE0_SRAM_ADDR) != CORE_HALT) testPass = false;
-	if (wbRead (CORE0_SRAM_ADDR + 4) != CORE_HALT) testPass = false;
-	if (wbRead (CORE1_SRAM_ADDR) != CORE_HALT) testPass = false;
-	if (wbRead (CORE1_SRAM_ADDR + 4) != CORE_HALT) testPass = false;
+	if (wbRead (CORE0_SRAM_ADDR) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE0_SRAM_ADDR + 0x40) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE0_SRAM_ADDR + 0x41) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE0_SRAM_ADDR + 0x42) != RV32I_JMP_PREV) testPass = false;
+	nextTest (testPass);
+
+	if (wbRead (CORE1_SRAM_ADDR) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE1_SRAM_ADDR + 0x40) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE1_SRAM_ADDR + 0x41) != RV32I_NOP) testPass = false;
+	if (wbRead (CORE1_SRAM_ADDR + 0x42) != RV32I_JMP_PREV) testPass = false;
 	nextTest (testPass);
 
 	// Test core 0
@@ -188,15 +199,17 @@ void main ()
 	if (wbRead (CORE0_STATUS_ADDR) != CORE_RUNNING_NOERROR) testPass = false;
 	nextTest (testPass);
 
-	// Check that the PC has increased
-	if (wbRead (CORE0_REG_PC_ADDR) >= 0x100) testPass = false;
-	nextTest (testPass);
-
 	// Halt the core
 	wbWrite (CORE0_CONFIG_ADDR, CORE_HALT);
 
 	// Make sure the core halted
 	if (wbRead (CORE0_CONFIG_ADDR) != CORE_HALT) testPass = false;
+	nextTest (testPass);
+
+	// Check that the PC has increased should be either 0x104 or 0x108
+	uint32_t newAddress = wbRead (CORE0_REG_PC_ADDR);
+	if (newAddress != 0x104 && newAddress != 0x108) testPass = false;
+	nextTest (testPass);
 
 	// Test core 1
 	// Read that the config defaulted to 0
@@ -232,15 +245,16 @@ void main ()
 	if (wbRead (CORE1_STATUS_ADDR) != CORE_RUNNING_NOERROR) testPass = false;
 	nextTest (testPass);
 
-	// Check that the PC has increased
-	if (wbRead (CORE1_REG_PC_ADDR) >= 0x100) testPass = false;
-	nextTest (testPass);
-
 	// Halt the core
 	wbWrite (CORE1_CONFIG_ADDR, CORE_HALT);
 
 	// Make sure the core halted
 	if (wbRead (CORE1_CONFIG_ADDR) != CORE_HALT) testPass = false;
+	nextTest (testPass);
+
+	// Check that the PC has increased should be either 0x104 or 0x108
+	newAddress = wbRead (CORE1_REG_PC_ADDR);
+	if (newAddress != 0x104 && newAddress != 0x108) testPass = false;
 
 	// Finish test
 	nextTest (testPass);

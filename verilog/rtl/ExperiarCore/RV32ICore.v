@@ -36,28 +36,42 @@ module RV32ICore(
 		output wire probe_isCompressed
     );
 
-	localparam STATE_FETCH   = 1'b0;
-	localparam STATE_EXECUTE = 1'b1;
+	localparam STATE_HALT 	 = 2'b00;
+	localparam STATE_FETCH   = 2'b10;
+	localparam STATE_EXECUTE = 2'b11;
 
 	// System registers
-	reg state = STATE_FETCH;
+	reg[1:0] state = STATE_HALT;
 	reg[3:0] currentError = 4'b0;
 	reg[31:0] programCounter = 32'b0;
 	reg[31:0] currentInstruction = 32'b0;
 	reg[31:0] registers [0:31];
 
 	// Management control
-	localparam MANAGMENT_ADDRESS_PC 	   = 2'b00;
+	localparam MANAGMENT_ADDRESS_SYSTEM	   = 2'b00;
 	localparam MANAGMENT_ADDRESS_REGISTERS = 2'b01;
 	localparam MANAGMENT_ADDRESS_CSR 	   = 2'b10;
 
+	wire management_selectProgramCounter      = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h000);
+	wire management_selectInstructionRegister = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h001);
+	wire management_selectRegister            = (management_address[15:14] == MANAGMENT_ADDRESS_REGISTERS) && (management_address[13:7] == 7'h00);
+	//wire management_selectCSR = management_address[15:14] == MANAGMENT_ADDRESS_CSR;
+
 	wire management_writeValid = !management_run && management_writeEnable;
-	wire management_writeProgramCounter = management_writeValid && (management_address[15:14] == MANAGMENT_ADDRESS_PC) && (management_address[13:4] == 10'h000);
+	wire management_writeProgramCounter = management_writeValid && management_selectProgramCounter;
 	wire management_writeProgramCounter_set = management_writeProgramCounter && (management_address[3:0] == 4'h0);
 	wire management_writeProgramCounter_jump = management_writeProgramCounter && (management_address[3:0] == 4'h4);
 	wire management_writeProgramCounter_step = management_writeProgramCounter && (management_address[3:0] == 4'h8);
-	wire management_writeRegister = management_writeValid && (management_address[15:14] == MANAGMENT_ADDRESS_REGISTERS) && (management_address[13:7] == 7'h00);
-	//wire management_writeCSR = management_writeValid && management_address[15:14] == MANAGMENT_ADDRESS_CSR;
+	wire management_writeRegister = management_writeValid && management_selectRegister;
+	//wire management_writeCSR = management_writeValid && management_selectCSR;
+
+	wire management_readValid = !management_run && !management_writeEnable;
+	wire management_readProgramCounter = management_readValid && management_selectProgramCounter;
+	wire management_readInstructionRegister = management_readValid && management_selectInstructionRegister;
+	wire management_readRegister = management_readValid && management_selectRegister;
+	//wire management_readCSR = management_readValid && management_selectCSR;
+
+	wire management_allowInstruction = management_run || management_writeProgramCounter_step;
 
 	wire[4:0] management_registerIndex = management_address[6:2];
 	wire[31:0] management_jumpTarget = programCounter + management_writeData;
@@ -66,8 +80,10 @@ module RV32ICore(
 
 	always @(*) begin
 		case (1'b1)
-			management_writeProgramCounter_set: management_dataOut <= programCounter;
-			management_writeProgramCounter_set: management_dataOut <= registers[management_registerIndex];
+			management_readProgramCounter: management_dataOut <= programCounter;
+			management_readInstructionRegister : management_dataOut <= currentInstruction;
+			management_readRegister: management_dataOut <= registers[management_registerIndex];
+			//management_readCSR: management_dataOut <= csr[management_registerIndex];
 			default: management_dataOut <= 32'b0;
 		endcase
 	end
@@ -219,10 +235,9 @@ module RV32ICore(
 	wire loadStoreByte = funct3[1:0] == 2'b00;
 	wire loadStoreHalf = funct3[1:0] == 3'b01;
 	wire loadStoreWord = funct3 == 3'b010;
-	wire[3:0] baseByteMask = loadStoreByte ? 4'b0001 : 
-							 loadStoreHalf ? 4'b0011 : 
-							 loadStoreWord ? 4'b1111 :
-							 				 4'b0000;
+	wire[3:0] baseByteMask = state == STATE_FETCH || loadStoreWord ? 4'b1111 :
+							 loadStoreHalf 						   ? 4'b0011 : 
+							 loadStoreByte 						   ? 4'b0001 : 4'b0000;
 
 	wire[6:0] loadStoreByteMask = {3'b0, baseByteMask} << targetMemoryAddress[1:0];
 	wire loadStoreByteMaskValid = |(loadStoreByteMask[3:0]);
@@ -231,17 +246,30 @@ module RV32ICore(
 	wire shouldStore = loadStoreByteMaskValid && !addressMissaligned && ((state == STATE_EXECUTE) && isStore);
 	assign memoryAddress = shouldLoad || shouldStore ? { targetMemoryAddress[31:2], 2'b00 } : 32'b0;
 
-	wire[31:0] loadData  = shouldLoad  ? memoryDataRead : 32'b0;
-	wire[31:0] storeData = shouldStore ? rs2 			: 32'b0;
-
 	assign memoryByteSelect = shouldStore || shouldLoad  ? loadStoreByteMask[3:0] : 4'b0000;
-	assign memoryDataWrite	= shouldStore && !shouldLoad ? storeData 			  : 32'b0;
+
+	wire[31:0] loadData  = shouldLoad && !shouldStore ? dataIn : 32'b0;
+	wire[31:0] storeData = shouldStore && !shouldLoad ? rs2    : 32'b0;
+
+	wire[31:0] dataIn = {
+		loadStoreByteMask[3] ? memoryDataRead[31:24] : 8'h00,
+		loadStoreByteMask[2] ? memoryDataRead[23:16] : 8'h00,
+		loadStoreByteMask[1] ? memoryDataRead[15:8]  : 8'h00,
+		loadStoreByteMask[0] ? memoryDataRead[7:0]   : 8'h00
+	};
+
+	assign memoryDataWrite = {
+		loadStoreByteMask[3] ? storeData[31:24] : 8'h00,
+		loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
+		loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
+		loadStoreByteMask[0] ? storeData[7:0]   : 8'h00
+	};
 
 	assign memoryWriteEnable = shouldStore;
 	assign memoryReadEnable = shouldLoad;
 
-	wire memoryReadReady = shouldLoad ? memoryBusy : 1'b0;
-	wire memoryWriteDone = shouldStore ? memoryBusy : 1'b0;
+	wire memoryReadReady = shouldLoad ? !memoryBusy : 1'b0;
+	wire memoryWriteDone = shouldStore ? !memoryBusy : 1'b0;
 
 	// Register Write
 	wire integerRegisterWriteEn = isLUI || isAUIPC || isJAL || isJALR || isALU || isALUImm || isLoad;
@@ -259,7 +287,7 @@ module RV32ICore(
 
 	always @(posedge clk) begin
 		if (rst) begin
-			state <= STATE_FETCH;
+			state <= STATE_HALT;
 			programCounter <= 32'b0;
 			currentError <= 4'b0;
 			programCounter <= 32'b0;
@@ -267,16 +295,19 @@ module RV32ICore(
 		end else begin
 			if (!(|currentError)) begin
 				case (state)
-					STATE_FETCH: begin
-						if (management_run || management_writeProgramCounter_step) begin
-							if (memoryReadReady) begin
-								currentInstruction <= memoryDataRead;
-								state <= STATE_EXECUTE;
-							end
-						end else begin
+					STATE_HALT: begin
+						if (management_allowInstruction) state <= STATE_FETCH;
+						else begin
 							if (management_writeProgramCounter_set) programCounter <= { management_writeData[31:1] , 1'b0};
 							else if (management_writeProgramCounter_jump) programCounter <= { management_jumpTarget[31:1] , 1'b0};
 							else if (management_writeRegister) registers[management_registerIndex] <= management_writeData;
+						end
+					end
+
+					STATE_FETCH: begin
+						if (memoryReadReady) begin
+							currentInstruction <= dataIn;
+							state <= STATE_EXECUTE;
 						end
 					end
 
@@ -288,12 +319,14 @@ module RV32ICore(
 								if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
 
 								programCounter <= { nextProgramCounter[31:1] , 1'b0};
-								state <= STATE_FETCH;
+
+								if (management_allowInstruction) state <= STATE_FETCH;
+								else state <= STATE_HALT;
 							end
 						end
 					end
 
-					default: state <= STATE_FETCH;
+					default: state <= STATE_HALT;
 				endcase
 			end
 		end
@@ -301,7 +334,7 @@ module RV32ICore(
 
 	// Debug
 
-	assign probe_state = { 1'b0, state };
+	assign probe_state = state;
 	assign probe_programCounter = programCounter;
 	assign probe_opcode = opcode;
 	assign probe_errorCode = currentError;

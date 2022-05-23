@@ -159,7 +159,7 @@ jobs:
           make verify-peripheralsPWM-rtl
           make verify-memory-rtl
           make verify-video-rtl
-          make verify-core-rtl
+          make verify-corePC-rtl
 
       - name: Run DV GL tests
         run: |
@@ -169,4 +169,4 @@ jobs:
           make verify-peripheralsPWM-gl
           make verify-memory-gl
           make verify-video-gl
-          make verify-core-gl
+          make verify-corePC-gl

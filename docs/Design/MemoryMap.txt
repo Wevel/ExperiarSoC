@@ -11,6 +11,7 @@
 				0x1081_0000: PC
 				0x1081_0004: Relative Jump
 				0x1081_0008: Step
+				0x1081_0010: Current Instruction
 				0x1081_1000-0x1081_101F: Register
 				0x1081_2000-0x1081_2FFF: CSRs			
 	0x11xx_xxxx: Slave 1 (Core 1 local memory)
@@ -23,6 +24,7 @@
 				0x1181_0000: PC
 				0x1181_0004: Relative Jump
 				0x1181_0008: Step
+				0x1181_0010: Current Instruction
 				0x1181_1000-0x1181_101F: Register
 				0x1181_2000-0x1181_2FFF: CSRs		
 	0x12xx_xxxx: Slave 2 (Video SRAM)
