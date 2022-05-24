@@ -363,6 +363,7 @@ module VGA #(
 	end
 
 	always @(posedge vga_clk) begin
+		raw_directPixelCounter <= raw_directPixelCounter_d;
 		raw_horizontalPixelCounter <= raw_horizontalPixelCounter_d;
 		raw_verticalPixelCounter <= raw_verticalPixelCounter_d;
 		raw_subPixelCounter <= raw_subPixelCounter_d;

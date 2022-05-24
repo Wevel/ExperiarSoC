@@ -1,11 +1,11 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653387859
+timestamp 1653405657
 << obsli1 >>
 rect 1104 2159 68816 97393
 << obsm1 >>
-rect 290 1572 69630 97424
+rect 14 1436 69630 97424
 << metal2 >>
 rect 294 0 350 800
 rect 938 0 994 800
@@ -116,7 +116,8 @@ rect 68282 0 68338 800
 rect 68926 0 68982 800
 rect 69570 0 69626 800
 << obsm2 >>
-rect 296 856 69624 99657
+rect 20 856 69624 99657
+rect 20 167 238 856
 rect 406 167 882 856
 rect 1050 167 1526 856
 rect 1694 167 2170 856
@@ -988,11 +989,11 @@ rect 34928 2128 35248 97424
 rect 50288 2128 50608 97424
 rect 65648 2128 65968 97424
 << obsm4 >>
-rect 19379 16083 19488 85781
-rect 19968 16083 34848 85781
-rect 35328 16083 50208 85781
-rect 50688 16083 65568 85781
-rect 66048 16083 67653 85781
+rect 9075 3979 19488 84149
+rect 19968 3979 34848 84149
+rect 35328 3979 50208 84149
+rect 50688 3979 65568 84149
+rect 66048 3979 67285 84149
 << labels >>
 rlabel metal3 s 0 44480 800 44600 6 sram0_addr0[0]
 port 1 nsew signal output
@@ -1751,11 +1752,11 @@ port 377 nsew signal output
 rlabel metal3 s 69200 43936 70000 44056 6 sram1_wmask0[3]
 port 378 nsew signal output
 rlabel metal4 s 4208 2128 4528 97424 6 vccd1
-port 379 nsew power bidirectional
+port 379 nsew power input
 rlabel metal4 s 34928 2128 35248 97424 6 vccd1
-port 379 nsew power bidirectional
+port 379 nsew power input
 rlabel metal4 s 65648 2128 65968 97424 6 vccd1
-port 379 nsew power bidirectional
+port 379 nsew power input
 rlabel metal2 s 66350 0 66406 800 6 vga_b[0]
 port 380 nsew signal output
 rlabel metal2 s 68282 0 68338 800 6 vga_b[1]
@@ -1773,9 +1774,9 @@ port 386 nsew signal output
 rlabel metal2 s 65706 0 65762 800 6 vga_vsync
 port 387 nsew signal output
 rlabel metal4 s 19568 2128 19888 97424 6 vssd1
-port 388 nsew ground bidirectional
+port 388 nsew ground input
 rlabel metal4 s 50288 2128 50608 97424 6 vssd1
-port 388 nsew ground bidirectional
+port 388 nsew ground input
 rlabel metal2 s 294 0 350 800 6 wb_ack_o
 port 389 nsew signal output
 rlabel metal2 s 5446 0 5502 800 6 wb_adr_i[0]
@@ -1980,8 +1981,8 @@ port 488 nsew signal input
 string FIXED_BBOX 0 0 70000 100000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 8163574
-string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Video/runs/Video/results/signoff/Video.magic.gds
-string GDS_START 720518
+string GDS_END 8613298
+string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Video/runs/Video/results/finishing/Video.magic.gds
+string GDS_START 770038
 << end >>
 

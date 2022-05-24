@@ -15,16 +15,15 @@
 # SPDX-License-Identifier: Apache-2.0
 MAKEFLAGS+=--warn-undefined-variables
 
-WORKING_DIR = $(PWD)#$(shell pwd -P)
-CARAVEL_ROOT?=$(WORKING_DIR)/caravel
+CARAVEL_ROOT?=$(PWD)/caravel
 PRECHECK_ROOT?=${HOME}/mpw_precheck
-MCW_ROOT?=$(WORKING_DIR)/mgmt_core_wrapper
+MCW_ROOT?=$(PWD)/mgmt_core_wrapper
 SIM?=RTL
 
 export SKYWATER_COMMIT=c094b6e83a4f9298e47f696ec5a7fd53535ec5eb
 export OPEN_PDKS_COMMIT?=7519dfb04400f224f140749cda44ee7de6f5e095
 export PDK_MAGIC_COMMIT=7d601628e4e05fd17fcb80c3552dacb64e9f6e7b
-export OPENLANE_TAG=2022.05.18_02.12.32
+export OPENLANE_TAG=2022.02.23_02.50.41
 export MISMATCHES_OK=1
 export PDKPATH?=$(PDK_ROOT)/sky130A
 export PDK?=sky130A
@@ -77,7 +76,7 @@ dv-targets-rtl=$(dv_patterns:%=verify-%-rtl)
 dv-targets-gl=$(dv_patterns:%=verify-%-gl)
 dv-targets-gl-sdf=$(dv_patterns:%=verify-%-gl-sdf)
 
-TARGET_PATH=$(PWD)#$(shell pwd -P)
+TARGET_PATH=$(shell pwd)
 verify_command="cd ${TARGET_PATH}/verilog/dv/$* && export SIM=${SIM} && make"
 dv_base_dependencies=simenv
 docker_run_verify=\
@@ -178,7 +177,7 @@ precheck:
 
 .PHONY: run-precheck
 run-precheck: check-pdk check-precheck
-	$(eval INPUT_DIRECTORY := $(shell pwd -P))
+	$(eval INPUT_DIRECTORY := $(shell pwd))
 	cd $(PRECHECK_ROOT) && \
 	docker run -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) \
 	-v $(INPUT_DIRECTORY):$(INPUT_DIRECTORY) \

@@ -12,7 +12,7 @@ def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 
 def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	outputTypes = ["logs", "reports"]
-	outputSections = ["synthesis", "routing", "placement", "floorplan", "signoff"]
+	outputSections = ["synthesis", "routing", "placement", "floorplan", "finishing", "signoff"]
 	macroName = os.path.basename(macroPath)
 
 	buildPath = os.path.join(macroPath, "runs", macroName)
@@ -59,13 +59,14 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 			for dir in outputTypes:
 				for section in outputSections:
 					path = os.path.join(buildPath, dir, section)
-					files = [f.path for f in os.scandir(path) if f.is_file() and (f.path.endswith(".log") or f.path.endswith(".rpt"))]
+					if os.path.exists(path):
+						files = [f.path for f in os.scandir(path) if f.is_file() and (f.path.endswith(".log") or f.path.endswith(".rpt"))]
 
-					for file in files:
-						e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
-						errorCount += e
-						warningCount += w
-						violationCount += v
+						for file in files:
+							e, w, v = CheckFile(file, errorOutputFile, warningOutputFile)
+							errorCount += e
+							warningCount += w
+							violationCount += v
 
 	finally:
 		if errorOutputFile is not None:

@@ -115,31 +115,31 @@ module Video (
 		.peripheralBus_dataRead(videoMemoryDataRead),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.requestOutput(videoMemoryRequestOutput),
-		.video_clk(vga_clk),
 		.video_address(vga_address),
 		.video_data(vga_data),
-		.sram0_clk0(sram0_clk0),
 		.sram0_csb0(sram0_csb0),
 		.sram0_web0(sram0_web0),
 		.sram0_wmask0(sram0_wmask0),
 		.sram0_addr0(sram0_addr0),
 		.sram0_din0(sram0_din0),
 		.sram0_dout0(sram0_dout0),
-		.sram0_clk1(sram0_clk1),
 		.sram0_csb1(sram0_csb1),
 		.sram0_addr1(sram0_addr1),
 		.sram0_dout1(sram0_dout1),
-		.sram1_clk0(sram1_clk0),
 		.sram1_csb0(sram1_csb0),
 		.sram1_web0(sram1_web0),
 		.sram1_wmask0(sram1_wmask0),
 		.sram1_addr0(sram1_addr0),
 		.sram1_din0(sram1_din0),
 		.sram1_dout0(sram1_dout0),
-		.sram1_clk1(sram1_clk1),
 		.sram1_csb1(sram1_csb1),
 		.sram1_addr1(sram1_addr1),
 		.sram1_dout1(sram1_dout1));
+
+	assign sram0_clk0 = vga_clk;
+	assign sram0_clk1 = vga_clk;
+	assign sram1_clk0 = vga_clk;
+	assign sram1_clk1 = vga_clk;
 
 	wire vgaBusBusy;
 	wire[31:0] vgaDataRead;

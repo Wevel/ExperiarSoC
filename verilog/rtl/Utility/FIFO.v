@@ -32,21 +32,20 @@ module FIFO
 
 	reg lastWriteLostData = 1'b0;
 
-	assign isData = startPointer != endPointer;
-
 	always @(posedge clk) begin
 		if (rst) begin
 			we_buffered <= 1'b0;
 			oe_buffered <= 1'b0;
 			dataIn_buffered <= {WORD_SIZE{1'b0}};
+			dataOut_buffered <= {WORD_SIZE{1'b0}};
 		end else begin
 			we_buffered <= we;
 			oe_buffered <= oe;
 			dataIn_buffered <= dataIn;
+			dataOut_buffered <= buffer[startPointer];
 		end
 	end
 
-	assign bufferFull = nextEndPointer == startPointer;
 
 	always @(negedge clk) begin
 		if (rst) begin
@@ -54,11 +53,9 @@ module FIFO
 			endPointer <= {ADDRESS_SIZE{1'b0}};
 			lastWriteLostData <= 1'b0;
 		end else begin
-			// Update start pointer first, so that if the buffer is full and we try to write, 
-			//  it will still work if we are also reading on this update
 			if (oe_buffered) begin
 				if (startPointer != endPointer) begin
-					startPointer <= nextStartPointer;
+					startPointer <= nextStartPointer;					
 				end
 			end
 
@@ -75,8 +72,10 @@ module FIFO
 		end
 	end
 
-	assign dataOut = buffer[startPointer];
-	assign dataLost = lastWriteLostData;
-	
+	assign dataOut = dataOut_buffered;
+
+	assign isData = startPointer != endPointer;
+	assign bufferFull = nextEndPointer == startPointer;
+	assign dataLost = lastWriteLostData;	
 
 endmodule
