@@ -25,7 +25,7 @@ module JTAG (
 	);
 
 	assign management_writeEnable = 1'b0;
-	assign management_writeEnable = 1'b0;
+	assign management_readEnable = 1'b0;
 	assign management_byteSelect = 4'b1111;
 	assign management_address = 20'h0_0000;
 	assign management_writeData = 32'b0;

@@ -170,6 +170,6 @@ module Video (
 
 	assign peripheralBus_busy = videoMemoryBusBusy || vgaBusBusy;
 	assign peripheralBus_dataRead = videoMemoryRequestOutput ? videoMemoryDataRead : 
-									vgaRequestOutput ? vgaDataRead : 32'b0;
+									vgaRequestOutput ? vgaDataRead : ~32'b0;
 
 endmodule

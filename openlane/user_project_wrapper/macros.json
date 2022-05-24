@@ -38,12 +38,12 @@
 			"name": "experiarSoC/core0",
 			"displayName": "Core 0",
 			"position": {
-				"x": 950,
-				"y": 250
+				"x": 925,
+				"y": 200
 			},
 			"size": {
-				"x": 400,
-				"y": 800
+				"x": 450,
+				"y": 900
 			},
 			"rotation": "N"
 		},
@@ -51,12 +51,12 @@
 			"name": "experiarSoC/core1",
 			"displayName": "Core 1",
 			"position": {
-				"x": 950,
-				"y": 1400
+				"x": 925,
+				"y": 1350
 			},
 			"size": {
-				"x": 400,
-				"y": 800
+				"x": 450,
+				"y": 900
 			},
 			"rotation": "N"
 		},
@@ -82,7 +82,7 @@
 			},
 			"size": {
 				"x": 600,
-				"y": 700
+				"y": 800
 			},
 			"rotation": "N"
 		},

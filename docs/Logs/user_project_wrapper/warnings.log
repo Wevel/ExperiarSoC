@@ -18,17 +18,13 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthes
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[171]: Warning: Wire user_project_wrapper.\user_irq [1] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[172]: Warning: Wire user_project_wrapper.\user_irq [0] is used but has no driver.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[252]: Warnings: 4 unique messages, 7 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[33]: [WARNING PDN-0110] No via inserted between met4 and met5 at (953.9700, 239.3300) - (957.0700, 240.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[34]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1133.9700, 239.3300) - (1137.0700, 240.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[35]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1313.9700, 239.3300) - (1317.0700, 240.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[36]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1673.9700, 239.3300) - (1677.0700, 240.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[37]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1853.9700, 239.3300) - (1857.0700, 240.0000) on vccd2
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\17-parasitics_extraction.nom.log[23]: [WARNING RCX-0111] Net 541 wb_rst_i has a loop at x=1349180 y=255340 , on iterm 747 experiarSoC/core0/wb_rst_i.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[33]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1673.9700, 239.3300) - (1677.0700, 240.0000) on vccd2
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[34]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1853.9700, 239.3300) - (1857.0700, 240.0000) on vccd2
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[90]: DEF Read: encountered 15 warnings total.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[102]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gdsii.log[103]: CIF file read warning: Input off lambda grid by 3/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[386]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\20-gds_ptrs.log[415]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\21-gdsii-klayout.log[20]: WARNING: no fill config file specified
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\22-spice.log[90]: DEF Read: encountered 15 warnings total.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\signoff\23-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.

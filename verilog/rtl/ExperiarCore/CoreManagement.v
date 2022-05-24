@@ -102,13 +102,13 @@ module CoreManagement (
 
 	// Core
 	assign management_run = control;
-	assign management_writeEnable = peripheralBus_we;
+	assign management_writeEnable = coreEnable && peripheralBus_we;
 	assign management_byteSelect = peripheralBus_byteSelect;
 	assign management_address = peripheralBus_address[15:0];
 	assign management_writeData = peripheralBus_dataWrite;
 
 	assign peripheralBus_dataRead = coreEnable 			 ? management_readData :
 									controlOutputRequest ? controlOutputData   :
-									stateOutputRequest   ? stateOutputData     : 32'b0;
+									stateOutputRequest   ? stateOutputData     : ~32'b0;
 	
 endmodule

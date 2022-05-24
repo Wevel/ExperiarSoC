@@ -97,7 +97,7 @@ module CaravelHost (
 	assign caravel_wb_stb_o = userSpace_wb_stb_i && caravelEnable;
 	assign caravel_wb_we_o = userSpace_wb_we_i && caravelEnable;
 	assign caravel_wb_sel_o = caravelEnable ? userSpace_wb_sel_i : 4'b0000;
-	assign caravel_wb_data_o = caravelEnable ? userSpace_wb_data_i : 32'b0;
+	assign caravel_wb_data_o = caravelEnable ? userSpace_wb_data_i : ~32'b0;
 	assign caravel_wb_adr_o = caravelEnable ? userSpace_wb_adr_i[27:0] : 28'b0;
 
 	assign userSpace_wb_ack_o   = hostConfigEnable ? caravelHost_wb_ack_o : caravel_wb_ack_i || caravel_wb_error_i;

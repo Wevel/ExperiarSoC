@@ -224,7 +224,7 @@ module UARTDevice  #(
 									statusRegisterOutputRequest		   ? statusRegisterOutputData :
 								    rxRegisterOutputRequest 		   ? rxRegisterOutputData :
 									txRegisterOutputRequest 		   ? txRegisterOutputData :
-													   					 32'b0;
+													   					 ~32'b0;
 	assign peripheralBus_busy = txBusy;
 
 

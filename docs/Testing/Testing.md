@@ -30,6 +30,10 @@ A number of tests can (when they have been implemented) be run on both the manag
 - Read back from each SRAM macro and compare data
 - Read back as byte and half values and compare data
 - Read back byte and half with offset and compare data
+- Read from unused memory on wishbone and check that the data back is -1
+- Read from unused memory in peripheral bus and check that the data back is -1
+- Read from unused memory in a core and check that the data back is -1
+- Read from unused memory in video config and check that the data back is -1
 - Set GPIO high if pass
 
 ## Video verify-video-rtl (-gl)
@@ -38,21 +42,16 @@ A number of tests can (when they have been implemented) be run on both the manag
 - Check that output is as expected
 
 ## Core (these will run for both cores) verify-core-rtl (-gl)
-- Program Counter			
+- Program Counter and management
 	- Write to program counter
 	- Check that the program counter is correct
+	- Write NOP for step (this does require instruction reads to work)
 	- Step core
-	- Check that program counter is correct
-	- Set GPIO high if pass
-- Registers				
-	- Write to r0, r1, r2
-	- Check that r0==0, and r1, and r2 have correct data
-	- Set GPIO high if pass
-- Basic register instructions
-	- Write basic program to memory
-	- Set program counter to start
-	- Step through instructions
-	- Read back register values
+	- Check that the program counter is correct
+	- Jump the program counter
+	- Check that the program counter is correct
+	- Free run the program counter
+	- Check that the program counter increases
 	- Set GPIO high if pass
 - Store/Load instructions
 	- Write basic program to memory
@@ -60,20 +59,10 @@ A number of tests can (when they have been implemented) be run on both the manag
 	- Set program counter
 	- Step through instructions
 	- Read back register values
-	- Set GPIO high if pass
-- Jump instructions
-	- Write basic program to memory
-		- Check conditional and unconditional jumps
-	- Set program counter
-	- Step through instructions
-	- Read back program counter
-	- Set GPIO high if pass
-- Memory access
 	- Run management memory test on user core
-- Peripheral access
 	- Run management peripheral test on user core
 		- UART test modified so user core transfers data to management core, which transfers data back 
-- Video access
 	- Run management video test on user core
+	- Set GPIO high if pass
 - riscv-arch-test
 	- Integrate test into makefile

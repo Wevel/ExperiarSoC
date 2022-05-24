@@ -94,7 +94,7 @@ module GPIODevice #(
 	assign peripheralBus_dataRead = oeRegisterOutputRequest 	? oeRegisterOutputData :
 								    outputRegisterOutputRequest ? outputRegisterOutputData :
 								    inputRegisterOutputRequest  ? inputRegisterOutputData :
-								   								  32'b0;
+								   								  ~32'b0;
 	assign peripheralBus_busy = 1'b0;
 	
 endmodule

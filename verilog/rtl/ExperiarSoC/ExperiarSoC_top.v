@@ -419,6 +419,8 @@ module ExperiarSoC (
 		.probe_isCompressed(probe_core0_isCompressed),
 		.probe_jtagInstruction(probe_core0_jtagInstruction));
 
+	wire[31:0] core0SRAM0_dout0;
+	wire[31:0] core0SRAM0_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 core0SRAM0(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -430,12 +432,14 @@ module ExperiarSoC (
 		.wmask0(core0SRAM_wmask0),
 		.addr0(core0SRAM_addr0),
 		.din0(core0SRAM_din0),
-		.dout0(core0SRAM_dout0[31:0]),
+		.dout0(core0SRAM0_dout0),
 		.clk1(core0SRAM_clk1),
 		.csb1(core0SRAM_csb1[0]),
 		.addr1(core0SRAM_addr1),
-		.dout1(core0SRAM_dout1[31:0]));
+		.dout1(core0SRAM0_dout1));
 
+	wire[31:0] core0SRAM1_dout0;
+	wire[31:0] core0SRAM1_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 core0SRAM1(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -447,11 +451,14 @@ module ExperiarSoC (
 		.wmask0(core0SRAM_wmask0),
 		.addr0(core0SRAM_addr0),
 		.din0(core0SRAM_din0),
-		.dout0(core0SRAM_dout0[63:32]),
+		.dout0(core0SRAM1_dout0),
 		.clk1(core0SRAM_clk1),
 		.csb1(core0SRAM_csb1[1]),
 		.addr1(core0SRAM_addr1),
-		.dout1(core0SRAM_dout1[63:32]));
+		.dout1(core0SRAM1_dout1));
+
+	assign core0SRAM_dout0 = { core0SRAM1_dout0, core0SRAM0_dout0 };
+	assign core0SRAM_dout1 = { core0SRAM1_dout1, core0SRAM0_dout1 };
 
 	//-------------------------------------------------//
 	//----------------------CORE1----------------------//
@@ -558,6 +565,8 @@ module ExperiarSoC (
 		.probe_isCompressed(probe_core1_isCompressed),
 		.probe_jtagInstruction(probe_core1_jtagInstruction));
 
+	wire[31:0] core1SRAM0_dout0;
+	wire[31:0] core1SRAM0_dout1;
 	sky130_sram_2kbyte_1rw1r_32x512_8 core1SRAM0(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -569,13 +578,15 @@ module ExperiarSoC (
 		.wmask0(core1SRAM_wmask0),
 		.addr0(core1SRAM_addr0),
 		.din0(core1SRAM_din0),
-		.dout0(core1SRAM_dout0[31:0]),
+		.dout0(core1SRAM0_dout0),
 		.clk1(core1SRAM_clk1),
 		.csb1(core1SRAM_csb1[0]),
 		.addr1(core1SRAM_addr1),
-		.dout1(core1SRAM_dout1[31:0]));
+		.dout1(core1SRAM0_dout1));
 
-		sky130_sram_2kbyte_1rw1r_32x512_8 core1SRAM1(
+	wire[31:0] core1SRAM1_dout0;
+	wire[31:0] core1SRAM1_dout1;
+	sky130_sram_2kbyte_1rw1r_32x512_8 core1SRAM1(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
 		.vssd1(vssd1),	// User area 1 digital ground
@@ -586,11 +597,14 @@ module ExperiarSoC (
 		.wmask0(core1SRAM_wmask0),
 		.addr0(core1SRAM_addr0),
 		.din0(core1SRAM_din0),
-		.dout0(core1SRAM_dout0[63:32]),
+		.dout0(core1SRAM1_dout0),
 		.clk1(core1SRAM_clk1),
 		.csb1(core1SRAM_csb1[1]),
 		.addr1(core1SRAM_addr1),
-		.dout1(core1SRAM_dout1[63:32]));
+		.dout1(core1SRAM1_dout1));
+
+	assign core1SRAM_dout0 = { core1SRAM1_dout0, core1SRAM0_dout0 };
+	assign core1SRAM_dout1 = { core1SRAM1_dout1, core1SRAM0_dout1 };
 
 	//-------------------------------------------------//
 	//----------------------Flash----------------------//

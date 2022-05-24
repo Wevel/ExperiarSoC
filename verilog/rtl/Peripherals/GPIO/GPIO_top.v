@@ -80,7 +80,7 @@ module GPIO #(
 	assign requestOutput = device1OutputRequest || device1OutputRequest;
 	assign peripheralBus_dataRead = device0OutputRequest ? device0OutputData :
 								    device1OutputRequest ? device1OutputData :
-													       32'b0;
+													       ~32'b0;
 	assign peripheralBus_busy = 1'b0;
 
 	assign gpio0_input = gpio_input[`MPRJ_IO_PADS_1-1:0];

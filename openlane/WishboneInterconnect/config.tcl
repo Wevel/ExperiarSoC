@@ -38,7 +38,7 @@ set ::env(DIE_AREA) "0 0 350 1100"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.055
+set ::env(PL_TARGET_DENSITY) 0.045
 
 # If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
 # If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN
@@ -52,7 +52,7 @@ set ::env(GND_NETS) [list {vssd1}]
 set ::env(RUN_CVC) 1
 
 set ::env(GLB_RT_MAX_DIODE_INS_ITERS) 10
-set ::env(DIODE_INSERTION_STRATEGY) 3
+set ::env(DIODE_INSERTION_STRATEGY) 4
 
 # Save a .png after each SYNTH_TOP_LEVEL
 # This doesn't work right now :(

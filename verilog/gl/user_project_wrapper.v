@@ -271,6 +271,134 @@ module user_project_wrapper (user_clock2,
  wire \experiarSoC/core0Memory_wb_stall_o ;
  wire \experiarSoC/core0Memory_wb_stb_i ;
  wire \experiarSoC/core0Memory_wb_we_i ;
+ wire \experiarSoC/core0SRAM0_dout0[0] ;
+ wire \experiarSoC/core0SRAM0_dout0[10] ;
+ wire \experiarSoC/core0SRAM0_dout0[11] ;
+ wire \experiarSoC/core0SRAM0_dout0[12] ;
+ wire \experiarSoC/core0SRAM0_dout0[13] ;
+ wire \experiarSoC/core0SRAM0_dout0[14] ;
+ wire \experiarSoC/core0SRAM0_dout0[15] ;
+ wire \experiarSoC/core0SRAM0_dout0[16] ;
+ wire \experiarSoC/core0SRAM0_dout0[17] ;
+ wire \experiarSoC/core0SRAM0_dout0[18] ;
+ wire \experiarSoC/core0SRAM0_dout0[19] ;
+ wire \experiarSoC/core0SRAM0_dout0[1] ;
+ wire \experiarSoC/core0SRAM0_dout0[20] ;
+ wire \experiarSoC/core0SRAM0_dout0[21] ;
+ wire \experiarSoC/core0SRAM0_dout0[22] ;
+ wire \experiarSoC/core0SRAM0_dout0[23] ;
+ wire \experiarSoC/core0SRAM0_dout0[24] ;
+ wire \experiarSoC/core0SRAM0_dout0[25] ;
+ wire \experiarSoC/core0SRAM0_dout0[26] ;
+ wire \experiarSoC/core0SRAM0_dout0[27] ;
+ wire \experiarSoC/core0SRAM0_dout0[28] ;
+ wire \experiarSoC/core0SRAM0_dout0[29] ;
+ wire \experiarSoC/core0SRAM0_dout0[2] ;
+ wire \experiarSoC/core0SRAM0_dout0[30] ;
+ wire \experiarSoC/core0SRAM0_dout0[31] ;
+ wire \experiarSoC/core0SRAM0_dout0[3] ;
+ wire \experiarSoC/core0SRAM0_dout0[4] ;
+ wire \experiarSoC/core0SRAM0_dout0[5] ;
+ wire \experiarSoC/core0SRAM0_dout0[6] ;
+ wire \experiarSoC/core0SRAM0_dout0[7] ;
+ wire \experiarSoC/core0SRAM0_dout0[8] ;
+ wire \experiarSoC/core0SRAM0_dout0[9] ;
+ wire \experiarSoC/core0SRAM0_dout1[0] ;
+ wire \experiarSoC/core0SRAM0_dout1[10] ;
+ wire \experiarSoC/core0SRAM0_dout1[11] ;
+ wire \experiarSoC/core0SRAM0_dout1[12] ;
+ wire \experiarSoC/core0SRAM0_dout1[13] ;
+ wire \experiarSoC/core0SRAM0_dout1[14] ;
+ wire \experiarSoC/core0SRAM0_dout1[15] ;
+ wire \experiarSoC/core0SRAM0_dout1[16] ;
+ wire \experiarSoC/core0SRAM0_dout1[17] ;
+ wire \experiarSoC/core0SRAM0_dout1[18] ;
+ wire \experiarSoC/core0SRAM0_dout1[19] ;
+ wire \experiarSoC/core0SRAM0_dout1[1] ;
+ wire \experiarSoC/core0SRAM0_dout1[20] ;
+ wire \experiarSoC/core0SRAM0_dout1[21] ;
+ wire \experiarSoC/core0SRAM0_dout1[22] ;
+ wire \experiarSoC/core0SRAM0_dout1[23] ;
+ wire \experiarSoC/core0SRAM0_dout1[24] ;
+ wire \experiarSoC/core0SRAM0_dout1[25] ;
+ wire \experiarSoC/core0SRAM0_dout1[26] ;
+ wire \experiarSoC/core0SRAM0_dout1[27] ;
+ wire \experiarSoC/core0SRAM0_dout1[28] ;
+ wire \experiarSoC/core0SRAM0_dout1[29] ;
+ wire \experiarSoC/core0SRAM0_dout1[2] ;
+ wire \experiarSoC/core0SRAM0_dout1[30] ;
+ wire \experiarSoC/core0SRAM0_dout1[31] ;
+ wire \experiarSoC/core0SRAM0_dout1[3] ;
+ wire \experiarSoC/core0SRAM0_dout1[4] ;
+ wire \experiarSoC/core0SRAM0_dout1[5] ;
+ wire \experiarSoC/core0SRAM0_dout1[6] ;
+ wire \experiarSoC/core0SRAM0_dout1[7] ;
+ wire \experiarSoC/core0SRAM0_dout1[8] ;
+ wire \experiarSoC/core0SRAM0_dout1[9] ;
+ wire \experiarSoC/core0SRAM1_dout0[0] ;
+ wire \experiarSoC/core0SRAM1_dout0[10] ;
+ wire \experiarSoC/core0SRAM1_dout0[11] ;
+ wire \experiarSoC/core0SRAM1_dout0[12] ;
+ wire \experiarSoC/core0SRAM1_dout0[13] ;
+ wire \experiarSoC/core0SRAM1_dout0[14] ;
+ wire \experiarSoC/core0SRAM1_dout0[15] ;
+ wire \experiarSoC/core0SRAM1_dout0[16] ;
+ wire \experiarSoC/core0SRAM1_dout0[17] ;
+ wire \experiarSoC/core0SRAM1_dout0[18] ;
+ wire \experiarSoC/core0SRAM1_dout0[19] ;
+ wire \experiarSoC/core0SRAM1_dout0[1] ;
+ wire \experiarSoC/core0SRAM1_dout0[20] ;
+ wire \experiarSoC/core0SRAM1_dout0[21] ;
+ wire \experiarSoC/core0SRAM1_dout0[22] ;
+ wire \experiarSoC/core0SRAM1_dout0[23] ;
+ wire \experiarSoC/core0SRAM1_dout0[24] ;
+ wire \experiarSoC/core0SRAM1_dout0[25] ;
+ wire \experiarSoC/core0SRAM1_dout0[26] ;
+ wire \experiarSoC/core0SRAM1_dout0[27] ;
+ wire \experiarSoC/core0SRAM1_dout0[28] ;
+ wire \experiarSoC/core0SRAM1_dout0[29] ;
+ wire \experiarSoC/core0SRAM1_dout0[2] ;
+ wire \experiarSoC/core0SRAM1_dout0[30] ;
+ wire \experiarSoC/core0SRAM1_dout0[31] ;
+ wire \experiarSoC/core0SRAM1_dout0[3] ;
+ wire \experiarSoC/core0SRAM1_dout0[4] ;
+ wire \experiarSoC/core0SRAM1_dout0[5] ;
+ wire \experiarSoC/core0SRAM1_dout0[6] ;
+ wire \experiarSoC/core0SRAM1_dout0[7] ;
+ wire \experiarSoC/core0SRAM1_dout0[8] ;
+ wire \experiarSoC/core0SRAM1_dout0[9] ;
+ wire \experiarSoC/core0SRAM1_dout1[0] ;
+ wire \experiarSoC/core0SRAM1_dout1[10] ;
+ wire \experiarSoC/core0SRAM1_dout1[11] ;
+ wire \experiarSoC/core0SRAM1_dout1[12] ;
+ wire \experiarSoC/core0SRAM1_dout1[13] ;
+ wire \experiarSoC/core0SRAM1_dout1[14] ;
+ wire \experiarSoC/core0SRAM1_dout1[15] ;
+ wire \experiarSoC/core0SRAM1_dout1[16] ;
+ wire \experiarSoC/core0SRAM1_dout1[17] ;
+ wire \experiarSoC/core0SRAM1_dout1[18] ;
+ wire \experiarSoC/core0SRAM1_dout1[19] ;
+ wire \experiarSoC/core0SRAM1_dout1[1] ;
+ wire \experiarSoC/core0SRAM1_dout1[20] ;
+ wire \experiarSoC/core0SRAM1_dout1[21] ;
+ wire \experiarSoC/core0SRAM1_dout1[22] ;
+ wire \experiarSoC/core0SRAM1_dout1[23] ;
+ wire \experiarSoC/core0SRAM1_dout1[24] ;
+ wire \experiarSoC/core0SRAM1_dout1[25] ;
+ wire \experiarSoC/core0SRAM1_dout1[26] ;
+ wire \experiarSoC/core0SRAM1_dout1[27] ;
+ wire \experiarSoC/core0SRAM1_dout1[28] ;
+ wire \experiarSoC/core0SRAM1_dout1[29] ;
+ wire \experiarSoC/core0SRAM1_dout1[2] ;
+ wire \experiarSoC/core0SRAM1_dout1[30] ;
+ wire \experiarSoC/core0SRAM1_dout1[31] ;
+ wire \experiarSoC/core0SRAM1_dout1[3] ;
+ wire \experiarSoC/core0SRAM1_dout1[4] ;
+ wire \experiarSoC/core0SRAM1_dout1[5] ;
+ wire \experiarSoC/core0SRAM1_dout1[6] ;
+ wire \experiarSoC/core0SRAM1_dout1[7] ;
+ wire \experiarSoC/core0SRAM1_dout1[8] ;
+ wire \experiarSoC/core0SRAM1_dout1[9] ;
  wire \experiarSoC/core0SRAM_addr0[0] ;
  wire \experiarSoC/core0SRAM_addr0[1] ;
  wire \experiarSoC/core0SRAM_addr0[2] ;
@@ -327,134 +455,6 @@ module user_project_wrapper (user_clock2,
  wire \experiarSoC/core0SRAM_din0[7] ;
  wire \experiarSoC/core0SRAM_din0[8] ;
  wire \experiarSoC/core0SRAM_din0[9] ;
- wire \experiarSoC/core0SRAM_dout0[0] ;
- wire \experiarSoC/core0SRAM_dout0[10] ;
- wire \experiarSoC/core0SRAM_dout0[11] ;
- wire \experiarSoC/core0SRAM_dout0[12] ;
- wire \experiarSoC/core0SRAM_dout0[13] ;
- wire \experiarSoC/core0SRAM_dout0[14] ;
- wire \experiarSoC/core0SRAM_dout0[15] ;
- wire \experiarSoC/core0SRAM_dout0[16] ;
- wire \experiarSoC/core0SRAM_dout0[17] ;
- wire \experiarSoC/core0SRAM_dout0[18] ;
- wire \experiarSoC/core0SRAM_dout0[19] ;
- wire \experiarSoC/core0SRAM_dout0[1] ;
- wire \experiarSoC/core0SRAM_dout0[20] ;
- wire \experiarSoC/core0SRAM_dout0[21] ;
- wire \experiarSoC/core0SRAM_dout0[22] ;
- wire \experiarSoC/core0SRAM_dout0[23] ;
- wire \experiarSoC/core0SRAM_dout0[24] ;
- wire \experiarSoC/core0SRAM_dout0[25] ;
- wire \experiarSoC/core0SRAM_dout0[26] ;
- wire \experiarSoC/core0SRAM_dout0[27] ;
- wire \experiarSoC/core0SRAM_dout0[28] ;
- wire \experiarSoC/core0SRAM_dout0[29] ;
- wire \experiarSoC/core0SRAM_dout0[2] ;
- wire \experiarSoC/core0SRAM_dout0[30] ;
- wire \experiarSoC/core0SRAM_dout0[31] ;
- wire \experiarSoC/core0SRAM_dout0[32] ;
- wire \experiarSoC/core0SRAM_dout0[33] ;
- wire \experiarSoC/core0SRAM_dout0[34] ;
- wire \experiarSoC/core0SRAM_dout0[35] ;
- wire \experiarSoC/core0SRAM_dout0[36] ;
- wire \experiarSoC/core0SRAM_dout0[37] ;
- wire \experiarSoC/core0SRAM_dout0[38] ;
- wire \experiarSoC/core0SRAM_dout0[39] ;
- wire \experiarSoC/core0SRAM_dout0[3] ;
- wire \experiarSoC/core0SRAM_dout0[40] ;
- wire \experiarSoC/core0SRAM_dout0[41] ;
- wire \experiarSoC/core0SRAM_dout0[42] ;
- wire \experiarSoC/core0SRAM_dout0[43] ;
- wire \experiarSoC/core0SRAM_dout0[44] ;
- wire \experiarSoC/core0SRAM_dout0[45] ;
- wire \experiarSoC/core0SRAM_dout0[46] ;
- wire \experiarSoC/core0SRAM_dout0[47] ;
- wire \experiarSoC/core0SRAM_dout0[48] ;
- wire \experiarSoC/core0SRAM_dout0[49] ;
- wire \experiarSoC/core0SRAM_dout0[4] ;
- wire \experiarSoC/core0SRAM_dout0[50] ;
- wire \experiarSoC/core0SRAM_dout0[51] ;
- wire \experiarSoC/core0SRAM_dout0[52] ;
- wire \experiarSoC/core0SRAM_dout0[53] ;
- wire \experiarSoC/core0SRAM_dout0[54] ;
- wire \experiarSoC/core0SRAM_dout0[55] ;
- wire \experiarSoC/core0SRAM_dout0[56] ;
- wire \experiarSoC/core0SRAM_dout0[57] ;
- wire \experiarSoC/core0SRAM_dout0[58] ;
- wire \experiarSoC/core0SRAM_dout0[59] ;
- wire \experiarSoC/core0SRAM_dout0[5] ;
- wire \experiarSoC/core0SRAM_dout0[60] ;
- wire \experiarSoC/core0SRAM_dout0[61] ;
- wire \experiarSoC/core0SRAM_dout0[62] ;
- wire \experiarSoC/core0SRAM_dout0[63] ;
- wire \experiarSoC/core0SRAM_dout0[6] ;
- wire \experiarSoC/core0SRAM_dout0[7] ;
- wire \experiarSoC/core0SRAM_dout0[8] ;
- wire \experiarSoC/core0SRAM_dout0[9] ;
- wire \experiarSoC/core0SRAM_dout1[0] ;
- wire \experiarSoC/core0SRAM_dout1[10] ;
- wire \experiarSoC/core0SRAM_dout1[11] ;
- wire \experiarSoC/core0SRAM_dout1[12] ;
- wire \experiarSoC/core0SRAM_dout1[13] ;
- wire \experiarSoC/core0SRAM_dout1[14] ;
- wire \experiarSoC/core0SRAM_dout1[15] ;
- wire \experiarSoC/core0SRAM_dout1[16] ;
- wire \experiarSoC/core0SRAM_dout1[17] ;
- wire \experiarSoC/core0SRAM_dout1[18] ;
- wire \experiarSoC/core0SRAM_dout1[19] ;
- wire \experiarSoC/core0SRAM_dout1[1] ;
- wire \experiarSoC/core0SRAM_dout1[20] ;
- wire \experiarSoC/core0SRAM_dout1[21] ;
- wire \experiarSoC/core0SRAM_dout1[22] ;
- wire \experiarSoC/core0SRAM_dout1[23] ;
- wire \experiarSoC/core0SRAM_dout1[24] ;
- wire \experiarSoC/core0SRAM_dout1[25] ;
- wire \experiarSoC/core0SRAM_dout1[26] ;
- wire \experiarSoC/core0SRAM_dout1[27] ;
- wire \experiarSoC/core0SRAM_dout1[28] ;
- wire \experiarSoC/core0SRAM_dout1[29] ;
- wire \experiarSoC/core0SRAM_dout1[2] ;
- wire \experiarSoC/core0SRAM_dout1[30] ;
- wire \experiarSoC/core0SRAM_dout1[31] ;
- wire \experiarSoC/core0SRAM_dout1[32] ;
- wire \experiarSoC/core0SRAM_dout1[33] ;
- wire \experiarSoC/core0SRAM_dout1[34] ;
- wire \experiarSoC/core0SRAM_dout1[35] ;
- wire \experiarSoC/core0SRAM_dout1[36] ;
- wire \experiarSoC/core0SRAM_dout1[37] ;
- wire \experiarSoC/core0SRAM_dout1[38] ;
- wire \experiarSoC/core0SRAM_dout1[39] ;
- wire \experiarSoC/core0SRAM_dout1[3] ;
- wire \experiarSoC/core0SRAM_dout1[40] ;
- wire \experiarSoC/core0SRAM_dout1[41] ;
- wire \experiarSoC/core0SRAM_dout1[42] ;
- wire \experiarSoC/core0SRAM_dout1[43] ;
- wire \experiarSoC/core0SRAM_dout1[44] ;
- wire \experiarSoC/core0SRAM_dout1[45] ;
- wire \experiarSoC/core0SRAM_dout1[46] ;
- wire \experiarSoC/core0SRAM_dout1[47] ;
- wire \experiarSoC/core0SRAM_dout1[48] ;
- wire \experiarSoC/core0SRAM_dout1[49] ;
- wire \experiarSoC/core0SRAM_dout1[4] ;
- wire \experiarSoC/core0SRAM_dout1[50] ;
- wire \experiarSoC/core0SRAM_dout1[51] ;
- wire \experiarSoC/core0SRAM_dout1[52] ;
- wire \experiarSoC/core0SRAM_dout1[53] ;
- wire \experiarSoC/core0SRAM_dout1[54] ;
- wire \experiarSoC/core0SRAM_dout1[55] ;
- wire \experiarSoC/core0SRAM_dout1[56] ;
- wire \experiarSoC/core0SRAM_dout1[57] ;
- wire \experiarSoC/core0SRAM_dout1[58] ;
- wire \experiarSoC/core0SRAM_dout1[59] ;
- wire \experiarSoC/core0SRAM_dout1[5] ;
- wire \experiarSoC/core0SRAM_dout1[60] ;
- wire \experiarSoC/core0SRAM_dout1[61] ;
- wire \experiarSoC/core0SRAM_dout1[62] ;
- wire \experiarSoC/core0SRAM_dout1[63] ;
- wire \experiarSoC/core0SRAM_dout1[6] ;
- wire \experiarSoC/core0SRAM_dout1[7] ;
- wire \experiarSoC/core0SRAM_dout1[8] ;
- wire \experiarSoC/core0SRAM_dout1[9] ;
  wire \experiarSoC/core0SRAM_web0 ;
  wire \experiarSoC/core0SRAM_wmask0[0] ;
  wire \experiarSoC/core0SRAM_wmask0[1] ;
@@ -662,6 +662,134 @@ module user_project_wrapper (user_clock2,
  wire \experiarSoC/core1Memory_wb_stall_o ;
  wire \experiarSoC/core1Memory_wb_stb_i ;
  wire \experiarSoC/core1Memory_wb_we_i ;
+ wire \experiarSoC/core1SRAM0_dout0[0] ;
+ wire \experiarSoC/core1SRAM0_dout0[10] ;
+ wire \experiarSoC/core1SRAM0_dout0[11] ;
+ wire \experiarSoC/core1SRAM0_dout0[12] ;
+ wire \experiarSoC/core1SRAM0_dout0[13] ;
+ wire \experiarSoC/core1SRAM0_dout0[14] ;
+ wire \experiarSoC/core1SRAM0_dout0[15] ;
+ wire \experiarSoC/core1SRAM0_dout0[16] ;
+ wire \experiarSoC/core1SRAM0_dout0[17] ;
+ wire \experiarSoC/core1SRAM0_dout0[18] ;
+ wire \experiarSoC/core1SRAM0_dout0[19] ;
+ wire \experiarSoC/core1SRAM0_dout0[1] ;
+ wire \experiarSoC/core1SRAM0_dout0[20] ;
+ wire \experiarSoC/core1SRAM0_dout0[21] ;
+ wire \experiarSoC/core1SRAM0_dout0[22] ;
+ wire \experiarSoC/core1SRAM0_dout0[23] ;
+ wire \experiarSoC/core1SRAM0_dout0[24] ;
+ wire \experiarSoC/core1SRAM0_dout0[25] ;
+ wire \experiarSoC/core1SRAM0_dout0[26] ;
+ wire \experiarSoC/core1SRAM0_dout0[27] ;
+ wire \experiarSoC/core1SRAM0_dout0[28] ;
+ wire \experiarSoC/core1SRAM0_dout0[29] ;
+ wire \experiarSoC/core1SRAM0_dout0[2] ;
+ wire \experiarSoC/core1SRAM0_dout0[30] ;
+ wire \experiarSoC/core1SRAM0_dout0[31] ;
+ wire \experiarSoC/core1SRAM0_dout0[3] ;
+ wire \experiarSoC/core1SRAM0_dout0[4] ;
+ wire \experiarSoC/core1SRAM0_dout0[5] ;
+ wire \experiarSoC/core1SRAM0_dout0[6] ;
+ wire \experiarSoC/core1SRAM0_dout0[7] ;
+ wire \experiarSoC/core1SRAM0_dout0[8] ;
+ wire \experiarSoC/core1SRAM0_dout0[9] ;
+ wire \experiarSoC/core1SRAM0_dout1[0] ;
+ wire \experiarSoC/core1SRAM0_dout1[10] ;
+ wire \experiarSoC/core1SRAM0_dout1[11] ;
+ wire \experiarSoC/core1SRAM0_dout1[12] ;
+ wire \experiarSoC/core1SRAM0_dout1[13] ;
+ wire \experiarSoC/core1SRAM0_dout1[14] ;
+ wire \experiarSoC/core1SRAM0_dout1[15] ;
+ wire \experiarSoC/core1SRAM0_dout1[16] ;
+ wire \experiarSoC/core1SRAM0_dout1[17] ;
+ wire \experiarSoC/core1SRAM0_dout1[18] ;
+ wire \experiarSoC/core1SRAM0_dout1[19] ;
+ wire \experiarSoC/core1SRAM0_dout1[1] ;
+ wire \experiarSoC/core1SRAM0_dout1[20] ;
+ wire \experiarSoC/core1SRAM0_dout1[21] ;
+ wire \experiarSoC/core1SRAM0_dout1[22] ;
+ wire \experiarSoC/core1SRAM0_dout1[23] ;
+ wire \experiarSoC/core1SRAM0_dout1[24] ;
+ wire \experiarSoC/core1SRAM0_dout1[25] ;
+ wire \experiarSoC/core1SRAM0_dout1[26] ;
+ wire \experiarSoC/core1SRAM0_dout1[27] ;
+ wire \experiarSoC/core1SRAM0_dout1[28] ;
+ wire \experiarSoC/core1SRAM0_dout1[29] ;
+ wire \experiarSoC/core1SRAM0_dout1[2] ;
+ wire \experiarSoC/core1SRAM0_dout1[30] ;
+ wire \experiarSoC/core1SRAM0_dout1[31] ;
+ wire \experiarSoC/core1SRAM0_dout1[3] ;
+ wire \experiarSoC/core1SRAM0_dout1[4] ;
+ wire \experiarSoC/core1SRAM0_dout1[5] ;
+ wire \experiarSoC/core1SRAM0_dout1[6] ;
+ wire \experiarSoC/core1SRAM0_dout1[7] ;
+ wire \experiarSoC/core1SRAM0_dout1[8] ;
+ wire \experiarSoC/core1SRAM0_dout1[9] ;
+ wire \experiarSoC/core1SRAM1_dout0[0] ;
+ wire \experiarSoC/core1SRAM1_dout0[10] ;
+ wire \experiarSoC/core1SRAM1_dout0[11] ;
+ wire \experiarSoC/core1SRAM1_dout0[12] ;
+ wire \experiarSoC/core1SRAM1_dout0[13] ;
+ wire \experiarSoC/core1SRAM1_dout0[14] ;
+ wire \experiarSoC/core1SRAM1_dout0[15] ;
+ wire \experiarSoC/core1SRAM1_dout0[16] ;
+ wire \experiarSoC/core1SRAM1_dout0[17] ;
+ wire \experiarSoC/core1SRAM1_dout0[18] ;
+ wire \experiarSoC/core1SRAM1_dout0[19] ;
+ wire \experiarSoC/core1SRAM1_dout0[1] ;
+ wire \experiarSoC/core1SRAM1_dout0[20] ;
+ wire \experiarSoC/core1SRAM1_dout0[21] ;
+ wire \experiarSoC/core1SRAM1_dout0[22] ;
+ wire \experiarSoC/core1SRAM1_dout0[23] ;
+ wire \experiarSoC/core1SRAM1_dout0[24] ;
+ wire \experiarSoC/core1SRAM1_dout0[25] ;
+ wire \experiarSoC/core1SRAM1_dout0[26] ;
+ wire \experiarSoC/core1SRAM1_dout0[27] ;
+ wire \experiarSoC/core1SRAM1_dout0[28] ;
+ wire \experiarSoC/core1SRAM1_dout0[29] ;
+ wire \experiarSoC/core1SRAM1_dout0[2] ;
+ wire \experiarSoC/core1SRAM1_dout0[30] ;
+ wire \experiarSoC/core1SRAM1_dout0[31] ;
+ wire \experiarSoC/core1SRAM1_dout0[3] ;
+ wire \experiarSoC/core1SRAM1_dout0[4] ;
+ wire \experiarSoC/core1SRAM1_dout0[5] ;
+ wire \experiarSoC/core1SRAM1_dout0[6] ;
+ wire \experiarSoC/core1SRAM1_dout0[7] ;
+ wire \experiarSoC/core1SRAM1_dout0[8] ;
+ wire \experiarSoC/core1SRAM1_dout0[9] ;
+ wire \experiarSoC/core1SRAM1_dout1[0] ;
+ wire \experiarSoC/core1SRAM1_dout1[10] ;
+ wire \experiarSoC/core1SRAM1_dout1[11] ;
+ wire \experiarSoC/core1SRAM1_dout1[12] ;
+ wire \experiarSoC/core1SRAM1_dout1[13] ;
+ wire \experiarSoC/core1SRAM1_dout1[14] ;
+ wire \experiarSoC/core1SRAM1_dout1[15] ;
+ wire \experiarSoC/core1SRAM1_dout1[16] ;
+ wire \experiarSoC/core1SRAM1_dout1[17] ;
+ wire \experiarSoC/core1SRAM1_dout1[18] ;
+ wire \experiarSoC/core1SRAM1_dout1[19] ;
+ wire \experiarSoC/core1SRAM1_dout1[1] ;
+ wire \experiarSoC/core1SRAM1_dout1[20] ;
+ wire \experiarSoC/core1SRAM1_dout1[21] ;
+ wire \experiarSoC/core1SRAM1_dout1[22] ;
+ wire \experiarSoC/core1SRAM1_dout1[23] ;
+ wire \experiarSoC/core1SRAM1_dout1[24] ;
+ wire \experiarSoC/core1SRAM1_dout1[25] ;
+ wire \experiarSoC/core1SRAM1_dout1[26] ;
+ wire \experiarSoC/core1SRAM1_dout1[27] ;
+ wire \experiarSoC/core1SRAM1_dout1[28] ;
+ wire \experiarSoC/core1SRAM1_dout1[29] ;
+ wire \experiarSoC/core1SRAM1_dout1[2] ;
+ wire \experiarSoC/core1SRAM1_dout1[30] ;
+ wire \experiarSoC/core1SRAM1_dout1[31] ;
+ wire \experiarSoC/core1SRAM1_dout1[3] ;
+ wire \experiarSoC/core1SRAM1_dout1[4] ;
+ wire \experiarSoC/core1SRAM1_dout1[5] ;
+ wire \experiarSoC/core1SRAM1_dout1[6] ;
+ wire \experiarSoC/core1SRAM1_dout1[7] ;
+ wire \experiarSoC/core1SRAM1_dout1[8] ;
+ wire \experiarSoC/core1SRAM1_dout1[9] ;
  wire \experiarSoC/core1SRAM_addr0[0] ;
  wire \experiarSoC/core1SRAM_addr0[1] ;
  wire \experiarSoC/core1SRAM_addr0[2] ;
@@ -718,134 +846,6 @@ module user_project_wrapper (user_clock2,
  wire \experiarSoC/core1SRAM_din0[7] ;
  wire \experiarSoC/core1SRAM_din0[8] ;
  wire \experiarSoC/core1SRAM_din0[9] ;
- wire \experiarSoC/core1SRAM_dout0[0] ;
- wire \experiarSoC/core1SRAM_dout0[10] ;
- wire \experiarSoC/core1SRAM_dout0[11] ;
- wire \experiarSoC/core1SRAM_dout0[12] ;
- wire \experiarSoC/core1SRAM_dout0[13] ;
- wire \experiarSoC/core1SRAM_dout0[14] ;
- wire \experiarSoC/core1SRAM_dout0[15] ;
- wire \experiarSoC/core1SRAM_dout0[16] ;
- wire \experiarSoC/core1SRAM_dout0[17] ;
- wire \experiarSoC/core1SRAM_dout0[18] ;
- wire \experiarSoC/core1SRAM_dout0[19] ;
- wire \experiarSoC/core1SRAM_dout0[1] ;
- wire \experiarSoC/core1SRAM_dout0[20] ;
- wire \experiarSoC/core1SRAM_dout0[21] ;
- wire \experiarSoC/core1SRAM_dout0[22] ;
- wire \experiarSoC/core1SRAM_dout0[23] ;
- wire \experiarSoC/core1SRAM_dout0[24] ;
- wire \experiarSoC/core1SRAM_dout0[25] ;
- wire \experiarSoC/core1SRAM_dout0[26] ;
- wire \experiarSoC/core1SRAM_dout0[27] ;
- wire \experiarSoC/core1SRAM_dout0[28] ;
- wire \experiarSoC/core1SRAM_dout0[29] ;
- wire \experiarSoC/core1SRAM_dout0[2] ;
- wire \experiarSoC/core1SRAM_dout0[30] ;
- wire \experiarSoC/core1SRAM_dout0[31] ;
- wire \experiarSoC/core1SRAM_dout0[32] ;
- wire \experiarSoC/core1SRAM_dout0[33] ;
- wire \experiarSoC/core1SRAM_dout0[34] ;
- wire \experiarSoC/core1SRAM_dout0[35] ;
- wire \experiarSoC/core1SRAM_dout0[36] ;
- wire \experiarSoC/core1SRAM_dout0[37] ;
- wire \experiarSoC/core1SRAM_dout0[38] ;
- wire \experiarSoC/core1SRAM_dout0[39] ;
- wire \experiarSoC/core1SRAM_dout0[3] ;
- wire \experiarSoC/core1SRAM_dout0[40] ;
- wire \experiarSoC/core1SRAM_dout0[41] ;
- wire \experiarSoC/core1SRAM_dout0[42] ;
- wire \experiarSoC/core1SRAM_dout0[43] ;
- wire \experiarSoC/core1SRAM_dout0[44] ;
- wire \experiarSoC/core1SRAM_dout0[45] ;
- wire \experiarSoC/core1SRAM_dout0[46] ;
- wire \experiarSoC/core1SRAM_dout0[47] ;
- wire \experiarSoC/core1SRAM_dout0[48] ;
- wire \experiarSoC/core1SRAM_dout0[49] ;
- wire \experiarSoC/core1SRAM_dout0[4] ;
- wire \experiarSoC/core1SRAM_dout0[50] ;
- wire \experiarSoC/core1SRAM_dout0[51] ;
- wire \experiarSoC/core1SRAM_dout0[52] ;
- wire \experiarSoC/core1SRAM_dout0[53] ;
- wire \experiarSoC/core1SRAM_dout0[54] ;
- wire \experiarSoC/core1SRAM_dout0[55] ;
- wire \experiarSoC/core1SRAM_dout0[56] ;
- wire \experiarSoC/core1SRAM_dout0[57] ;
- wire \experiarSoC/core1SRAM_dout0[58] ;
- wire \experiarSoC/core1SRAM_dout0[59] ;
- wire \experiarSoC/core1SRAM_dout0[5] ;
- wire \experiarSoC/core1SRAM_dout0[60] ;
- wire \experiarSoC/core1SRAM_dout0[61] ;
- wire \experiarSoC/core1SRAM_dout0[62] ;
- wire \experiarSoC/core1SRAM_dout0[63] ;
- wire \experiarSoC/core1SRAM_dout0[6] ;
- wire \experiarSoC/core1SRAM_dout0[7] ;
- wire \experiarSoC/core1SRAM_dout0[8] ;
- wire \experiarSoC/core1SRAM_dout0[9] ;
- wire \experiarSoC/core1SRAM_dout1[0] ;
- wire \experiarSoC/core1SRAM_dout1[10] ;
- wire \experiarSoC/core1SRAM_dout1[11] ;
- wire \experiarSoC/core1SRAM_dout1[12] ;
- wire \experiarSoC/core1SRAM_dout1[13] ;
- wire \experiarSoC/core1SRAM_dout1[14] ;
- wire \experiarSoC/core1SRAM_dout1[15] ;
- wire \experiarSoC/core1SRAM_dout1[16] ;
- wire \experiarSoC/core1SRAM_dout1[17] ;
- wire \experiarSoC/core1SRAM_dout1[18] ;
- wire \experiarSoC/core1SRAM_dout1[19] ;
- wire \experiarSoC/core1SRAM_dout1[1] ;
- wire \experiarSoC/core1SRAM_dout1[20] ;
- wire \experiarSoC/core1SRAM_dout1[21] ;
- wire \experiarSoC/core1SRAM_dout1[22] ;
- wire \experiarSoC/core1SRAM_dout1[23] ;
- wire \experiarSoC/core1SRAM_dout1[24] ;
- wire \experiarSoC/core1SRAM_dout1[25] ;
- wire \experiarSoC/core1SRAM_dout1[26] ;
- wire \experiarSoC/core1SRAM_dout1[27] ;
- wire \experiarSoC/core1SRAM_dout1[28] ;
- wire \experiarSoC/core1SRAM_dout1[29] ;
- wire \experiarSoC/core1SRAM_dout1[2] ;
- wire \experiarSoC/core1SRAM_dout1[30] ;
- wire \experiarSoC/core1SRAM_dout1[31] ;
- wire \experiarSoC/core1SRAM_dout1[32] ;
- wire \experiarSoC/core1SRAM_dout1[33] ;
- wire \experiarSoC/core1SRAM_dout1[34] ;
- wire \experiarSoC/core1SRAM_dout1[35] ;
- wire \experiarSoC/core1SRAM_dout1[36] ;
- wire \experiarSoC/core1SRAM_dout1[37] ;
- wire \experiarSoC/core1SRAM_dout1[38] ;
- wire \experiarSoC/core1SRAM_dout1[39] ;
- wire \experiarSoC/core1SRAM_dout1[3] ;
- wire \experiarSoC/core1SRAM_dout1[40] ;
- wire \experiarSoC/core1SRAM_dout1[41] ;
- wire \experiarSoC/core1SRAM_dout1[42] ;
- wire \experiarSoC/core1SRAM_dout1[43] ;
- wire \experiarSoC/core1SRAM_dout1[44] ;
- wire \experiarSoC/core1SRAM_dout1[45] ;
- wire \experiarSoC/core1SRAM_dout1[46] ;
- wire \experiarSoC/core1SRAM_dout1[47] ;
- wire \experiarSoC/core1SRAM_dout1[48] ;
- wire \experiarSoC/core1SRAM_dout1[49] ;
- wire \experiarSoC/core1SRAM_dout1[4] ;
- wire \experiarSoC/core1SRAM_dout1[50] ;
- wire \experiarSoC/core1SRAM_dout1[51] ;
- wire \experiarSoC/core1SRAM_dout1[52] ;
- wire \experiarSoC/core1SRAM_dout1[53] ;
- wire \experiarSoC/core1SRAM_dout1[54] ;
- wire \experiarSoC/core1SRAM_dout1[55] ;
- wire \experiarSoC/core1SRAM_dout1[56] ;
- wire \experiarSoC/core1SRAM_dout1[57] ;
- wire \experiarSoC/core1SRAM_dout1[58] ;
- wire \experiarSoC/core1SRAM_dout1[59] ;
- wire \experiarSoC/core1SRAM_dout1[5] ;
- wire \experiarSoC/core1SRAM_dout1[60] ;
- wire \experiarSoC/core1SRAM_dout1[61] ;
- wire \experiarSoC/core1SRAM_dout1[62] ;
- wire \experiarSoC/core1SRAM_dout1[63] ;
- wire \experiarSoC/core1SRAM_dout1[6] ;
- wire \experiarSoC/core1SRAM_dout1[7] ;
- wire \experiarSoC/core1SRAM_dout1[8] ;
- wire \experiarSoC/core1SRAM_dout1[9] ;
  wire \experiarSoC/core1SRAM_web0 ;
  wire \experiarSoC/core1SRAM_wmask0[0] ;
  wire \experiarSoC/core1SRAM_wmask0[1] ;
@@ -2246,134 +2246,134 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core0SRAM_din0[2] ,
     \experiarSoC/core0SRAM_din0[1] ,
     \experiarSoC/core0SRAM_din0[0] }),
-    .dout0({\experiarSoC/core0SRAM_dout0[63] ,
-    \experiarSoC/core0SRAM_dout0[62] ,
-    \experiarSoC/core0SRAM_dout0[61] ,
-    \experiarSoC/core0SRAM_dout0[60] ,
-    \experiarSoC/core0SRAM_dout0[59] ,
-    \experiarSoC/core0SRAM_dout0[58] ,
-    \experiarSoC/core0SRAM_dout0[57] ,
-    \experiarSoC/core0SRAM_dout0[56] ,
-    \experiarSoC/core0SRAM_dout0[55] ,
-    \experiarSoC/core0SRAM_dout0[54] ,
-    \experiarSoC/core0SRAM_dout0[53] ,
-    \experiarSoC/core0SRAM_dout0[52] ,
-    \experiarSoC/core0SRAM_dout0[51] ,
-    \experiarSoC/core0SRAM_dout0[50] ,
-    \experiarSoC/core0SRAM_dout0[49] ,
-    \experiarSoC/core0SRAM_dout0[48] ,
-    \experiarSoC/core0SRAM_dout0[47] ,
-    \experiarSoC/core0SRAM_dout0[46] ,
-    \experiarSoC/core0SRAM_dout0[45] ,
-    \experiarSoC/core0SRAM_dout0[44] ,
-    \experiarSoC/core0SRAM_dout0[43] ,
-    \experiarSoC/core0SRAM_dout0[42] ,
-    \experiarSoC/core0SRAM_dout0[41] ,
-    \experiarSoC/core0SRAM_dout0[40] ,
-    \experiarSoC/core0SRAM_dout0[39] ,
-    \experiarSoC/core0SRAM_dout0[38] ,
-    \experiarSoC/core0SRAM_dout0[37] ,
-    \experiarSoC/core0SRAM_dout0[36] ,
-    \experiarSoC/core0SRAM_dout0[35] ,
-    \experiarSoC/core0SRAM_dout0[34] ,
-    \experiarSoC/core0SRAM_dout0[33] ,
-    \experiarSoC/core0SRAM_dout0[32] ,
-    \experiarSoC/core0SRAM_dout0[31] ,
-    \experiarSoC/core0SRAM_dout0[30] ,
-    \experiarSoC/core0SRAM_dout0[29] ,
-    \experiarSoC/core0SRAM_dout0[28] ,
-    \experiarSoC/core0SRAM_dout0[27] ,
-    \experiarSoC/core0SRAM_dout0[26] ,
-    \experiarSoC/core0SRAM_dout0[25] ,
-    \experiarSoC/core0SRAM_dout0[24] ,
-    \experiarSoC/core0SRAM_dout0[23] ,
-    \experiarSoC/core0SRAM_dout0[22] ,
-    \experiarSoC/core0SRAM_dout0[21] ,
-    \experiarSoC/core0SRAM_dout0[20] ,
-    \experiarSoC/core0SRAM_dout0[19] ,
-    \experiarSoC/core0SRAM_dout0[18] ,
-    \experiarSoC/core0SRAM_dout0[17] ,
-    \experiarSoC/core0SRAM_dout0[16] ,
-    \experiarSoC/core0SRAM_dout0[15] ,
-    \experiarSoC/core0SRAM_dout0[14] ,
-    \experiarSoC/core0SRAM_dout0[13] ,
-    \experiarSoC/core0SRAM_dout0[12] ,
-    \experiarSoC/core0SRAM_dout0[11] ,
-    \experiarSoC/core0SRAM_dout0[10] ,
-    \experiarSoC/core0SRAM_dout0[9] ,
-    \experiarSoC/core0SRAM_dout0[8] ,
-    \experiarSoC/core0SRAM_dout0[7] ,
-    \experiarSoC/core0SRAM_dout0[6] ,
-    \experiarSoC/core0SRAM_dout0[5] ,
-    \experiarSoC/core0SRAM_dout0[4] ,
-    \experiarSoC/core0SRAM_dout0[3] ,
-    \experiarSoC/core0SRAM_dout0[2] ,
-    \experiarSoC/core0SRAM_dout0[1] ,
-    \experiarSoC/core0SRAM_dout0[0] }),
-    .dout1({\experiarSoC/core0SRAM_dout1[63] ,
-    \experiarSoC/core0SRAM_dout1[62] ,
-    \experiarSoC/core0SRAM_dout1[61] ,
-    \experiarSoC/core0SRAM_dout1[60] ,
-    \experiarSoC/core0SRAM_dout1[59] ,
-    \experiarSoC/core0SRAM_dout1[58] ,
-    \experiarSoC/core0SRAM_dout1[57] ,
-    \experiarSoC/core0SRAM_dout1[56] ,
-    \experiarSoC/core0SRAM_dout1[55] ,
-    \experiarSoC/core0SRAM_dout1[54] ,
-    \experiarSoC/core0SRAM_dout1[53] ,
-    \experiarSoC/core0SRAM_dout1[52] ,
-    \experiarSoC/core0SRAM_dout1[51] ,
-    \experiarSoC/core0SRAM_dout1[50] ,
-    \experiarSoC/core0SRAM_dout1[49] ,
-    \experiarSoC/core0SRAM_dout1[48] ,
-    \experiarSoC/core0SRAM_dout1[47] ,
-    \experiarSoC/core0SRAM_dout1[46] ,
-    \experiarSoC/core0SRAM_dout1[45] ,
-    \experiarSoC/core0SRAM_dout1[44] ,
-    \experiarSoC/core0SRAM_dout1[43] ,
-    \experiarSoC/core0SRAM_dout1[42] ,
-    \experiarSoC/core0SRAM_dout1[41] ,
-    \experiarSoC/core0SRAM_dout1[40] ,
-    \experiarSoC/core0SRAM_dout1[39] ,
-    \experiarSoC/core0SRAM_dout1[38] ,
-    \experiarSoC/core0SRAM_dout1[37] ,
-    \experiarSoC/core0SRAM_dout1[36] ,
-    \experiarSoC/core0SRAM_dout1[35] ,
-    \experiarSoC/core0SRAM_dout1[34] ,
-    \experiarSoC/core0SRAM_dout1[33] ,
-    \experiarSoC/core0SRAM_dout1[32] ,
-    \experiarSoC/core0SRAM_dout1[31] ,
-    \experiarSoC/core0SRAM_dout1[30] ,
-    \experiarSoC/core0SRAM_dout1[29] ,
-    \experiarSoC/core0SRAM_dout1[28] ,
-    \experiarSoC/core0SRAM_dout1[27] ,
-    \experiarSoC/core0SRAM_dout1[26] ,
-    \experiarSoC/core0SRAM_dout1[25] ,
-    \experiarSoC/core0SRAM_dout1[24] ,
-    \experiarSoC/core0SRAM_dout1[23] ,
-    \experiarSoC/core0SRAM_dout1[22] ,
-    \experiarSoC/core0SRAM_dout1[21] ,
-    \experiarSoC/core0SRAM_dout1[20] ,
-    \experiarSoC/core0SRAM_dout1[19] ,
-    \experiarSoC/core0SRAM_dout1[18] ,
-    \experiarSoC/core0SRAM_dout1[17] ,
-    \experiarSoC/core0SRAM_dout1[16] ,
-    \experiarSoC/core0SRAM_dout1[15] ,
-    \experiarSoC/core0SRAM_dout1[14] ,
-    \experiarSoC/core0SRAM_dout1[13] ,
-    \experiarSoC/core0SRAM_dout1[12] ,
-    \experiarSoC/core0SRAM_dout1[11] ,
-    \experiarSoC/core0SRAM_dout1[10] ,
-    \experiarSoC/core0SRAM_dout1[9] ,
-    \experiarSoC/core0SRAM_dout1[8] ,
-    \experiarSoC/core0SRAM_dout1[7] ,
-    \experiarSoC/core0SRAM_dout1[6] ,
-    \experiarSoC/core0SRAM_dout1[5] ,
-    \experiarSoC/core0SRAM_dout1[4] ,
-    \experiarSoC/core0SRAM_dout1[3] ,
-    \experiarSoC/core0SRAM_dout1[2] ,
-    \experiarSoC/core0SRAM_dout1[1] ,
-    \experiarSoC/core0SRAM_dout1[0] }),
+    .dout0({\experiarSoC/core0SRAM1_dout0[31] ,
+    \experiarSoC/core0SRAM1_dout0[30] ,
+    \experiarSoC/core0SRAM1_dout0[29] ,
+    \experiarSoC/core0SRAM1_dout0[28] ,
+    \experiarSoC/core0SRAM1_dout0[27] ,
+    \experiarSoC/core0SRAM1_dout0[26] ,
+    \experiarSoC/core0SRAM1_dout0[25] ,
+    \experiarSoC/core0SRAM1_dout0[24] ,
+    \experiarSoC/core0SRAM1_dout0[23] ,
+    \experiarSoC/core0SRAM1_dout0[22] ,
+    \experiarSoC/core0SRAM1_dout0[21] ,
+    \experiarSoC/core0SRAM1_dout0[20] ,
+    \experiarSoC/core0SRAM1_dout0[19] ,
+    \experiarSoC/core0SRAM1_dout0[18] ,
+    \experiarSoC/core0SRAM1_dout0[17] ,
+    \experiarSoC/core0SRAM1_dout0[16] ,
+    \experiarSoC/core0SRAM1_dout0[15] ,
+    \experiarSoC/core0SRAM1_dout0[14] ,
+    \experiarSoC/core0SRAM1_dout0[13] ,
+    \experiarSoC/core0SRAM1_dout0[12] ,
+    \experiarSoC/core0SRAM1_dout0[11] ,
+    \experiarSoC/core0SRAM1_dout0[10] ,
+    \experiarSoC/core0SRAM1_dout0[9] ,
+    \experiarSoC/core0SRAM1_dout0[8] ,
+    \experiarSoC/core0SRAM1_dout0[7] ,
+    \experiarSoC/core0SRAM1_dout0[6] ,
+    \experiarSoC/core0SRAM1_dout0[5] ,
+    \experiarSoC/core0SRAM1_dout0[4] ,
+    \experiarSoC/core0SRAM1_dout0[3] ,
+    \experiarSoC/core0SRAM1_dout0[2] ,
+    \experiarSoC/core0SRAM1_dout0[1] ,
+    \experiarSoC/core0SRAM1_dout0[0] ,
+    \experiarSoC/core0SRAM0_dout0[31] ,
+    \experiarSoC/core0SRAM0_dout0[30] ,
+    \experiarSoC/core0SRAM0_dout0[29] ,
+    \experiarSoC/core0SRAM0_dout0[28] ,
+    \experiarSoC/core0SRAM0_dout0[27] ,
+    \experiarSoC/core0SRAM0_dout0[26] ,
+    \experiarSoC/core0SRAM0_dout0[25] ,
+    \experiarSoC/core0SRAM0_dout0[24] ,
+    \experiarSoC/core0SRAM0_dout0[23] ,
+    \experiarSoC/core0SRAM0_dout0[22] ,
+    \experiarSoC/core0SRAM0_dout0[21] ,
+    \experiarSoC/core0SRAM0_dout0[20] ,
+    \experiarSoC/core0SRAM0_dout0[19] ,
+    \experiarSoC/core0SRAM0_dout0[18] ,
+    \experiarSoC/core0SRAM0_dout0[17] ,
+    \experiarSoC/core0SRAM0_dout0[16] ,
+    \experiarSoC/core0SRAM0_dout0[15] ,
+    \experiarSoC/core0SRAM0_dout0[14] ,
+    \experiarSoC/core0SRAM0_dout0[13] ,
+    \experiarSoC/core0SRAM0_dout0[12] ,
+    \experiarSoC/core0SRAM0_dout0[11] ,
+    \experiarSoC/core0SRAM0_dout0[10] ,
+    \experiarSoC/core0SRAM0_dout0[9] ,
+    \experiarSoC/core0SRAM0_dout0[8] ,
+    \experiarSoC/core0SRAM0_dout0[7] ,
+    \experiarSoC/core0SRAM0_dout0[6] ,
+    \experiarSoC/core0SRAM0_dout0[5] ,
+    \experiarSoC/core0SRAM0_dout0[4] ,
+    \experiarSoC/core0SRAM0_dout0[3] ,
+    \experiarSoC/core0SRAM0_dout0[2] ,
+    \experiarSoC/core0SRAM0_dout0[1] ,
+    \experiarSoC/core0SRAM0_dout0[0] }),
+    .dout1({\experiarSoC/core0SRAM1_dout1[31] ,
+    \experiarSoC/core0SRAM1_dout1[30] ,
+    \experiarSoC/core0SRAM1_dout1[29] ,
+    \experiarSoC/core0SRAM1_dout1[28] ,
+    \experiarSoC/core0SRAM1_dout1[27] ,
+    \experiarSoC/core0SRAM1_dout1[26] ,
+    \experiarSoC/core0SRAM1_dout1[25] ,
+    \experiarSoC/core0SRAM1_dout1[24] ,
+    \experiarSoC/core0SRAM1_dout1[23] ,
+    \experiarSoC/core0SRAM1_dout1[22] ,
+    \experiarSoC/core0SRAM1_dout1[21] ,
+    \experiarSoC/core0SRAM1_dout1[20] ,
+    \experiarSoC/core0SRAM1_dout1[19] ,
+    \experiarSoC/core0SRAM1_dout1[18] ,
+    \experiarSoC/core0SRAM1_dout1[17] ,
+    \experiarSoC/core0SRAM1_dout1[16] ,
+    \experiarSoC/core0SRAM1_dout1[15] ,
+    \experiarSoC/core0SRAM1_dout1[14] ,
+    \experiarSoC/core0SRAM1_dout1[13] ,
+    \experiarSoC/core0SRAM1_dout1[12] ,
+    \experiarSoC/core0SRAM1_dout1[11] ,
+    \experiarSoC/core0SRAM1_dout1[10] ,
+    \experiarSoC/core0SRAM1_dout1[9] ,
+    \experiarSoC/core0SRAM1_dout1[8] ,
+    \experiarSoC/core0SRAM1_dout1[7] ,
+    \experiarSoC/core0SRAM1_dout1[6] ,
+    \experiarSoC/core0SRAM1_dout1[5] ,
+    \experiarSoC/core0SRAM1_dout1[4] ,
+    \experiarSoC/core0SRAM1_dout1[3] ,
+    \experiarSoC/core0SRAM1_dout1[2] ,
+    \experiarSoC/core0SRAM1_dout1[1] ,
+    \experiarSoC/core0SRAM1_dout1[0] ,
+    \experiarSoC/core0SRAM0_dout1[31] ,
+    \experiarSoC/core0SRAM0_dout1[30] ,
+    \experiarSoC/core0SRAM0_dout1[29] ,
+    \experiarSoC/core0SRAM0_dout1[28] ,
+    \experiarSoC/core0SRAM0_dout1[27] ,
+    \experiarSoC/core0SRAM0_dout1[26] ,
+    \experiarSoC/core0SRAM0_dout1[25] ,
+    \experiarSoC/core0SRAM0_dout1[24] ,
+    \experiarSoC/core0SRAM0_dout1[23] ,
+    \experiarSoC/core0SRAM0_dout1[22] ,
+    \experiarSoC/core0SRAM0_dout1[21] ,
+    \experiarSoC/core0SRAM0_dout1[20] ,
+    \experiarSoC/core0SRAM0_dout1[19] ,
+    \experiarSoC/core0SRAM0_dout1[18] ,
+    \experiarSoC/core0SRAM0_dout1[17] ,
+    \experiarSoC/core0SRAM0_dout1[16] ,
+    \experiarSoC/core0SRAM0_dout1[15] ,
+    \experiarSoC/core0SRAM0_dout1[14] ,
+    \experiarSoC/core0SRAM0_dout1[13] ,
+    \experiarSoC/core0SRAM0_dout1[12] ,
+    \experiarSoC/core0SRAM0_dout1[11] ,
+    \experiarSoC/core0SRAM0_dout1[10] ,
+    \experiarSoC/core0SRAM0_dout1[9] ,
+    \experiarSoC/core0SRAM0_dout1[8] ,
+    \experiarSoC/core0SRAM0_dout1[7] ,
+    \experiarSoC/core0SRAM0_dout1[6] ,
+    \experiarSoC/core0SRAM0_dout1[5] ,
+    \experiarSoC/core0SRAM0_dout1[4] ,
+    \experiarSoC/core0SRAM0_dout1[3] ,
+    \experiarSoC/core0SRAM0_dout1[2] ,
+    \experiarSoC/core0SRAM0_dout1[1] ,
+    \experiarSoC/core0SRAM0_dout1[0] }),
     .localMemory_wb_adr_i({\experiarSoC/core0Memory_wb_adr_i[23] ,
     \experiarSoC/core0Memory_wb_adr_i[22] ,
     \experiarSoC/core0Memory_wb_adr_i[21] ,
@@ -2608,70 +2608,70 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core0SRAM_din0[2] ,
     \experiarSoC/core0SRAM_din0[1] ,
     \experiarSoC/core0SRAM_din0[0] }),
-    .dout0({\experiarSoC/core0SRAM_dout0[31] ,
-    \experiarSoC/core0SRAM_dout0[30] ,
-    \experiarSoC/core0SRAM_dout0[29] ,
-    \experiarSoC/core0SRAM_dout0[28] ,
-    \experiarSoC/core0SRAM_dout0[27] ,
-    \experiarSoC/core0SRAM_dout0[26] ,
-    \experiarSoC/core0SRAM_dout0[25] ,
-    \experiarSoC/core0SRAM_dout0[24] ,
-    \experiarSoC/core0SRAM_dout0[23] ,
-    \experiarSoC/core0SRAM_dout0[22] ,
-    \experiarSoC/core0SRAM_dout0[21] ,
-    \experiarSoC/core0SRAM_dout0[20] ,
-    \experiarSoC/core0SRAM_dout0[19] ,
-    \experiarSoC/core0SRAM_dout0[18] ,
-    \experiarSoC/core0SRAM_dout0[17] ,
-    \experiarSoC/core0SRAM_dout0[16] ,
-    \experiarSoC/core0SRAM_dout0[15] ,
-    \experiarSoC/core0SRAM_dout0[14] ,
-    \experiarSoC/core0SRAM_dout0[13] ,
-    \experiarSoC/core0SRAM_dout0[12] ,
-    \experiarSoC/core0SRAM_dout0[11] ,
-    \experiarSoC/core0SRAM_dout0[10] ,
-    \experiarSoC/core0SRAM_dout0[9] ,
-    \experiarSoC/core0SRAM_dout0[8] ,
-    \experiarSoC/core0SRAM_dout0[7] ,
-    \experiarSoC/core0SRAM_dout0[6] ,
-    \experiarSoC/core0SRAM_dout0[5] ,
-    \experiarSoC/core0SRAM_dout0[4] ,
-    \experiarSoC/core0SRAM_dout0[3] ,
-    \experiarSoC/core0SRAM_dout0[2] ,
-    \experiarSoC/core0SRAM_dout0[1] ,
-    \experiarSoC/core0SRAM_dout0[0] }),
-    .dout1({\experiarSoC/core0SRAM_dout1[31] ,
-    \experiarSoC/core0SRAM_dout1[30] ,
-    \experiarSoC/core0SRAM_dout1[29] ,
-    \experiarSoC/core0SRAM_dout1[28] ,
-    \experiarSoC/core0SRAM_dout1[27] ,
-    \experiarSoC/core0SRAM_dout1[26] ,
-    \experiarSoC/core0SRAM_dout1[25] ,
-    \experiarSoC/core0SRAM_dout1[24] ,
-    \experiarSoC/core0SRAM_dout1[23] ,
-    \experiarSoC/core0SRAM_dout1[22] ,
-    \experiarSoC/core0SRAM_dout1[21] ,
-    \experiarSoC/core0SRAM_dout1[20] ,
-    \experiarSoC/core0SRAM_dout1[19] ,
-    \experiarSoC/core0SRAM_dout1[18] ,
-    \experiarSoC/core0SRAM_dout1[17] ,
-    \experiarSoC/core0SRAM_dout1[16] ,
-    \experiarSoC/core0SRAM_dout1[15] ,
-    \experiarSoC/core0SRAM_dout1[14] ,
-    \experiarSoC/core0SRAM_dout1[13] ,
-    \experiarSoC/core0SRAM_dout1[12] ,
-    \experiarSoC/core0SRAM_dout1[11] ,
-    \experiarSoC/core0SRAM_dout1[10] ,
-    \experiarSoC/core0SRAM_dout1[9] ,
-    \experiarSoC/core0SRAM_dout1[8] ,
-    \experiarSoC/core0SRAM_dout1[7] ,
-    \experiarSoC/core0SRAM_dout1[6] ,
-    \experiarSoC/core0SRAM_dout1[5] ,
-    \experiarSoC/core0SRAM_dout1[4] ,
-    \experiarSoC/core0SRAM_dout1[3] ,
-    \experiarSoC/core0SRAM_dout1[2] ,
-    \experiarSoC/core0SRAM_dout1[1] ,
-    \experiarSoC/core0SRAM_dout1[0] }),
+    .dout0({\experiarSoC/core0SRAM0_dout0[31] ,
+    \experiarSoC/core0SRAM0_dout0[30] ,
+    \experiarSoC/core0SRAM0_dout0[29] ,
+    \experiarSoC/core0SRAM0_dout0[28] ,
+    \experiarSoC/core0SRAM0_dout0[27] ,
+    \experiarSoC/core0SRAM0_dout0[26] ,
+    \experiarSoC/core0SRAM0_dout0[25] ,
+    \experiarSoC/core0SRAM0_dout0[24] ,
+    \experiarSoC/core0SRAM0_dout0[23] ,
+    \experiarSoC/core0SRAM0_dout0[22] ,
+    \experiarSoC/core0SRAM0_dout0[21] ,
+    \experiarSoC/core0SRAM0_dout0[20] ,
+    \experiarSoC/core0SRAM0_dout0[19] ,
+    \experiarSoC/core0SRAM0_dout0[18] ,
+    \experiarSoC/core0SRAM0_dout0[17] ,
+    \experiarSoC/core0SRAM0_dout0[16] ,
+    \experiarSoC/core0SRAM0_dout0[15] ,
+    \experiarSoC/core0SRAM0_dout0[14] ,
+    \experiarSoC/core0SRAM0_dout0[13] ,
+    \experiarSoC/core0SRAM0_dout0[12] ,
+    \experiarSoC/core0SRAM0_dout0[11] ,
+    \experiarSoC/core0SRAM0_dout0[10] ,
+    \experiarSoC/core0SRAM0_dout0[9] ,
+    \experiarSoC/core0SRAM0_dout0[8] ,
+    \experiarSoC/core0SRAM0_dout0[7] ,
+    \experiarSoC/core0SRAM0_dout0[6] ,
+    \experiarSoC/core0SRAM0_dout0[5] ,
+    \experiarSoC/core0SRAM0_dout0[4] ,
+    \experiarSoC/core0SRAM0_dout0[3] ,
+    \experiarSoC/core0SRAM0_dout0[2] ,
+    \experiarSoC/core0SRAM0_dout0[1] ,
+    \experiarSoC/core0SRAM0_dout0[0] }),
+    .dout1({\experiarSoC/core0SRAM0_dout1[31] ,
+    \experiarSoC/core0SRAM0_dout1[30] ,
+    \experiarSoC/core0SRAM0_dout1[29] ,
+    \experiarSoC/core0SRAM0_dout1[28] ,
+    \experiarSoC/core0SRAM0_dout1[27] ,
+    \experiarSoC/core0SRAM0_dout1[26] ,
+    \experiarSoC/core0SRAM0_dout1[25] ,
+    \experiarSoC/core0SRAM0_dout1[24] ,
+    \experiarSoC/core0SRAM0_dout1[23] ,
+    \experiarSoC/core0SRAM0_dout1[22] ,
+    \experiarSoC/core0SRAM0_dout1[21] ,
+    \experiarSoC/core0SRAM0_dout1[20] ,
+    \experiarSoC/core0SRAM0_dout1[19] ,
+    \experiarSoC/core0SRAM0_dout1[18] ,
+    \experiarSoC/core0SRAM0_dout1[17] ,
+    \experiarSoC/core0SRAM0_dout1[16] ,
+    \experiarSoC/core0SRAM0_dout1[15] ,
+    \experiarSoC/core0SRAM0_dout1[14] ,
+    \experiarSoC/core0SRAM0_dout1[13] ,
+    \experiarSoC/core0SRAM0_dout1[12] ,
+    \experiarSoC/core0SRAM0_dout1[11] ,
+    \experiarSoC/core0SRAM0_dout1[10] ,
+    \experiarSoC/core0SRAM0_dout1[9] ,
+    \experiarSoC/core0SRAM0_dout1[8] ,
+    \experiarSoC/core0SRAM0_dout1[7] ,
+    \experiarSoC/core0SRAM0_dout1[6] ,
+    \experiarSoC/core0SRAM0_dout1[5] ,
+    \experiarSoC/core0SRAM0_dout1[4] ,
+    \experiarSoC/core0SRAM0_dout1[3] ,
+    \experiarSoC/core0SRAM0_dout1[2] ,
+    \experiarSoC/core0SRAM0_dout1[1] ,
+    \experiarSoC/core0SRAM0_dout1[0] }),
     .wmask0({\experiarSoC/core0SRAM_wmask0[3] ,
     \experiarSoC/core0SRAM_wmask0[2] ,
     \experiarSoC/core0SRAM_wmask0[1] ,
@@ -2733,70 +2733,70 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core0SRAM_din0[2] ,
     \experiarSoC/core0SRAM_din0[1] ,
     \experiarSoC/core0SRAM_din0[0] }),
-    .dout0({\experiarSoC/core0SRAM_dout0[63] ,
-    \experiarSoC/core0SRAM_dout0[62] ,
-    \experiarSoC/core0SRAM_dout0[61] ,
-    \experiarSoC/core0SRAM_dout0[60] ,
-    \experiarSoC/core0SRAM_dout0[59] ,
-    \experiarSoC/core0SRAM_dout0[58] ,
-    \experiarSoC/core0SRAM_dout0[57] ,
-    \experiarSoC/core0SRAM_dout0[56] ,
-    \experiarSoC/core0SRAM_dout0[55] ,
-    \experiarSoC/core0SRAM_dout0[54] ,
-    \experiarSoC/core0SRAM_dout0[53] ,
-    \experiarSoC/core0SRAM_dout0[52] ,
-    \experiarSoC/core0SRAM_dout0[51] ,
-    \experiarSoC/core0SRAM_dout0[50] ,
-    \experiarSoC/core0SRAM_dout0[49] ,
-    \experiarSoC/core0SRAM_dout0[48] ,
-    \experiarSoC/core0SRAM_dout0[47] ,
-    \experiarSoC/core0SRAM_dout0[46] ,
-    \experiarSoC/core0SRAM_dout0[45] ,
-    \experiarSoC/core0SRAM_dout0[44] ,
-    \experiarSoC/core0SRAM_dout0[43] ,
-    \experiarSoC/core0SRAM_dout0[42] ,
-    \experiarSoC/core0SRAM_dout0[41] ,
-    \experiarSoC/core0SRAM_dout0[40] ,
-    \experiarSoC/core0SRAM_dout0[39] ,
-    \experiarSoC/core0SRAM_dout0[38] ,
-    \experiarSoC/core0SRAM_dout0[37] ,
-    \experiarSoC/core0SRAM_dout0[36] ,
-    \experiarSoC/core0SRAM_dout0[35] ,
-    \experiarSoC/core0SRAM_dout0[34] ,
-    \experiarSoC/core0SRAM_dout0[33] ,
-    \experiarSoC/core0SRAM_dout0[32] }),
-    .dout1({\experiarSoC/core0SRAM_dout1[63] ,
-    \experiarSoC/core0SRAM_dout1[62] ,
-    \experiarSoC/core0SRAM_dout1[61] ,
-    \experiarSoC/core0SRAM_dout1[60] ,
-    \experiarSoC/core0SRAM_dout1[59] ,
-    \experiarSoC/core0SRAM_dout1[58] ,
-    \experiarSoC/core0SRAM_dout1[57] ,
-    \experiarSoC/core0SRAM_dout1[56] ,
-    \experiarSoC/core0SRAM_dout1[55] ,
-    \experiarSoC/core0SRAM_dout1[54] ,
-    \experiarSoC/core0SRAM_dout1[53] ,
-    \experiarSoC/core0SRAM_dout1[52] ,
-    \experiarSoC/core0SRAM_dout1[51] ,
-    \experiarSoC/core0SRAM_dout1[50] ,
-    \experiarSoC/core0SRAM_dout1[49] ,
-    \experiarSoC/core0SRAM_dout1[48] ,
-    \experiarSoC/core0SRAM_dout1[47] ,
-    \experiarSoC/core0SRAM_dout1[46] ,
-    \experiarSoC/core0SRAM_dout1[45] ,
-    \experiarSoC/core0SRAM_dout1[44] ,
-    \experiarSoC/core0SRAM_dout1[43] ,
-    \experiarSoC/core0SRAM_dout1[42] ,
-    \experiarSoC/core0SRAM_dout1[41] ,
-    \experiarSoC/core0SRAM_dout1[40] ,
-    \experiarSoC/core0SRAM_dout1[39] ,
-    \experiarSoC/core0SRAM_dout1[38] ,
-    \experiarSoC/core0SRAM_dout1[37] ,
-    \experiarSoC/core0SRAM_dout1[36] ,
-    \experiarSoC/core0SRAM_dout1[35] ,
-    \experiarSoC/core0SRAM_dout1[34] ,
-    \experiarSoC/core0SRAM_dout1[33] ,
-    \experiarSoC/core0SRAM_dout1[32] }),
+    .dout0({\experiarSoC/core0SRAM1_dout0[31] ,
+    \experiarSoC/core0SRAM1_dout0[30] ,
+    \experiarSoC/core0SRAM1_dout0[29] ,
+    \experiarSoC/core0SRAM1_dout0[28] ,
+    \experiarSoC/core0SRAM1_dout0[27] ,
+    \experiarSoC/core0SRAM1_dout0[26] ,
+    \experiarSoC/core0SRAM1_dout0[25] ,
+    \experiarSoC/core0SRAM1_dout0[24] ,
+    \experiarSoC/core0SRAM1_dout0[23] ,
+    \experiarSoC/core0SRAM1_dout0[22] ,
+    \experiarSoC/core0SRAM1_dout0[21] ,
+    \experiarSoC/core0SRAM1_dout0[20] ,
+    \experiarSoC/core0SRAM1_dout0[19] ,
+    \experiarSoC/core0SRAM1_dout0[18] ,
+    \experiarSoC/core0SRAM1_dout0[17] ,
+    \experiarSoC/core0SRAM1_dout0[16] ,
+    \experiarSoC/core0SRAM1_dout0[15] ,
+    \experiarSoC/core0SRAM1_dout0[14] ,
+    \experiarSoC/core0SRAM1_dout0[13] ,
+    \experiarSoC/core0SRAM1_dout0[12] ,
+    \experiarSoC/core0SRAM1_dout0[11] ,
+    \experiarSoC/core0SRAM1_dout0[10] ,
+    \experiarSoC/core0SRAM1_dout0[9] ,
+    \experiarSoC/core0SRAM1_dout0[8] ,
+    \experiarSoC/core0SRAM1_dout0[7] ,
+    \experiarSoC/core0SRAM1_dout0[6] ,
+    \experiarSoC/core0SRAM1_dout0[5] ,
+    \experiarSoC/core0SRAM1_dout0[4] ,
+    \experiarSoC/core0SRAM1_dout0[3] ,
+    \experiarSoC/core0SRAM1_dout0[2] ,
+    \experiarSoC/core0SRAM1_dout0[1] ,
+    \experiarSoC/core0SRAM1_dout0[0] }),
+    .dout1({\experiarSoC/core0SRAM1_dout1[31] ,
+    \experiarSoC/core0SRAM1_dout1[30] ,
+    \experiarSoC/core0SRAM1_dout1[29] ,
+    \experiarSoC/core0SRAM1_dout1[28] ,
+    \experiarSoC/core0SRAM1_dout1[27] ,
+    \experiarSoC/core0SRAM1_dout1[26] ,
+    \experiarSoC/core0SRAM1_dout1[25] ,
+    \experiarSoC/core0SRAM1_dout1[24] ,
+    \experiarSoC/core0SRAM1_dout1[23] ,
+    \experiarSoC/core0SRAM1_dout1[22] ,
+    \experiarSoC/core0SRAM1_dout1[21] ,
+    \experiarSoC/core0SRAM1_dout1[20] ,
+    \experiarSoC/core0SRAM1_dout1[19] ,
+    \experiarSoC/core0SRAM1_dout1[18] ,
+    \experiarSoC/core0SRAM1_dout1[17] ,
+    \experiarSoC/core0SRAM1_dout1[16] ,
+    \experiarSoC/core0SRAM1_dout1[15] ,
+    \experiarSoC/core0SRAM1_dout1[14] ,
+    \experiarSoC/core0SRAM1_dout1[13] ,
+    \experiarSoC/core0SRAM1_dout1[12] ,
+    \experiarSoC/core0SRAM1_dout1[11] ,
+    \experiarSoC/core0SRAM1_dout1[10] ,
+    \experiarSoC/core0SRAM1_dout1[9] ,
+    \experiarSoC/core0SRAM1_dout1[8] ,
+    \experiarSoC/core0SRAM1_dout1[7] ,
+    \experiarSoC/core0SRAM1_dout1[6] ,
+    \experiarSoC/core0SRAM1_dout1[5] ,
+    \experiarSoC/core0SRAM1_dout1[4] ,
+    \experiarSoC/core0SRAM1_dout1[3] ,
+    \experiarSoC/core0SRAM1_dout1[2] ,
+    \experiarSoC/core0SRAM1_dout1[1] ,
+    \experiarSoC/core0SRAM1_dout1[0] }),
     .wmask0({\experiarSoC/core0SRAM_wmask0[3] ,
     \experiarSoC/core0SRAM_wmask0[2] ,
     \experiarSoC/core0SRAM_wmask0[1] ,
@@ -2987,134 +2987,134 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core1SRAM_din0[2] ,
     \experiarSoC/core1SRAM_din0[1] ,
     \experiarSoC/core1SRAM_din0[0] }),
-    .dout0({\experiarSoC/core1SRAM_dout0[63] ,
-    \experiarSoC/core1SRAM_dout0[62] ,
-    \experiarSoC/core1SRAM_dout0[61] ,
-    \experiarSoC/core1SRAM_dout0[60] ,
-    \experiarSoC/core1SRAM_dout0[59] ,
-    \experiarSoC/core1SRAM_dout0[58] ,
-    \experiarSoC/core1SRAM_dout0[57] ,
-    \experiarSoC/core1SRAM_dout0[56] ,
-    \experiarSoC/core1SRAM_dout0[55] ,
-    \experiarSoC/core1SRAM_dout0[54] ,
-    \experiarSoC/core1SRAM_dout0[53] ,
-    \experiarSoC/core1SRAM_dout0[52] ,
-    \experiarSoC/core1SRAM_dout0[51] ,
-    \experiarSoC/core1SRAM_dout0[50] ,
-    \experiarSoC/core1SRAM_dout0[49] ,
-    \experiarSoC/core1SRAM_dout0[48] ,
-    \experiarSoC/core1SRAM_dout0[47] ,
-    \experiarSoC/core1SRAM_dout0[46] ,
-    \experiarSoC/core1SRAM_dout0[45] ,
-    \experiarSoC/core1SRAM_dout0[44] ,
-    \experiarSoC/core1SRAM_dout0[43] ,
-    \experiarSoC/core1SRAM_dout0[42] ,
-    \experiarSoC/core1SRAM_dout0[41] ,
-    \experiarSoC/core1SRAM_dout0[40] ,
-    \experiarSoC/core1SRAM_dout0[39] ,
-    \experiarSoC/core1SRAM_dout0[38] ,
-    \experiarSoC/core1SRAM_dout0[37] ,
-    \experiarSoC/core1SRAM_dout0[36] ,
-    \experiarSoC/core1SRAM_dout0[35] ,
-    \experiarSoC/core1SRAM_dout0[34] ,
-    \experiarSoC/core1SRAM_dout0[33] ,
-    \experiarSoC/core1SRAM_dout0[32] ,
-    \experiarSoC/core1SRAM_dout0[31] ,
-    \experiarSoC/core1SRAM_dout0[30] ,
-    \experiarSoC/core1SRAM_dout0[29] ,
-    \experiarSoC/core1SRAM_dout0[28] ,
-    \experiarSoC/core1SRAM_dout0[27] ,
-    \experiarSoC/core1SRAM_dout0[26] ,
-    \experiarSoC/core1SRAM_dout0[25] ,
-    \experiarSoC/core1SRAM_dout0[24] ,
-    \experiarSoC/core1SRAM_dout0[23] ,
-    \experiarSoC/core1SRAM_dout0[22] ,
-    \experiarSoC/core1SRAM_dout0[21] ,
-    \experiarSoC/core1SRAM_dout0[20] ,
-    \experiarSoC/core1SRAM_dout0[19] ,
-    \experiarSoC/core1SRAM_dout0[18] ,
-    \experiarSoC/core1SRAM_dout0[17] ,
-    \experiarSoC/core1SRAM_dout0[16] ,
-    \experiarSoC/core1SRAM_dout0[15] ,
-    \experiarSoC/core1SRAM_dout0[14] ,
-    \experiarSoC/core1SRAM_dout0[13] ,
-    \experiarSoC/core1SRAM_dout0[12] ,
-    \experiarSoC/core1SRAM_dout0[11] ,
-    \experiarSoC/core1SRAM_dout0[10] ,
-    \experiarSoC/core1SRAM_dout0[9] ,
-    \experiarSoC/core1SRAM_dout0[8] ,
-    \experiarSoC/core1SRAM_dout0[7] ,
-    \experiarSoC/core1SRAM_dout0[6] ,
-    \experiarSoC/core1SRAM_dout0[5] ,
-    \experiarSoC/core1SRAM_dout0[4] ,
-    \experiarSoC/core1SRAM_dout0[3] ,
-    \experiarSoC/core1SRAM_dout0[2] ,
-    \experiarSoC/core1SRAM_dout0[1] ,
-    \experiarSoC/core1SRAM_dout0[0] }),
-    .dout1({\experiarSoC/core1SRAM_dout1[63] ,
-    \experiarSoC/core1SRAM_dout1[62] ,
-    \experiarSoC/core1SRAM_dout1[61] ,
-    \experiarSoC/core1SRAM_dout1[60] ,
-    \experiarSoC/core1SRAM_dout1[59] ,
-    \experiarSoC/core1SRAM_dout1[58] ,
-    \experiarSoC/core1SRAM_dout1[57] ,
-    \experiarSoC/core1SRAM_dout1[56] ,
-    \experiarSoC/core1SRAM_dout1[55] ,
-    \experiarSoC/core1SRAM_dout1[54] ,
-    \experiarSoC/core1SRAM_dout1[53] ,
-    \experiarSoC/core1SRAM_dout1[52] ,
-    \experiarSoC/core1SRAM_dout1[51] ,
-    \experiarSoC/core1SRAM_dout1[50] ,
-    \experiarSoC/core1SRAM_dout1[49] ,
-    \experiarSoC/core1SRAM_dout1[48] ,
-    \experiarSoC/core1SRAM_dout1[47] ,
-    \experiarSoC/core1SRAM_dout1[46] ,
-    \experiarSoC/core1SRAM_dout1[45] ,
-    \experiarSoC/core1SRAM_dout1[44] ,
-    \experiarSoC/core1SRAM_dout1[43] ,
-    \experiarSoC/core1SRAM_dout1[42] ,
-    \experiarSoC/core1SRAM_dout1[41] ,
-    \experiarSoC/core1SRAM_dout1[40] ,
-    \experiarSoC/core1SRAM_dout1[39] ,
-    \experiarSoC/core1SRAM_dout1[38] ,
-    \experiarSoC/core1SRAM_dout1[37] ,
-    \experiarSoC/core1SRAM_dout1[36] ,
-    \experiarSoC/core1SRAM_dout1[35] ,
-    \experiarSoC/core1SRAM_dout1[34] ,
-    \experiarSoC/core1SRAM_dout1[33] ,
-    \experiarSoC/core1SRAM_dout1[32] ,
-    \experiarSoC/core1SRAM_dout1[31] ,
-    \experiarSoC/core1SRAM_dout1[30] ,
-    \experiarSoC/core1SRAM_dout1[29] ,
-    \experiarSoC/core1SRAM_dout1[28] ,
-    \experiarSoC/core1SRAM_dout1[27] ,
-    \experiarSoC/core1SRAM_dout1[26] ,
-    \experiarSoC/core1SRAM_dout1[25] ,
-    \experiarSoC/core1SRAM_dout1[24] ,
-    \experiarSoC/core1SRAM_dout1[23] ,
-    \experiarSoC/core1SRAM_dout1[22] ,
-    \experiarSoC/core1SRAM_dout1[21] ,
-    \experiarSoC/core1SRAM_dout1[20] ,
-    \experiarSoC/core1SRAM_dout1[19] ,
-    \experiarSoC/core1SRAM_dout1[18] ,
-    \experiarSoC/core1SRAM_dout1[17] ,
-    \experiarSoC/core1SRAM_dout1[16] ,
-    \experiarSoC/core1SRAM_dout1[15] ,
-    \experiarSoC/core1SRAM_dout1[14] ,
-    \experiarSoC/core1SRAM_dout1[13] ,
-    \experiarSoC/core1SRAM_dout1[12] ,
-    \experiarSoC/core1SRAM_dout1[11] ,
-    \experiarSoC/core1SRAM_dout1[10] ,
-    \experiarSoC/core1SRAM_dout1[9] ,
-    \experiarSoC/core1SRAM_dout1[8] ,
-    \experiarSoC/core1SRAM_dout1[7] ,
-    \experiarSoC/core1SRAM_dout1[6] ,
-    \experiarSoC/core1SRAM_dout1[5] ,
-    \experiarSoC/core1SRAM_dout1[4] ,
-    \experiarSoC/core1SRAM_dout1[3] ,
-    \experiarSoC/core1SRAM_dout1[2] ,
-    \experiarSoC/core1SRAM_dout1[1] ,
-    \experiarSoC/core1SRAM_dout1[0] }),
+    .dout0({\experiarSoC/core1SRAM1_dout0[31] ,
+    \experiarSoC/core1SRAM1_dout0[30] ,
+    \experiarSoC/core1SRAM1_dout0[29] ,
+    \experiarSoC/core1SRAM1_dout0[28] ,
+    \experiarSoC/core1SRAM1_dout0[27] ,
+    \experiarSoC/core1SRAM1_dout0[26] ,
+    \experiarSoC/core1SRAM1_dout0[25] ,
+    \experiarSoC/core1SRAM1_dout0[24] ,
+    \experiarSoC/core1SRAM1_dout0[23] ,
+    \experiarSoC/core1SRAM1_dout0[22] ,
+    \experiarSoC/core1SRAM1_dout0[21] ,
+    \experiarSoC/core1SRAM1_dout0[20] ,
+    \experiarSoC/core1SRAM1_dout0[19] ,
+    \experiarSoC/core1SRAM1_dout0[18] ,
+    \experiarSoC/core1SRAM1_dout0[17] ,
+    \experiarSoC/core1SRAM1_dout0[16] ,
+    \experiarSoC/core1SRAM1_dout0[15] ,
+    \experiarSoC/core1SRAM1_dout0[14] ,
+    \experiarSoC/core1SRAM1_dout0[13] ,
+    \experiarSoC/core1SRAM1_dout0[12] ,
+    \experiarSoC/core1SRAM1_dout0[11] ,
+    \experiarSoC/core1SRAM1_dout0[10] ,
+    \experiarSoC/core1SRAM1_dout0[9] ,
+    \experiarSoC/core1SRAM1_dout0[8] ,
+    \experiarSoC/core1SRAM1_dout0[7] ,
+    \experiarSoC/core1SRAM1_dout0[6] ,
+    \experiarSoC/core1SRAM1_dout0[5] ,
+    \experiarSoC/core1SRAM1_dout0[4] ,
+    \experiarSoC/core1SRAM1_dout0[3] ,
+    \experiarSoC/core1SRAM1_dout0[2] ,
+    \experiarSoC/core1SRAM1_dout0[1] ,
+    \experiarSoC/core1SRAM1_dout0[0] ,
+    \experiarSoC/core1SRAM0_dout0[31] ,
+    \experiarSoC/core1SRAM0_dout0[30] ,
+    \experiarSoC/core1SRAM0_dout0[29] ,
+    \experiarSoC/core1SRAM0_dout0[28] ,
+    \experiarSoC/core1SRAM0_dout0[27] ,
+    \experiarSoC/core1SRAM0_dout0[26] ,
+    \experiarSoC/core1SRAM0_dout0[25] ,
+    \experiarSoC/core1SRAM0_dout0[24] ,
+    \experiarSoC/core1SRAM0_dout0[23] ,
+    \experiarSoC/core1SRAM0_dout0[22] ,
+    \experiarSoC/core1SRAM0_dout0[21] ,
+    \experiarSoC/core1SRAM0_dout0[20] ,
+    \experiarSoC/core1SRAM0_dout0[19] ,
+    \experiarSoC/core1SRAM0_dout0[18] ,
+    \experiarSoC/core1SRAM0_dout0[17] ,
+    \experiarSoC/core1SRAM0_dout0[16] ,
+    \experiarSoC/core1SRAM0_dout0[15] ,
+    \experiarSoC/core1SRAM0_dout0[14] ,
+    \experiarSoC/core1SRAM0_dout0[13] ,
+    \experiarSoC/core1SRAM0_dout0[12] ,
+    \experiarSoC/core1SRAM0_dout0[11] ,
+    \experiarSoC/core1SRAM0_dout0[10] ,
+    \experiarSoC/core1SRAM0_dout0[9] ,
+    \experiarSoC/core1SRAM0_dout0[8] ,
+    \experiarSoC/core1SRAM0_dout0[7] ,
+    \experiarSoC/core1SRAM0_dout0[6] ,
+    \experiarSoC/core1SRAM0_dout0[5] ,
+    \experiarSoC/core1SRAM0_dout0[4] ,
+    \experiarSoC/core1SRAM0_dout0[3] ,
+    \experiarSoC/core1SRAM0_dout0[2] ,
+    \experiarSoC/core1SRAM0_dout0[1] ,
+    \experiarSoC/core1SRAM0_dout0[0] }),
+    .dout1({\experiarSoC/core1SRAM1_dout1[31] ,
+    \experiarSoC/core1SRAM1_dout1[30] ,
+    \experiarSoC/core1SRAM1_dout1[29] ,
+    \experiarSoC/core1SRAM1_dout1[28] ,
+    \experiarSoC/core1SRAM1_dout1[27] ,
+    \experiarSoC/core1SRAM1_dout1[26] ,
+    \experiarSoC/core1SRAM1_dout1[25] ,
+    \experiarSoC/core1SRAM1_dout1[24] ,
+    \experiarSoC/core1SRAM1_dout1[23] ,
+    \experiarSoC/core1SRAM1_dout1[22] ,
+    \experiarSoC/core1SRAM1_dout1[21] ,
+    \experiarSoC/core1SRAM1_dout1[20] ,
+    \experiarSoC/core1SRAM1_dout1[19] ,
+    \experiarSoC/core1SRAM1_dout1[18] ,
+    \experiarSoC/core1SRAM1_dout1[17] ,
+    \experiarSoC/core1SRAM1_dout1[16] ,
+    \experiarSoC/core1SRAM1_dout1[15] ,
+    \experiarSoC/core1SRAM1_dout1[14] ,
+    \experiarSoC/core1SRAM1_dout1[13] ,
+    \experiarSoC/core1SRAM1_dout1[12] ,
+    \experiarSoC/core1SRAM1_dout1[11] ,
+    \experiarSoC/core1SRAM1_dout1[10] ,
+    \experiarSoC/core1SRAM1_dout1[9] ,
+    \experiarSoC/core1SRAM1_dout1[8] ,
+    \experiarSoC/core1SRAM1_dout1[7] ,
+    \experiarSoC/core1SRAM1_dout1[6] ,
+    \experiarSoC/core1SRAM1_dout1[5] ,
+    \experiarSoC/core1SRAM1_dout1[4] ,
+    \experiarSoC/core1SRAM1_dout1[3] ,
+    \experiarSoC/core1SRAM1_dout1[2] ,
+    \experiarSoC/core1SRAM1_dout1[1] ,
+    \experiarSoC/core1SRAM1_dout1[0] ,
+    \experiarSoC/core1SRAM0_dout1[31] ,
+    \experiarSoC/core1SRAM0_dout1[30] ,
+    \experiarSoC/core1SRAM0_dout1[29] ,
+    \experiarSoC/core1SRAM0_dout1[28] ,
+    \experiarSoC/core1SRAM0_dout1[27] ,
+    \experiarSoC/core1SRAM0_dout1[26] ,
+    \experiarSoC/core1SRAM0_dout1[25] ,
+    \experiarSoC/core1SRAM0_dout1[24] ,
+    \experiarSoC/core1SRAM0_dout1[23] ,
+    \experiarSoC/core1SRAM0_dout1[22] ,
+    \experiarSoC/core1SRAM0_dout1[21] ,
+    \experiarSoC/core1SRAM0_dout1[20] ,
+    \experiarSoC/core1SRAM0_dout1[19] ,
+    \experiarSoC/core1SRAM0_dout1[18] ,
+    \experiarSoC/core1SRAM0_dout1[17] ,
+    \experiarSoC/core1SRAM0_dout1[16] ,
+    \experiarSoC/core1SRAM0_dout1[15] ,
+    \experiarSoC/core1SRAM0_dout1[14] ,
+    \experiarSoC/core1SRAM0_dout1[13] ,
+    \experiarSoC/core1SRAM0_dout1[12] ,
+    \experiarSoC/core1SRAM0_dout1[11] ,
+    \experiarSoC/core1SRAM0_dout1[10] ,
+    \experiarSoC/core1SRAM0_dout1[9] ,
+    \experiarSoC/core1SRAM0_dout1[8] ,
+    \experiarSoC/core1SRAM0_dout1[7] ,
+    \experiarSoC/core1SRAM0_dout1[6] ,
+    \experiarSoC/core1SRAM0_dout1[5] ,
+    \experiarSoC/core1SRAM0_dout1[4] ,
+    \experiarSoC/core1SRAM0_dout1[3] ,
+    \experiarSoC/core1SRAM0_dout1[2] ,
+    \experiarSoC/core1SRAM0_dout1[1] ,
+    \experiarSoC/core1SRAM0_dout1[0] }),
     .localMemory_wb_adr_i({\experiarSoC/core1Memory_wb_adr_i[23] ,
     \experiarSoC/core1Memory_wb_adr_i[22] ,
     \experiarSoC/core1Memory_wb_adr_i[21] ,
@@ -3349,70 +3349,70 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core1SRAM_din0[2] ,
     \experiarSoC/core1SRAM_din0[1] ,
     \experiarSoC/core1SRAM_din0[0] }),
-    .dout0({\experiarSoC/core1SRAM_dout0[31] ,
-    \experiarSoC/core1SRAM_dout0[30] ,
-    \experiarSoC/core1SRAM_dout0[29] ,
-    \experiarSoC/core1SRAM_dout0[28] ,
-    \experiarSoC/core1SRAM_dout0[27] ,
-    \experiarSoC/core1SRAM_dout0[26] ,
-    \experiarSoC/core1SRAM_dout0[25] ,
-    \experiarSoC/core1SRAM_dout0[24] ,
-    \experiarSoC/core1SRAM_dout0[23] ,
-    \experiarSoC/core1SRAM_dout0[22] ,
-    \experiarSoC/core1SRAM_dout0[21] ,
-    \experiarSoC/core1SRAM_dout0[20] ,
-    \experiarSoC/core1SRAM_dout0[19] ,
-    \experiarSoC/core1SRAM_dout0[18] ,
-    \experiarSoC/core1SRAM_dout0[17] ,
-    \experiarSoC/core1SRAM_dout0[16] ,
-    \experiarSoC/core1SRAM_dout0[15] ,
-    \experiarSoC/core1SRAM_dout0[14] ,
-    \experiarSoC/core1SRAM_dout0[13] ,
-    \experiarSoC/core1SRAM_dout0[12] ,
-    \experiarSoC/core1SRAM_dout0[11] ,
-    \experiarSoC/core1SRAM_dout0[10] ,
-    \experiarSoC/core1SRAM_dout0[9] ,
-    \experiarSoC/core1SRAM_dout0[8] ,
-    \experiarSoC/core1SRAM_dout0[7] ,
-    \experiarSoC/core1SRAM_dout0[6] ,
-    \experiarSoC/core1SRAM_dout0[5] ,
-    \experiarSoC/core1SRAM_dout0[4] ,
-    \experiarSoC/core1SRAM_dout0[3] ,
-    \experiarSoC/core1SRAM_dout0[2] ,
-    \experiarSoC/core1SRAM_dout0[1] ,
-    \experiarSoC/core1SRAM_dout0[0] }),
-    .dout1({\experiarSoC/core1SRAM_dout1[31] ,
-    \experiarSoC/core1SRAM_dout1[30] ,
-    \experiarSoC/core1SRAM_dout1[29] ,
-    \experiarSoC/core1SRAM_dout1[28] ,
-    \experiarSoC/core1SRAM_dout1[27] ,
-    \experiarSoC/core1SRAM_dout1[26] ,
-    \experiarSoC/core1SRAM_dout1[25] ,
-    \experiarSoC/core1SRAM_dout1[24] ,
-    \experiarSoC/core1SRAM_dout1[23] ,
-    \experiarSoC/core1SRAM_dout1[22] ,
-    \experiarSoC/core1SRAM_dout1[21] ,
-    \experiarSoC/core1SRAM_dout1[20] ,
-    \experiarSoC/core1SRAM_dout1[19] ,
-    \experiarSoC/core1SRAM_dout1[18] ,
-    \experiarSoC/core1SRAM_dout1[17] ,
-    \experiarSoC/core1SRAM_dout1[16] ,
-    \experiarSoC/core1SRAM_dout1[15] ,
-    \experiarSoC/core1SRAM_dout1[14] ,
-    \experiarSoC/core1SRAM_dout1[13] ,
-    \experiarSoC/core1SRAM_dout1[12] ,
-    \experiarSoC/core1SRAM_dout1[11] ,
-    \experiarSoC/core1SRAM_dout1[10] ,
-    \experiarSoC/core1SRAM_dout1[9] ,
-    \experiarSoC/core1SRAM_dout1[8] ,
-    \experiarSoC/core1SRAM_dout1[7] ,
-    \experiarSoC/core1SRAM_dout1[6] ,
-    \experiarSoC/core1SRAM_dout1[5] ,
-    \experiarSoC/core1SRAM_dout1[4] ,
-    \experiarSoC/core1SRAM_dout1[3] ,
-    \experiarSoC/core1SRAM_dout1[2] ,
-    \experiarSoC/core1SRAM_dout1[1] ,
-    \experiarSoC/core1SRAM_dout1[0] }),
+    .dout0({\experiarSoC/core1SRAM0_dout0[31] ,
+    \experiarSoC/core1SRAM0_dout0[30] ,
+    \experiarSoC/core1SRAM0_dout0[29] ,
+    \experiarSoC/core1SRAM0_dout0[28] ,
+    \experiarSoC/core1SRAM0_dout0[27] ,
+    \experiarSoC/core1SRAM0_dout0[26] ,
+    \experiarSoC/core1SRAM0_dout0[25] ,
+    \experiarSoC/core1SRAM0_dout0[24] ,
+    \experiarSoC/core1SRAM0_dout0[23] ,
+    \experiarSoC/core1SRAM0_dout0[22] ,
+    \experiarSoC/core1SRAM0_dout0[21] ,
+    \experiarSoC/core1SRAM0_dout0[20] ,
+    \experiarSoC/core1SRAM0_dout0[19] ,
+    \experiarSoC/core1SRAM0_dout0[18] ,
+    \experiarSoC/core1SRAM0_dout0[17] ,
+    \experiarSoC/core1SRAM0_dout0[16] ,
+    \experiarSoC/core1SRAM0_dout0[15] ,
+    \experiarSoC/core1SRAM0_dout0[14] ,
+    \experiarSoC/core1SRAM0_dout0[13] ,
+    \experiarSoC/core1SRAM0_dout0[12] ,
+    \experiarSoC/core1SRAM0_dout0[11] ,
+    \experiarSoC/core1SRAM0_dout0[10] ,
+    \experiarSoC/core1SRAM0_dout0[9] ,
+    \experiarSoC/core1SRAM0_dout0[8] ,
+    \experiarSoC/core1SRAM0_dout0[7] ,
+    \experiarSoC/core1SRAM0_dout0[6] ,
+    \experiarSoC/core1SRAM0_dout0[5] ,
+    \experiarSoC/core1SRAM0_dout0[4] ,
+    \experiarSoC/core1SRAM0_dout0[3] ,
+    \experiarSoC/core1SRAM0_dout0[2] ,
+    \experiarSoC/core1SRAM0_dout0[1] ,
+    \experiarSoC/core1SRAM0_dout0[0] }),
+    .dout1({\experiarSoC/core1SRAM0_dout1[31] ,
+    \experiarSoC/core1SRAM0_dout1[30] ,
+    \experiarSoC/core1SRAM0_dout1[29] ,
+    \experiarSoC/core1SRAM0_dout1[28] ,
+    \experiarSoC/core1SRAM0_dout1[27] ,
+    \experiarSoC/core1SRAM0_dout1[26] ,
+    \experiarSoC/core1SRAM0_dout1[25] ,
+    \experiarSoC/core1SRAM0_dout1[24] ,
+    \experiarSoC/core1SRAM0_dout1[23] ,
+    \experiarSoC/core1SRAM0_dout1[22] ,
+    \experiarSoC/core1SRAM0_dout1[21] ,
+    \experiarSoC/core1SRAM0_dout1[20] ,
+    \experiarSoC/core1SRAM0_dout1[19] ,
+    \experiarSoC/core1SRAM0_dout1[18] ,
+    \experiarSoC/core1SRAM0_dout1[17] ,
+    \experiarSoC/core1SRAM0_dout1[16] ,
+    \experiarSoC/core1SRAM0_dout1[15] ,
+    \experiarSoC/core1SRAM0_dout1[14] ,
+    \experiarSoC/core1SRAM0_dout1[13] ,
+    \experiarSoC/core1SRAM0_dout1[12] ,
+    \experiarSoC/core1SRAM0_dout1[11] ,
+    \experiarSoC/core1SRAM0_dout1[10] ,
+    \experiarSoC/core1SRAM0_dout1[9] ,
+    \experiarSoC/core1SRAM0_dout1[8] ,
+    \experiarSoC/core1SRAM0_dout1[7] ,
+    \experiarSoC/core1SRAM0_dout1[6] ,
+    \experiarSoC/core1SRAM0_dout1[5] ,
+    \experiarSoC/core1SRAM0_dout1[4] ,
+    \experiarSoC/core1SRAM0_dout1[3] ,
+    \experiarSoC/core1SRAM0_dout1[2] ,
+    \experiarSoC/core1SRAM0_dout1[1] ,
+    \experiarSoC/core1SRAM0_dout1[0] }),
     .wmask0({\experiarSoC/core1SRAM_wmask0[3] ,
     \experiarSoC/core1SRAM_wmask0[2] ,
     \experiarSoC/core1SRAM_wmask0[1] ,
@@ -3474,70 +3474,70 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core1SRAM_din0[2] ,
     \experiarSoC/core1SRAM_din0[1] ,
     \experiarSoC/core1SRAM_din0[0] }),
-    .dout0({\experiarSoC/core1SRAM_dout0[63] ,
-    \experiarSoC/core1SRAM_dout0[62] ,
-    \experiarSoC/core1SRAM_dout0[61] ,
-    \experiarSoC/core1SRAM_dout0[60] ,
-    \experiarSoC/core1SRAM_dout0[59] ,
-    \experiarSoC/core1SRAM_dout0[58] ,
-    \experiarSoC/core1SRAM_dout0[57] ,
-    \experiarSoC/core1SRAM_dout0[56] ,
-    \experiarSoC/core1SRAM_dout0[55] ,
-    \experiarSoC/core1SRAM_dout0[54] ,
-    \experiarSoC/core1SRAM_dout0[53] ,
-    \experiarSoC/core1SRAM_dout0[52] ,
-    \experiarSoC/core1SRAM_dout0[51] ,
-    \experiarSoC/core1SRAM_dout0[50] ,
-    \experiarSoC/core1SRAM_dout0[49] ,
-    \experiarSoC/core1SRAM_dout0[48] ,
-    \experiarSoC/core1SRAM_dout0[47] ,
-    \experiarSoC/core1SRAM_dout0[46] ,
-    \experiarSoC/core1SRAM_dout0[45] ,
-    \experiarSoC/core1SRAM_dout0[44] ,
-    \experiarSoC/core1SRAM_dout0[43] ,
-    \experiarSoC/core1SRAM_dout0[42] ,
-    \experiarSoC/core1SRAM_dout0[41] ,
-    \experiarSoC/core1SRAM_dout0[40] ,
-    \experiarSoC/core1SRAM_dout0[39] ,
-    \experiarSoC/core1SRAM_dout0[38] ,
-    \experiarSoC/core1SRAM_dout0[37] ,
-    \experiarSoC/core1SRAM_dout0[36] ,
-    \experiarSoC/core1SRAM_dout0[35] ,
-    \experiarSoC/core1SRAM_dout0[34] ,
-    \experiarSoC/core1SRAM_dout0[33] ,
-    \experiarSoC/core1SRAM_dout0[32] }),
-    .dout1({\experiarSoC/core1SRAM_dout1[63] ,
-    \experiarSoC/core1SRAM_dout1[62] ,
-    \experiarSoC/core1SRAM_dout1[61] ,
-    \experiarSoC/core1SRAM_dout1[60] ,
-    \experiarSoC/core1SRAM_dout1[59] ,
-    \experiarSoC/core1SRAM_dout1[58] ,
-    \experiarSoC/core1SRAM_dout1[57] ,
-    \experiarSoC/core1SRAM_dout1[56] ,
-    \experiarSoC/core1SRAM_dout1[55] ,
-    \experiarSoC/core1SRAM_dout1[54] ,
-    \experiarSoC/core1SRAM_dout1[53] ,
-    \experiarSoC/core1SRAM_dout1[52] ,
-    \experiarSoC/core1SRAM_dout1[51] ,
-    \experiarSoC/core1SRAM_dout1[50] ,
-    \experiarSoC/core1SRAM_dout1[49] ,
-    \experiarSoC/core1SRAM_dout1[48] ,
-    \experiarSoC/core1SRAM_dout1[47] ,
-    \experiarSoC/core1SRAM_dout1[46] ,
-    \experiarSoC/core1SRAM_dout1[45] ,
-    \experiarSoC/core1SRAM_dout1[44] ,
-    \experiarSoC/core1SRAM_dout1[43] ,
-    \experiarSoC/core1SRAM_dout1[42] ,
-    \experiarSoC/core1SRAM_dout1[41] ,
-    \experiarSoC/core1SRAM_dout1[40] ,
-    \experiarSoC/core1SRAM_dout1[39] ,
-    \experiarSoC/core1SRAM_dout1[38] ,
-    \experiarSoC/core1SRAM_dout1[37] ,
-    \experiarSoC/core1SRAM_dout1[36] ,
-    \experiarSoC/core1SRAM_dout1[35] ,
-    \experiarSoC/core1SRAM_dout1[34] ,
-    \experiarSoC/core1SRAM_dout1[33] ,
-    \experiarSoC/core1SRAM_dout1[32] }),
+    .dout0({\experiarSoC/core1SRAM1_dout0[31] ,
+    \experiarSoC/core1SRAM1_dout0[30] ,
+    \experiarSoC/core1SRAM1_dout0[29] ,
+    \experiarSoC/core1SRAM1_dout0[28] ,
+    \experiarSoC/core1SRAM1_dout0[27] ,
+    \experiarSoC/core1SRAM1_dout0[26] ,
+    \experiarSoC/core1SRAM1_dout0[25] ,
+    \experiarSoC/core1SRAM1_dout0[24] ,
+    \experiarSoC/core1SRAM1_dout0[23] ,
+    \experiarSoC/core1SRAM1_dout0[22] ,
+    \experiarSoC/core1SRAM1_dout0[21] ,
+    \experiarSoC/core1SRAM1_dout0[20] ,
+    \experiarSoC/core1SRAM1_dout0[19] ,
+    \experiarSoC/core1SRAM1_dout0[18] ,
+    \experiarSoC/core1SRAM1_dout0[17] ,
+    \experiarSoC/core1SRAM1_dout0[16] ,
+    \experiarSoC/core1SRAM1_dout0[15] ,
+    \experiarSoC/core1SRAM1_dout0[14] ,
+    \experiarSoC/core1SRAM1_dout0[13] ,
+    \experiarSoC/core1SRAM1_dout0[12] ,
+    \experiarSoC/core1SRAM1_dout0[11] ,
+    \experiarSoC/core1SRAM1_dout0[10] ,
+    \experiarSoC/core1SRAM1_dout0[9] ,
+    \experiarSoC/core1SRAM1_dout0[8] ,
+    \experiarSoC/core1SRAM1_dout0[7] ,
+    \experiarSoC/core1SRAM1_dout0[6] ,
+    \experiarSoC/core1SRAM1_dout0[5] ,
+    \experiarSoC/core1SRAM1_dout0[4] ,
+    \experiarSoC/core1SRAM1_dout0[3] ,
+    \experiarSoC/core1SRAM1_dout0[2] ,
+    \experiarSoC/core1SRAM1_dout0[1] ,
+    \experiarSoC/core1SRAM1_dout0[0] }),
+    .dout1({\experiarSoC/core1SRAM1_dout1[31] ,
+    \experiarSoC/core1SRAM1_dout1[30] ,
+    \experiarSoC/core1SRAM1_dout1[29] ,
+    \experiarSoC/core1SRAM1_dout1[28] ,
+    \experiarSoC/core1SRAM1_dout1[27] ,
+    \experiarSoC/core1SRAM1_dout1[26] ,
+    \experiarSoC/core1SRAM1_dout1[25] ,
+    \experiarSoC/core1SRAM1_dout1[24] ,
+    \experiarSoC/core1SRAM1_dout1[23] ,
+    \experiarSoC/core1SRAM1_dout1[22] ,
+    \experiarSoC/core1SRAM1_dout1[21] ,
+    \experiarSoC/core1SRAM1_dout1[20] ,
+    \experiarSoC/core1SRAM1_dout1[19] ,
+    \experiarSoC/core1SRAM1_dout1[18] ,
+    \experiarSoC/core1SRAM1_dout1[17] ,
+    \experiarSoC/core1SRAM1_dout1[16] ,
+    \experiarSoC/core1SRAM1_dout1[15] ,
+    \experiarSoC/core1SRAM1_dout1[14] ,
+    \experiarSoC/core1SRAM1_dout1[13] ,
+    \experiarSoC/core1SRAM1_dout1[12] ,
+    \experiarSoC/core1SRAM1_dout1[11] ,
+    \experiarSoC/core1SRAM1_dout1[10] ,
+    \experiarSoC/core1SRAM1_dout1[9] ,
+    \experiarSoC/core1SRAM1_dout1[8] ,
+    \experiarSoC/core1SRAM1_dout1[7] ,
+    \experiarSoC/core1SRAM1_dout1[6] ,
+    \experiarSoC/core1SRAM1_dout1[5] ,
+    \experiarSoC/core1SRAM1_dout1[4] ,
+    \experiarSoC/core1SRAM1_dout1[3] ,
+    \experiarSoC/core1SRAM1_dout1[2] ,
+    \experiarSoC/core1SRAM1_dout1[1] ,
+    \experiarSoC/core1SRAM1_dout1[0] }),
     .wmask0({\experiarSoC/core1SRAM_wmask0[3] ,
     \experiarSoC/core1SRAM_wmask0[2] ,
     \experiarSoC/core1SRAM_wmask0[1] ,
