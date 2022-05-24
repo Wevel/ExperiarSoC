@@ -1,11 +1,11 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653385168
+timestamp 1653408436
 << obsli1 >>
 rect 1104 2159 118864 157777
 << obsm1 >>
-rect 1026 1504 119126 157956
+rect 1026 1368 119126 157956
 << metal2 >>
 rect 754 159200 810 160000
 rect 2318 159200 2374 160000
@@ -601,15 +601,15 @@ rect 81008 2128 81328 157808
 rect 96368 2128 96688 157808
 rect 111728 2128 112048 157808
 << obsm4 >>
-rect 2267 2483 4128 157453
-rect 4608 2483 19488 157453
-rect 19968 2483 34848 157453
-rect 35328 2483 50208 157453
-rect 50688 2483 65568 157453
-rect 66048 2483 80928 157453
-rect 81408 2483 96288 157453
-rect 96768 2483 111648 157453
-rect 112128 2483 117333 157453
+rect 3371 3979 4128 156093
+rect 4608 3979 19488 156093
+rect 19968 3979 34848 156093
+rect 35328 3979 50208 156093
+rect 50688 3979 65568 156093
+rect 66048 3979 80928 156093
+rect 81408 3979 96288 156093
+rect 96768 3979 111648 156093
+rect 112128 3979 116229 156093
 << labels >>
 rlabel metal2 s 86682 0 86738 800 6 flash_csb
 port 1 nsew signal input
@@ -872,13 +872,13 @@ port 129 nsew signal output
 rlabel metal3 s 119200 39992 120000 40112 6 probe_blink[1]
 port 130 nsew signal output
 rlabel metal4 s 4208 2128 4528 157808 6 vccd1
-port 131 nsew power bidirectional
+port 131 nsew power input
 rlabel metal4 s 34928 2128 35248 157808 6 vccd1
-port 131 nsew power bidirectional
+port 131 nsew power input
 rlabel metal4 s 65648 2128 65968 157808 6 vccd1
-port 131 nsew power bidirectional
+port 131 nsew power input
 rlabel metal4 s 96368 2128 96688 157808 6 vccd1
-port 131 nsew power bidirectional
+port 131 nsew power input
 rlabel metal2 s 108118 0 108174 800 6 vga_b[0]
 port 132 nsew signal input
 rlabel metal2 s 114558 0 114614 800 6 vga_b[1]
@@ -896,13 +896,13 @@ port 138 nsew signal input
 rlabel metal2 s 106002 0 106058 800 6 vga_vsync
 port 139 nsew signal input
 rlabel metal4 s 19568 2128 19888 157808 6 vssd1
-port 140 nsew ground bidirectional
+port 140 nsew ground input
 rlabel metal4 s 50288 2128 50608 157808 6 vssd1
-port 140 nsew ground bidirectional
+port 140 nsew ground input
 rlabel metal4 s 81008 2128 81328 157808 6 vssd1
-port 140 nsew ground bidirectional
+port 140 nsew ground input
 rlabel metal4 s 111728 2128 112048 157808 6 vssd1
-port 140 nsew ground bidirectional
+port 140 nsew ground input
 rlabel metal3 s 0 688 800 808 6 wb_ack_o
 port 141 nsew signal output
 rlabel metal3 s 0 13472 800 13592 6 wb_adr_i[0]
@@ -1107,8 +1107,8 @@ port 240 nsew signal input
 string FIXED_BBOX 0 0 120000 160000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 52152642
-string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripherals_Flat/runs/Peripherals_Flat/results/signoff/Peripherals.magic.gds
-string GDS_START 1264206
+string GDS_END 50598442
+string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripherals_Flat/runs/Peripherals_Flat/results/finishing/Peripherals.magic.gds
+string GDS_START 1119466
 << end >>
 

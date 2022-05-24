@@ -59,12 +59,13 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-core-gl: Not implemented
 
 # Need to do
-- Add gpio registers for set, clear, and toggle which use the write data as a mask
 - Write remaining tests (and fix everything until they pass)
 - Fix timing violations
 - Fix precheck errors
 
 # Could do
+- Add gpio registers for set, clear, and toggle which use the write data as a mask
+- Add uart pin swapping
 - Flash controller
 - JTAG core management controller
 - CSRs
