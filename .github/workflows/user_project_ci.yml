@@ -155,18 +155,10 @@ jobs:
         run: |
           make verify-peripheralsGPIO-rtl
           make verify-peripheralsUART-rtl
-         # make verify-peripheralsSPI-rtl
-         # make verify-peripheralsPWM-rtl
-         # make verify-memory-rtl
-         # make verify-video-rtl
           make verify-corePC-rtl
 
       - name: Run DV GL tests
         run: |
           make verify-peripheralsGPIO-gl
           make verify-peripheralsUART-gl
-         # make verify-peripheralsSPI-gl
-         # make verify-peripheralsPWM-gl
-         # make verify-memory-gl
-         # make verify-video-gl
           make verify-corePC-gl
