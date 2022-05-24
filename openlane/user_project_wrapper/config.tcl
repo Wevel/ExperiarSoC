@@ -84,7 +84,7 @@ set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v"
 
 set ::env(EXTRA_LEFS) "\
-	$script_dir/../../lef/Art.lef \
+	$script_dir/../../lef/Art_Empty.lef \
 	$script_dir/../../lef/CaravelHost.lef \
 	$script_dir/../../lef/ExperiarCore.lef \
 	$script_dir/../../lef/Flash.lef \
@@ -94,7 +94,7 @@ set ::env(EXTRA_LEFS) "\
 	$::env(PDK_ROOT)/sky130A/libs.ref/sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
-	$script_dir/../../gds/Art.gds \
+	$script_dir/../../gds/Art_Empty.gds \
 	$script_dir/../../gds/CaravelHost.gds \
 	$script_dir/../../gds/ExperiarCore.gds \
 	$script_dir/../../gds/Flash.gds \

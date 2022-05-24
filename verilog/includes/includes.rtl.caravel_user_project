@@ -32,6 +32,7 @@
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/UART/UART_tx.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Registers/ConfigurationRegister.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Registers/DataRegister.v 
+-v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Registers/OutputRegister.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Registers/DeviceSelect.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Registers/PeripheralSelect.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Video/Video_top.v 

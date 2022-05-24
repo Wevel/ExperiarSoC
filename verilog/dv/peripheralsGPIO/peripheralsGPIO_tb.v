@@ -65,7 +65,7 @@ module peripheralsGPIO_tb;
 		$dumpvars(0, peripheralsGPIO_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (250) begin
+		repeat (300) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -85,6 +85,8 @@ module peripheralsGPIO_tb;
 		wait(outputTestData == 4'b0001);
 		wait(outputTestData == 4'b0011);
 		wait(outputTestData == 4'b0111);
+		wait(outputTestData == 4'b1111);
+		wait(outputTestData == 4'b0000);
 		wait(outputTestData == 4'b1111);
 		wait(outputTestData == 4'b1110);
 		wait(outputTestData == 4'b1100);

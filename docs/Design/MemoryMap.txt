@@ -111,13 +111,29 @@
 			0x1303_0xxx: Peripheral configuration
 				0x1303_0000: Peripheral configuration register (Might not exist)
 			0x1303_1xxx: Device 0 (Side 1)
-				0x1303_1000: OutputEnable
-				0x1303_1004: Output
-				0x1303_1008: Input
+				0x1303_100x: OutputEnable
+					0x1303_1000: Write
+					0x1303_1004: Set
+					0x1303_1008: Clear
+					0x1303_100C: Toggle
+				0x1303_101x: Output
+					0x1303_1010: Write
+					0x1303_1014: Set
+					0x1303_1018: Clear
+					0x1303_101C: Toggle
+				0x1303_1020: Input
 			0x1303_2xxx: Device 1 (Side 2)
-				0x1303_2000: OutputEnable
-				0x1303_2004: Output
-				0x1303_2008: Input
+				0x1303_200x: OutputEnable
+					0x1303_2000: Write
+					0x1303_2004: Set
+					0x1303_2008: Clear
+					0x1303_200C: Toggle
+				0x1303_201x: Output
+					0x1303_2010: Write
+					0x1303_2014: Set
+					0x1303_2018: Clear
+					0x1303_201C: Toggle
+				0x1303_2020: Input
 	0x14xx_xxxx: Slave 4 (Flash)
 		0x1400_00000-0x1400_0FFFF: Flash cache
 	0x1Fxx_xxxx: Reserved for caravel interface

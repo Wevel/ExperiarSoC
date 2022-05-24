@@ -35,7 +35,7 @@ module GPIODevice #(
 	// OE register: Default 0x0
 	wire[31:0] oeRegisterOutputData;
 	wire oeRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h000), .DEFAULT(~{IO_COUNT{1'b0}})) oeRegister(
+	OutputRegister #(.WIDTH(IO_COUNT), .ADDRESS(8'h00), .DEFAULT(~{IO_COUNT{1'b0}})) oeRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -51,7 +51,7 @@ module GPIODevice #(
 	// Output data register: Default 0x0
 	wire[31:0] outputRegisterOutputData;
 	wire outputRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h004), .DEFAULT({IO_COUNT{1'b0}})) outputRegister(
+	OutputRegister #(.WIDTH(IO_COUNT), .ADDRESS(8'h01), .DEFAULT({IO_COUNT{1'b0}})) outputRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -71,7 +71,7 @@ module GPIODevice #(
 	wire[IO_COUNT-1:0] inputRegisterWriteData_nc;
 	wire inputRegisterWriteDataEnable_nc;
 	wire inputRegisterReadDataEnable_nc;
-	DataRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h008)) inputRegister(
+	DataRegister #(.WIDTH(IO_COUNT), .ADDRESS(12'h020)) inputRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),

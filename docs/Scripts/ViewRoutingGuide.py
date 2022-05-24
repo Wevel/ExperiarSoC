@@ -27,6 +27,24 @@ def ParseGuideFile(fileName:str) -> dict[str, list[tuple[float, float, float, fl
 
 	return data
 
+def LoadDRCErrorLocations(fileName:str) -> list[tuple[float, float, float, float]]:
+	if not os.path.exists(fileName):
+		return []
+
+	with open(fileName, "r") as f:
+		lines = f.readlines()
+
+	data = []
+
+	for l in lines:
+		parts = l.strip().split(' ')
+		if len(parts) == 4:
+			data.append((parts[0], parts[1], parts[2], parts[3]))
+
+	print(f"Loaded {len(data)} DRC errors")
+
+	return data
+
 def LoadMacroPlacementFile(macroPlacementFileName:str) -> JSONWrapper:
 	if not os.path.exists(macroPlacementFileName):
 		print(f"Can't find macro placement file '{macroPlacementFileName}'")
@@ -135,11 +153,11 @@ def ViewGuideFile(guideFileName:str, macroPlacementFileName:str):
 			if item.HasEntry("displayName"):
 				textToDraw.append(((px0, py0, px1, py1), item.GetEntry("displayName").AsString()))			
 	
-	def drawRect(d, r, c):
-		px0 = (r[0] + boarder) * imageScale
-		py0 = (chipHeight - r[1] + boarder) * imageScale
-		px1 = (r[2] + boarder) * imageScale
-		py1 = (chipHeight - r[3] + boarder) * imageScale
+	def drawRect(d, r, c):		
+		px0 = int((r[0] + boarder) * imageScale)
+		py0 = int((chipHeight - r[1] + boarder) * imageScale)
+		px1 = int((r[2] + boarder) * imageScale)
+		py1 = int((chipHeight - r[3] + boarder) * imageScale)
 		d.rectangle((px0, py0, px1, py1), fill=c, outline=None, width=0)
 
 	def drawLayer(name, c):
@@ -162,6 +180,11 @@ def ViewGuideFile(guideFileName:str, macroPlacementFileName:str):
 
 	for item in textToDraw:
 		DrawText(imBase, item[0], item[1])
+
+	imDraw = ImageDraw.Draw(imBase, "RGBA")
+	errorData = LoadDRCErrorLocations("ExperiarSoC/precheck_results/24_MAY_2022___21_15_27/outputs/reports/magic_drc_check.drc.report")
+	for item in errorData:
+		drawRect(imDraw, (item[0]-20, item[1]-20, item[2]+20, item[3]+20), (255, 0, 0, 255))
 
 	# write to stdout
 	imBase.save(f"{guideFileName}.jpg", "PNG")

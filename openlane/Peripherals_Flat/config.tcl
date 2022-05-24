@@ -25,6 +25,7 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Peripherals/UART/UART_tx.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DataRegister.v \
+	$script_dir/../../verilog/rtl/Peripherals/Registers/OutputRegister.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/DeviceSelect.v \
 	$script_dir/../../verilog/rtl/Peripherals/Registers/PeripheralSelect.v \
 	$script_dir/../../verilog/rtl/Utility/FIFO.v \
@@ -54,7 +55,7 @@ set ::env(DIE_AREA) "0 0 600 800"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.415
+set ::env(PL_TARGET_DENSITY) 0.425
 
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 

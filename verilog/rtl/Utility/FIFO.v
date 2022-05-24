@@ -22,6 +22,7 @@ module FIFO
 	reg we_buffered = 1'b0;
 	reg oe_buffered = 1'b0;
 	reg[WORD_SIZE-1:0] dataIn_buffered = {WORD_SIZE{1'b0}};
+	reg[WORD_SIZE-1:0] dataOut_buffered;
 
 	reg[ADDRESS_SIZE-1:0] startPointer = {ADDRESS_SIZE{1'b0}};
 	reg[ADDRESS_SIZE-1:0] endPointer = {ADDRESS_SIZE{1'b0}};
@@ -31,6 +32,7 @@ module FIFO
 	wire[ADDRESS_SIZE-1:0] nextEndPointer = endPointer + 1;
 
 	reg lastWriteLostData = 1'b0;
+
 
 	always @(posedge clk) begin
 		if (rst) begin

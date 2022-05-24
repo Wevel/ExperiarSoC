@@ -1,0 +1,40 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO Art
+  CLASS BLOCK ;
+  FOREIGN Art ;
+  ORIGIN -0.200 0.000 ;
+  SIZE 302.920 BY 750.000 ;
+  PIN vccd1
+    DIRECTION INPUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 0.20000 0.00000 1.80000 750.00000 ;
+    END
+  END vccd1
+  PIN vssd1
+    DIRECTION INPUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 298.20000 0.00000 299.80000 750.00000 ;
+    END
+  END vssd1
+  OBS
+    LAYER  met1 ;
+      RECT  1.8 0.0 298.2 750.0 ;
+	LAYER  met1 ;
+      RECT  1.8 0.0 298.2 750.0 ;
+	LAYER  met2 ;
+      RECT  1.8 0.0 298.2 750.0 ;
+	LAYER  met3 ;
+      RECT  1.8 0.0 298.2 750.0 ;
+	LAYER  met4 ;
+      RECT  1.8 0.0 298.2 750.0 ;     
+   END
+END Art
+END LIBRARY
+
