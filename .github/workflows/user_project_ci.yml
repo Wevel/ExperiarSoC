@@ -101,7 +101,7 @@ jobs:
         with:
           name: error
           path: |
-            /home/runner/work/caravel_user_project/caravel_user_project/mpw_precheck_result/logs/*
+            /home/runner/work/caravel_user_project/caravel_user_project/mpw_precheck_result/*
 
   user_project_flow:
     timeout-minutes: 720
