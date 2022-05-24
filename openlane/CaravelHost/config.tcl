@@ -46,7 +46,7 @@ set ::env(DIE_AREA) "0 0 350 350"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.385
+set ::env(PL_TARGET_DENSITY) 0.395
 
 # If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
 # If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN

@@ -3,7 +3,7 @@ set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hd"
 
 set script_dir [file dirname [file normalize [info script]]]
 
-set ::env(ROUTING_CORES) "8"
+set ::env(ROUTING_CORES) "12"
 
 set ::env(DESIGN_NAME) ExperiarCore
 
@@ -36,7 +36,7 @@ set ::env(CLOCK_BUFFER_FANOUT) "8"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 450 800"
+set ::env(DIE_AREA) "0 0 450 900"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -46,7 +46,7 @@ set ::env(DIE_AREA) "0 0 450 800"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.315
+set ::env(PL_TARGET_DENSITY) 0.285
 
 # If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
 # If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN
@@ -66,4 +66,4 @@ set ::env(DIODE_INSERTION_STRATEGY) 4
 # This doesn't work right now :(
 #set ::env(TAKE_LAYOUT_SCROT) 1
 
-#set ::env(GLB_RT_ALLOW_CONGESTION) 1
+set ::env(GLB_RT_ALLOW_CONGESTION) 1

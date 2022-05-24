@@ -1,11 +1,11 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653215828
+timestamp 1653382888
 << obsli1 >>
 rect 1104 2159 58880 39729
 << obsm1 >>
-rect 198 1300 59694 39760
+rect 198 1164 59694 39760
 << metal2 >>
 rect 3698 41200 3754 42000
 rect 11150 41200 11206 42000
@@ -577,8 +577,6 @@ rect 4208 2128 4528 39760
 rect 19568 2128 19888 39760
 rect 34928 2128 35248 39760
 rect 50288 2128 50608 39760
-<< obsm4 >>
-rect 2083 11323 2149 15877
 << labels >>
 rlabel metal2 s 3698 41200 3754 42000 6 flash_csb
 port 1 nsew signal output
@@ -1054,8 +1052,8 @@ port 233 nsew signal input
 string FIXED_BBOX 0 0 60000 42000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 1477934
+string GDS_END 1609334
 string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Flash/runs/Flash/results/signoff/Flash.magic.gds
-string GDS_START 172140
+string GDS_START 188456
 << end >>
 

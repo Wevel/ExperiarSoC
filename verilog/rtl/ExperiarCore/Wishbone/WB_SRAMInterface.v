@@ -123,7 +123,7 @@ module WB_SRAMInterface (
 	// Connect to local peripheral bus
 	wire peripheralBus_we = isStateWriteSingle;
 	wire peripheralBus_oe = isStateReadSingle;
-	wire[19:0] peripheralBus_address = !isStateIdle ? currentAddress : 24'b0;
+	wire[23:0] peripheralBus_address = !isStateIdle ? currentAddress : 24'b0;
 	wire[3:0] peripheralBus_byteSelect = !isStateIdle ? currentByteSelect : 4'b0;
 	wire[31:0] peripheralBus_dataWrite = isStateWriteSingle ? wb_data_i : 32'b0;	
 	assign wb_data_o = dataRead_buffered;

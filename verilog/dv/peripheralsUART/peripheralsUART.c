@@ -78,8 +78,8 @@ uint32_t wbRead (uint32_t* location)
 
 void nextTest (bool testPassing)
 {
-	uint32_t testPassingOutput = testPassing ? 0x1 << 12 : 0;
-	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput | (0x1 << 13));
+	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
+	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput | 0x02000);
 	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput);
 }
 
@@ -123,7 +123,7 @@ void main ()
 
 	// Setup test output
 	bool testPass = true;
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x1 << 12);
+	wbWrite (GPIO0_OUTPUT_ADDR, 0x01000);
 	wbWrite (GPIO0_OE_ADDR, ~0x03000);
 
 	// Write caravel device config and clear
