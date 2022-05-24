@@ -1,11 +1,11 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653408436
+timestamp 1653431090
 << obsli1 >>
 rect 1104 2159 118864 157777
 << obsm1 >>
-rect 1026 1368 119126 157956
+rect 1026 1708 119126 158092
 << metal2 >>
 rect 754 159200 810 160000
 rect 2318 159200 2374 160000
@@ -601,15 +601,15 @@ rect 81008 2128 81328 157808
 rect 96368 2128 96688 157808
 rect 111728 2128 112048 157808
 << obsm4 >>
-rect 3371 3979 4128 156093
-rect 4608 3979 19488 156093
-rect 19968 3979 34848 156093
-rect 35328 3979 50208 156093
-rect 50688 3979 65568 156093
-rect 66048 3979 80928 156093
-rect 81408 3979 96288 156093
-rect 96768 3979 111648 156093
-rect 112128 3979 116229 156093
+rect 2083 2347 4128 157453
+rect 4608 2347 19488 157453
+rect 19968 2347 34848 157453
+rect 35328 2347 50208 157453
+rect 50688 2347 65568 157453
+rect 66048 2347 80928 157453
+rect 81408 2347 96288 157453
+rect 96768 2347 111648 157453
+rect 112128 2347 115309 157453
 << labels >>
 rlabel metal2 s 86682 0 86738 800 6 flash_csb
 port 1 nsew signal input
@@ -1107,8 +1107,8 @@ port 240 nsew signal input
 string FIXED_BBOX 0 0 120000 160000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 50598442
+string GDS_END 51942630
 string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Peripherals_Flat/runs/Peripherals_Flat/results/finishing/Peripherals.magic.gds
-string GDS_START 1119466
+string GDS_START 1141410
 << end >>
 

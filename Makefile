@@ -76,7 +76,7 @@ dv-targets-rtl=$(dv_patterns:%=verify-%-rtl)
 dv-targets-gl=$(dv_patterns:%=verify-%-gl)
 dv-targets-gl-sdf=$(dv_patterns:%=verify-%-gl-sdf)
 
-TARGET_PATH=$(shell pwd)
+TARGET_PATH=$(PWD)
 verify_command="cd ${TARGET_PATH}/verilog/dv/$* && export SIM=${SIM} && make"
 dv_base_dependencies=simenv
 docker_run_verify=\
@@ -177,7 +177,7 @@ precheck:
 
 .PHONY: run-precheck
 run-precheck: check-pdk check-precheck
-	$(eval INPUT_DIRECTORY := $(shell pwd))
+	$(eval INPUT_DIRECTORY := $(PWD))
 	cd $(PRECHECK_ROOT) && \
 	docker run -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) \
 	-v $(INPUT_DIRECTORY):$(INPUT_DIRECTORY) \

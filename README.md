@@ -30,33 +30,37 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 ## Build Status
 - CaravelHost: Success
-- ExperiarCore: Success (Seem to be missing much of the core from the gds)
+- ExperiarCore: Success
 - Flash: Success
 - Peripherals: Success
 - Video: Success
 - WishboneInterconnect: Success
-- user_project_wrapper: Success (Max slew violations)
+- user_project_wrapper: Success
+
+Several macros have max slew violations.
 
 # Tests
 ## RTL
 ### verify-peripheralsGPIO-rtl: Success
-### verify-peripheralsUART-rtl: Not implemented
+### verify-peripheralsUART-rtl: Failed
 ### verify-peripheralsSPI-rtl: Not implemented
 ### verify-peripheralsPWM-rtl: Not implemented
 ### verify-memory-rtl: Not implemented
 ### verify-video-rtl: Not implemented
-### verify-corePC-rtl: Not implemented
+### verify-corePC-rtl: Success
 ### verify-coreMem-rtl: Not implemented
 ### verify-coreArch-rtl: Not implemented
 
 ## GL
-### verify-peripheralsGPIO-gl: Failed
-### verify-peripheralsUART-gl: Not implemented
+### verify-peripheralsGPIO-gl: Not run
+### verify-peripheralsUART-gl: Not run
 ### verify-peripheralsSPI-gl: Not implemented
 ### verify-peripheralsPWM-gl: Not implemented
 ### verify-memory-gl: Not implemented
 ### verify-video-gl: Not implemented
-### verify-core-gl: Not implemented
+### verify-corePC-gl: Not run
+### verify-coreMem-gl: Not implemented
+### verify-coreArch-gl: Not implemented
 
 # Need to do
 - Write remaining tests (and fix everything until they pass)
