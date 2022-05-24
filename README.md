@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![UPRJ_CI](https://github.com/Wevel/ExperiarSoC/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/Wevel/ExperiarSoC/actions/workflows/user_project_ci.yml) 
+<!-- [![Caravel Build](https://github.com/Wevel/ExperiarSoC/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/Wevel/ExperiarSoC/actions/workflows/caravel_build.yml) -->
+
 # ExperiarSoC
 RISC-V SoC designed for the Efabless Open MPW Program. This project 
 
@@ -59,6 +62,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - Add gpio registers for set, clear, and toggle which use the write data as a mask
 - Write remaining tests (and fix everything until they pass)
 - Fix timing violations
+- Fix precheck errors
 
 # Could do
 - Flash controller
