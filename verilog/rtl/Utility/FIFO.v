@@ -39,12 +39,10 @@ module FIFO
 			we_buffered <= 1'b0;
 			oe_buffered <= 1'b0;
 			dataIn_buffered <= {WORD_SIZE{1'b0}};
-			dataOut_buffered <= {WORD_SIZE{1'b0}};
 		end else begin
 			we_buffered <= we;
 			oe_buffered <= oe;
 			dataIn_buffered <= dataIn;
-			dataOut_buffered <= buffer[startPointer];
 		end
 	end
 
@@ -54,19 +52,25 @@ module FIFO
 			startPointer <= {ADDRESS_SIZE{1'b0}};
 			endPointer <= {ADDRESS_SIZE{1'b0}};
 			lastWriteLostData <= 1'b0;
+			dataOut_buffered <= {WORD_SIZE{1'b0}};
 		end else begin
 			if (oe_buffered) begin
-				if (startPointer != endPointer) begin
-					startPointer <= nextStartPointer;					
+				if (isData) begin
+					startPointer <= nextStartPointer;
+					dataOut_buffered <= buffer[nextStartPointer];
+				end else begin
+					dataOut_buffered <= {WORD_SIZE{1'b0}};
 				end
 			end
 
 			if (we_buffered) begin
 				// TODO: Should we allow the buffer to overwrite itself when a write occurs and it is already full
 				if (!bufferFull) begin
-					buffer[endPointer] <= dataIn_buffered;
+					buffer[endPointer] <= dataIn_buffered;					
 					endPointer <= nextEndPointer;
 					lastWriteLostData <= 1'b0;
+
+					if (!isData) dataOut_buffered <= dataIn_buffered;
 				end else begin
 					lastWriteLostData <= 1'b1;
 				end

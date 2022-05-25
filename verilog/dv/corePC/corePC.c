@@ -25,19 +25,24 @@
 		- Observes counter value through the MPRJ lower 8 IO pins (in the testbench)
 */
 
-#define GPIO0_OE_ADDR ((uint32_t*)0x33031000)
-#define GPIO0_OUTPUT_ADDR ((uint32_t*)0x33031004)
-#define GPIO0_INPUT_ADDR ((uint32_t*)0x33031008)
-#define GPIO1_OE_ADDR ((uint32_t*)0x33032000)
-#define GPIO1_OUTPUT_ADDR ((uint32_t*)0x33032004)
-#define GPIO1_INPUT_ADDR ((uint32_t*)0x33032008)
-
-#define GPIO0_OE (*GPIO0_OE_ADDR)
-#define GPIO0_OUTPUT (*GPIO0_OUTPUT_ADDR)
-#define GPIO0_INPUT (*GPIO0_INPUT_ADDR)
-#define GPIO1_OE (*GPIO1_OE_ADDR)
-#define GPIO1_OUTPUT (*GPIO1_OUTPUT_ADDR)
-#define GPIO1_INPUT (*GPIO1_INPUT_ADDR)
+#define GPIO0_OE_WRITE_ADDR ((uint32_t*)0x33031000)
+#define GPIO0_OE_SET_ADDR ((uint32_t*)0x33031004)
+#define GPIO0_OE_CLEAR_ADDR ((uint32_t*)0x33031008)
+#define GPIO0_OE_TOGGLE_ADDR ((uint32_t*)0x3303100C)
+#define GPIO0_OUTPUT_WRITE_ADDR ((uint32_t*)0x33031010)
+#define GPIO0_OUTPUT_SET_ADDR ((uint32_t*)0x33031014)
+#define GPIO0_OUTPUT_CLEAR_ADDR ((uint32_t*)0x33031018)
+#define GPIO0_OUTPUT_TOGGLE_ADDR ((uint32_t*)0x3303101C)
+#define GPIO0_INPUT_ADDR ((uint32_t*)0x33031020)
+#define GPIO1_OE_WRITE_ADDR ((uint32_t*)0x33032000)
+#define GPIO1_OE_SET_ADDR ((uint32_t*)0x33032004)
+#define GPIO1_OE_CLEAR_ADDR ((uint32_t*)0x33032008)
+#define GPIO1_OE_TOGGLE_ADDR ((uint32_t*)0x3303200C)
+#define GPIO1_OUTPUT_WRITE_ADDR ((uint32_t*)0x33032010)
+#define GPIO1_OUTPUT_SET_ADDR ((uint32_t*)0x33032014)
+#define GPIO1_OUTPUT_CLEAR_ADDR ((uint32_t*)0x33032018)
+#define GPIO1_OUTPUT_TOGGLE_ADDR ((uint32_t*)0x3303201C)
+#define GPIO1_INPUT_ADDR ((uint32_t*)0x33032020)
 
 #define CORE0_CONFIG_ADDR ((uint32_t*)0x30800000)
 #define CORE0_STATUS_ADDR ((uint32_t*)0x30800004)
@@ -92,8 +97,8 @@ uint32_t wbRead (uint32_t* location)
 void nextTest (bool testPassing)
 {
 	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
-	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput | 0x02000);
-	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput);
+	wbWrite (GPIO0_OUTPUT_SET_ADDR, testPassingOutput | 0x02000);
+	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x02000);
 }
 
 void main ()
@@ -136,8 +141,8 @@ void main ()
 
 	// Setup test output
 	bool testPass = true;
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x01000);
-	wbWrite (GPIO0_OE_ADDR, ~0x03000);
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, 0x01000);
+	wbWrite (GPIO0_OE_WRITE_ADDR, ~0x03000);
 
 	// Write nop to sram to allow step to be a valid instruction
 	// This does assume that instructions can be read
