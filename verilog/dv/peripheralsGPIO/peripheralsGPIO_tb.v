@@ -146,7 +146,7 @@ module peripheralsGPIO_tb;
 		power4 <= 1'b1;
 	end
 
-	always @(mprj_io) begin
+	always @(succesOutput, nextTestOutput, outputTestData, inputTestData) begin
 		#1 $display("Success:0b%b Next test:0b%b Output:0b%b Input:0b%b", succesOutput, nextTestOutput, outputTestData, inputTestData);
 	end
 

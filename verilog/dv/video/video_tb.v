@@ -17,7 +17,7 @@
 
 `timescale 1 ns / 1 ps
 
-module peripheralsUART_tb;
+module video_tb;
 	reg clock;
 	reg RSTB;
 	reg CSB;
@@ -29,8 +29,14 @@ module peripheralsUART_tb;
 
 	wire succesOutput = mprj_io[12];
 	wire nextTestOutput = mprj_io[13];
+	
+	wire[5:0] vgaPixel = mprj_io[35:30];
+	wire vgaVSync = mprj_io[36];
+	wire vgaHSync = mprj_io[37];
 
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
+
+	reg timingValid = 1'b1;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -39,28 +45,34 @@ module peripheralsUART_tb;
 
 	initial begin
 		clock = 0;
+		timingValid = 1'b1;
 	end
 
 	initial begin
-		$dumpfile("peripheralsUART.vcd");
-		$dumpvars(0, peripheralsUART_tb);
+		$dumpfile("video.vcd");
+		$dumpvars(0, video_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (750) begin
+		repeat (1000) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
 		$display("%c[1;35m",27);
 		`ifdef GL
-			$display ("Monitor: Timeout, Peripherals UART Test (GL) Failed");
+			$display ("Monitor: Timeout, Peripherals Video Test (GL) Failed");
 		`else
-			$display ("Monitor: Timeout, Peripherals UART Test (RTL) Failed");
+			$display ("Monitor: Timeout, Peripherals Video Test (RTL) Failed");
 		`endif
 		$display("%c[0m",27);
 		$finish;
 	end
 
+	realtime timerStart;
+	realtime timerLength;
+
 	initial begin
+		$timeformat(-6, 3, "us", 8);
+
 		// Wait for tests
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
@@ -72,25 +84,96 @@ module peripheralsUART_tb;
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
+
+		// Test default vga mode
+		@(negedge vgaHSync);
+		timerStart = $realtime;
+		
+		// Measure hsync pulse length
+		@(posedge vgaHSync);
+		timerLength = $realtime - timerStart;
+		$display("H Sync pulse period: %t", timerLength);
+		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
+
+		// Measure hsync period
+		@(negedge vgaHSync);
+		timerLength = $realtime - timerStart;
+		$display("H Sync period: %t", timerLength);
+		if (timerLength < 3290 || timerLength > 3310) timingValid = 1'b0;
+
+		@(negedge vgaVSync);
+		timerStart = $realtime;
+		
+		// Measure hsync pulse length
+		@(posedge vgaVSync);
+		timerLength = $realtime - timerStart;
+		$display("V Sync pulse period: %t", timerLength);
+		if (timerLength < 13190 || timerLength > 13210) timingValid = 1'b0;
+
+		// Measure vsync period
+		@(negedge vgaVSync);
+		timerLength = $realtime - timerStart;
+		$display("V Sync period: %t", timerLength);
+		if (timerLength < 2072390 || timerLength > 2072410) timingValid = 1'b0;
+
+		// Test tight memory mode
 		@(posedge nextTestOutput);
 
-		// Wait for management core to output the final output test result
+		@(negedge vgaHSync);
+		timerStart = $realtime;
+		
+		// Measure hsync pulse length
+		@(posedge vgaHSync);
+		timerLength = $realtime - timerStart;
+		$display("H Sync pulse period: %t", timerLength);
+		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
+
+		// Measure hsync period
+		@(negedge vgaHSync);
+		timerLength = $realtime - timerStart;
+		$display("H Sync period: %t", timerLength);
+		if (timerLength < 3290 || timerLength > 3310) timingValid = 1'b0;
+
+		@(negedge vgaVSync);
+		timerStart = $realtime;
+		
+		// Measure hsync pulse length
+		@(posedge vgaVSync);
+		timerLength = $realtime - timerStart;
+		$display("V Sync pulse period: %t", timerLength);
+		if (timerLength < 13190 || timerLength > 13210) timingValid = 1'b0;
+
+		// Measure vsync period
+		@(negedge vgaVSync);
+		timerLength = $realtime - timerStart;
+		$display("V Sync period: %t", timerLength);
+		if (timerLength < 2072390 || timerLength > 2072410) timingValid = 1'b0;
+
+		// Wait for test to finish
 		@(posedge nextTestOutput);
 		
-		if (succesOutput) begin
+		if (timingValid) begin
+			$display("%c[1;31m",27);
+			`ifdef GL
+				$display ("Monitor: Peripherals Video Test VGA Timing (GL) Failed");
+			`else
+				$display ("Monitor: Peripherals Video Test VGA Timing (RTL) Failed");
+			`endif
+			$display("%c[0m",27);
+		end else if (succesOutput) begin
 			$display("%c[1;92m",27);
 			`ifdef GL
-				$display("Monitor: Peripherals UART Test (GL) Passed");
+				$display("Monitor: Peripherals Video Test (GL) Passed");
 			`else
-				$display("Monitor: Peripherals UART Test (RTL) Passed");
+				$display("Monitor: Peripherals Video Test (RTL) Passed");
 			`endif
 			$display("%c[0m",27);
 		end else begin
 			$display("%c[1;31m",27);
 			`ifdef GL
-				$display ("Monitor: Peripherals UART Test (GL) Failed");
+				$display ("Monitor: Peripherals Video Test (GL) Failed");
 			`else
-				$display ("Monitor: Peripherals UART Test (RTL) Failed");
+				$display ("Monitor: Peripherals Video Test (RTL) Failed");
 			`endif
 			$display("%c[0m",27);
 		end
@@ -168,7 +251,7 @@ module peripheralsUART_tb;
 	);
 
 	spiflash #(
-		.FILENAME("peripheralsUART.hex")
+		.FILENAME("video.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),

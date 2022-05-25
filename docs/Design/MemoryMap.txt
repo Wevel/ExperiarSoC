@@ -38,7 +38,8 @@
 			0x1280_0020: Vertical visible area compare
 			0x1280_0024: Vertical front porch compare
 			0x1280_0028: Vertical sync pulse compare
-			0x1280_002C: Vertical whole line compare			
+			0x1280_002C: Vertical whole line compare
+			0x1280_0030: VGA screen state
 	0x13xx_xxxx: Slave 3 (Peripherals)
 		0x1300_xxxx: Peripheral 0 (UART)
 			0x1300_0xxx: Peripheral configuration

@@ -94,6 +94,7 @@ module Video (
 		.peripheralBus_dataRead(peripheralBus_dataRead),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite));
 	
+	wire video_fetchData;
 	wire[SRAM_ADDRESS_SIZE+3:0] vga_address;
 	wire[31:0] vga_data;
 
@@ -115,6 +116,7 @@ module Video (
 		.peripheralBus_dataRead(videoMemoryDataRead),
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.requestOutput(videoMemoryRequestOutput),
+		.video_fetchData(vga_fetchData),
 		.video_address(vga_address),
 		.video_data(vga_data),
 		.sram0_csb0(sram0_csb0),
@@ -160,6 +162,7 @@ module Video (
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.requestOutput(vgaRequestOutput),
 		.vga_clk(vga_clk),
+		.vga_fetchData(vga_fetchData),
 		.vga_address(vga_address),
 		.vga_data(vga_data),
 		.vga_r(vga_r),

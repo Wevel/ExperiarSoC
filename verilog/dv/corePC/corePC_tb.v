@@ -127,7 +127,7 @@ module corePC_tb;
 		power4 <= 1'b1;
 	end
 
-	always @(mprj_io) begin
+	always @(succesOutput, nextTestOutput) begin
 		#1 $display("Success:0b%b Next test:0b%b", succesOutput, nextTestOutput);
 	end
 

@@ -42,23 +42,23 @@ Several macros have max slew violations.
 # Tests
 ## RTL
 ### verify-peripheralsGPIO-rtl: Success
-### verify-peripheralsUART-rtl: Failed
+### verify-peripheralsUART-rtl: Success
 ### verify-peripheralsSPI-rtl: Not implemented
 ### verify-peripheralsPWM-rtl: Not implemented
 ### verify-memory-rtl: Not implemented
-### verify-video-rtl: Not implemented
+### verify-video-rtl: Not run
 ### verify-corePC-rtl: Success
 ### verify-coreMem-rtl: Not implemented
 ### verify-coreArch-rtl: Not implemented
 
 ## GL
-### verify-peripheralsGPIO-gl: Not run
-### verify-peripheralsUART-gl: Not run
+### verify-peripheralsGPIO-gl: Failed
+### verify-peripheralsUART-gl: Failed
 ### verify-peripheralsSPI-gl: Not implemented
 ### verify-peripheralsPWM-gl: Not implemented
 ### verify-memory-gl: Not implemented
 ### verify-video-gl: Not implemented
-### verify-corePC-gl: Not run
+### verify-corePC-gl: Failed
 ### verify-coreMem-gl: Not implemented
 ### verify-coreArch-gl: Not implemented
 
@@ -68,7 +68,6 @@ Several macros have max slew violations.
 - Fix precheck errors
 
 # Could do
-- Add gpio registers for set, clear, and toggle which use the write data as a mask
 - Add uart pin swapping
 - Flash controller
 - JTAG core management controller
