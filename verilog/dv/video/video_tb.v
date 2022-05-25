@@ -152,7 +152,7 @@ module video_tb;
 		// Wait for test to finish
 		@(posedge nextTestOutput);
 		
-		if (timingValid) begin
+		if (!timingValid) begin
 			$display("%c[1;31m",27);
 			`ifdef GL
 				$display ("Monitor: Peripherals Video Test VGA Timing (GL) Failed");
