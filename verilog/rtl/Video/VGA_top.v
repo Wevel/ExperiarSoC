@@ -339,27 +339,21 @@ module VGA #(
 	reg fetchPixelData;
 	reg loadPixelData;
 
-	reg[2:0] hsyncDelay;
-	reg[2:0] vsyncDelay;
 	reg[31:0] currentPixelData;
 	always @(posedge vga_clk) begin
 		if (rst || !enableOutput) begin
 			currentPixelData <= 32'b0;
-			hsyncDelay <= 2'b11;
-			vsyncDelay <= 2'b11;
 			loadPixelData <= 1'b0;
 		end else begin
 			loadPixelData <= fetchPixelData;
 			if (loadPixelData) currentPixelData <= vga_data;
-			hsyncDelay <= { hsyncDelay[1:0], hsync };
-			vsyncDelay <= { vsyncDelay[1:0], vsync };
 		end
 	end
 
 	assign vga_fetchData = fetchPixelData;
 
-	assign vga_hsync = enableOutput ? hsyncDelay[2] : 1'b1;
-	assign vga_vsync = enableOutput ? vsyncDelay[2] : 1'b1;
+	assign vga_hsync = enableOutput ? hsync : 1'b1;
+	assign vga_vsync = enableOutput ? vsync : 1'b1;
 
 	// VGA pixel address select
 	reg[8:0] raw_horizontalPixelCounter;
