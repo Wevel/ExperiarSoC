@@ -157,6 +157,7 @@ jobs:
         run: |
           make verify-peripheralsGPIO-rtl
           make verify-peripheralsUART-rtl
+          make verify-memory-rtl
           make verify-video-rtl
           make verify-corePC-rtl
         
@@ -164,5 +165,6 @@ jobs:
         run: |
           make verify-peripheralsGPIO-gl
           make verify-peripheralsUART-gl
+          make verify-memory-gl
           make verify-video-gl
           make verify-corePC-gl
