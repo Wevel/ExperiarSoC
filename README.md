@@ -46,7 +46,7 @@ Several macros have max slew violations.
 ### verify-peripheralsSPI-rtl: Not implemented
 ### verify-peripheralsPWM-rtl: Not implemented
 ### verify-memory-rtl: Not implemented
-### verify-video-rtl: Not run
+### verify-video-rtl: Success (Not validating correct pixel data)
 ### verify-corePC-rtl: Success
 ### verify-coreMem-rtl: Not implemented
 ### verify-coreArch-rtl: Not implemented
@@ -57,7 +57,7 @@ Several macros have max slew violations.
 ### verify-peripheralsSPI-gl: Not implemented
 ### verify-peripheralsPWM-gl: Not implemented
 ### verify-memory-gl: Not implemented
-### verify-video-gl: Not implemented
+### verify-video-gl: Not run
 ### verify-corePC-gl: Failed
 ### verify-coreMem-gl: Not implemented
 ### verify-coreArch-gl: Not implemented
@@ -65,7 +65,7 @@ Several macros have max slew violations.
 # Need to do
 - Write remaining tests (and fix everything until they pass)
 - Fix timing violations
-- Fix precheck errors
+- Make version of art which passes prechecks
 
 # Could do
 - Add uart pin swapping

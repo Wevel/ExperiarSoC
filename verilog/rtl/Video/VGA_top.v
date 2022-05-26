@@ -336,24 +336,27 @@ module VGA #(
 	// c0: pixel counter increments, sync signal set, and address is set 
 	// c1: data is valid
 
-	reg loadPixel;
+	reg fetchPixelData;
+	reg loadPixelData;
 
 	reg[1:0] hsyncDelay;
 	reg[1:0] vsyncDelay;
 	reg[31:0] currentPixelData;
 	always @(posedge vga_clk) begin
 		if (rst || !enableOutput) begin
-			currentPixelData <= 1'b0;
+			currentPixelData <= 32'b0;
 			hsyncDelay <= 2'b11;
 			vsyncDelay <= 2'b11;
+			loadPixelData <= 1'b0;
 		end else begin
-			if (loadPixel) currentPixelData <= vga_data;
+			loadPixelData <= fetchPixelData;
+			if (loadPixelData) currentPixelData <= vga_data;
 			hsyncDelay <= { hsyncDelay[0], hsync };
 			vsyncDelay <= { vsyncDelay[0], vsync };
 		end
 	end
 
-	assign vga_fetchData = loadPixel;
+	assign vga_fetchData = fetchPixelData;
 
 	assign vga_hsync = enableOutput ? hsyncDelay[1] : 1'b1;
 	assign vga_vsync = enableOutput ? vsyncDelay[1] : 1'b1;
@@ -383,44 +386,51 @@ module VGA #(
 
 	// Raw draw mode
 	always @(*) begin
-		if (inVerticalVisibleArea) begin
+		raw_directPixelCounter_d = raw_directPixelCounter;
+		raw_subPixelCounter_d = raw_subPixelCounter;
+		raw_horizontalPixelCounter_d = raw_horizontalPixelCounter;
+		raw_horizontalPixelStretchCounter_d = raw_horizontalPixelStretchCounter;
+		raw_verticalPixelCounter_d = raw_verticalPixelCounter;
+		raw_verticalPixelStretchCounter_d = raw_verticalPixelStretchCounter;
+
+		if (rst || !enableOutput || !inVerticalVisibleArea) begin
+			raw_directPixelCounter_d = 18'b0;		
+			raw_subPixelCounter_d = 3'b0;
+			raw_horizontalPixelCounter_d = 9'b0;
+			raw_horizontalPixelStretchCounter_d = 4'b0;
+			raw_verticalPixelCounter_d = 10'b0;
+			raw_verticalPixelStretchCounter_d = 4'b0;	
+		end else begin
 			if (inHorizontalVisibleArea) begin
 				if (raw_horizontalPixelStretchNextPixel) begin
 					if (raw_subPixelCounter == MAX_SUB_PIXEL_VALUE) begin
-						raw_subPixelCounter_d <= 3'b0;
-						raw_horizontalPixelCounter_d <= raw_horizontalPixelCounter + 1;
-						raw_directPixelCounter_d <= raw_nextDirectPixelCounter;
+						raw_subPixelCounter_d = 3'b0;
+						raw_horizontalPixelCounter_d = raw_horizontalPixelCounter + 1;
+						raw_directPixelCounter_d = raw_nextDirectPixelCounter;
 					end	else begin
-						raw_subPixelCounter_d <= raw_subPixelCounter + 1;
+						raw_subPixelCounter_d = raw_subPixelCounter + 1;
 					end
 
-					raw_horizontalPixelStretchCounter_d <= 4'b0;
+					raw_horizontalPixelStretchCounter_d = 4'b0;
 				end else begin
-					raw_horizontalPixelStretchCounter_d <= raw_nextHorizontalPixelStretchCounter;
+					raw_horizontalPixelStretchCounter_d = raw_nextHorizontalPixelStretchCounter;
 				end
 			end else begin
-				raw_subPixelCounter_d <= 3'b0;
-				raw_horizontalPixelCounter_d <= 9'b0;
-				raw_horizontalPixelStretchCounter_d <= 4'b0;
+				raw_subPixelCounter_d = 3'b0;
+				raw_horizontalPixelCounter_d = 9'b0;
+				raw_horizontalPixelStretchCounter_d = 4'b0;
 			end
 
 			if (isEndHorizontalWholeLine) begin
-				raw_directPixelCounter_d <= raw_nextDirectPixelCounter;
+				raw_directPixelCounter_d = raw_nextDirectPixelCounter;
 
 				if (raw_verticalPixelStretchNextPixel) begin
-					raw_verticalPixelCounter_d <= raw_verticalPixelCounter + 1;
-					raw_verticalPixelStretchCounter_d <= 4'b0;
+					raw_verticalPixelCounter_d = raw_verticalPixelCounter + 1;
+					raw_verticalPixelStretchCounter_d = 4'b0;
 				end else begin
-					raw_verticalPixelStretchCounter_d <= raw_nextVerticalPixelStretchCounter;
+					raw_verticalPixelStretchCounter_d = raw_nextVerticalPixelStretchCounter;
 				end
 			end
-		end else begin
-			raw_directPixelCounter_d <= 18'b0;		
-			raw_subPixelCounter_d <= 3'b0;
-			raw_horizontalPixelCounter_d <= 9'b0;
-			raw_horizontalPixelStretchCounter_d <= 4'b0;
-			raw_verticalPixelCounter_d <= 9'b0;
-			raw_verticalPixelStretchCounter_d <= 4'b0;	
 		end
 	end
 
@@ -447,50 +457,54 @@ module VGA #(
 	wire raw_horizontalPixelCounterChanged = raw_horizontalPixelCounter != raw_horizontalPixelCounter_d;
 
 	always @(*) begin
-		// Use data register inputs for new address
-		// This means that the address gets updated at the same time as the pixel counters
-		// And so the data is valid the cycle after
-		// Rather than being two cycles after
-		case (drawMode)
-			// Use Seperate horizontal and vertical portions of address
-			// This means that for some resolutions portions of memory are not used by the video device
-			DRAW_MODE_RAW: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+		if (rst || !enableOutput) begin
+			vga_address <= {ADDRESS_BITS{1'b0}};
+			fetchPixelData <= 1'b0;
+		end else begin
+			// Use data register inputs for new address
+			// This means that the address gets updated at the same time as the pixel counters
+			// And so the data is valid the cycle after
+			// Rather than being two cycles after
+			case (drawMode)
+				// Use Seperate horizontal and vertical portions of address
+				// This means that for some resolutions portions of memory are not used by the video device
+				DRAW_MODE_RAW: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			// Directly use the pixel index to access memory
-			// This better uses memory, but is also slightly more complex for the cpu to write to the frame buffer
-			DRAW_MODE_RAW_TIGHT_MEM: begin
-				vga_address <= { raw_directPixelCounter_d[ADDRESS_BITS-1:0], 2'b00 };
-				loadPixel <= raw_directPixelCounterChanged;
-			end
+				// Directly use the pixel index to access memory
+				// This better uses memory, but is also slightly more complex for the cpu to write to the frame buffer
+				DRAW_MODE_RAW_TIGHT_MEM: begin
+					vga_address <= { raw_directPixelCounter_d[ADDRESS_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_directPixelCounterChanged;
+				end
 
-			// TODO: Use some portion of memory to store colours, then index them with the frame buffer
-			// This will require loading the pixel information ahead of time, so that the correct colour can be found
-			// Is this really helpful, as we use 6-bit colour, so probably need to use 4-bit colour palette index
-			DRAW_MODE_COLOUR_PALETTE: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+				// TODO: Use some portion of memory to store colours, then index them with the frame buffer
+				// This will require loading the pixel information ahead of time, so that the correct colour can be found
+				// Is this really helpful, as we use 6-bit colour, so probably need to use 4-bit colour palette index
+				DRAW_MODE_COLOUR_PALETTE: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			// TODO: Use some portion of memory to store sprites
-			// Then use a sprite index rather than colour data or a colour index
-			// How many sprites do we want to allow
-			// How big will sprites be
-			// How configurable should this be
-			// We have very little video memory, so this may not work very well at all
-			DRAW_MODE_SPRITES: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+				// TODO: Use some portion of memory to store sprites
+				// Then use a sprite index rather than colour data or a colour index
+				// How many sprites do we want to allow
+				// How big will sprites be
+				// How configurable should this be
+				// We have very little video memory, so this may not work very well at all
+				DRAW_MODE_SPRITES: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			default: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
-		endcase
-		
+				default: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
+			endcase
+		end
 	end
 
 	reg[5:0] raw_currentPixel;	
