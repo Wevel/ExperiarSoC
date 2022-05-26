@@ -166,11 +166,11 @@ void main ()
 	wbWrite (VGA_SRAM + 2, testPixel2);
 	wbWrite (VGA_SRAM + 3, testPixel3);
 
-	wbWrite (VGA_SRAM + 8, testPixel0);
-	wbWrite (VGA_SRAM + 9, testPixel1);
-	wbWrite (VGA_SRAM + 10, testPixel2);
-	wbWrite (VGA_SRAM + 11, testPixel3);
-	wbWrite (VGA_SRAM + 12, testPixel0);
+	wbWrite (VGA_SRAM + 0x10, testPixel0);
+	wbWrite (VGA_SRAM + 0x11, testPixel1);
+	wbWrite (VGA_SRAM + 0x12, testPixel2);
+	wbWrite (VGA_SRAM + 0x13, testPixel3);
+	wbWrite (VGA_SRAM + 0x14, testPixel0);
 
 	// Make sure some of the data has been written properly
 	// Don't bother testing everything as that would take even longer
