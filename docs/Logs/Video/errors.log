@@ -1,132 +1,17 @@
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1799]: ABC: Error: The network is combinational.
-openlane/Video\runs\Video\logs\routing\16-global.log[1339]: [INFO GRT-0012] Antenna violations: 51
-openlane/Video\runs\Video\logs\routing\16-global.log[1634]: [INFO GRT-0012] Antenna violations: 23
-openlane/Video\runs\Video\logs\routing\16-global.log[1943]: [INFO GRT-0012] Antenna violations: 3
-openlane/Video\runs\Video\logs\routing\16-global_2.log[1359]: [INFO GRT-0012] Antenna violations: 12
-openlane/Video\runs\Video\logs\routing\16-global_2.log[1674]: [INFO GRT-0012] Antenna violations: 1
-openlane/Video\runs\Video\logs\routing\19-detailed.log[185]: [INFO DRT-0199]   Number of violations = 2012.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[229]: [INFO DRT-0199]   Number of violations = 816.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[273]: [INFO DRT-0199]   Number of violations = 721.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[317]: [INFO DRT-0199]   Number of violations = 110.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[361]: [INFO DRT-0199]   Number of violations = 17.
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144708]: clkbuf_leaf_18_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144709]: clkbuf_leaf_17_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144710]: clkbuf_leaf_19_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144711]: clkbuf_leaf_20_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144712]: clkbuf_leaf_22_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144713]: clkbuf_leaf_10_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144714]: clkbuf_leaf_9_wb_clk_i/A                1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144715]: clkbuf_leaf_21_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144716]: clkbuf_leaf_14_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144717]: clkbuf_leaf_15_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144718]: clkbuf_leaf_16_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144719]: clkbuf_leaf_8_wb_clk_i/A                1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144720]: clkbuf_leaf_12_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144721]: clkbuf_leaf_13_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144722]: clkbuf_leaf_11_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144723]: clkbuf_2_1_0_wb_clk_i/X                 1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144724]: clkbuf_leaf_3_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144725]: clkbuf_opt_1_0_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144726]: clkbuf_leaf_0_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144727]: clkbuf_leaf_54_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144728]: clkbuf_leaf_52_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144729]: clkbuf_leaf_51_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144730]: clkbuf_leaf_47_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144731]: clkbuf_leaf_43_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144732]: clkbuf_leaf_48_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144733]: _3739_/CLK                              1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144734]: clkbuf_leaf_49_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144735]: clkbuf_leaf_50_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144736]: _3747_/CLK                              1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144737]: clkbuf_leaf_7_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144738]: clkbuf_leaf_4_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144739]: clkbuf_leaf_5_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144740]: clkbuf_leaf_6_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144741]: clkbuf_2_0_0_wb_clk_i/X                 1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144742]: clkbuf_leaf_36_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144743]: clkbuf_leaf_37_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144744]: clkbuf_leaf_46_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144745]: clkbuf_leaf_45_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144746]: clkbuf_leaf_44_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144747]: clkbuf_leaf_38_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144748]: clkbuf_opt_2_0_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144749]: clkbuf_leaf_32_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144750]: clkbuf_leaf_34_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144751]: clkbuf_leaf_31_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144752]: clkbuf_leaf_30_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144753]: clkbuf_leaf_39_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144754]: clkbuf_leaf_29_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144755]: clkbuf_leaf_35_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144756]: clkbuf_2_2_0_wb_clk_i/X                 1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144762]: clkbuf_2_1_0_wb_clk_i/X                 0.18    0.21   -0.03 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144763]: clkbuf_2_0_0_wb_clk_i/X                 0.18    0.20   -0.02 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144764]: clkbuf_2_2_0_wb_clk_i/X                 0.18    0.18   -0.00 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144774]: max slew violation count 49
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[144776]: max cap violation count 3
-openlane/Video\runs\Video\logs\placement\7-global.log[1452]: _3767_/A                                1.50    1.53   -0.03 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1453]: _3145_/B                                1.50    1.53   -0.03 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1454]: _1770_/X                                1.51    1.53   -0.03 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1455]: _3766_/A                                1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1456]: _3145_/A                                1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1457]: _1768_/X                                1.51    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1458]: _3765_/A                                1.50    1.50   -0.00 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1459]: _3144_/B                                1.50    1.50   -0.00 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1463]: max slew violation count 8
-openlane/Video\runs\Video\logs\finishing\32-Video.lef.log[1167]: HI                                         |(no matching pin)
-openlane/Video\runs\Video\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 25 net violations in 2985 nets.
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[11]: clkbuf_leaf_18_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[12]: clkbuf_leaf_17_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[13]: clkbuf_leaf_19_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[14]: clkbuf_leaf_20_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[15]: clkbuf_leaf_22_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[16]: clkbuf_leaf_10_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[17]: clkbuf_leaf_9_wb_clk_i/A                1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[18]: clkbuf_leaf_21_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[19]: clkbuf_leaf_14_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[20]: clkbuf_leaf_15_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[21]: clkbuf_leaf_16_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[22]: clkbuf_leaf_8_wb_clk_i/A                1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[23]: clkbuf_leaf_12_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[24]: clkbuf_leaf_13_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[25]: clkbuf_leaf_11_wb_clk_i/A               1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[26]: clkbuf_2_1_0_wb_clk_i/X                 1.50    1.70   -0.20 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[27]: clkbuf_leaf_3_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[28]: clkbuf_opt_1_0_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[29]: clkbuf_leaf_0_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[30]: clkbuf_leaf_54_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[31]: clkbuf_leaf_52_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[32]: clkbuf_leaf_51_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[33]: clkbuf_leaf_47_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[34]: clkbuf_leaf_43_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[35]: clkbuf_leaf_48_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[36]: _3739_/CLK                              1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[37]: clkbuf_leaf_49_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[38]: clkbuf_leaf_50_wb_clk_i/A               1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[39]: _3747_/CLK                              1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[40]: clkbuf_leaf_7_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[41]: clkbuf_leaf_4_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[42]: clkbuf_leaf_5_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[43]: clkbuf_leaf_6_wb_clk_i/A                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[44]: clkbuf_2_0_0_wb_clk_i/X                 1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[45]: clkbuf_leaf_36_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[46]: clkbuf_leaf_37_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[47]: clkbuf_leaf_46_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[48]: clkbuf_leaf_45_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[49]: clkbuf_leaf_44_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[50]: clkbuf_leaf_38_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[51]: clkbuf_opt_2_0_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[52]: clkbuf_leaf_32_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[53]: clkbuf_leaf_34_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[54]: clkbuf_leaf_31_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[55]: clkbuf_leaf_30_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[56]: clkbuf_leaf_39_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[57]: clkbuf_leaf_29_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[58]: clkbuf_leaf_35_wb_clk_i/A               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[59]: clkbuf_2_2_0_wb_clk_i/X                 1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[65]: clkbuf_2_1_0_wb_clk_i/X                 0.18    0.21   -0.03 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[66]: clkbuf_2_0_0_wb_clk_i/X                 0.18    0.20   -0.02 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[67]: clkbuf_2_2_0_wb_clk_i/X                 0.18    0.18   -0.00 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[77]: max slew violation count 49
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[79]: max cap violation count 3
-openlane/Video\runs\Video\reports\finishing\antenna.rpt[161919]: Number of pins violated: 25
-openlane/Video\runs\Video\reports\finishing\antenna.rpt[161920]: Number of nets violated: 25
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1949]: ABC: Error: The network is combinational.
+openlane/Video\runs\Video\logs\routing\16-global.log[1320]: [INFO GRT-0012] Antenna violations: 66
+openlane/Video\runs\Video\logs\routing\16-global.log[1594]: [INFO GRT-0012] Antenna violations: 40
+openlane/Video\runs\Video\logs\routing\16-global.log[1879]: [INFO GRT-0012] Antenna violations: 6
+openlane/Video\runs\Video\logs\routing\16-global_2.log[1335]: [INFO GRT-0012] Antenna violations: 30
+openlane/Video\runs\Video\logs\routing\16-global_2.log[1636]: [INFO GRT-0012] Antenna violations: 3
+openlane/Video\runs\Video\logs\routing\19-detailed.log[188]: [INFO DRT-0199]   Number of violations = 1962.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[232]: [INFO DRT-0199]   Number of violations = 850.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[276]: [INFO DRT-0199]   Number of violations = 634.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[320]: [INFO DRT-0199]   Number of violations = 88.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[364]: [INFO DRT-0199]   Number of violations = 44.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[408]: [INFO DRT-0199]   Number of violations = 15.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[452]: [INFO DRT-0199]   Number of violations = 1.
+openlane/Video\runs\Video\logs\finishing\32-Video.lef.log[1497]: HI                                         |(no matching pin)
+openlane/Video\runs\Video\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 14 net violations in 3139 nets.
+openlane/Video\runs\Video\reports\finishing\antenna.rpt[169568]: Number of pins violated: 15
+openlane/Video\runs\Video\reports\finishing\antenna.rpt[169569]: Number of nets violated: 14

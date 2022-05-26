@@ -46,7 +46,6 @@ module FIFO
 		end
 	end
 
-
 	always @(negedge clk) begin
 		if (rst) begin
 			startPointer <= {ADDRESS_SIZE{1'b0}};

@@ -48,7 +48,7 @@ Several macros have max slew violations.
 ### verify-memory-rtl: Not implemented
 ### verify-video-rtl: Success (Not validating correct pixel data)
 ### verify-corePC-rtl: Success
-### verify-coreMem-rtl: Not implemented
+### verify-coreMemory-rtl: Not implemented
 ### verify-coreArch-rtl: Not implemented
 
 ## GL
@@ -56,10 +56,10 @@ Several macros have max slew violations.
 ### verify-peripheralsUART-gl: Failed
 ### verify-peripheralsSPI-gl: Not implemented
 ### verify-peripheralsPWM-gl: Not implemented
-### verify-memory-gl: Not implemented
+### verify-memory-gl: Not run
 ### verify-video-gl: Not run
 ### verify-corePC-gl: Failed
-### verify-coreMem-gl: Not implemented
+### verify-coreMemory-gl: Not implemented
 ### verify-coreArch-gl: Not implemented
 
 # Need to do

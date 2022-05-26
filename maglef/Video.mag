@@ -1,11 +1,11 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653405657
+timestamp 1653584958
 << obsli1 >>
 rect 1104 2159 68816 97393
 << obsm1 >>
-rect 14 1436 69630 97424
+rect 14 1640 69630 97424
 << metal2 >>
 rect 294 0 350 800
 rect 938 0 994 800
@@ -989,11 +989,12 @@ rect 34928 2128 35248 97424
 rect 50288 2128 50608 97424
 rect 65648 2128 65968 97424
 << obsm4 >>
-rect 9075 3979 19488 84149
-rect 19968 3979 34848 84149
-rect 35328 3979 50208 84149
-rect 50688 3979 65568 84149
-rect 66048 3979 67285 84149
+rect 3739 19755 4128 91085
+rect 4608 19755 19488 91085
+rect 19968 19755 34848 91085
+rect 35328 19755 50208 91085
+rect 50688 19755 65568 91085
+rect 66048 19755 67285 91085
 << labels >>
 rlabel metal3 s 0 44480 800 44600 6 sram0_addr0[0]
 port 1 nsew signal output
@@ -1981,8 +1982,8 @@ port 488 nsew signal input
 string FIXED_BBOX 0 0 70000 100000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 8613298
+string GDS_END 9059124
 string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/Video/runs/Video/results/finishing/Video.magic.gds
-string GDS_START 770038
+string GDS_START 903324
 << end >>
 

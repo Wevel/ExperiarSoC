@@ -40,6 +40,7 @@ A number of tests can (when they have been implemented) be run on both the manag
 - Write to all configs to make screen refresh happen much faster
 - Write to start of frame buffer to have some pixel data
 - Check that output is as expected
+- Measure the signal timings, and make sure they are correct
 
 ## Core (these will run for both cores) verify-core-rtl (-gl)
 - Program Counter and management
