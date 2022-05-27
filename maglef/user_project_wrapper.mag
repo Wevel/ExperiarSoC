@@ -1,9 +1,9 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1653610655
+timestamp 1653671652
 << obsli1 >>
-rect 42320 42159 538864 651600
+rect 186104 42159 538864 623993
 << obsm1 >>
 rect 566 3272 580598 700868
 << metal2 >>
@@ -4530,8 +4530,8 @@ port 645 nsew signal input
 string FIXED_BBOX 0 0 584000 704000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 158225356
+string GDS_END 158240412
 string GDS_FILE /home/crab/windows/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/user_project_wrapper/results/finishing/user_project_wrapper.magic.gds
-string GDS_START 152909096
+string GDS_START 152924152
 << end >>
 

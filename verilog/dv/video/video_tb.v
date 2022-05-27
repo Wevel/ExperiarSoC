@@ -155,25 +155,25 @@ module video_tb;
 		if (!timingValid) begin
 			$display("%c[1;31m",27);
 			`ifdef GL
-				$display ("Monitor: Peripherals Video Test VGA Timing (GL) Failed");
+				$display ("Monitor: Video Test VGA Timing (GL) Failed");
 			`else
-				$display ("Monitor: Peripherals Video Test VGA Timing (RTL) Failed");
+				$display ("Monitor: Video Test VGA Timing (RTL) Failed");
 			`endif
 			$display("%c[0m",27);
 		end else if (succesOutput) begin
 			$display("%c[1;92m",27);
 			`ifdef GL
-				$display("Monitor: Peripherals Video Test (GL) Passed");
+				$display("Monitor: Video Test (GL) Passed");
 			`else
-				$display("Monitor: Peripherals Video Test (RTL) Passed");
+				$display("Monitor: Video Test (RTL) Passed");
 			`endif
 			$display("%c[0m",27);
 		end else begin
 			$display("%c[1;31m",27);
 			`ifdef GL
-				$display ("Monitor: Peripherals Video Test (GL) Failed");
+				$display ("Monitor: Video Test (GL) Failed");
 			`else
-				$display ("Monitor: Peripherals Video Test (RTL) Failed");
+				$display ("Monitor: Video Test (RTL) Failed");
 			`endif
 			$display("%c[0m",27);
 		end
