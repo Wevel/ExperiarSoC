@@ -168,3 +168,10 @@ jobs:
           make verify-memory-gl
           make verify-video-gl
           make verify-corePC-gl
+
+      - name: Run RISC-V architecture tests
+        run: |
+          cd verilog/dv/coreArch
+          git clone https://github.com/riscv-non-isa/riscv-arch-test.git
+          
+          cd ../../..

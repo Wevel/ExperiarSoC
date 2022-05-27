@@ -504,6 +504,22 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\23-parasiti
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\23-parasitics_multi_corner_sta.log[1885]: max slew violation count 102
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\23-parasitics_multi_corner_sta.log[1886]: max fanout violation count 1
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\routing\23-parasitics_multi_corner_sta.log[1887]: max cap violation count 102
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[106]: Error while reading cell "Logo1" (byte position 41728): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[107]: Error while reading cell "Logo1" (byte position 41728): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[108]: Error while reading cell "Logo1" (byte position 41796): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[109]: Error while reading cell "Logo1" (byte position 41796): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[111]: Error while reading cell "Logo0" (byte position 41902): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[112]: Error while reading cell "Logo0" (byte position 41902): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[113]: Error while reading cell "Logo0" (byte position 41970): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[114]: Error while reading cell "Logo0" (byte position 41970): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[453]: Error while reading cell "Logo0" (byte position 144701222): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[454]: Error while reading cell "Logo0" (byte position 144701222): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[455]: Error while reading cell "Logo0" (byte position 144701290): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[456]: Error while reading cell "Logo0" (byte position 144701290): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[460]: Error while reading cell "Logo1" (byte position 144722504): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[461]: Error while reading cell "Logo1" (byte position 144722504): Rounding to 0.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[462]: Error while reading cell "Logo1" (byte position 144722572): Non-integer magnification (0) in transform
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[463]: Error while reading cell "Logo1" (byte position 144722572): Rounding to 0.
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis_sta.slew.rpt[8]: wb_rst_i                                  5      7     -2 (VIOLATED)
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\synthesis\2-synthesis_sta.slew.rpt[13]: max fanout violation count 1
 openlane/user_project_wrapper\runs\user_project_wrapper\reports\routing\22-parasitics_sta.slew.rpt[8]: wb_rst_i                                1.50    3.82   -2.33 (VIOLATED)

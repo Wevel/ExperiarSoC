@@ -45,7 +45,7 @@ Several macros have max slew violations.
 ### verify-peripheralsUART-rtl: Success
 ### verify-peripheralsSPI-rtl: Not implemented
 ### verify-peripheralsPWM-rtl: Not implemented
-### verify-memory-rtl: Not implemented
+### verify-memory-rtl: Success
 ### verify-video-rtl: Success (Not validating correct pixel data)
 ### verify-corePC-rtl: Success
 ### verify-coreMemory-rtl: Not implemented
