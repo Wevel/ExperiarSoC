@@ -37,10 +37,10 @@ openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[38]: [WARNING PDN-0042] No via added at (2404.77 3491.54 2407.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[39]: [WARNING PDN-0042] No via added at (2584.77 3491.54 2587.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[90]: DEF Read: encountered 15 warnings total.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[102]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[103]: CIF file read warning: Input off lambda grid by 3/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[101]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[102]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[331]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[328]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\25-gdsii-klayout.log[20]: WARNING: no fill config file specified
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\26-spice.log[90]: DEF Read: encountered 15 warnings total.
 openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\27-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.

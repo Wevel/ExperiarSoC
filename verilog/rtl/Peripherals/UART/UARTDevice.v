@@ -145,7 +145,7 @@ module UARTDevice  #(
 		.writeData(rxRegisterWriteData_nc),
 		.writeData_en(rxRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData(rxDataAvailable ? { rxDataAvailable, rxReadData } : 9'h0),
+		.readData(rxDataAvailable ? { 1'b1, rxReadData } : 9'h0),
 		.readData_en(rxReadDataEnable),
 		.readData_busy(1'b0));
 

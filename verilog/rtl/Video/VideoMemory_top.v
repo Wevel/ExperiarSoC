@@ -17,6 +17,7 @@ module VideoMemory (
 		output wire requestOutput,
 
 		// Video interface
+		input wire video_fetchData,
 		input wire[SRAM_ADDRESS_SIZE+3:0] video_address,
 		output reg[31:0] video_data,
 
@@ -142,12 +143,16 @@ module VideoMemory (
 
 	// Set enable bit for video port (active low)
 	always @(*) begin
-		case (videoSRAMBank)
-			2'b00: sram_csb1 <= 4'b1110;
-			2'b01: sram_csb1 <= 4'b1101;
-			2'b10: sram_csb1 <= 4'b1011;
-			2'b11: sram_csb1 <= 4'b0111;
-		endcase
+		if (video_fetchData) begin
+			case (videoSRAMBank)
+				2'b00: sram_csb1 <= 4'b1110;
+				2'b01: sram_csb1 <= 4'b1101;
+				2'b10: sram_csb1 <= 4'b1011;
+				2'b11: sram_csb1 <= 4'b0111;
+			endcase
+		end else begin
+			sram_csb1 <= 4'b1111;
+		end
 	end
 
 	assign sram_addr1 	= video_address[SRAM_ADDRESS_SIZE+1:2];

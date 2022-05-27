@@ -46,7 +46,7 @@ module peripheralsUART_tb;
 		$dumpvars(0, peripheralsUART_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (500) begin
+		repeat (750) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -72,8 +72,9 @@ module peripheralsUART_tb;
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
 
-		// Wait for management core to output a output test result
+		// Wait for management core to output the final output test result
 		@(posedge nextTestOutput);
 		
 		if (succesOutput) begin
@@ -120,7 +121,7 @@ module peripheralsUART_tb;
 		power4 <= 1'b1;
 	end
 
-	always @(mprj_io) begin
+	always @(succesOutput, nextTestOutput) begin
 		#1 $display("Success:0b%b Next test:0b%b", succesOutput, nextTestOutput);
 	end
 

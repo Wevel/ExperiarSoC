@@ -1,16 +1,15 @@
-openlane/CaravelHost\runs\CaravelHost\logs\synthesis\1-synthesis.log[1991]: ABC: Error: The network is combinational.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[1049]: [INFO GRT-0012] Antenna violations: 30
-openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[1509]: [INFO GRT-0012] Antenna violations: 8
-openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[1970]: [INFO GRT-0012] Antenna violations: 1
-openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global_2.log[1052]: [INFO GRT-0012] Antenna violations: 6
-openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global_2.log[1516]: [INFO GRT-0012] Antenna violations: 2
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[191]: [INFO DRT-0199]   Number of violations = 3244.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[235]: [INFO DRT-0199]   Number of violations = 1082.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[279]: [INFO DRT-0199]   Number of violations = 1033.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[323]: [INFO DRT-0199]   Number of violations = 128.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[367]: [INFO DRT-0199]   Number of violations = 16.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[411]: [INFO DRT-0199]   Number of violations = 1.
-openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[455]: [INFO DRT-0199]   Number of violations = 1.
-openlane/CaravelHost\runs\CaravelHost\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 19 net violations in 5148 nets.
-openlane/CaravelHost\runs\CaravelHost\reports\finishing\antenna.rpt[269418]: Number of pins violated: 21
-openlane/CaravelHost\runs\CaravelHost\reports\finishing\antenna.rpt[269419]: Number of nets violated: 19
+openlane/CaravelHost\runs\CaravelHost\logs\synthesis\1-synthesis.log[2001]: ABC: Error: The network is combinational.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[1080]: [INFO GRT-0012] Antenna violations: 24
+openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[1541]: [INFO GRT-0012] Antenna violations: 12
+openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global.log[2002]: [INFO GRT-0012] Antenna violations: 2
+openlane/CaravelHost\runs\CaravelHost\logs\routing\16-global_2.log[1053]: [INFO GRT-0012] Antenna violations: 7
+openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[192]: [INFO DRT-0199]   Number of violations = 3594.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[236]: [INFO DRT-0199]   Number of violations = 1333.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[280]: [INFO DRT-0199]   Number of violations = 1246.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[324]: [INFO DRT-0199]   Number of violations = 92.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\19-detailed.log[368]: [INFO DRT-0199]   Number of violations = 4.
+openlane/CaravelHost\runs\CaravelHost\logs\routing\25-parasitics_multi_corner_sta.log[191813]: -0.04   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 11 net violations in 5435 nets.
+openlane/CaravelHost\runs\CaravelHost\reports\routing\25-parasitics_multi_corner_sta.min.rpt[191260]: -0.04   slack (VIOLATED)
+openlane/CaravelHost\runs\CaravelHost\reports\finishing\antenna.rpt[290260]: Number of pins violated: 15
+openlane/CaravelHost\runs\CaravelHost\reports\finishing\antenna.rpt[290261]: Number of nets violated: 11

@@ -49,8 +49,8 @@ module CaravelHost (
 	assign partID = 16'hCD55;
 	assign versionID = 4'h0;
 
-	wire userSpace_wb_stb_i;
 	wire userSpace_wb_cyc_i;
+	wire userSpace_wb_stb_i;
 	wire userSpace_wb_we_i;
 	wire[3:0] userSpace_wb_sel_i;
 	wire[31:0] userSpace_wb_data_i;
@@ -79,7 +79,9 @@ module CaravelHost (
 		.userSpace_wb_data_o(userSpace_wb_data_o));
 
 	wire userSpaceEnable = userSpace_wb_adr_i[31:28] == USER_SPACE_ADDRESS;
-	reg hostConfigEnable = 1'b0;
+	reg hostConfigLatch = 1'b0;
+	wire hostConfigSelect = userSpaceEnable && userSpace_wb_adr_i[27:24] == HOST_PERIPHERAL_ADDRESS;
+	wire hostConfigEnable = hostConfigLatch || hostConfigSelect;
 
 	wire caravelHost_wb_ack_o;
 	wire caravelHost_wb_stall_o;
@@ -87,8 +89,8 @@ module CaravelHost (
 	wire[31:0] caravelHost_wb_data_o;
 
 	always @(posedge wb_clk_i) begin
-		if (wb_rst_i || caravelHost_wb_ack_o) hostConfigEnable <= 1'b0;
-		else if (userSpaceEnable && userSpace_wb_adr_i[27:24] == HOST_PERIPHERAL_ADDRESS) hostConfigEnable <= 1'b1;
+		if (wb_rst_i || !userSpace_wb_cyc_i) hostConfigLatch <= 1'b0;
+		else if (hostConfigSelect && userSpace_wb_cyc_i) hostConfigLatch <= 1'b1;
 	end
 
 	// Caravel wishbone master

@@ -30,11 +30,11 @@ module WBAddressExtension (
 	wire[14:0] addressOffset = wbs_adr_i[14:0];
 
 	assign userSpace_wb_cyc_i = wbs_cyc_i && userSpaceSelect;
-	assign userSpace_wb_stb_i = wbs_stb_i;
-	assign userSpace_wb_we_i = wbs_we_i;
-	assign userSpace_wb_sel_i = wbs_sel_i;
-	assign userSpace_wb_adr_i = { currentAddress[31:15], addressOffset };
-	assign userSpace_wb_data_i = wbs_data_i;
+	assign userSpace_wb_stb_i = wbs_stb_i && userSpaceSelect;
+	assign userSpace_wb_we_i = wbs_we_i && userSpaceSelect;
+	assign userSpace_wb_sel_i = userSpaceSelect ? wbs_sel_i : 4'b0000;
+	assign userSpace_wb_adr_i = userSpaceSelect ? { currentAddress[31:15], addressOffset } : 32'b0;
+	assign userSpace_wb_data_i = userSpaceSelect ? wbs_data_i : 32'b0;
 
 	// Wishbone interface to allow setting current addres
 	localparam STATE_IDLE  		  = 2'h0;

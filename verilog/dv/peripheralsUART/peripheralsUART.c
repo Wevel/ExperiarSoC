@@ -25,31 +25,36 @@
 		- Observes counter value through the MPRJ lower 8 IO pins (in the testbench)
 */
 
-#define GPIO0_OE_ADDR ((uint32_t*)0x33031000)
-#define GPIO0_OUTPUT_ADDR ((uint32_t*)0x33031004)
-#define GPIO0_INPUT_ADDR ((uint32_t*)0x33031008)
-#define GPIO1_OE_ADDR ((uint32_t*)0x33032000)
-#define GPIO1_OUTPUT_ADDR ((uint32_t*)0x33032004)
-#define GPIO1_INPUT_ADDR ((uint32_t*)0x33032008)
-
-#define GPIO0_OE (*GPIO0_OE_ADDR)
-#define GPIO0_OUTPUT (*GPIO0_OUTPUT_ADDR)
-#define GPIO0_INPUT (*GPIO0_INPUT_ADDR)
-#define GPIO1_OE (*GPIO1_OE_ADDR)
-#define GPIO1_OUTPUT (*GPIO1_OUTPUT_ADDR)
-#define GPIO1_INPUT (*GPIO1_INPUT_ADDR)
+#define GPIO0_OE_WRITE_ADDR ((uint32_t*)0x33031000)
+#define GPIO0_OE_SET_ADDR ((uint32_t*)0x33031004)
+#define GPIO0_OE_CLEAR_ADDR ((uint32_t*)0x33031008)
+#define GPIO0_OE_TOGGLE_ADDR ((uint32_t*)0x3303100C)
+#define GPIO0_OUTPUT_WRITE_ADDR ((uint32_t*)0x33031010)
+#define GPIO0_OUTPUT_SET_ADDR ((uint32_t*)0x33031014)
+#define GPIO0_OUTPUT_CLEAR_ADDR ((uint32_t*)0x33031018)
+#define GPIO0_OUTPUT_TOGGLE_ADDR ((uint32_t*)0x3303101C)
+#define GPIO0_INPUT_ADDR ((uint32_t*)0x33031020)
+#define GPIO1_OE_WRITE_ADDR ((uint32_t*)0x33032000)
+#define GPIO1_OE_SET_ADDR ((uint32_t*)0x33032004)
+#define GPIO1_OE_CLEAR_ADDR ((uint32_t*)0x33032008)
+#define GPIO1_OE_TOGGLE_ADDR ((uint32_t*)0x3303200C)
+#define GPIO1_OUTPUT_WRITE_ADDR ((uint32_t*)0x33032010)
+#define GPIO1_OUTPUT_SET_ADDR ((uint32_t*)0x33032014)
+#define GPIO1_OUTPUT_CLEAR_ADDR ((uint32_t*)0x33032018)
+#define GPIO1_OUTPUT_TOGGLE_ADDR ((uint32_t*)0x3303201C)
+#define GPIO1_INPUT_ADDR ((uint32_t*)0x33032020)
 
 #define CARAVEL_UART_CONFIGURATION_ADDR ((uint32_t*)0x3F001000)
 #define CARAVEL_UART_CLEAR_ADDR ((uint32_t*)0x3F001004)
 #define CARAVEL_UART_STATUS_ADDR ((uint32_t*)0x3F001008)
 #define CARAVEL_UART_RX_ADDR ((uint32_t*)0x3F001010)
-#define CARAVEL_UART_TX__ADDR ((uint32_t*)0x3F001014)
+#define CARAVEL_UART_TX_ADDR ((uint32_t*)0x3F001014)
 
 #define SOC_UART0_CONFIGURATION_ADDR ((uint32_t*)0x33001000)
 #define SOC_UART0_CLEAR_ADDR ((uint32_t*)0x33001004)
 #define SOC_UART0_STATUS_ADDR ((uint32_t*)0x33001008)
 #define SOC_UART0_RX_ADDR ((uint32_t*)0x33001010)
-#define SOC_UART0_TX__ADDR ((uint32_t*)0x33001014)
+#define SOC_UART0_TX_ADDR ((uint32_t*)0x33001014)
 
 #define MPRJ_WB_ADDRESS (*(volatile uint32_t*)0x30000000)
 #define MPRJ_WB_DATA_LOCATION 0x30008000
@@ -79,8 +84,8 @@ uint32_t wbRead (uint32_t* location)
 void nextTest (bool testPassing)
 {
 	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
-	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput | 0x02000);
-	wbWrite (GPIO0_OUTPUT_ADDR, testPassingOutput);
+	wbWrite (GPIO0_OUTPUT_SET_ADDR, testPassingOutput | 0x02000);
+	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x02000);
 }
 
 void main ()
@@ -123,8 +128,8 @@ void main ()
 
 	// Setup test output
 	bool testPass = true;
-	wbWrite (GPIO0_OUTPUT_ADDR, 0x01000);
-	wbWrite (GPIO0_OE_ADDR, ~0x03000);
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, 0x01000);
+	wbWrite (GPIO0_OE_WRITE_ADDR, ~0x03000);
 
 	// Write caravel device config and clear
 	uint32_t enabledDeviceConfig = 0x20014; // This effectively has baudrate of ~2MHz
@@ -150,7 +155,7 @@ void main ()
 	uint32_t testData[] = { 0xCD, 0x55, 0xBE, 0xEF };
 
 	// Write one byte with the device still disabled to make sure it doesn't send
-	wbWrite (CARAVEL_UART_TX__ADDR, testData[0]);
+	wbWrite (CARAVEL_UART_TX_ADDR, testData[0]);
 
 	// Check that the data is there
 	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0x8) testPass = false;
@@ -163,19 +168,23 @@ void main ()
 	// Now enable the device and send the remaining data
 	wbWrite (CARAVEL_UART_CONFIGURATION_ADDR, enabledDeviceConfig);
 
-	wbWrite (CARAVEL_UART_TX__ADDR, testData[1]);
-	wbWrite (CARAVEL_UART_TX__ADDR, testData[2]);
-	wbWrite (CARAVEL_UART_TX__ADDR, testData[3]);
+	wbWrite (CARAVEL_UART_TX_ADDR, testData[1]);
+	wbWrite (CARAVEL_UART_TX_ADDR, testData[2]);
+	wbWrite (CARAVEL_UART_TX_ADDR, testData[3]);
 
 	// Make sure all of the data has been sent
 	if (wbRead (CARAVEL_UART_STATUS_ADDR) != 0) testPass = false;
 	nextTest (testPass);
 
 	// Read back data from peripheral
-	if (wbRead (SOC_UART0_RX_ADDR) != testData[0]) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != testData[1]) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != testData[2]) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != testData[3]) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	nextTest (testPass);
+
+	// Try reading an extra time and make sure there is no data
+	if (wbRead (SOC_UART0_RX_ADDR) != 0x0) testPass = false;
 	nextTest (testPass);
 
 	// Make sure all of the data is marked as read
@@ -183,20 +192,24 @@ void main ()
 	nextTest (testPass);
 
 	// Send data from peripheral
-	wbWrite (SOC_UART0_TX__ADDR, testData[0]);
-	wbWrite (SOC_UART0_TX__ADDR, testData[1]);
-	wbWrite (SOC_UART0_TX__ADDR, testData[2]);
-	wbWrite (SOC_UART0_TX__ADDR, testData[3]);
+	wbWrite (SOC_UART0_TX_ADDR, testData[0]);
+	wbWrite (SOC_UART0_TX_ADDR, testData[1]);
+	wbWrite (SOC_UART0_TX_ADDR, testData[2]);
+	wbWrite (SOC_UART0_TX_ADDR, testData[3]);
 
 	// Make sure all of the data has been sent
 	if (wbRead (SOC_UART0_STATUS_ADDR) != 0) testPass = false;
 	nextTest (testPass);
 
 	// Read back data from caravel
-	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[0]) testPass = false;
-	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[1]) testPass = false;
-	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[2]) testPass = false;
-	if (wbRead (CARAVEL_UART_RX_ADDR) != testData[3]) testPass = false;
+	if (wbRead (CARAVEL_UART_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	if (wbRead (CARAVEL_UART_RX_ADDR) != (0x100 | testData[1])) testPass = false;
+	if (wbRead (CARAVEL_UART_RX_ADDR) != (0x100 | testData[2])) testPass = false;
+	if (wbRead (CARAVEL_UART_RX_ADDR) != (0x100 | testData[3])) testPass = false;
+	nextTest (testPass);
+
+	// Try reading an extra time and make sure there is no data
+	if (wbRead (CARAVEL_UART_RX_ADDR) != 0x0) testPass = false;
 	nextTest (testPass);
 
 	// Make sure all of the data is marked as read

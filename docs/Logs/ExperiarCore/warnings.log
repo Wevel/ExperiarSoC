@@ -220,27 +220,28 @@ openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2494]: Wa
 openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2495]: Warning: Wire ExperiarCore.\addr0 [1] is used but has no driver.
 openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2496]: Warning: Wire ExperiarCore.\addr0 [0] is used but has no driver.
 openlane/ExperiarCore\runs\ExperiarCore\logs\synthesis\1-synthesis.log[2588]: Warnings: 219 unique messages, 219 total
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[164]: [WARNING DRT-0225] _02942_ 4 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[165]: [WARNING DRT-0225] _03299_ 4 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[166]: [WARNING DRT-0225] _03316_ 3 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[167]: [WARNING DRT-0225] _03364_ 4 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[168]: [WARNING DRT-0225] _04154_ 1 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[169]: [WARNING DRT-0225] _04488_ 1 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[170]: [WARNING DRT-0225] _05049_ 2 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[171]: [WARNING DRT-0225] _05651_ 4 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[172]: [WARNING DRT-0225] _05665_ 6 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[173]: [WARNING DRT-0225] _06126_ 1 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[174]: [WARNING DRT-0225] _06223_ 1 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[175]: [WARNING DRT-0225] _06392_ 1 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[164]: [WARNING DRT-0225] wb_clk_i 1 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[165]: [WARNING DRT-0225] _01654_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[166]: [WARNING DRT-0225] _01946_ 5 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[167]: [WARNING DRT-0225] _03299_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[168]: [WARNING DRT-0225] _03316_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[169]: [WARNING DRT-0225] _03714_ 4 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[170]: [WARNING DRT-0225] _03827_ 4 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[171]: [WARNING DRT-0225] _04066_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[172]: [WARNING DRT-0225] _04579_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[173]: [WARNING DRT-0225] _04804_ 5 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[174]: [WARNING DRT-0225] _05665_ 8 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[175]: [WARNING DRT-0225] _06109_ 3 pin not visited, fall back to feedthrough mode.
 openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[176]: [WARNING DRT-0225] _06990_ 5 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[177]: [WARNING DRT-0225] _07096_ 3 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[178]: [WARNING DRT-0225] _07555_ 2 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[179]: [WARNING DRT-0225] _07597_ 6 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[180]: [WARNING DRT-0225] _07645_ 6 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[181]: [WARNING DRT-0225] _07649_ 7 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[177]: [WARNING DRT-0225] _07002_ 6 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[178]: [WARNING DRT-0225] _07094_ 5 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[179]: [WARNING DRT-0225] _07597_ 5 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[180]: [WARNING DRT-0225] _07934_ 2 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[181]: [WARNING DRT-0225] _08030_ 7 pin not visited, fall back to feedthrough mode.
 openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[182]: [WARNING DRT-0225] _08548_ 7 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[183]: [WARNING DRT-0225] core.registers\[0\]\[14\] 3 pin not visited, fall back to feedthrough mode.
-openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[185]: [WARNING DRT-0225] wbSRAMInterface.currentAddress\[3\] 6 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[183]: [WARNING DRT-0225] _09172_ 4 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[184]: [WARNING DRT-0225] _09263_ 3 pin not visited, fall back to feedthrough mode.
+openlane/ExperiarCore\runs\ExperiarCore\logs\routing\21-detailed.log[185]: [WARNING DRT-0225] core.registers\[0\]\[14\] 3 pin not visited, fall back to feedthrough mode.
 openlane/ExperiarCore\runs\ExperiarCore\logs\finishing\28-gds_ptrs.log[170]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
 openlane/ExperiarCore\runs\ExperiarCore\logs\finishing\28-gds_ptrs.log[171]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/ExperiarCore\runs\ExperiarCore\logs\finishing\29-gdsii-klayout.log[12]: WARNING: no fill config file specified

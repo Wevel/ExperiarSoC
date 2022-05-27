@@ -20,6 +20,7 @@ module VGA #(
 
 		// Memory interface
 		input wire vga_clk,
+		output wire vga_fetchData,
 		output reg[ADDRESS_BITS-1:0] vga_address,
 		input wire[31:0] vga_data,
 
@@ -43,7 +44,7 @@ module VGA #(
 	localparam DRAW_MODE_COLOUR_PALETTE = 2'b10;
 	localparam DRAW_MODE_SPRITES 	  	= 2'b11;
 
-	localparam CONFIG_ADDRESS = 12'h010;
+	localparam CONFIG_ADDRESS = 12'h800;
 
 	wire configEnable = peripheralBus_address[23:12] == CONFIG_ADDRESS;
 	wire[11:0] configRegisterAddress = peripheralBus_address[11:0];
@@ -53,10 +54,11 @@ module VGA #(
 	// b00-b03: horizontalPixelSize		Default 0xA
 	// b04-b07: verticalPixelSize		Default 0xA
 	// b08-b09: drawMode 				Default 0b00
-	wire[9:0] configuration;
+	// b10: enableOutput				Default 0
+	wire[10:0] configuration;
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h020), .DEFAULT(10'h0AA)) configurationRegister(
+	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h000), .DEFAULT(11'h0AA)) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -72,6 +74,7 @@ module VGA #(
 	wire[3:0] horizontalPixelSize = configuration[3:0];
 	wire[3:0] verticalPixelSize   = configuration[7:4];
 	wire[1:0] drawMode 			  = configuration[9:8];
+	wire enableOutput 			  = configuration[10];
 
 	// Defaults are timing for 800 x 600 at 60Hz
 	// http://tinyvga.com/vga-timing/800x600@60Hz
@@ -79,7 +82,7 @@ module VGA #(
 	wire[10:0] horizontalVisibleAreaCompare;
 	wire[31:0] horizontalVisibleAreaCompareRegisterOutputData;
 	wire horizontalVisibleAreaCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h000), .DEFAULT(11'h31F)) horizontalVisibleAreaCompareRegister(
+	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h010), .DEFAULT(11'h31F)) horizontalVisibleAreaCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -96,7 +99,7 @@ module VGA #(
 	wire[10:0] horizontalFrontPorchCompare;
 	wire[31:0] horizontalFrontPorchCompareRegisterOutputData;
 	wire horizontalFrontPorchCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h004), .DEFAULT(11'h347)) horizontalFrontPorchCompareRegister(
+	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h014), .DEFAULT(11'h347)) horizontalFrontPorchCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -113,7 +116,7 @@ module VGA #(
 	wire[10:0] horizontalSyncPulseCompare;
 	wire[31:0] horizontalSyncPulseCompareRegisterOutputData;
 	wire horizontalSyncPulseCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h008), .DEFAULT(11'h3C7)) horizontalSyncPulseCompareRegister(
+	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h018), .DEFAULT(11'h3C7)) horizontalSyncPulseCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -130,7 +133,7 @@ module VGA #(
 	wire[10:0] horizontalWholeLineCompare;
 	wire[31:0] horizontalWholeLineCompareRegisterOutputData;
 	wire horizontalWholeLineCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h00C), .DEFAULT(11'h41F)) horizontalWholeLineCompareRegister(
+	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h01C), .DEFAULT(11'h41F)) horizontalWholeLineCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -147,7 +150,7 @@ module VGA #(
 	wire[9:0] verticalVisibleAreaCompare;
 	wire[31:0] verticalVisibleAreaCompareRegisterOutputData;
 	wire verticalVisibleAreaCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h010), .DEFAULT(11'h257)) verticalVisibleAreaCompareRegister(
+	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h020), .DEFAULT(11'h257)) verticalVisibleAreaCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -164,7 +167,7 @@ module VGA #(
 	wire[9:0] verticalFrontPorchCompare;
 	wire[31:0] verticalFrontPorchCompareRegisterOutputData;
 	wire verticalFrontPorchCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h014), .DEFAULT(11'h258)) verticalFrontPorchCompareRegister(
+	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h024), .DEFAULT(11'h258)) verticalFrontPorchCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -181,7 +184,7 @@ module VGA #(
 	wire[9:0] verticalSyncPulseCompare;
 	wire[31:0] verticalSyncPulseCompareRegisterOutputData;
 	wire verticalSyncPulseCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h018), .DEFAULT(11'h25C)) verticalSyncPulseCompareRegister(
+	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h028), .DEFAULT(11'h25C)) verticalSyncPulseCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -198,7 +201,7 @@ module VGA #(
 	wire[9:0] verticalWholeLineCompare;
 	wire[31:0] verticalWholeLineCompareRegisterOutputData;
 	wire verticalWholeLineCompareRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h01C), .DEFAULT(11'h273)) verticalWholeLineCompareRegister(
+	ConfigurationRegister #(.WIDTH(10), .ADDRESS(12'h02C), .DEFAULT(11'h273)) verticalWholeLineCompareRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -211,6 +214,34 @@ module VGA #(
 		.requestOutput(verticalWholeLineCompareRegisterOutputRequest),
 		.currentValue(verticalWholeLineCompare));
 
+	// VGA state register
+	reg inVerticalVisibleArea = 1'b1;
+	reg inHorizontalVisibleArea = 1'b1;
+	wire[31:0] stateRegisterOutputData;
+	wire stateRegisterOutputRequest;
+	wire stateReadDataEnable_nc;
+	wire stateRegisterBusyBusy_nc;
+	wire[4:0] stateRegisterWriteData_nc;
+	wire stateRegisterWriteDataEnable_nc;
+	DataRegister #(.WIDTH(5), .ADDRESS(12'h030)) stateRegister(
+		.clk(clk),
+		.rst(rst),
+		.enable(configEnable),
+		.peripheralBus_we(peripheralBus_we),
+		.peripheralBus_oe(peripheralBus_oe),
+		.peripheralBus_busy(stateRegisterBusyBusy_nc),
+		.peripheralBus_address(configRegisterAddress),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(stateRegisterOutputData),
+		.requestOutput(stateRegisterOutputRequest),
+		.writeData(stateRegisterWriteData_nc),
+		.writeData_en(stateRegisterWriteDataEnable_nc),
+		.writeData_busy(1'b0),
+		.readData({ inVerticalVisibleArea, inHorizontalVisibleArea, !vga_vsync, !vga_hsync, enableOutput }),
+		.readData_en(stateReadDataEnable_nc),
+		.readData_busy(1'b0));
+
 	assign peripheralBus_busy = 1'b0;
 	assign requestOutput = configurationRegisterOutputRequest
 						|| horizontalVisibleAreaCompareRegisterOutputRequest
@@ -220,7 +251,8 @@ module VGA #(
 						|| verticalVisibleAreaCompareRegisterOutputRequest
 						|| verticalFrontPorchCompareRegisterOutputRequest
 						|| verticalSyncPulseCompareRegisterOutputRequest
-						|| verticalWholeLineCompareRegisterOutputRequest;
+						|| verticalWholeLineCompareRegisterOutputRequest
+						|| stateRegisterOutputRequest;
 
 	always @(*) begin
 		case (1'b1)
@@ -242,6 +274,8 @@ module VGA #(
 				peripheralBus_dataRead <= verticalSyncPulseCompareRegisterOutputData;
 			verticalWholeLineCompareRegisterOutputRequest:
 				peripheralBus_dataRead <= verticalWholeLineCompareRegisterOutputData;
+			stateRegisterOutputRequest:
+				peripheralBus_dataRead <= stateRegisterOutputData;
 			default: peripheralBus_dataRead <= ~32'b0;
 		endcase
 	end
@@ -252,18 +286,23 @@ module VGA #(
 	wire isEndHorizontalFrontPorch = horizontalCounter == horizontalFrontPorchCompare;
 	wire isEndHorizontalSyncPulse = horizontalCounter == horizontalSyncPulseCompare;
 	wire isEndHorizontalWholeLine = horizontalCounter == horizontalWholeLineCompare;
-	reg inHorizontalVisibleArea = 1'b1;
 
 	reg hsync;
 	always @(posedge vga_clk) begin
-		if (isEndHorizontalWholeLine) horizontalCounter <= 10'b0;
-		else horizontalCounter <= horizontalCounter + 1;
+		if (rst || !enableOutput) begin
+			horizontalCounter <= 10'b0;
+			inHorizontalVisibleArea <= 1'b1;
+			hsync <= 1'b1;
+		end else begin
+			if (isEndHorizontalWholeLine) horizontalCounter <= 10'b0;
+			else horizontalCounter <= horizontalCounter + 1;
 
-		if (isEndHorizontalVisibleArea) inHorizontalVisibleArea <= 1'b0;
-		else if (isEndHorizontalWholeLine) inHorizontalVisibleArea <= 1'b1;
+			if (isEndHorizontalVisibleArea) inHorizontalVisibleArea <= 1'b0;
+			else if (isEndHorizontalWholeLine) inHorizontalVisibleArea <= 1'b1;
 
-		if (isEndHorizontalFrontPorch) hsync <= 1'b0;
-		else if (isEndHorizontalSyncPulse) hsync <= 1'b1;
+			if (isEndHorizontalFrontPorch) hsync <= 1'b0;
+			else if (isEndHorizontalSyncPulse) hsync <= 1'b1;
+		end
 	end
 	
 	reg[9:0] verticalCounter;
@@ -271,18 +310,25 @@ module VGA #(
 	wire isEndVerticalFrontPorch = verticalCounter == verticalFrontPorchCompare;
 	wire isEndVerticalSyncPulse = verticalCounter == verticalSyncPulseCompare;
 	wire isEndVerticalWholeLine = verticalCounter == verticalWholeLineCompare;
-	reg inVerticalVisibleArea = 1'b1;
 
 	reg vsync;
 	always @(posedge vga_clk) begin
-		if (isEndVerticalWholeLine) verticalCounter <= 10'b0;
-		else verticalCounter <= verticalCounter + 1;
+		if (rst || !enableOutput) begin
+			verticalCounter <= 10'b0;
+			inVerticalVisibleArea <= 1'b1;
+			vsync <= 1'b1;
+		end else begin
+			if (isEndHorizontalWholeLine) begin
+				if (isEndVerticalWholeLine) verticalCounter <= 10'b0;
+				else verticalCounter <= verticalCounter + 1;
 
-		if (isEndVerticalVisibleArea) inVerticalVisibleArea <= 1'b0;
-		else if (isEndVerticalWholeLine) inVerticalVisibleArea <= 1'b1;
+				if (isEndVerticalVisibleArea) inVerticalVisibleArea <= 1'b0;
+				else if (isEndVerticalWholeLine) inVerticalVisibleArea <= 1'b1;
 
-		if (isEndVerticalFrontPorch) vsync <= 1'b0;
-		else if (isEndVerticalSyncPulse) vsync <= 1'b1;
+				if (isEndVerticalFrontPorch) vsync <= 1'b0;
+				else if (isEndVerticalSyncPulse) vsync <= 1'b1;
+			end
+		end
 	end
 
 	// Latch data in from sram and delay sync signals
@@ -290,28 +336,31 @@ module VGA #(
 	// c0: pixel counter increments, sync signal set, and address is set 
 	// c1: data is valid
 
-	reg loadPixel;
+	reg fetchPixelData;
+	reg loadPixelData;
 
-	reg[2:0] hsyncDelay;
-	reg[2:0] vsyncDelay;
 	reg[31:0] currentPixelData;
 	always @(posedge vga_clk) begin
-		if (loadPixel) currentPixelData <= vga_data;
-		hsyncDelay <= { hsyncDelay[0], hsync };
-		vsyncDelay <= { vsyncDelay[0], vsync };
+		if (rst || !enableOutput) begin
+			currentPixelData <= 32'b0;
+			loadPixelData <= 1'b0;
+		end else begin
+			loadPixelData <= fetchPixelData;
+			if (loadPixelData) currentPixelData <= vga_data;
+		end
 	end
 
-	assign vga_hsync = hsyncDelay[1];
-	assign vga_vsync = vsyncDelay[1];
+	assign vga_fetchData = fetchPixelData;
+
+	assign vga_hsync = enableOutput ? hsync : 1'b1;
+	assign vga_vsync = enableOutput ? vsync : 1'b1;
 
 	// VGA pixel address select
-	reg[17:0] raw_directPixelCounter;
-	reg[17:0] raw_directPixelCounter_d;
-	wire[17:0] raw_nextDirectPixelCounter = raw_directPixelCounter + 1;
-
 	reg[8:0] raw_horizontalPixelCounter;
+	wire[8:0] raw_nextHorizontalPixelCounter = raw_horizontalPixelCounter + 1;
 	reg[9:0] raw_verticalPixelCounter;
 	reg[2:0] raw_subPixelCounter;
+	reg[2:0] raw_subPixelCounter_buffered;
 
 	reg[8:0] raw_horizontalPixelCounter_d;
 	reg[9:0] raw_verticalPixelCounter_d;
@@ -324,107 +373,139 @@ module VGA #(
 	reg[3:0] raw_verticalPixelStretchCounter_d;
 	wire[3:0] raw_nextVerticalPixelStretchCounter = raw_verticalPixelStretchCounter + 1;
 
+	reg[17:0] raw_directPixelCounterVertical;
+	reg[17:0] raw_directPixelCounterVertical_d;
+
+	wire[17:0] raw_directPixelCounter = raw_directPixelCounterVertical_d + raw_horizontalPixelCounter_d;
+
+	wire raw_horizontalPixelStretchNextPixel = raw_nextHorizontalPixelStretchCounter == horizontalPixelSize;
+	wire raw_verticalPixelStretchNextPixel = raw_nextVerticalPixelStretchCounter == verticalPixelSize;
+
 	// Raw draw mode
 	always @(*) begin
-		if (inHorizontalVisibleArea) begin
-			if (raw_horizontalPixelStretchCounter == horizontalPixelSize) begin
-				if (raw_subPixelCounter == MAX_SUB_PIXEL_VALUE) begin
-					raw_subPixelCounter_d <= 3'b0;
-					raw_horizontalPixelCounter_d <= raw_horizontalPixelCounter + 1;
-					raw_directPixelCounter_d <= raw_nextDirectPixelCounter;
-				end	else begin
-					raw_subPixelCounter_d <= raw_subPixelCounter + 1;
+		raw_directPixelCounterVertical_d = raw_directPixelCounterVertical;
+		raw_subPixelCounter_d = raw_subPixelCounter;
+		raw_horizontalPixelCounter_d = raw_horizontalPixelCounter;
+		raw_horizontalPixelStretchCounter_d = raw_horizontalPixelStretchCounter;
+		raw_verticalPixelCounter_d = raw_verticalPixelCounter;
+		raw_verticalPixelStretchCounter_d = raw_verticalPixelStretchCounter;
+
+		if (rst || !enableOutput || !inVerticalVisibleArea) begin
+			raw_directPixelCounterVertical_d = 18'b0;		
+			raw_subPixelCounter_d = 3'b0;
+			raw_horizontalPixelCounter_d = 9'b0;
+			raw_horizontalPixelStretchCounter_d = 4'b0;
+			raw_verticalPixelCounter_d = 10'b0;
+			raw_verticalPixelStretchCounter_d = 4'b0;	
+		end else begin
+			if (inHorizontalVisibleArea) begin
+				if (raw_horizontalPixelStretchNextPixel) begin
+					if (raw_subPixelCounter == MAX_SUB_PIXEL_VALUE) begin
+						raw_subPixelCounter_d = 3'b0;
+						raw_horizontalPixelCounter_d = raw_nextHorizontalPixelCounter;
+					end	else begin
+						raw_subPixelCounter_d = raw_subPixelCounter + 1;
+					end
+
+					raw_horizontalPixelStretchCounter_d = 4'b0;
+				end else begin
+					raw_horizontalPixelStretchCounter_d = raw_nextHorizontalPixelStretchCounter;
 				end
-
-				raw_horizontalPixelStretchCounter_d <= 4'b0;
 			end else begin
-				raw_horizontalPixelStretchCounter_d <= raw_nextHorizontalPixelStretchCounter;
+				raw_subPixelCounter_d = 3'b0;
+				raw_horizontalPixelCounter_d = 9'b0;
+				raw_horizontalPixelStretchCounter_d = 4'b0;
 			end
-		end else begin
-			raw_subPixelCounter_d <= 3'b0;
-			raw_horizontalPixelCounter_d <= 9'b0;
-			raw_horizontalPixelStretchCounter_d <= 4'b0;
 
-			if (inVerticalVisibleArea) raw_directPixelCounter_d <= raw_nextDirectPixelCounter;
-			else raw_directPixelCounter_d <= 18'b0;
-		end
-
-		if (inVerticalVisibleArea) begin
-			if (raw_verticalPixelStretchCounter == verticalPixelSize) begin
-				raw_verticalPixelCounter_d <= raw_verticalPixelCounter + 1;
-				raw_verticalPixelStretchCounter_d <= 4'b0;
-			end else begin
-				raw_verticalPixelStretchCounter_d <= raw_nextVerticalPixelStretchCounter;
+			if (isEndHorizontalVisibleArea) begin
+				if (raw_verticalPixelStretchNextPixel) begin
+					raw_directPixelCounterVertical_d = raw_directPixelCounterVertical + raw_nextHorizontalPixelCounter;
+					raw_verticalPixelCounter_d = raw_verticalPixelCounter + 1;
+					raw_verticalPixelStretchCounter_d = 4'b0;
+				end else begin
+					raw_verticalPixelStretchCounter_d = raw_nextVerticalPixelStretchCounter;
+				end
 			end
-		end else begin
-			raw_verticalPixelCounter_d <= 9'b0;
-			raw_verticalPixelStretchCounter_d <= 4'b0;			
 		end
 	end
 
 	always @(posedge vga_clk) begin
-		raw_directPixelCounter <= raw_directPixelCounter_d;
-		raw_horizontalPixelCounter <= raw_horizontalPixelCounter_d;
-		raw_verticalPixelCounter <= raw_verticalPixelCounter_d;
-		raw_subPixelCounter <= raw_subPixelCounter_d;
-		raw_horizontalPixelStretchCounter <= raw_horizontalPixelStretchCounter_d;
-		raw_verticalPixelStretchCounter <= raw_verticalPixelStretchCounter_d;
+		if (rst || !enableOutput) begin
+			raw_directPixelCounterVertical <= 18'b0;
+			raw_horizontalPixelCounter <= 9'b0;
+			raw_verticalPixelCounter <= 10'b0;
+			raw_subPixelCounter <= 3'b0;
+			raw_horizontalPixelStretchCounter <= 4'b0;
+			raw_verticalPixelStretchCounter <= 4'b0;
+		end else begin
+			raw_directPixelCounterVertical <= raw_directPixelCounterVertical_d;
+			raw_horizontalPixelCounter <= raw_horizontalPixelCounter_d;
+			raw_verticalPixelCounter <= raw_verticalPixelCounter_d;
+			raw_subPixelCounter <= raw_subPixelCounter_d;
+			raw_subPixelCounter_buffered <= raw_subPixelCounter;
+			raw_horizontalPixelStretchCounter <= raw_horizontalPixelStretchCounter_d;
+			raw_verticalPixelStretchCounter <= raw_verticalPixelStretchCounter_d;
+		end
 	end
 
-	wire raw_directPixelCounterChanged = raw_directPixelCounter != raw_directPixelCounter_d;
 	wire raw_verticalPixelCounterChanged = raw_verticalPixelCounter != raw_verticalPixelCounter_d;
 	wire raw_horizontalPixelCounterChanged = raw_horizontalPixelCounter != raw_horizontalPixelCounter_d;
+	wire raw_directPixelCounterChanged = raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
 
 	always @(*) begin
-		// Use data register inputs for new address
-		// This means that the address gets updated at the same time as the pixel counters
-		// And so the data is valid the cycle after
-		// Rather than being two cycles after
-		case (drawMode)
-			// Use Seperate horizontal and vertical portions of address
-			// This means that for some resolutions portions of memory are not used by the video device
-			DRAW_MODE_RAW: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+		if (rst || !enableOutput) begin
+			vga_address <= {ADDRESS_BITS{1'b0}};
+			fetchPixelData <= 1'b0;
+		end else begin
+			// Use data register inputs for new address
+			// This means that the address gets updated at the same time as the pixel counters
+			// And so the data is valid the cycle after
+			// Rather than being two cycles after
+			case (drawMode)
+				// Use Seperate horizontal and vertical portions of address
+				// This means that for some resolutions portions of memory are not used by the video device
+				DRAW_MODE_RAW: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			// Directly use the pixel index to access memory
-			// This better uses memory, but is also slightly more complex for the cpu to write to the frame buffer
-			DRAW_MODE_RAW_TIGHT_MEM: begin
-				vga_address <= { raw_directPixelCounter_d[ADDRESS_BITS-1:0], 2'b00 };
-				loadPixel <= raw_directPixelCounterChanged;
-			end
+				// Directly use the pixel index to access memory
+				// This better uses memory, but is also slightly more complex for the cpu to write to the frame buffer
+				DRAW_MODE_RAW_TIGHT_MEM: begin
+					vga_address <= { raw_directPixelCounter[ADDRESS_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_directPixelCounterChanged;
+				end
 
-			// TODO: Use some portion of memory to store colours, then index them with the frame buffer
-			// This will require loading the pixel information ahead of time, so that the correct colour can be found
-			// Is this really helpful, as we use 6-bit colour, so probably need to use 4-bit colour palette index
-			DRAW_MODE_COLOUR_PALETTE: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+				// TODO: Use some portion of memory to store colours, then index them with the frame buffer
+				// This will require loading the pixel information ahead of time, so that the correct colour can be found
+				// Is this really helpful, as we use 6-bit colour, so probably need to use 4-bit colour palette index
+				DRAW_MODE_COLOUR_PALETTE: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			// TODO: Use some portion of memory to store sprites
-			// Then use a sprite index rather than colour data or a colour index
-			// How many sprites do we want to allow
-			// How big will sprites be
-			// How configurable should this be
-			// We have very little video memory, so this may not work very well at all
-			DRAW_MODE_SPRITES: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
+				// TODO: Use some portion of memory to store sprites
+				// Then use a sprite index rather than colour data or a colour index
+				// How many sprites do we want to allow
+				// How big will sprites be
+				// How configurable should this be
+				// We have very little video memory, so this may not work very well at all
+				DRAW_MODE_SPRITES: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
 
-			default: begin
-				vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
-				loadPixel <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
-			end
-		endcase
-		
+				default: begin
+					vga_address <= { raw_verticalPixelCounter_d[VERTICAL_BITS-1:0], raw_horizontalPixelCounter_d[HORIZONTAL_BITS-1:0], 2'b00 };
+					fetchPixelData <= raw_verticalPixelCounterChanged || raw_horizontalPixelCounterChanged;
+				end
+			endcase
+		end
 	end
 
 	reg[5:0] raw_currentPixel;	
 	always @(*) begin
-		case (raw_subPixelCounter)
+		case (raw_subPixelCounter_buffered)
 			4'h0: raw_currentPixel <= currentPixelData[5:0];
 			4'h1: raw_currentPixel <= currentPixelData[11:6];
 			4'h2: raw_currentPixel <= currentPixelData[17:12];
@@ -434,8 +515,10 @@ module VGA #(
 		endcase
 	end
 
-	assign vga_r = raw_currentPixel[1:0];
-	assign vga_g = raw_currentPixel[3:2];
-	assign vga_b = raw_currentPixel[5:4];
+	wire onScreen = inHorizontalVisibleArea && inVerticalVisibleArea;
+
+	assign vga_r = enableOutput && onScreen ? raw_currentPixel[1:0] : 2'b0;
+	assign vga_g = enableOutput && onScreen ? raw_currentPixel[3:2] : 2'b0;
+	assign vga_b = enableOutput && onScreen ? raw_currentPixel[5:4] : 2'b0;
 
 endmodule
