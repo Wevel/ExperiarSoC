@@ -52,9 +52,9 @@ module memory_tb;
 		end
 		$display("%c[1;35m",27);
 		`ifdef GL
-			$display ("Monitor: Timeout, Peripherals Memory Test (GL) Failed");
+			$display ("Monitor: Timeout, Memory Test (GL) Failed");
 		`else
-			$display ("Monitor: Timeout, Peripherals Memory Test (RTL) Failed");
+			$display ("Monitor: Timeout, Memory Test (RTL) Failed");
 		`endif
 		$display("%c[0m",27);
 		$finish;
@@ -106,17 +106,17 @@ module memory_tb;
 		if (succesOutput) begin
 			$display("%c[1;92m",27);
 			`ifdef GL
-				$display("Monitor: Peripherals Memory Test (GL) Passed");
+				$display("Monitor: Memory Test (GL) Passed");
 			`else
-				$display("Monitor: Peripherals Memory Test (RTL) Passed");
+				$display("Monitor: Memory Test (RTL) Passed");
 			`endif
 			$display("%c[0m",27);
 		end else begin
 			$display("%c[1;31m",27);
 			`ifdef GL
-				$display ("Monitor: Peripherals Memory Test (GL) Failed");
+				$display ("Monitor: Memory Test (GL) Failed");
 			`else
-				$display ("Monitor: Peripherals Memory Test (RTL) Failed");
+				$display ("Monitor: Memory Test (RTL) Failed");
 			`endif
 			$display("%c[0m",27);
 		end
