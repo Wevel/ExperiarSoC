@@ -23,12 +23,6 @@ module JTAG (
 
 		output wire[4:0] probe_jtagInstruction
 	);
-
-	assign management_writeEnable = 1'b0;
-	assign management_readEnable = 1'b0;
-	assign management_byteSelect = 4'b1111;
-	assign management_address = 20'h0_0000;
-	assign management_writeData = 32'b0;
 	
 	wire[31:0] idcode = { versionID, partID, manufacturerID, 1'b1 };
 
@@ -111,13 +105,15 @@ module JTAG (
 	// Data registers
 	// Boundary scan register
 	wire drBSRSelect = currentInstruction == INSTRUCTION_SAMPLE;
+	wire bsrReadEnable = drBSRSelect && drCapture && tckRisingEdge;
+	wire bsrWriteEnable = drBSRSelect && drUpdate && tckRisingEdge;
 	wire drBSRDataOut;
-	wire[31:0] bsrDataWrite = 32'b0;
+	wire[31:0] bsrDataWrite;
 	wire[31:0] bsrDataRead;
 	JTAGRegister #(.WIDTH(32)) dataBSRRegister (
 		.clk(clk),
 		.rst(rst),
-		.loadEnable(drBSRSelect && drCapture && tckRisingEdge),
+		.loadEnable(bsrReadEnable),
 		.shiftEnable(drBSRSelect && drShiftEnable && tckRisingEdge),
 		.parallelIn(bsrDataWrite),
 		.parallelOut(bsrDataRead),
@@ -193,4 +189,80 @@ module JTAG (
 	end
 
 	assign probe_jtagInstruction = currentInstruction;
+
+	// Core managment control
+	localparam MANAGEMENT_STATE_IDLE = 3'h0;
+	localparam MANAGEMENT_STATE_READ = 3'h1;
+	localparam MANAGEMENT_STATE_RETURN_DATA = 3'h2;
+	localparam MANAGEMENT_STATE_GET_DATA = 3'h3;
+	localparam MANAGEMENT_STATE_WRITE = 3'h4;
+
+	reg[2:0] managementState = MANAGEMENT_STATE_IDLE;
+	reg[31:0] managementReadData = 32'b0;
+	reg[25:0] managementAddress = 20'b0;
+	reg[31:0] managementWriteData = 32'b0;
+	reg[3:0] managementByteSelect = 4'h0;
+
+	wire managementCommandByteSelect = bsrDataRead[29:26];
+	wire managementCommandWriteEnable = bsrDataRead[30];
+	wire managementCommandReadEnable = bsrDataRead[31];
+
+	always @(posedge clk) begin
+		if (rst) begin
+			managementState <= MANAGEMENT_STATE_IDLE;
+			managementReadData <= 32'b0;
+			managementAddress <= 26'b0;
+			managementWriteData <= 32'b0;
+			managementByteSelect <= 4'h0;
+		end else begin
+			case (managementState)
+				MANAGEMENT_STATE_IDLE: begin
+					managementReadData <= 32'b0;
+					
+					if (bsrWriteEnable) begin
+						if (!managementCommandByteSelect) begin
+							managementAddress <= bsrDataRead[19:0];
+							managementByteSelect <= managementCommandByteSelect;
+
+							if (managementCommandWriteEnable) managementState <= MANAGEMENT_STATE_GET_DATA; 
+							if (managementCommandReadEnable) managementState <= MANAGEMENT_STATE_READ;
+						end
+					end
+				end
+
+				MANAGEMENT_STATE_READ: begin
+					managementReadData <= management_readData;
+					managementState <= MANAGEMENT_STATE_RETURN_DATA;
+				end
+
+				MANAGEMENT_STATE_RETURN_DATA: begin
+					if (bsrReadEnable) managementState <= MANAGEMENT_STATE_IDLE;
+				end
+
+				MANAGEMENT_STATE_GET_DATA: begin
+					if (bsrWriteEnable) begin
+						managementWriteData <= bsrDataRead;
+						managementState <= MANAGEMENT_STATE_WRITE; 
+					end
+				end
+
+				MANAGEMENT_STATE_WRITE: begin
+					managementState <= MANAGEMENT_STATE_IDLE;
+				end				
+
+				default: begin
+					managementState <= MANAGEMENT_STATE_IDLE;
+				end
+			endcase
+		end
+	end
+
+	assign bsrDataWrite = managementReadData;
+
+	assign management_writeEnable = managementState == MANAGEMENT_STATE_WRITE;
+	assign management_readEnable = managementState == MANAGEMENT_STATE_READ;
+	assign management_byteSelect = managementByteSelect;
+	assign management_address = managementAddress[19:0];
+	assign management_writeData = managementState == MANAGEMENT_STATE_WRITE ? managementReadData : 32'b0;
+
 endmodule
