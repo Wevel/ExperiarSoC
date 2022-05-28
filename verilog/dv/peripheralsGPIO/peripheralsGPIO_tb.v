@@ -32,8 +32,19 @@ module peripheralsGPIO_tb;
 	wire nextTestOutput = mprj_io[13];
 	wire[3:0] outputTestData = mprj_io[17:14];
 
+	// Need to add pullup to io3 otherwise GL simulation wont work
+	pullup(mprj_io[3]);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
+	
 	assign mprj_io[20:19] = inputTestData;
+	assign mprj_io[7] = 1'b1;
+
+	// Need to add pulls (can be up or down) to all unsed io so that input data is known
+	assign mprj_io[2:0] = 3'b0;
+	assign mprj_io[6:4] = 3'b0;
+	assign mprj_io[11:8] = 4'b0;
+	assign mprj_io[18] = 1'b0;
+	assign mprj_io[37:21] = 17'b0;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -47,6 +58,10 @@ module peripheralsGPIO_tb;
 
 	// Generate input signal
 	initial begin
+		// Test input from first gpio bank
+		@(posedge nextTestOutput);
+
+		// Test input from second gpio bank
 		@(posedge nextTestOutput);
 		inputTestData = 2'b10;
 		
@@ -62,10 +77,15 @@ module peripheralsGPIO_tb;
 
 	initial begin
 		$dumpfile("peripheralsGPIO.vcd");
+
+`ifdef SIM
 		$dumpvars(0, peripheralsGPIO_tb);
+`else
+		$dumpvars(1, peripheralsGPIO_tb);
+`endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (300) begin
+		repeat (400) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -94,6 +114,7 @@ module peripheralsGPIO_tb;
 		wait(outputTestData == 4'b0000);
 
 		// Wait for tests
+		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);

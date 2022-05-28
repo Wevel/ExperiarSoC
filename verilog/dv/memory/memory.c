@@ -48,7 +48,7 @@
 #define CORE0_SRAM ((uint32_t*)0x30000000)
 #define CORE1_SRAM ((uint32_t*)0x31000000)
 #define VGA_SRAM ((uint32_t*)0x32000000)
-#define SRAM_BANK_SIZE 0x1000u
+#define SRAM_BANK_SIZE 0x200
 
 #define MPRJ_WB_ADDRESS (*(volatile uint32_t*)0x30000000)
 #define MPRJ_WB_DATA_LOCATION 0x30008000
@@ -121,8 +121,16 @@ uint16_t wbReadHalf (uint16_t* location)
 
 void nextTest (bool testPassing)
 {
-	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
-	wbWrite (GPIO0_OUTPUT_SET_ADDR, testPassingOutput | 0x02000);
+	if (testPassing)
+	{
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x03000);
+	}
+	else
+	{
+		wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x01000);
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x02000);
+	}
+
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x02000);
 }
 

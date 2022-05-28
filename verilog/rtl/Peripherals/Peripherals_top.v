@@ -245,7 +245,7 @@ module Peripherals (
 			spi_requestOutput:  peripheralBus_dataRead <= spi_peripheralBus_dataRead;
 			pwm_requestOutput:  peripheralBus_dataRead <= pwm_peripheralBus_dataRead;
 			gpio_requestOutput: peripheralBus_dataRead <= gpio_peripheralBus_dataRead;
-			default: 			peripheralBus_dataRead <= 32'b0;
+			default: 			peripheralBus_dataRead <= ~32'b0;
 		endcase
 	end
 

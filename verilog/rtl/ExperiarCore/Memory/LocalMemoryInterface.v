@@ -90,10 +90,10 @@ module LocalMemoryInterface #(
 	wire rwBankSelect = rwAddress[SRAM_ADDRESS_SIZE];
 
 	assign wbDataRead = {
-		wbByteSelect[3] && wbReadReady ? rwPortReadData[31:24] : 8'h00,
-		wbByteSelect[2] && wbReadReady ? rwPortReadData[23:16] : 8'h00,
-		wbByteSelect[1] && wbReadReady ? rwPortReadData[15:8]  : 8'h00,
-		wbByteSelect[0] && wbReadReady ? rwPortReadData[7:0]   : 8'h00
+		wbByteSelect[3] && wbReadReady ? rwPortReadData[31:24] : ~8'h00,
+		wbByteSelect[2] && wbReadReady ? rwPortReadData[23:16] : ~8'h00,
+		wbByteSelect[1] && wbReadReady ? rwPortReadData[15:8]  : ~8'h00,
+		wbByteSelect[0] && wbReadReady ? rwPortReadData[7:0]   : ~8'h00
 	};
 
 	// Read port
@@ -102,10 +102,10 @@ module LocalMemoryInterface #(
 	wire rBankSelect = rAddress[SRAM_ADDRESS_SIZE];
 
 	assign coreDataRead = {
-		coreByteSelect[3] && coreReadReady ? rPortReadData[31:24] : 8'h00,
-		coreByteSelect[2] && coreReadReady ? rPortReadData[23:16] : 8'h00,
-		coreByteSelect[1] && coreReadReady ? rPortReadData[15:8]  : 8'h00,
-		coreByteSelect[0] && coreReadReady ? rPortReadData[7:0]   : 8'h00
+		coreByteSelect[3] && coreReadReady ? rPortReadData[31:24] : ~8'h00,
+		coreByteSelect[2] && coreReadReady ? rPortReadData[23:16] : ~8'h00,
+		coreByteSelect[1] && coreReadReady ? rPortReadData[15:8]  : ~8'h00,
+		coreByteSelect[0] && coreReadReady ? rPortReadData[7:0]   : ~8'h00
 	};
 
 	// SRAM connections

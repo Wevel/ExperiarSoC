@@ -164,8 +164,3 @@ jobs:
       - name: Run DV GL tests
         run: |
           make verify-peripheralsGPIO-gl
-          make verify-peripheralsUART-gl
-          make verify-memory-gl
-          make verify-video-gl
-          make verify-corePC-gl
-          

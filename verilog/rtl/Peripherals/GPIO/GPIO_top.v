@@ -77,7 +77,7 @@ module GPIO #(
 		.gpio_output(gpio1_output),
 		.gpio_oe(gpio1_oe));
 
-	assign requestOutput = device1OutputRequest || device1OutputRequest;
+	assign requestOutput = device0OutputRequest || device1OutputRequest;
 	assign peripheralBus_dataRead = device0OutputRequest ? device0OutputData :
 								    device1OutputRequest ? device1OutputData :
 													       ~32'b0;

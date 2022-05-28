@@ -38,7 +38,7 @@ module UART #(
 	wire[DEVICE_COUNT-1:0] deviceBusy;
 	wire[DEVICE_COUNT-1:0] deviceOutputRequest;
 	wire[(32 * DEVICE_COUNT) - 1:0] deviceOutputData;
-	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT)) mux(
+	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT), .DEFAULT(~32'b0)) mux(
 		.select(deviceOutputRequest),
 		.in(deviceOutputData),
 		.out(peripheralBus_dataRead),

@@ -109,7 +109,7 @@ module PWMDevice #(
 
 	wire[OUTPUTS-1:0] compareRegisterOutputRequest;
 	wire[(32 * OUTPUTS) - 1:0] compareRegisterOutputData;
-	Mux #(.WIDTH(32), .INPUTS(OUTPUTS)) mux(
+	Mux #(.WIDTH(32), .INPUTS(OUTPUTS), .DEFAULT(~32'b0)) mux(
 		.select(compareRegisterOutputRequest),
 		.in(compareRegisterOutputData),
 		.out(peripheralBus_dataRead),

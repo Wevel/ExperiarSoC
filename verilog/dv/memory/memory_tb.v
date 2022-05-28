@@ -30,6 +30,7 @@ module memory_tb;
 	wire succesOutput = mprj_io[12];
 	wire nextTestOutput = mprj_io[13];
 	
+	pullup(mprj_io[3]);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
 	// External clock is used by default.  Make this artificially fast for the
@@ -43,7 +44,12 @@ module memory_tb;
 
 	initial begin
 		$dumpfile("memory.vcd");
+
+`ifdef SIM
 		$dumpvars(0, memory_tb);
+`else
+		$dumpvars(1, memory_tb);
+`endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (1500) begin

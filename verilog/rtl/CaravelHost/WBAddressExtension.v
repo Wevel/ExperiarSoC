@@ -9,8 +9,8 @@ module WBAddressExtension (
 		input wire[3:0] wbs_sel_i,
 		input wire[31:0] wbs_adr_i,
 		input wire[31:0] wbs_data_i,
-		output wire wbs_ack_o,
-		output wire[31:0] wbs_data_o,
+		output reg wbs_ack_o,
+		output reg[31:0] wbs_data_o,
 
 		// Wishbone connection to user space
 		output wire userSpace_wb_cyc_i,
@@ -26,12 +26,13 @@ module WBAddressExtension (
 	reg[31:0] currentAddress = 32'b0;
 
 	// Connect user space wishbone bus
-	wire userSpaceSelect = wbs_adr_i[15];
+	wire busAccess = wbs_cyc_i && wbs_adr_i[31:16] == 16'h3000;
+	wire userSpaceSelect = busAccess && wbs_adr_i[15];
 	wire[14:0] addressOffset = wbs_adr_i[14:0];
 
-	assign userSpace_wb_cyc_i = wbs_cyc_i && userSpaceSelect;
-	assign userSpace_wb_stb_i = wbs_stb_i && userSpaceSelect;
-	assign userSpace_wb_we_i = wbs_we_i && userSpaceSelect;
+	assign userSpace_wb_cyc_i = userSpaceSelect ? wbs_cyc_i : 1'b0;
+	assign userSpace_wb_stb_i = userSpaceSelect ? wbs_stb_i : 1'b0;
+	assign userSpace_wb_we_i = userSpaceSelect ? wbs_we_i : 1'b0;
 	assign userSpace_wb_sel_i = userSpaceSelect ? wbs_sel_i : 4'b0000;
 	assign userSpace_wb_adr_i = userSpaceSelect ? { currentAddress[31:15], addressOffset } : 32'b0;
 	assign userSpace_wb_data_i = userSpaceSelect ? wbs_data_i : 32'b0;
@@ -60,7 +61,7 @@ module WBAddressExtension (
 					acknowledge <= 1'b0;
 					dataRead_buffered <= ~32'b0;
 
-					if (wbs_cyc_i && !userSpaceSelect) begin
+					if (wbs_cyc_i && busAccess && !userSpaceSelect) begin
 						if (wbs_stb_i) begin
 							if (wbs_we_i) begin
 								state <= STATE_WRITE_SINGLE;
@@ -101,7 +102,19 @@ module WBAddressExtension (
 	end
 
 	// Connect wishbone return signals
-	assign wbs_ack_o = userSpaceSelect ? userSpace_wb_ack_o : acknowledge;
-	assign wbs_data_o = userSpaceSelect ? userSpace_wb_data_o : dataRead_buffered;
+	always @(*) begin
+		if (busAccess) begin
+			if (userSpaceSelect) begin
+				wbs_ack_o <= userSpace_wb_ack_o;
+				wbs_data_o <= userSpace_wb_data_o;
+			end else begin
+				wbs_ack_o <= acknowledge;
+				wbs_data_o <= dataRead_buffered;
+			end
+		end else begin
+			wbs_ack_o <= 1'b0;
+			wbs_data_o <= 32'b0;
+		end
+	end
 	
 endmodule

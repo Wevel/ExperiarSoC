@@ -34,6 +34,7 @@ module video_tb;
 	wire vgaVSync = mprj_io[36];
 	wire vgaHSync = mprj_io[37];
 
+	pullup(mprj_io[3]);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
 	reg timingValid = 1'b1;
@@ -50,7 +51,12 @@ module video_tb;
 
 	initial begin
 		$dumpfile("video.vcd");
+
+`ifdef SIM
 		$dumpvars(0, video_tb);
+`else
+		$dumpvars(1, video_tb);
+`endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (1000) begin
