@@ -149,7 +149,7 @@ void main ()
 	wbWrite (GPIO0_OE_SET_ADDR, 0x00080);
 	uint32_t ioData = wbRead (GPIO0_INPUT_ADDR);
 	if (ioData != 0x80) testPass = false; // input = 1'b1
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (((ioData >> 5) & 0xF) << 14));
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (((ioData >> 7) & 0xF) << 14));
 	nextTest (testPass);
 
 	wbWrite (GPIO1_OE_WRITE_ADDR, ~0x00000);

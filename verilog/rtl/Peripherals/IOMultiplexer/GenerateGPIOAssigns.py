@@ -164,7 +164,7 @@ def writeMapComment(outputLines:list[str], pinMap:list[tuple[int, str, str]]):
 		if sortedIndex[pinNumber] < 0:
 			sortedIndex[pinNumber] = i
 		else:
-			print(f"Duplicate pin with index {pinNumber}. Origional pin 'IO{pinNumber}-{name}' new pin 'IO{pinNumber}-{name}'")
+			print(f"Duplicate pin with index {pinNumber}. Original pin 'IO{pinNumber}-{name}' new pin 'IO{pinNumber}-{name}'")
 
 	outputLines.append(f"	// Interface IO mapping\n")
 	outputLines.append(f"	// GPIO0 (user1 side)\n")
@@ -198,7 +198,7 @@ def writeJTAGPin(outputLines:list[str], pinName:str, isOutput:bool):
 
 def writeIRQPin(outputLines:list[str], pinName:str, allowGPIO:bool):
 	if allowGPIO:
-		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = irq_en ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = irq_en ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 		outputLines.append(f"	assign io_out[PIN_{pinName}] = irq_en ? 1'b0 : gpio_output[PIN_{pinName}];\n")
 		outputLines.append(f"	assign io_oeb[PIN_{pinName}] = irq_en ? {IO_INPUT} : gpio_oe[PIN_{pinName}];\n")
 		outputLines.append(f"	assign irq_in = irq_en ? io_in[PIN_{pinName}] : 1'b0;\n")
@@ -211,11 +211,11 @@ def writeIRQPin(outputLines:list[str], pinName:str, allowGPIO:bool):
 def writeFlashPin(outputLines:list[str], pinName:str, isOutput:bool, pinType:str, allowGPIO:bool):
 	if allowGPIO:
 		if isOutput:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = flash_en ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = flash_en ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = flash_en ? flash_{pinType.lower()} : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = flash_en ? {IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 		else:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = flash_en ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = flash_en ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = flash_en ? flash_{pinType.lower()}_write : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = flash_en ? !flash_{pinType.lower()}_we : gpio_oe[PIN_{pinName}];\n")
 			outputLines.append(f"	assign flash_{pinType.lower()}_read = flash_en && !flash_{pinType.lower()}_we ? io_in[PIN_{pinName}] : 1'b0;\n")
@@ -233,11 +233,11 @@ def writeFlashPin(outputLines:list[str], pinName:str, isOutput:bool, pinType:str
 def writeUARTPin(outputLines:list[str], pinName:str, uartIndex:int, isOutput:bool, allowGPIO:bool):
 	if allowGPIO:
 		if isOutput:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = uart_en[{uartIndex}] ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = uart_en[{uartIndex}] ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = uart_en[{uartIndex}] ? uart_tx[{uartIndex}] : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = uart_en[{uartIndex}] ? {IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 		else:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = uart_en[{uartIndex}] ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = uart_en[{uartIndex}] ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = uart_en[{uartIndex}] ? 1'b0 : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = uart_en[{uartIndex}] ? {IO_INPUT} : gpio_oe[PIN_{pinName}];\n")
 			outputLines.append(f"	assign uart_rx[{uartIndex}] = uart_en[{uartIndex}] ? io_in[PIN_{pinName}] : 1'b1;\n") # UART Rx defaults to high when not in use
@@ -254,7 +254,7 @@ def writeUARTPin(outputLines:list[str], pinName:str, uartIndex:int, isOutput:boo
 
 def writePWMPin(outputLines:list[str], pinName:str, pwmIndex:int, allowGPIO:bool):
 	if allowGPIO:
-		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = pwm_en[{pwmIndex}] ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = pwm_en[{pwmIndex}] ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 		outputLines.append(f"	assign io_out[PIN_{pinName}] = pwm_en[{pwmIndex}] ? pwm_out[{pwmIndex}] : gpio_output[PIN_{pinName}];\n")
 		outputLines.append(f"	assign io_oeb[PIN_{pinName}] = pwm_en[{pwmIndex}] ? {IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 	else:
@@ -265,11 +265,11 @@ def writePWMPin(outputLines:list[str], pinName:str, pwmIndex:int, allowGPIO:bool
 def writeSPIPin(outputLines:list[str], pinName:str, spiIndex:int, isOutput:bool, pinType:str, allowGPIO:bool):
 	if allowGPIO:
 		if isOutput:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = spi_en[{spiIndex}] ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = spi_en[{spiIndex}] ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = spi_en[{spiIndex}] ? spi_{pinType.lower()}[{spiIndex}] : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = spi_en[{spiIndex}] ? {IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 		else:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = spi_en[{spiIndex}] ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = spi_en[{spiIndex}] ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = spi_en[{spiIndex}] ? 1'b0 : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = spi_en[{spiIndex}] ? {IO_INPUT} : gpio_oe[PIN_{pinName}];\n")
 			outputLines.append(f"	assign spi_{pinType.lower()}[{spiIndex}] = spi_en[{spiIndex}] ? io_in[PIN_{pinName}] : 1'b0;\n")
@@ -287,11 +287,11 @@ def writeSPIPin(outputLines:list[str], pinName:str, spiIndex:int, isOutput:bool,
 def writeVGAPin(outputLines:list[str], pinName:str, pinType:str, pinIndex:int, allowGPIO:bool):
 	if allowGPIO:
 		if pinIndex >= 0:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = vgaEnable ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = vgaEnable ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = vgaEnable ? vga_{pinType.lower()}[{pinIndex}] : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = vgaEnable ?{IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 		else:
-			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = vgaEnable ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+			outputLines.append(f"	assign gpio_input[PIN_{pinName}] = vgaEnable ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 			outputLines.append(f"	assign io_out[PIN_{pinName}] = vgaEnable ? vga_{pinType.lower()} : gpio_output[PIN_{pinName}];\n")
 			outputLines.append(f"	assign io_oeb[PIN_{pinName}] = vgaEnable ?{IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 	else:
@@ -306,7 +306,7 @@ def writeVGAPin(outputLines:list[str], pinName:str, pinType:str, pinIndex:int, a
 
 def writeBlinkPin(outputLines:list[str], pinName:str, blinkIndex:int, allowGPIO:bool):
 	if allowGPIO:
-		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = blinkEnabled ? 1'b0 : gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0;\n")
+		outputLines.append(f"	assign gpio_input[PIN_{pinName}] = blinkEnabled ? 1'b0 : (gpio_oe[PIN_{pinName}] ? io_in[PIN_{pinName}] : 1'b0);\n")
 		outputLines.append(f"	assign io_out[PIN_{pinName}] = blinkEnabled ? blink[{blinkIndex}] : gpio_output[PIN_{pinName}];\n")
 		outputLines.append(f"	assign io_oeb[PIN_{pinName}] = blinkEnabled ? {IO_OUTPUT} : gpio_oe[PIN_{pinName}];\n")
 	else:
@@ -341,8 +341,8 @@ def main():
 		( 2, "Input",  "SDI"),
 		( 3, "Input",  "CSB"),
 		( 4, "Input",  "SCK"),
-		( 5, "Input",  "UART1_RX"),
-		( 6, "Output", "UART1_TX"),
+		( 5, "Input",  "GPIO/UART1_RX"),
+		( 6, "Output", "GPIO/UART1_TX"),
 		( 7, "Input",  "GPIO/IRQ"),
 		( 8, "Output", "FLASH_CSB"),
 		( 9, "Output", "FLASH_SCK"),
