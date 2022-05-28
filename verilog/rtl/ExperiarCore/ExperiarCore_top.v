@@ -92,7 +92,8 @@ module ExperiarCore (
 	// 18			 | 12 	   | S 		   | Supervisor mode implemented
 	// 20			 | 13 	   | U 		   | User mode implemented
 	localparam CORE_MXL = 2'h1;
-	localparam CORE_EXTENSIONS = 14'b00_0001_0000_0000;
+	localparam CORE_EXTENSIONS = 26'b00_0000_0000_0000_0001_0000_0000;
+	localparam CORE_EXTENSIONS_SHORT = 14'b00_0001_0000_0000;
 	localparam CORE_VERSION = 8'h00;
 
 	wire management_run;
@@ -120,7 +121,7 @@ module ExperiarCore (
 	JTAG jtag(
 		.clk(wb_clk_i),
 		.rst(wb_rst_i),
-		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS }),
+		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS_SHORT }),
 		.manufacturerID(manufacturerID),
 		.partID(partID),
 		.versionID(versionID),
@@ -217,6 +218,11 @@ module ExperiarCore (
 		.management_address(management_address),
 		.management_writeData(management_writeData),
 		.management_readData(management_readData),
+		.coreIndex(coreIndex),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.extensions(CORE_EXTENSIONS),
 		.probe_state(probe_state),
 		.probe_programCounter(probe_programCounter),
 		.probe_opcode(probe_opcode),

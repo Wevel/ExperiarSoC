@@ -24,6 +24,13 @@ module RV32ICore(
 		input wire[31:0] management_writeData,
 		output wire[31:0] management_readData,
 
+		// System info
+		input wire[7:0] coreIndex,
+		input wire[10:0] manufacturerID,
+		input wire[15:0] partID,
+		input wire[3:0] versionID,
+		input wire[25:0] extensions,
+
 		// Logic probes
 		output wire[1:0] probe_state,
 		output wire[31:0] probe_programCounter,
@@ -55,7 +62,7 @@ module RV32ICore(
 	wire management_selectProgramCounter      = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h000);
 	wire management_selectInstructionRegister = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h001);
 	wire management_selectRegister            = (management_address[15:14] == MANAGMENT_ADDRESS_REGISTERS) && (management_address[13:7] == 7'h00);
-	//wire management_selectCSR = management_address[15:14] == MANAGMENT_ADDRESS_CSR;
+	wire management_selectCSR 				  = management_address[15:14] == MANAGMENT_ADDRESS_CSR;
 
 	wire management_writeValid = !management_run && management_writeEnable;
 	wire management_writeProgramCounter = management_writeValid && management_selectProgramCounter;
@@ -63,17 +70,18 @@ module RV32ICore(
 	wire management_writeProgramCounter_jump = management_writeProgramCounter && (management_address[3:0] == 4'h4);
 	wire management_writeProgramCounter_step = management_writeProgramCounter && (management_address[3:0] == 4'h8);
 	wire management_writeRegister = management_writeValid && management_selectRegister;
-	//wire management_writeCSR = management_writeValid && management_selectCSR;
+	wire management_writeCSR = management_writeValid && management_selectCSR;
 
 	wire management_readValid = !management_run && !management_writeEnable;
 	wire management_readProgramCounter = management_readValid && management_selectProgramCounter;
 	wire management_readInstructionRegister = management_readValid && management_selectInstructionRegister;
 	wire management_readRegister = management_readValid && management_selectRegister;
-	//wire management_readCSR = management_readValid && management_selectCSR;
+	wire management_readCSR = management_readValid && management_selectCSR;
 
 	wire management_allowInstruction = management_run || management_writeProgramCounter_step;
 
 	wire[4:0] management_registerIndex = management_address[6:2];
+	wire[11:0] management_csrIndex = management_address[13:2];
 	wire[31:0] management_jumpTarget = programCounter + management_writeData;
 
 	reg[31:0] management_dataOut;
@@ -82,8 +90,8 @@ module RV32ICore(
 		case (1'b1)
 			management_readProgramCounter: management_dataOut <= programCounter;
 			management_readInstructionRegister : management_dataOut <= currentInstruction;
-			management_readRegister: management_dataOut <= registers[management_registerIndex];
-			//management_readCSR: management_dataOut <= csr[management_registerIndex];
+			management_readRegister: management_dataOut <= !management_registerIndex ? registers[management_registerIndex] : 32'b0;
+			management_readCSR: management_dataOut <= csrReadData;
 			default: management_dataOut <= 32'b0;
 		endcase
 	end
@@ -94,6 +102,34 @@ module RV32ICore(
 		management_byteSelect[1] ? management_dataOut[15:8]  : 8'h00,
 		management_byteSelect[0] ? management_dataOut[7:0]   : 8'h00
 	};
+
+	// CSR
+	// Core interface
+	wire coreCSRWrite;
+	wire coreCSRRead;
+	wire[11:0] coreCSRIndex = currentInstruction[31:20];
+	reg[32:0] coreCSRWriteData;
+
+	// Combined interface
+	wire csrWriteEnable = management_writeCSR || (management_run && coreCSRWrite);
+	wire csrReadEnable = management_readCSR || (management_run && coreCSRRead);
+	wire[11:0] csrAddress = !management_run ? management_csrIndex : coreCSRIndex;
+	wire[31:0] csrWriteData = !management_run ? management_writeData : coreCSRWriteData;
+	wire[31:0] csrReadData;
+	CSR csr(
+		.clk(clk),
+		.rst(rst),
+		.csrWriteEnable(csrWriteEnable),
+		.csrReadEnable(csrReadEnable),
+		.csrAddress(csrAddress),
+		.csrWriteData(csrWriteData),
+		.csrReadData(csrReadData),
+		.coreIndex(coreIndex),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.extensions(extensions),
+		.instructionCompleted(instructionCompleted));
 
 	// Immediate Decode
 	wire[31:0] imm_I = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[24:21], currentInstruction[20]};
@@ -123,9 +159,15 @@ module RV32ICore(
 	wire isALU 	  = (opcode == 7'b0110011) && (funct7 == 7'b0000000 || ((funct7 == 7'b0100000) && (funct3 == 3'b000 || funct3 == 3'b101)));
 	wire isFENCE  = (opcode == 7'b0001111) && (funct3 == 3'b000);
 	wire isSystem = (opcode == 7'b1110011);
-
-	wire isECALL  = isSystem && (currentInstruction == 32'b00000000000000000000000001110011);
-	wire isEBREAK = isSystem && (currentInstruction == 32'b00000000000100000000000001110011);
+	
+	// System commands
+	wire isCSR = isSystem && (funct3 != 3'b000);
+	wire isCSRIMM = isCSR && funct3[2];
+	wire isCSRRW = isCSR && (funct3[1:0] == 2'b01);
+	wire isCSRRS = isCSR && (funct3[1:0] == 2'b10);
+	wire isCSRRC = isCSR && (funct3[1:0] == 2'b11);
+	wire isECALL  = isSystem && (currentInstruction[31:7] == 25'b0000000000000000000000000);
+	wire isEBREAK = isSystem && (currentInstruction[31:7] == 25'b0000000000010000000000000);
 
 	reg invalidInstruction;
 
@@ -226,8 +268,24 @@ module RV32ICore(
 		endcase
 	end
 
-	// Memory connections
+	// CSR data connections
+	assign coreCSRWrite = isCSRRW || (isCSR && |rs1Index);
+	assign coreCSRRead = isCSRRC || isCSRRS || (isCSR && |rdIndex);
 
+	wire csrRS1Data = isCSRIMM ? { 27'b0, rs1Index} : rs1;
+
+	always @(*) begin
+		if (isCSR) begin			
+			if (isCSRRW) coreCSRWriteData <= csrRS1Data;
+			else if (isCSRRS) coreCSRWriteData <= csrReadData | csrRS1Data;
+			else if (isCSRRC) coreCSRWriteData <= csrReadData & ~csrRS1Data;
+			else coreCSRWriteData <= 32'b0;
+		end else begin
+			coreCSRWriteData <= 32'b0;
+		end 
+	end
+
+	// Memory connections
 	wire[31:0] targetMemoryAddress = state == STATE_FETCH   ? programCounter : 
 									 state == STATE_EXECUTE ? aluAPlusB:
 									 						  32'b0;
@@ -333,7 +391,6 @@ module RV32ICore(
 	end
 
 	// Debug
-
 	assign probe_state = state;
 	assign probe_programCounter = programCounter;
 	assign probe_opcode = opcode;
