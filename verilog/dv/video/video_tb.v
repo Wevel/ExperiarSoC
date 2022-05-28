@@ -56,6 +56,7 @@ module video_tb;
 		$dumpvars(0, video_tb);
 `else
 		$dumpvars(1, video_tb);
+		$dumpvars(2, user_project_wrapper);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench

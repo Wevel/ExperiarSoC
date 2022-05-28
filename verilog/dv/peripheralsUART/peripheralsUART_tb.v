@@ -49,6 +49,7 @@ module peripheralsUART_tb;
 		$dumpvars(0, peripheralsUART_tb);
 `else
 		$dumpvars(1, peripheralsUART_tb);
+		$dumpvars(2, user_project_wrapper);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench

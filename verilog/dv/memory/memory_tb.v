@@ -49,6 +49,7 @@ module memory_tb;
 		$dumpvars(0, memory_tb);
 `else
 		$dumpvars(1, memory_tb);
+		$dumpvars(2, user_project_wrapper);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
