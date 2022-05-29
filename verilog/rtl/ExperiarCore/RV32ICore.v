@@ -153,7 +153,7 @@ module RV32ICore(
 	wire isJAL 	  = (opcode == 7'b1101111);
 	wire isJALR   = (opcode == 7'b1100111) && (funct3 == 3'b000);
 	wire isBranch = (opcode == 7'b1100011) && (funct3 != 3'b010) && (funct3 != 3'b011);
-	wire isLoad   = (opcode == 7'b0000011) && (funct3 != 3'b010) && (funct3 != 3'b011);
+	wire isLoad   = (opcode == 7'b0000011) && (funct3 == 3'b000 || funct3 == 3'b001 || funct3 == 3'b010 || funct3 == 3'b100 || funct3 == 3'b101);
 	wire isStore  = (opcode == 7'b0100011) && (funct3 == 3'b000 || funct3 == 3'b001 || funct3 == 3'b010);
 	wire isALUImmBase = (opcode == 7'b0010011);
 	wire isALUImmNormal = isALUImmBase && funct3 != 3'b001 && funct3 != 3'b101;
