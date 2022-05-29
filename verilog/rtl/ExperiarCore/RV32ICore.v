@@ -385,28 +385,28 @@ module RV32ICore(
 	always @(*) begin
 		case (targetMemoryAddress[1:0])
 			2'b00: dataOut = {
-					loadStoreByteMask[3] ? storeData[31:24] : 8'h00,
-					loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
-					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
-					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00
+					baseByteMask[3] ? storeData[31:24] : 8'h00,
+					baseByteMask[2] ? storeData[23:16] : 8'h00,
+					baseByteMask[1] ? storeData[15:8]  : 8'h00,
+					baseByteMask[0] ? storeData[7:0]   : 8'h00
 				};
 
 			2'b01: dataOut = {
-					loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
-					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
-					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					baseByteMask[2] ? storeData[23:16] : 8'h00,
+					baseByteMask[1] ? storeData[15:8]  : 8'h00,
+					baseByteMask[0] ? storeData[7:0]   : 8'h00,
 					8'h00
 				};
 
 			2'b10: dataOut = {
-					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
-					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					baseByteMask[1] ? storeData[15:8]  : 8'h00,
+					baseByteMask[0] ? storeData[7:0]   : 8'h00,
 					8'h00,
 					8'h00
 				};
 
 			2'b11: dataOut = {
-					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					baseByteMask[0] ? storeData[7:0]   : 8'h00,
 					8'h00,
 					8'h00,
 					8'h00
