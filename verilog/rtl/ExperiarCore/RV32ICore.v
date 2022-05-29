@@ -295,12 +295,19 @@ module RV32ICore(
 									 state == STATE_EXECUTE ? aluAPlusB:
 									 						  32'b0;
 	wire loadSigned    = (funct3 == 3'b100) || (funct3 == 3'b101);
-	wire loadStoreByte = funct3[1:0] == 2'b00;
-	wire loadStoreHalf = funct3[1:0] == 3'b01;
 	wire loadStoreWord = funct3 == 3'b010;
-	wire[3:0] baseByteMask = state == STATE_FETCH || loadStoreWord ? 4'b1111 :
-							 loadStoreHalf 						   ? 4'b0011 : 
-							 loadStoreByte 						   ? 4'b0001 : 4'b0000;
+	wire loadStoreHalf = funct3[1:0] == 3'b01;
+	wire loadStoreByte = funct3[1:0] == 2'b00;
+	reg[3:0] baseByteMask;
+	always @(*) begin
+		if (state == STATE_FETCH) baseByteMask <= 4'b1111;
+		else if ((isLoad || isStore) && state == STATE_EXECUTE) begin
+			if (loadStoreWord) baseByteMask <= 4'b1111;
+			else if (loadStoreHalf) baseByteMask <= 4'b0011;
+			else if (loadStoreByte) baseByteMask <= 4'b0001;
+			else baseByteMask <= 4'b0000;
+		end else baseByteMask <= 4'b0000;
+	end
 
 	wire[6:0] loadStoreByteMask = {3'b0, baseByteMask} << targetMemoryAddress[1:0];
 	wire loadStoreByteMaskValid = |(loadStoreByteMask[3:0]);
