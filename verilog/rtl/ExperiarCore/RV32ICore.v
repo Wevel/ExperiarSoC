@@ -193,7 +193,7 @@ module RV32ICore(
 	wire[31:0] rs2 = |rs2Index ? registers[rs2Index] : 32'b0;
 
 	// Setup inputs for ALU and branch control
-	wire[31:0] inputA = rs1;
+	wire[31:0] inputA = isAUIPC ? programCounter : rs1;
 	wire[31:0] inputB = isAUIPC  ? imm_U : 
 						isALUImm ? imm_I : 
 								   rs2;

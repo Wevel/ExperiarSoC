@@ -1,4 +1,5 @@
-# Caravel user project includes
+# Experiar SoC includes
+-v $(CARAVEL_ROOT)/verilog/rtl/defines.v 
 -v $(USER_PROJECT_VERILOG)/rtl/user_project_wrapper.v  
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarSoC/ExperiarSoC_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/CaravelHost/CaravelHost_top.v 

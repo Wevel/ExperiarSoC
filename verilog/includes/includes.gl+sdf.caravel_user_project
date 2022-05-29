@@ -1,4 +1,5 @@
-// Caravel user project includes		
+// Experiar SoC includes		
+$CARAVEL_ROOT/verilog/rtl/defines.v 
 $USER_PROJECT_VERILOG/gl/user_project_wrapper.v 
 $USER_PROJECT_VERILOG/gl/CaravelHost.v 
 $USER_PROJECT_VERILOG/gl/ExperiarCore.v 
