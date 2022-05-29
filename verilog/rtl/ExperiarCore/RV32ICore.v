@@ -155,7 +155,10 @@ module RV32ICore(
 	wire isBranch = (opcode == 7'b1100011) && (funct3 != 3'b010) && (funct3 != 3'b011);
 	wire isLoad   = (opcode == 7'b0000011) && (funct3 != 3'b010) && (funct3 != 3'b011);
 	wire isStore  = (opcode == 7'b0100011) && (funct3 == 3'b000 || funct3 == 3'b001 || funct3 == 3'b010);
-	wire isALUImm = (opcode == 7'b0010011) && (funct3 != 3'b001 || funct7 == 7'b0000000) && (funct3 != 3'b101 || funct7 == 7'b0000000 || funct7 == 7'b0100000);
+	wire isALUImmBase = (opcode == 7'b0010011);
+	wire isALUImmNormal = isALUImmBase && funct3 != 3'b001 && funct3 != 3'b101;
+	wire isALUImmShift = isALUImmBase && ((funct3 == 3'b001 && funct7 == 7'b0000000) || (funct3 == 3'b101 && (funct7 == 7'b0000000 || funct7 == 7'b0100000)));
+	wire isALUImm = isALUImmShift || isALUImmNormal;
 	wire isALU 	  = (opcode == 7'b0110011) && (funct7 == 7'b0000000 || ((funct7 == 7'b0100000) && (funct3 == 3'b000 || funct3 == 3'b101)));
 	wire isFENCE  = (opcode == 7'b0001111) && (funct3 == 3'b000);
 	wire isSystem = (opcode == 7'b1110011);
@@ -195,7 +198,9 @@ module RV32ICore(
 	// Setup inputs for ALU and branch control
 	wire[31:0] inputA = isAUIPC ? programCounter : rs1;
 	wire[31:0] inputB = isAUIPC  ? imm_U : 
-						isALUImm ? imm_I : 
+						isALUImm ? imm_I :
+						isLoad   ? imm_I : 
+						isStore  ? imm_S :
 								   rs2;
 
 	// The use of A-B for comparison is based on https://github.com/BrunoLevy/learn-fpga/tree/master/FemtoRV/TUTORIALS/FROM_BLINKER_TO_RISCV#from-blinker-to-risc-v
@@ -236,7 +241,7 @@ module RV32ICore(
 	wire[31:0] nextProgramCounter = isCompressed ? nextProgramCounterCompressed : nextProgramCounterFull;
 
 	// ALU	
-	wire aluAlt = funct7 == 7'b0100000;
+	wire aluAlt = funct7 == 7'b0100000 && (isALU || isALUImmShift);
 	
 	// Using only a single shifter also from https://github.com/BrunoLevy/learn-fpga/tree/master/FemtoRV/TUTORIALS/FROM_BLINKER_TO_RISCV#from-blinker-to-risc-v
 	// Although I feel like there is an easier way to flip bit orderings
