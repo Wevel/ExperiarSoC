@@ -4,3 +4,6 @@ precheck_results
 *.vcd
 *.gtkw
 .vscode
+verilog/dv/coreArch/riscof/riscof_work/
+verilog/dv/coreArch/riscof/sail_cSim/__pycache__/
+verilog/dv/coreArch/riscof/ExperiarSoC/__pycache__/

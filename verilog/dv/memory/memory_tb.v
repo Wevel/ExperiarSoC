@@ -38,6 +38,11 @@ module memory_tb;
 	// would be the fast clock.
 	always #12.5 clock <= (clock === 1'b0);
 
+	// Need to add pulls (can be up or down) to all unsed io so that input data is known
+	assign mprj_io[2:0] = 3'b0;
+	assign mprj_io[11:4] = 8'b0;
+	assign mprj_io[37:14] = 24'b0;
+
 	initial begin
 		clock = 0;
 	end
@@ -49,7 +54,7 @@ module memory_tb;
 		$dumpvars(0, memory_tb);
 `else
 		$dumpvars(1, memory_tb);
-		$dumpvars(2, user_project_wrapper);
+		$dumpvars(2, memory_tb.uut.mprj);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench

@@ -82,7 +82,7 @@ module peripheralsGPIO_tb;
 		$dumpvars(0, peripheralsGPIO_tb);
 `else
 		$dumpvars(1, peripheralsGPIO_tb);
-		$dumpvars(2, user_project_wrapper);
+		$dumpvars(2, peripheralsGPIO_tb.uut.mprj);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench

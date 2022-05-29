@@ -44,6 +44,11 @@ module video_tb;
 	// would be the fast clock.
 	always #12.5 clock <= (clock === 1'b0);
 
+	// Need to add pulls (can be up or down) to all unsed io so that input data is known
+	assign mprj_io[2:0] = 3'b0;
+	assign mprj_io[11:4] = 8'b0;
+	assign mprj_io[29:14] = 16'b0;
+
 	initial begin
 		clock = 0;
 		timingValid = 1'b1;
@@ -56,7 +61,7 @@ module video_tb;
 		$dumpvars(0, video_tb);
 `else
 		$dumpvars(1, video_tb);
-		$dumpvars(2, user_project_wrapper);
+		$dumpvars(2, video_tb.uut.mprj);
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
