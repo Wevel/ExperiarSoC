@@ -254,7 +254,8 @@ module RV32ICore(
 
 	wire isLeftShift = funct3 == 3'b001;
 	wire[31:0] shiftInput = isLeftShift ? flipBits32(inputA) : inputA;
-	wire[31:0] aluShifter = $signed({ aluAlt && shiftInput[31] && !isLeftShift, shiftInput } >>> inputB[4:0]);
+	wire signed[32:0] signedShiftInput = { aluAlt && shiftInput[31] && !isLeftShift, shiftInput };
+	wire[32:0] aluShifter = $signed(signedShiftInput >>> inputB[4:0]);
 	wire[31:0] rightShift = aluShifter[31:0];
 	wire[31:0] leftShift = flipBits32(rightShift);
 
