@@ -294,10 +294,10 @@ module RV32ICore(
 	wire[31:0] targetMemoryAddress = state == STATE_FETCH   ? programCounter : 
 									 state == STATE_EXECUTE ? aluAPlusB:
 									 						  32'b0;
-	wire loadSigned    = (funct3 == 3'b100) || (funct3 == 3'b101);
-	wire loadStoreWord = funct3 == 3'b010;
-	wire loadStoreHalf = funct3[1:0] == 3'b01;
+	wire loadSigned    = (funct3 == 3'b000) || (funct3 == 3'b001);
 	wire loadStoreByte = funct3[1:0] == 2'b00;
+	wire loadStoreHalf = funct3[1:0] == 2'b01;
+	wire loadStoreWord = funct3 == 3'b010;
 	reg[3:0] baseByteMask;
 	always @(*) begin
 		if (state == STATE_FETCH) baseByteMask <= 4'b1111;
@@ -308,6 +308,33 @@ module RV32ICore(
 			else baseByteMask <= 4'b0000;
 		end else baseByteMask <= 4'b0000;
 	end
+
+	reg signExtend;
+	always @(*) begin
+		if (loadSigned) begin
+			if (loadStoreByte) begin
+				case (targetMemoryAddress[1:0])
+					2'b00: signExtend <= memoryDataRead[7];
+					2'b01: signExtend <= memoryDataRead[15];
+					2'b10: signExtend <= memoryDataRead[23];
+					2'b11: signExtend <= memoryDataRead[31];
+				endcase
+			end else if (loadStoreHalf) begin
+				case (targetMemoryAddress[1:0])
+					2'b00: signExtend <= memoryDataRead[15];
+					2'b01: signExtend <= memoryDataRead[23];
+					2'b10: signExtend <= memoryDataRead[31];
+					2'b11: signExtend <= 1'b0;
+				endcase
+			end else begin
+				signExtend <= 1'b0;
+			end
+		end else begin
+			signExtend <= 1'b0;
+		end
+	end
+
+	wire[7:0] signExtendByte = signExtend ? 8'hFF : 8'h00;
 
 	wire[6:0] loadStoreByteMask = {3'b0, baseByteMask} << targetMemoryAddress[1:0];
 	wire loadStoreByteMaskValid = |(loadStoreByteMask[3:0]);
@@ -320,20 +347,74 @@ module RV32ICore(
 
 	wire[31:0] loadData  = shouldLoad && !shouldStore ? dataIn : 32'b0;
 	wire[31:0] storeData = shouldStore && !shouldLoad ? rs2    : 32'b0;
+	
+	reg[31:0] dataIn;
+	always @(*) begin
+		case (targetMemoryAddress[1:0])
+			2'b00: dataIn = {
+					loadStoreByteMask[3] ? memoryDataRead[31:24] : signExtendByte,
+					loadStoreByteMask[2] ? memoryDataRead[23:16] : signExtendByte,
+					loadStoreByteMask[1] ? memoryDataRead[15:8]  : signExtendByte,
+					loadStoreByteMask[0] ? memoryDataRead[7:0]   : 8'h00
+				};
 
-	wire[31:0] dataIn = {
-		loadStoreByteMask[3] ? memoryDataRead[31:24] : 8'h00,
-		loadStoreByteMask[2] ? memoryDataRead[23:16] : 8'h00,
-		loadStoreByteMask[1] ? memoryDataRead[15:8]  : 8'h00,
-		loadStoreByteMask[0] ? memoryDataRead[7:0]   : 8'h00
-	};
+			2'b01: dataIn = {
+					signExtendByte,
+					loadStoreByteMask[3] ? memoryDataRead[31:24] : signExtendByte,
+					loadStoreByteMask[2] ? memoryDataRead[23:16] : signExtendByte,
+					loadStoreByteMask[1] ? memoryDataRead[15:8]  : 8'h00
+				};
 
-	assign memoryDataWrite = {
-		loadStoreByteMask[3] ? storeData[31:24] : 8'h00,
-		loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
-		loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
-		loadStoreByteMask[0] ? storeData[7:0]   : 8'h00
-	};
+			2'b10: dataIn = {
+					signExtendByte,
+					signExtendByte,
+					loadStoreByteMask[3] ? memoryDataRead[31:24] : signExtendByte,
+					loadStoreByteMask[2] ? memoryDataRead[23:16] : 8'h00
+				};
+
+			2'b11: dataIn = {
+					signExtendByte,
+					signExtendByte,
+					signExtendByte,
+					loadStoreByteMask[3] ? memoryDataRead[31:24] : 8'h00
+				};
+		endcase
+	end
+
+	reg[31:0] dataOut;
+	always @(*) begin
+		case (targetMemoryAddress[1:0])
+			2'b00: dataOut = {
+					loadStoreByteMask[3] ? storeData[31:24] : 8'h00,
+					loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
+					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
+					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00
+				};
+
+			2'b01: dataOut = {
+					loadStoreByteMask[2] ? storeData[23:16] : 8'h00,
+					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
+					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					8'h00
+				};
+
+			2'b10: dataOut = {
+					loadStoreByteMask[1] ? storeData[15:8]  : 8'h00,
+					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					8'h00,
+					8'h00
+				};
+
+			2'b11: dataOut = {
+					loadStoreByteMask[0] ? storeData[7:0]   : 8'h00,
+					8'h00,
+					8'h00,
+					8'h00
+				};
+		endcase
+	end
+
+	assign memoryDataWrite = dataOut;
 
 	assign memoryWriteEnable = shouldStore;
 	assign memoryReadEnable = shouldLoad;
