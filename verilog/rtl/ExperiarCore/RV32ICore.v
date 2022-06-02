@@ -217,32 +217,37 @@ module RV32ICore(
 	// Jump and branch control
 	reg takeBranch;
 	always @(*) begin
-		case (funct3)
-			/*BEQ*/  3'b000: takeBranch <= aluAEqualsB;
-			/*BNE*/  3'b001: takeBranch <= !aluAEqualsB;
-			//*None*/ 3'b010: takeBranch <= 1'b0;
-			//*None*/ 3'b011: takeBranch <= 1'b0;
-			/*BLT*/  3'b100: takeBranch <= aluALessThanB;
-			/*BGE*/  3'b101: takeBranch <= !aluALessThanB;
-			/*BLTU*/ 3'b110: takeBranch <= aluALessThanBUnsigned;
-			/*BGEU*/ 3'b111: takeBranch <= !aluALessThanBUnsigned;
-					default: takeBranch <= 1'b0;
-		endcase
+		if (isBranch) begin
+			case (funct3)
+				/*BEQ*/  3'b000: takeBranch <= aluAEqualsB;
+				/*BNE*/  3'b001: takeBranch <= !aluAEqualsB;
+				//*None*/ 3'b010: takeBranch <= 1'b0;
+				//*None*/ 3'b011: takeBranch <= 1'b0;
+				/*BLT*/  3'b100: takeBranch <= aluALessThanB;
+				/*BGE*/  3'b101: takeBranch <= !aluALessThanB;
+				/*BLTU*/ 3'b110: takeBranch <= aluALessThanBUnsigned;
+				/*BGEU*/ 3'b111: takeBranch <= !aluALessThanBUnsigned;
+						default: takeBranch <= 1'b0;
+			endcase
+		end else begin
+			takeBranch <= 1'b0;
+		end
 	end
 
 	wire[31:0] programCounterLink = programCounter + (isCompressed ? 2 : 4);
 	wire[31:0] nextProgramCounterBase = isJAL 					 ? programCounter :
 										isJALR		  			 ? rs1 			  :
-										(isBranch && takeBranch) ? programCounter :
+										takeBranch 				 ? programCounter :
 																   programCounterLink;
 	wire[31:0] nextProgramCounterOffset = isJAL 				   ? imm_J :
 										  isJALR		  		   ? imm_I :
-										  (isBranch && takeBranch) ? imm_B :
+										  takeBranch 			   ? imm_B :
 																     32'b0;
 	wire[31:0] nextProgramCounterWord = nextProgramCounterBase + nextProgramCounterOffset;
 	wire[31:0] nextProgramCounterCompressed = programCounterLink; // TODO: Need to implement compressed branch and jump instructions
 	wire[31:0] nextProgramCounterFull = isCompressed ? nextProgramCounterCompressed : nextProgramCounterWord;
 	wire[31:0] nextProgramCounter = { nextProgramCounterFull[31:1] , 1'b0};
+	wire jumpMissaligned = !isCompressed && |nextProgramCounter[1:0] && state == STATE_EXECUTE && (isJAL || isJALR || takeBranch);
 
 	// ALU	
 	wire aluAlt = funct7 == 7'b0100000 && (isALU || isALUImmShift);
@@ -531,6 +536,7 @@ module RV32ICore(
 		.isMachineExternalInterrupt(isMachineExternalInterrupt),
 		.isMachineSoftwareInterrupt(isMachineSoftwareInterrupt),
 		.isAddressMisaligned(isAddressMisaligned),
+		.isJumpMissaligned(jumpMissaligned),
 		.isAccessFault(isAccessFault),
 		.isInvalidInstruction(isInvalidInstruction),
 		.isEBREAK(eBreak),

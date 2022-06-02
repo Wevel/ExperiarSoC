@@ -20,6 +20,7 @@ module Traps (
 		input wire isMachineExternalInterrupt,
 		input wire isMachineSoftwareInterrupt,
 		input wire isAddressMisaligned,
+		input wire isJumpMissaligned,
 		input wire isAccessFault,
 		input wire isInvalidInstruction,
 		input wire isEBREAK,
@@ -50,7 +51,7 @@ module Traps (
 									isMachineSoftwareInterrupt, 1'b0, 1'b0, 1'b0 };
 	wire[31:0] pendingInterrupts = { userInterrupts, 4'b0000, systemInterrupts } & mieValue;
 
-	wire misalignedInstructionFetch = isAddressMisaligned && (coreState == CORE_STATE_FETCH);
+	wire misalignedInstructionFetch = (isAddressMisaligned && (coreState == CORE_STATE_FETCH)) || isJumpMissaligned;
 
 	reg[30:0] trapCause;
 	always @(*) begin
