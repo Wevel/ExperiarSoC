@@ -25,6 +25,39 @@ module UARTDevice  #(
 	localparam RX_BUFFER_SIZE = 32;
 	localparam TX_BUFFER_SIZE = 32;
 
+	// Buffer values used for interrupts and status register
+	wire txDataLost;
+	wire txBufferFull;
+	wire txDataAvailable;
+	wire rxDataLost;
+	wire rxBufferFull;
+	wire rxDataAvailable;
+
+	reg txDataLostBuffered;
+	reg txBufferFullBuffered;
+	reg txDataAvailableBuffered;
+	reg rxDataLostBuffered;
+	reg rxBufferFullBuffered;
+	reg rxDataAvailableBuffered;
+
+	always @(posedge clk) begin
+		if (rst) begin
+			txDataLostBuffered <= 1'b0;
+			txBufferFullBuffered <= 1'b0;
+			txDataAvailableBuffered <= 1'b0;
+			rxDataLostBuffered <= 1'b0;
+			rxBufferFullBuffered <= 1'b0;
+			rxDataAvailableBuffered <= 1'b0;
+		end else begin
+			txDataLostBuffered <= txDataLost;
+			txBufferFullBuffered <= txBufferFull;
+			txDataAvailableBuffered <= txDataAvailable;
+			rxDataLostBuffered <= rxDataLost;
+			rxBufferFullBuffered <= rxBufferFull;
+			rxDataAvailableBuffered <= rxDataAvailable;
+		end
+	end
+
 	// Device select
 	wire[11:0] localAddress;
 	wire deviceEnable;
@@ -98,12 +131,6 @@ module UARTDevice  #(
 	// b03: txDataAvailable
 	// b04: txBufferFull
 	// b05: txDataLost
-	wire txDataLost;
-	wire txBufferFull;
-	wire txDataAvailable;
-	wire rxDataLost;
-	wire rxBufferFull;
-	wire rxDataAvailable;
 	wire[31:0] statusRegisterOutputData;
 	wire statusRegisterOutputRequest;
 	wire statusRegisterBusBusy_nc;
@@ -125,7 +152,13 @@ module UARTDevice  #(
 		.writeData(statusRegisterWriteData_nc),
 		.writeData_en(statusRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ txDataLost, txBufferFull, txDataAvailable, rxDataLost, rxBufferFull, rxDataAvailable }),
+		.readData({ 
+			txDataLostBuffered, 
+			txBufferFullBuffered, 
+			txDataAvailableBuffered, 
+			rxDataLostBuffered, 
+			rxBufferFullBuffered, 
+			rxDataAvailableBuffered }),
 		.readData_en(statusRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
@@ -237,11 +270,11 @@ module UARTDevice  #(
 	reg sendingData = 1'b0;
 	always @(posedge clk) begin
 		if (rst) sendingData <= 1'b0;
-		else sendingData <= txDataAvailable;
+		else sendingData <= txDataAvailableBuffered;
 	end
 
-	assign uart_irq = (dataLostInterruptEnable && (rxDataLost || txDataLost))
-				   || (rxDataAvaliableInterruptEnable && rxOutAvailable)
-				   || (txDataSentInterruptEnable && sendingData && !txDataAvailable);
+	assign uart_irq = (dataLostInterruptEnable && (rxDataLostBuffered || txDataLostBuffered))
+				   || (rxDataAvaliableInterruptEnable && rxDataAvailableBuffered)
+				   || (txDataSentInterruptEnable && sendingData && !txDataAvailableBuffered);
 
 endmodule
