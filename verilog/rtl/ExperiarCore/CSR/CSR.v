@@ -15,7 +15,28 @@ module CSR (
 		input wire[15:0] partID,
 		input wire[3:0] versionID,
 		input wire[25:0] extensions,
-		input wire instructionCompleted
+		input wire instructionCompleted,
+
+		// System trap interface
+		input wire[1:0] coreState,
+		input wire[31:0] programCounter,
+		input wire[31:0] currentInstruction,
+		input wire isLoad,
+		input wire isStore,
+		input wire isMachineTimerInterrupt,
+		input wire isMachineExternalInterrupt,
+		input wire isMachineSoftwareInterrupt,
+		input wire isAddressMisaligned,
+		input wire isAccessFault,
+		input wire isInvalidInstruction,
+		input wire isEBREAK,
+		input wire isECALL,
+		input wire isAddressBreakpoint,
+		input wire[15:0] userInterrupts,
+		input wire trapReturn,
+		output wire inTrap,
+		output wire[31:0] trapVector,
+		output wire[31:0] trapReturnVector
 	);
 
 	// Cylce
@@ -128,6 +149,38 @@ module CSR (
 		.csrRequestOutput(misaRequestOutput),
 		.value({ 2'b01, 4'b0, extensions }));
 
+	// Trap handling
+	wire[31:0] trapsReadData;
+	wire trapsRequestOutput;
+	Traps traps(
+		.clk(clk),
+		.rst(rst),
+		.csrWriteEnable(csrWriteEnable),
+		.csrReadEnable(csrReadEnable),
+		.csrAddress(csrAddress),
+		.csrWriteData(csrWriteData),
+		.csrReadData(trapsReadData),
+		.requestOutput(trapsRequestOutput),
+		.coreState(coreState),
+		.programCounter(programCounter),
+		.currentInstruction(currentInstruction),
+		.isLoad(isLoad),
+		.isStore(isStore),
+		.isMachineTimerInterrupt(isMachineTimerInterrupt),
+		.isMachineExternalInterrupt(isMachineExternalInterrupt),
+		.isMachineSoftwareInterrupt(isMachineSoftwareInterrupt),
+		.isAddressMisaligned(isAddressMisaligned),
+		.isAccessFault(isAccessFault),
+		.isInvalidInstruction(isInvalidInstruction),
+		.isEBREAK(isEBREAK),
+		.isECALL(isECALL),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.userInterrupts(userInterrupts),
+		.trapReturn(trapReturn),
+		.inTrap(inTrap),
+		.trapVector(trapVector),
+		.trapReturnVector(trapReturnVector));
+
 	always @(*) begin
 		case (1'b1)
 			// Timers
@@ -142,6 +195,9 @@ module CSR (
 			implIDRequestOutput: csrReadData <= implIDReadData;
 			coreIDRequestOutput: csrReadData <= coreIDReadData;
 			misaRequestOutput: csrReadData <= misaReadData;
+
+			// Traps
+			trapsRequestOutput: csrReadData <= trapsReadData;
 
 			default: csrReadData <= 32'b0;
 		endcase

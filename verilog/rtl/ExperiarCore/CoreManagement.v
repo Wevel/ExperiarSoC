@@ -4,6 +4,7 @@ module CoreManagement (
 
 		// Interface to core
 		output wire management_run,
+		output wire management_trapEnable,
 		output wire management_writeEnable,
 		output wire[3:0] management_byteSelect,
 		output wire[15:0] management_address,
@@ -11,7 +12,12 @@ module CoreManagement (
 		input wire[31:0] management_readData,
 
 		// Core state
-		input wire[3:0] core_errorCode,
+		input wire[1:0] core_env,
+		input wire[1:0] core_errorCode,
+
+		// Address breakpoint
+		output wire isAddressBreakpoint,
+		input wire[31:0] coreAddress,
 
 		// Interface from jtag
 		input wire jtag_management_writeEnable,
@@ -30,6 +36,10 @@ module CoreManagement (
 		output wire[31:0] wb_management_readData,
 		output wire wb_management_busy
 	);
+
+	// TODO instruction breakpoints
+	assign isAddressBreakpoint = 0;
+	//assign isAddressBreakpoint = coreAddress == instructionBreakpointAddress;
 
 	// Master select
 	wire jtagSelect = jtag_management_writeEnable || jtag_management_readEnable;
@@ -55,11 +65,12 @@ module CoreManagement (
 
 	// Registers
 	// Control register: Default 0x0
-	// b00: Run
-	wire control;
+	// b00: run
+	// b01: trapEnable
+	wire[1:0] control;
 	wire[31:0] controlOutputData;
 	wire controlOutputRequest;
-	ConfigurationRegister #(.WIDTH(1), .ADDRESS(12'h000), .DEFAULT(1'b0)) controlRegister(
+	ConfigurationRegister #(.WIDTH(2), .ADDRESS(12'h000), .DEFAULT(2'b0)) controlRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(registerEnable),
@@ -96,12 +107,13 @@ module CoreManagement (
 		.writeData(stateWriteData_nc),
 		.writeData_en(stateWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ management_run, core_errorCode }),
+		.readData({ management_run, core_env, core_errorCode }),
 		.readData_en(stateReadDataEnable_nc),
 		.readData_busy(1'b0));
 
 	// Core
-	assign management_run = control;
+	assign management_run = control[0];
+	assign management_trapEnable = control[1];
 	assign management_writeEnable = coreEnable && peripheralBus_we;
 	assign management_byteSelect = peripheralBus_byteSelect;
 	assign management_address = peripheralBus_address[15:0];

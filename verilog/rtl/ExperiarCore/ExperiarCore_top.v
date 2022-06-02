@@ -18,6 +18,9 @@ module ExperiarCore (
 		input wire jtag_tdi,
 		output wire jtag_tdo,
 
+		// Interrupts
+		//input wire[15:0] userInterrupts,
+
 		// Wishbone master interface from core
 		output wire core_wb_cyc_o,
 		output wire core_wb_stb_o,
@@ -59,9 +62,10 @@ module ExperiarCore (
 
 		// Logic probes
 		output wire[1:0] probe_state,
+		output wire[1:0] probe_env,
 		output wire[31:0] probe_programCounter,
 		output wire[6:0] probe_opcode,
-		output wire[3:0] probe_errorCode,
+		output wire[1:0] probe_errorCode,
 		output wire probe_isBranch,
 		output wire probe_takeBranch,
 		output wire probe_isStore,
@@ -96,7 +100,46 @@ module ExperiarCore (
 	localparam CORE_EXTENSIONS_SHORT = 14'b00_0001_0000_0000;
 	localparam CORE_VERSION = 8'h00;
 
+	// Core
+	// Memory interface from core
+	wire coreMemoryWriteEnable;
+	wire coreMemoryReadEnable;
+	wire[31:0] coreMemoryAddress;
+	wire[3:0] coreMemoryByteSelect;
+	wire[31:0] coreMemoryDataWrite;
+	wire[31:0] coreMemoryDataRead;
+	wire coreMemoryBusy;
+
+	// Memory interface from core to local memory
+	wire coreLocalMemoryWriteEnable;
+	wire coreLocalMemoryReadEnable;
+	wire[23:0] coreLocalMemoryAddress;
+	wire[3:0] coreLocalMemoryByteSelect;
+	wire[31:0] coreLocalMemoryDataWrite;
+	wire[31:0] coreLocalMemoryDataRead;
+	wire coreLocalMemoryBusy;
+
+	// Memory interface from core to wb
+	wire coreWBWriteEnable;
+	wire coreWBReadEnable;
+	wire[27:0] coreWBAddress;
+	wire[3:0] coreWBByteSelect;
+	wire[31:0] coreWBDataWrite;
+	wire[31:0] coreWBDataRead;
+	wire coreWBBusy;
+
+	// Memory interface from wb to local memory
+	wire wbLocalMemoryWriteEnable;
+	wire wbLocalMemoryReadEnable;
+	wire[23:0] wbLocalMemoryAddress;
+	wire[3:0] wbLocalMemoryByteSelect;
+	wire[31:0] wbLocalMemoryDataWrite;
+	wire[31:0] wbLocalMemoryDataRead;
+	wire wbLocalMemoryBusy;
+
+	// Core management
 	wire management_run;
+	wire management_trapEnable;
 	wire management_writeEnable;
 	wire[3:0] management_byteSelect;
 	wire[15:0] management_address;
@@ -137,15 +180,20 @@ module ExperiarCore (
 		.management_readData(jtag_management_readData),
 		.probe_jtagInstruction(probe_jtagInstruction));
 
+	wire isAddressBreakpoint;
 	CoreManagement coreManagement(
 		.clk(wb_clk_i),
 		.rst(wb_rst_i),
 		.management_run(management_run),
+		.management_trapEnable(management_trapEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
 		.management_writeData(management_writeData),
 		.management_readData(management_readData),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.coreAddress(coreMemoryAddress),
+		.core_env(probe_env),
 		.core_errorCode(probe_errorCode),
 		.jtag_management_writeEnable(jtag_management_writeEnable),
 		.jtag_management_readEnable(jtag_management_readEnable),
@@ -162,42 +210,7 @@ module ExperiarCore (
 		.wb_management_busy(wb_management_busy));
 
 	// Core
-	// Memory interface from core
-	wire coreMemoryWriteEnable;
-	wire coreMemoryReadEnable;
-	wire[31:0] coreMemoryAddress;
-	wire[3:0] coreMemoryByteSelect;
-	wire[31:0] coreMemoryDataWrite;
-	wire[31:0] coreMemoryDataRead;
-	wire coreMemoryBusy;
-
-	// Memory interface from core to local memory
-	wire coreLocalMemoryWriteEnable;
-	wire coreLocalMemoryReadEnable;
-	wire[23:0] coreLocalMemoryAddress;
-	wire[3:0] coreLocalMemoryByteSelect;
-	wire[31:0] coreLocalMemoryDataWrite;
-	wire[31:0] coreLocalMemoryDataRead;
-	wire coreLocalMemoryBusy;
-
-	// Memory interface from core to wb
-	wire coreWBWriteEnable;
-	wire coreWBReadEnable;
-	wire[27:0] coreWBAddress;
-	wire[3:0] coreWBByteSelect;
-	wire[31:0] coreWBDataWrite;
-	wire[31:0] coreWBDataRead;
-	wire coreWBBusy;
-
-	// Memory interface from wb to local memory
-	wire wbLocalMemoryWriteEnable;
-	wire wbLocalMemoryReadEnable;
-	wire[23:0] wbLocalMemoryAddress;
-	wire[3:0] wbLocalMemoryByteSelect;
-	wire[31:0] wbLocalMemoryDataWrite;
-	wire[31:0] wbLocalMemoryDataRead;
-	wire wbLocalMemoryBusy;
-
+	wire[15:0] userInterrupts = 16'b0;
 	RV32ICore core(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -213,6 +226,7 @@ module ExperiarCore (
 		.memoryDataRead(coreMemoryDataRead),
 		.memoryBusy(coreMemoryBusy),
 		.management_run(management_run),
+		.management_trapEnable(management_trapEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
@@ -223,7 +237,12 @@ module ExperiarCore (
 		.partID(partID),
 		.versionID(versionID),
 		.extensions(CORE_EXTENSIONS),
+		.eCall(eCall),
+		.eBreak(eBreak),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.userInterrupts(userInterrupts),
 		.probe_state(probe_state),
+		.probe_env(probe_env),
 		.probe_programCounter(probe_programCounter),
 		.probe_opcode(probe_opcode),
 		.probe_errorCode(probe_errorCode),

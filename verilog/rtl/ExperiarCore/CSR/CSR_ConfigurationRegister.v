@@ -10,7 +10,7 @@ module CSR_ConfigurationRegister #(
 		input wire csrReadEnable,
 		input wire[11:0] csrAddress,
 		input wire[31:0] csrWriteData,
-		output reg[31:0] csrReadData,
+		output wire[31:0] csrReadData,
 		output wire csrRequestOutput,
 
 		// System interface

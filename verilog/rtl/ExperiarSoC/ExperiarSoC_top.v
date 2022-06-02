@@ -339,9 +339,10 @@ module ExperiarSoC (
 
 	// Logic probes
 	wire[1:0] probe_core0_state;
+	wire[1:0] probe_core0_env;
 	wire[31:0] probe_core0_programCounter;
 	wire[6:0] probe_core0_opcode;
-	wire[3:0] probe_core0_errorCode;
+	wire[1:0] probe_core0_errorCode;
 	wire probe_core0_isBranch;
 	wire probe_core0_takeBranch;
 	wire probe_core0_isStore;
@@ -351,6 +352,7 @@ module ExperiarSoC (
 
 	wire[54:0] probe_core0 = {
 		probe_core0_state,
+		probe_core0_env,
 		probe_core0_programCounter,
 		probe_core0_opcode,
 		probe_core0_errorCode,
@@ -409,6 +411,7 @@ module ExperiarSoC (
 		.addr1(core0SRAM_addr1),
 		.dout1(core0SRAM_dout1),
 		.probe_state(probe_core0_state),
+		.probe_env(probe_core0_env),
 		.probe_programCounter(probe_core0_programCounter),
 		.probe_opcode(probe_core0_opcode),
 		.probe_errorCode(probe_core0_errorCode),
@@ -485,9 +488,10 @@ module ExperiarSoC (
 
 	// Logic probes
 	wire[1:0] probe_core1_state;
+	wire[1:0] probe_core1_env;
 	wire[31:0] probe_core1_programCounter;
 	wire[6:0] probe_core1_opcode;
-	wire[3:0] probe_core1_errorCode;
+	wire[1:0] probe_core1_errorCode;
 	wire probe_core1_isBranch;
 	wire probe_core1_takeBranch;
 	wire probe_core1_isStore;
@@ -497,6 +501,7 @@ module ExperiarSoC (
 
 	wire[54:0] probe_core1 = {
 		probe_core1_state,
+		probe_core1_env,
 		probe_core1_programCounter,
 		probe_core1_opcode,
 		probe_core1_errorCode,
@@ -555,6 +560,7 @@ module ExperiarSoC (
 		.addr1(core1SRAM_addr1),
 		.dout1(core1SRAM_dout1),
 		.probe_state(probe_core1_state),
+		.probe_env(probe_core1_env),
 		.probe_programCounter(probe_core1_programCounter),
 		.probe_opcode(probe_core1_opcode),
 		.probe_errorCode(probe_core1_errorCode),

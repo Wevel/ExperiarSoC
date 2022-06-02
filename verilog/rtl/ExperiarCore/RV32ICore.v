@@ -18,6 +18,7 @@ module RV32ICore(
 
 		// Management interface
 		input wire management_run,
+		input wire management_trapEnable,
 		input wire management_writeEnable,
 		input wire[3:0] management_byteSelect,
 		input wire[15:0] management_address,
@@ -31,11 +32,20 @@ module RV32ICore(
 		input wire[3:0] versionID,
 		input wire[25:0] extensions,
 
+		// System commands
+		output wire eCall,
+		output wire eBreak,
+
+		// Traps
+		input wire isAddressBreakpoint,
+		input wire[15:0] userInterrupts,
+
 		// Logic probes
 		output wire[1:0] probe_state,
+		output wire[1:0] probe_env,
 		output wire[31:0] probe_programCounter,
 		output wire[6:0] probe_opcode,
-		output wire[3:0] probe_errorCode,
+		output wire[1:0] probe_errorCode,
 		output wire probe_isBranch,
 		output wire probe_takeBranch,
 		output wire probe_isStore,
@@ -43,13 +53,13 @@ module RV32ICore(
 		output wire probe_isCompressed
     );
 
-	localparam STATE_HALT 	 = 2'b00;
-	localparam STATE_FETCH   = 2'b10;
-	localparam STATE_EXECUTE = 2'b11;
+	localparam STATE_HALT 	 	= 2'b00;
+	localparam STATE_FETCH   	= 2'b10;
+	localparam STATE_EXECUTE 	= 2'b11;
 
 	// System registers
 	reg[1:0] state = STATE_HALT;
-	reg[3:0] currentError = 4'b0;
+	reg[1:0] currentError = 2'b0;
 	reg[31:0] programCounter = 32'b0;
 	reg[31:0] currentInstruction = 32'b0;
 	reg[31:0] registers [0:31];
@@ -61,6 +71,7 @@ module RV32ICore(
 
 	wire management_selectProgramCounter      = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h000);
 	wire management_selectInstructionRegister = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h001);
+	wire management_selectClearError		  = (management_address[15:14] == MANAGMENT_ADDRESS_SYSTEM) && (management_address[13:4] == 10'h002);
 	wire management_selectRegister            = (management_address[15:14] == MANAGMENT_ADDRESS_REGISTERS) && (management_address[13:7] == 7'h00);
 	wire management_selectCSR 				  = management_address[15:14] == MANAGMENT_ADDRESS_CSR;
 
@@ -69,6 +80,7 @@ module RV32ICore(
 	wire management_writeProgramCounter_set = management_writeProgramCounter && (management_address[3:0] == 4'h0);
 	wire management_writeProgramCounter_jump = management_writeProgramCounter && (management_address[3:0] == 4'h4);
 	wire management_writeProgramCounter_step = management_writeProgramCounter && (management_address[3:0] == 4'h8);
+	wire management_writeClearError = management_writeValid && management_selectClearError;
 	wire management_writeRegister = management_writeValid && management_selectRegister;
 	wire management_writeCSR = management_writeValid && management_selectCSR;
 
@@ -103,33 +115,20 @@ module RV32ICore(
 		management_byteSelect[0] ? management_dataOut[7:0]   : 8'h00
 	};
 
-	// CSR
-	// Core interface
+	// CSR interface
 	wire coreCSRWrite;
 	wire coreCSRRead;
 	wire[11:0] coreCSRIndex = currentInstruction[31:20];
 	reg[32:0] coreCSRWriteData;
-
-	// Combined interface
-	wire csrWriteEnable = management_writeCSR || (management_run && coreCSRWrite);
-	wire csrReadEnable = management_readCSR || (management_run && coreCSRRead);
+	wire csrWriteEnable = management_writeCSR || (management_run && coreCSRWrite && (state == STATE_EXECUTE));
+	wire csrReadEnable = management_readCSR || (management_run && coreCSRRead && (state == STATE_EXECUTE));
 	wire[11:0] csrAddress = !management_run ? management_csrIndex : coreCSRIndex;
 	wire[31:0] csrWriteData = !management_run ? management_writeData : coreCSRWriteData;
 	wire[31:0] csrReadData;
-	CSR csr(
-		.clk(clk),
-		.rst(rst),
-		.csrWriteEnable(csrWriteEnable),
-		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
-		.csrWriteData(csrWriteData),
-		.csrReadData(csrReadData),
-		.coreIndex(coreIndex),
-		.manufacturerID(manufacturerID),
-		.partID(partID),
-		.versionID(versionID),
-		.extensions(extensions),
-		.instructionCompleted(instructionCompleted));
+
+	wire[31:0] trapVector;
+	wire[31:0] trapReturnVector;
+	wire inTrap;
 
 	// Immediate Decode
 	wire[31:0] imm_I = {currentInstruction[31] ? 21'h1F_FFFF : 21'h00_0000, currentInstruction[30:25], currentInstruction[24:21], currentInstruction[20]};
@@ -171,9 +170,11 @@ module RV32ICore(
 	wire isCSRRC = isCSR && (funct3[1:0] == 2'b11);
 	wire isECALL  = isSystem && (currentInstruction[31:7] == 25'b0000000000000000000000000);
 	wire isEBREAK = isSystem && (currentInstruction[31:7] == 25'b0000000000010000000000000);
+	wire isRET    = isSystem && (currentInstruction[31:7] == 25'b0011000000100000000000000);
+
+	wire validSystemCommand = isCSR || isECALL || isEBREAK || isRET;
 
 	reg invalidInstruction;
-
 	always @(*) begin
 		case ({ isLUI, isAUIPC, isJAL, isJALR, isBranch, isLoad, isStore, isALUImm, isALU, isFENCE, isSystem })
 			'b00000000001: invalidInstruction <= 1'b0;
@@ -186,10 +187,12 @@ module RV32ICore(
 			'b00010000000: invalidInstruction <= 1'b0;
 			'b00100000000: invalidInstruction <= 1'b0;
 			'b01000000000: invalidInstruction <= 1'b0;
-			'b10000000000: invalidInstruction <= 1'b0;
+			'b10000000000: invalidInstruction <= validSystemCommand;
 			default: invalidInstruction <= 1'b1;
 		endcase
 	end
+
+	wire isInvalidInstruction = invalidInstruction && state == STATE_EXECUTE;
 
 	// Integer Registers
 	wire[31:0] rs1 = |rs1Index ? registers[rs1Index] : 32'b0;
@@ -236,9 +239,10 @@ module RV32ICore(
 										  isJALR		  		   ? imm_I :
 										  (isBranch && takeBranch) ? imm_B :
 																     32'b0;
-	wire[31:0] nextProgramCounterFull = nextProgramCounterBase + nextProgramCounterOffset;
+	wire[31:0] nextProgramCounterWord = nextProgramCounterBase + nextProgramCounterOffset;
 	wire[31:0] nextProgramCounterCompressed = programCounterLink; // TODO: Need to implement compressed branch and jump instructions
-	wire[31:0] nextProgramCounter = isCompressed ? nextProgramCounterCompressed : nextProgramCounterFull;
+	wire[31:0] nextProgramCounterFull = isCompressed ? nextProgramCounterCompressed : nextProgramCounterWord;
+	wire[31:0] nextProgramCounter = { nextProgramCounterFull[31:1] , 1'b0};
 
 	// ALU	
 	wire aluAlt = funct7 == 7'b0100000 && (isALU || isALUImmShift);
@@ -278,7 +282,7 @@ module RV32ICore(
 	assign coreCSRWrite = isCSRRW || (isCSR && |rs1Index);
 	assign coreCSRRead = isCSRRC || isCSRRS || (isCSR && |rdIndex);
 
-	wire csrRS1Data = isCSRIMM ? { 27'b0, rs1Index} : rs1;
+	wire[31:0] csrRS1Data = isCSRIMM ? { 27'b0, rs1Index} : rs1;
 
 	always @(*) begin
 		if (isCSR) begin			
@@ -340,6 +344,7 @@ module RV32ICore(
 	wire[6:0] loadStoreByteMask = {3'b0, baseByteMask} << targetMemoryAddress[1:0];
 	wire loadStoreByteMaskValid = |(loadStoreByteMask[3:0]);
 	wire addressMissaligned = |loadStoreByteMask[6:4];
+	wire isAddressMisaligned = addressMissaligned && ((state == STATE_FETCH) || ((state == STATE_EXECUTE) && (isLoad || isStore)));
 	wire shouldLoad  = loadStoreByteMaskValid && !addressMissaligned && ((state == STATE_FETCH) || ((state == STATE_EXECUTE) && isLoad));
 	wire shouldStore = loadStoreByteMaskValid && !addressMissaligned && ((state == STATE_EXECUTE) && isStore);
 	assign memoryAddress = shouldLoad || shouldStore ? { targetMemoryAddress[31:2], 2'b00 } : 32'b0;
@@ -424,13 +429,14 @@ module RV32ICore(
 	wire memoryWriteDone = shouldStore ? !memoryBusy : 1'b0;
 
 	// Register Write
-	wire integerRegisterWriteEn = isLUI || isAUIPC || isJAL || isJALR || isALU || isALUImm || isLoad;
+	wire integerRegisterWriteEn = isLUI || isAUIPC || isJAL || isJALR || isALU || isALUImm || isLoad || csrReadEnable;
 	wire[31:0] integerRegisterWriteData = isLUI 			  ? imm_U			   :
 										  isAUIPC 			  ? aluAPlusB 		   :
 										  isJAL 			  ? programCounterLink :
 										  isJALR 			  ? programCounterLink :
 										  isLoad 			  ? loadData		   :
 										  (isALU || isALUImm) ? aluValue 		   :
+										  csrReadEnable		  ? csrReadData 	   :
 																32'b0;
 
 	wire progressExecute = isStore ? memoryWriteDone :
@@ -445,47 +451,100 @@ module RV32ICore(
 			programCounter <= 32'b0;
 			currentInstruction <= 32'b0;
 		end else begin
-			if (!(|currentError)) begin
-				case (state)
-					STATE_HALT: begin
-						if (management_allowInstruction) state <= STATE_FETCH;
-						else begin
-							if (management_writeProgramCounter_set) programCounter <= { management_writeData[31:1] , 1'b0};
-							else if (management_writeProgramCounter_jump) programCounter <= { management_jumpTarget[31:1] , 1'b0};
-							else if (management_writeRegister) registers[management_registerIndex] <= management_writeData;
-						end
+			case (state)
+				STATE_HALT: begin
+					if (management_allowInstruction && !(|currentError)) state <= STATE_FETCH;
+					else begin
+						if (management_writeProgramCounter_set) programCounter <= { management_writeData[31:1] , 1'b0};
+						else if (management_writeProgramCounter_jump) programCounter <= { management_jumpTarget[31:1] , 1'b0};
+						else if (management_writeRegister) registers[management_registerIndex] <= management_writeData;
+						else if (management_writeClearError) currentError <= 2'b0;
 					end
+				end
 
-					STATE_FETCH: begin
-						if (memoryReadReady) begin
+				STATE_FETCH: begin
+					if (|currentError) begin
+						state <= STATE_HALT;
+					end else begin
+						if (inTrap) programCounter <= trapVector;
+						else if (memoryReadReady) begin
 							currentInstruction <= dataIn;
 							state <= STATE_EXECUTE;
 						end
 					end
+				end
 
-					STATE_EXECUTE: begin
-						if (addressMissaligned || invalidInstruction) begin
-							currentError <= { 1'b0, 1'b0, addressMissaligned, invalidInstruction };
-						end else begin
-							if (progressExecute) begin
-								if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
+				STATE_EXECUTE: begin
+					if (!management_trapEnable && (isAddressMisaligned || isInvalidInstruction)) begin
+						currentError <= { isAddressMisaligned, isInvalidInstruction };
+						state <= STATE_HALT;
+					end else begin
+						if (progressExecute) begin
+							if (integerRegisterWriteEn && |rdIndex) registers[rdIndex] <= integerRegisterWriteData;
 
-								programCounter <= { nextProgramCounter[31:1] , 1'b0};
-
-								if (management_allowInstruction) state <= STATE_FETCH;
-								else state <= STATE_HALT;
+							if (management_trapEnable) begin
+								if (inTrap) programCounter <= trapVector;
+								else if (isRET) programCounter <= trapReturnVector;
+								else programCounter <= nextProgramCounter;
+							end else begin
+								programCounter <= nextProgramCounter;
 							end
+							
+							if (management_allowInstruction) state <= STATE_FETCH;
+							else state <= STATE_HALT;
 						end
 					end
+				end
 
-					default: state <= STATE_HALT;
-				endcase
-			end
+				default: state <= STATE_HALT;
+			endcase
 		end
 	end
 
+	// System commands 
+	assign eCall = isECALL && (state == STATE_EXECUTE);
+	assign eBreak = isEBREAK && (state == STATE_EXECUTE);
+	wire trapReturn = isRET && (state == STATE_EXECUTE);
+
+	// CSRs
+	wire instructionCompleted = (state == STATE_EXECUTE) && progressExecute;
+	CSR csr(
+		.clk(clk),
+		.rst(rst),
+		.csrWriteEnable(csrWriteEnable),
+		.csrReadEnable(csrReadEnable),
+		.csrAddress(csrAddress),
+		.csrWriteData(csrWriteData),
+		.csrReadData(csrReadData),
+		.coreIndex(coreIndex),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.extensions(extensions),
+		.instructionCompleted(instructionCompleted),
+		.coreState(state),
+		.programCounter(programCounter),
+		.currentInstruction(currentInstruction),
+		.isLoad(isLoad),
+		.isStore(isStore),
+		.isMachineTimerInterrupt(isMachineTimerInterrupt),
+		.isMachineExternalInterrupt(isMachineExternalInterrupt),
+		.isMachineSoftwareInterrupt(isMachineSoftwareInterrupt),
+		.isAddressMisaligned(isAddressMisaligned),
+		.isAccessFault(isAccessFault),
+		.isInvalidInstruction(isInvalidInstruction),
+		.isEBREAK(eBreak),
+		.isECALL(eCall),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.userInterrupts(userInterrupts),
+		.trapReturn(trapReturn),
+		.inTrap(inTrap),
+		.trapVector(trapVector),
+		.trapReturnVector(trapReturnVector));
+
 	// Debug
 	assign probe_state = state;
+	assign probe_env = { eCall, eBreak };
 	assign probe_programCounter = programCounter;
 	assign probe_opcode = opcode;
 	assign probe_errorCode = currentError;

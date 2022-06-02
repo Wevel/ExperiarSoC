@@ -10,17 +10,21 @@ def RunShellCommand(cmd:list[str]) -> int | Any:
 	process.wait()
 	if process.stdout != None:
 		for line in process.stdout:
-			print(str(line).replace("\\n", ""))
+			print(line.decode("utf-8"), end="")
 	return process.returncode
 
 def RunArchTest(elfFilePath:str, signatureFilePath:str):
 	# Run the simulator
 	print(f"Running simulation")
-	makeFilePath = os.path.dirname(os.path.abspath(__file__))
-	shutil.copy2(os.path.join(makeFilePath, "coreArch_tb.v"), os.getcwd())
-	shutil.copy2(os.path.join(makeFilePath, "Makefile"), os.getcwd())
-	RunShellCommand(["make"])
 
+	try:
+		makeFilePath = os.path.dirname(os.path.abspath(__file__))
+		shutil.copy2(os.path.join(makeFilePath, "coreArch_tb.v"), os.getcwd())
+		shutil.copy2(os.path.join(makeFilePath, "Makefile"), os.getcwd())
+		RunShellCommand(["make"])
+	except Exception as e:
+		print(e)
+		
 	print(f"Simulation completed")
 
 def main():

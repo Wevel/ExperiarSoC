@@ -36,7 +36,7 @@ SIM?=RTL
 
 SIGNATURE_START=$(shell readelf -s coreArch.elf | grep begin_signature | awk '{print $$2}')
 SIGNATURE_END=$(shell readelf -s coreArch.elf | grep end_signature | awk '{print $$2}')
-CODE_END=$(shell readelf -s coreArch.elf | grep rvtest_code_end | awk '{print $$2}')
+CODE_END=$(shell readelf -s coreArch.elf | grep write_tohost | awk '{print $$2}')
 
 .SUFFIXES:
 all:  ${BLOCKS:=.lst} ${BLOCKS:=.disass} ${BLOCKS:=.vcd}
