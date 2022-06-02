@@ -19,7 +19,8 @@ module GPIODevice #(
 		// GPIO
 		input wire[IO_COUNT-1:0] gpio_input,
 		output wire[IO_COUNT-1:0] gpio_output,
-		output wire[IO_COUNT-1:0] gpio_oe
+		output wire[IO_COUNT-1:0] gpio_oe,
+		output wire gpio_irq
 	);
 
 	// Device select
@@ -90,11 +91,33 @@ module GPIODevice #(
 		.readData_en(inputRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
-	assign requestOutput = oeRegisterOutputRequest || outputRegisterOutputRequest || inputRegisterOutputRequest;
-	assign peripheralBus_dataRead = oeRegisterOutputRequest 	? oeRegisterOutputData :
-								    outputRegisterOutputRequest ? outputRegisterOutputData :
-								    inputRegisterOutputRequest  ? inputRegisterOutputData :
-								   								  ~32'b0;
+	// IRQ register: Default 0x0
+	wire[31:0] irqEnableRegisterOutputData;
+	wire oirqEnableRegisterOutputRequest;
+	wire[IO_COUNT-1:0] irqEnable;
+	OutputRegister #(.WIDTH(IO_COUNT), .ADDRESS(8'h03), .DEFAULT({IO_COUNT{1'b0}})) irqEnableRegister(
+		.clk(clk),
+		.rst(rst),
+		.enable(deviceEnable),
+		.peripheralBus_we(peripheralBus_we),
+		.peripheralBus_oe(peripheralBus_oe),
+		.peripheralBus_address(localAddress),
+		.peripheralBus_byteSelect(peripheralBus_byteSelect),
+		.peripheralBus_dataWrite(peripheralBus_dataWrite),
+		.peripheralBus_dataRead(irqEnableRegisterOutputData),
+		.requestOutput(irqEnableRegisterOutputRequest),
+		.currentValue(irqEnable));
+
+	assign requestOutput = oeRegisterOutputRequest || outputRegisterOutputRequest || inputRegisterOutputRequest || irqEnableRegisterOutputRequest;
+	assign peripheralBus_dataRead = oeRegisterOutputRequest 	   ? oeRegisterOutputData :
+								    outputRegisterOutputRequest    ? outputRegisterOutputData :
+								    inputRegisterOutputRequest     ? inputRegisterOutputData :
+									irqEnableRegisterOutputRequest ? irqEnableRegisterOutputData :
+								   								     ~32'b0;
 	assign peripheralBus_busy = 1'b0;
 	
+
+	wire[IO_COUNT-1:0] pinIRQ = irqEnable & gpio_oe & gpio_input;
+	assign gpio_irq = |pinIRQ;
+
 endmodule

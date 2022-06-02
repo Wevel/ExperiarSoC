@@ -20,7 +20,8 @@ module PWMDevice #(
 		
 		// PWM output
 		output wire[OUTPUTS-1:0] pwm_en,
-		output wire[OUTPUTS-1:0] pwm_out
+		output wire[OUTPUTS-1:0] pwm_out,
+		output wire pwm_irq
 	);
 
 	localparam WIDTH_BITS = $clog2(WIDTH);
@@ -43,15 +44,27 @@ module PWMDevice #(
 		.deviceEnable(deviceEnable));
 
 	// Register
-	// Configuration register 	Default 0x3DC (for .WIDTH(16), .CLOCK_WIDTH(32))
-	// b00: counterEnable		Default 0x0
-	// b01-b05: clockScale		Default 0x0E
-	// b06-09: top 				Default 0xF
-	// b10: outputEnable0		Default 0x0
-	// b11: outputEnable1		Default 0x0
-	// b12: outputEnable2		Default 0x0
-	// b13: outputEnable3		Default 0x0
-	localparam CONFIG_WIDTH = 1 + CLOCK_BITS + WIDTH_BITS + OUTPUTS;
+	// Configuration register 	 Default 0x3DC (for .WIDTH(16), .CLOCK_WIDTH(32))
+	// b00: counterEnable		 Default 0x0
+	// b01-b05: clockScale		 Default 0x0E
+	// b06-09: top 				 Default 0xF
+	// b10: outputEnable0		 Default 0x0
+	// b11: outputEnable1		 Default 0x0
+	// b12: outputEnable2		 Default 0x0
+	// b13: outputEnable3		 Default 0x0
+	// b14: outputEnable0		 Default 0x0
+	// b15: outputEnable1		 Default 0x0
+	// b16: outputEnable2		 Default 0x0
+	// b17: outputEnable3		 Default 0x0
+	// b18: riseInterruptEnable0 Default 0x0
+	// b19: riseInterruptEnable1 Default 0x0
+	// b20: riseInterruptEnable2 Default 0x0
+	// b21: riseInterruptEnable3 Default 0x0
+	// b22: fallInterruptEnable0 Default 0x0
+	// b23: fallInterruptEnable1 Default 0x0
+	// b24: fallInterruptEnable2 Default 0x0
+	// b25: fallInterruptEnable3 Default 0x0
+	localparam CONFIG_WIDTH = 1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 4);
 	wire[CONFIG_WIDTH-1:0] configuration;
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
@@ -71,7 +84,10 @@ module PWMDevice #(
 	wire counterEnable = configuration[0];
 	wire[CLOCK_BITS-1:0] clockScale = configuration[CLOCK_BITS:1];
 	wire[WIDTH_BITS-1:0] topBit = configuration[CLOCK_BITS + WIDTH_BITS:1 + CLOCK_BITS];
-	wire[OUTPUTS-1:0] outputEnable = configuration[(1 + CLOCK_BITS + WIDTH_BITS + OUTPUTS)-1:1 + CLOCK_BITS + WIDTH_BITS];
+	wire[OUTPUTS-1:0] compareEnable = configuration[(1 + CLOCK_BITS + WIDTH_BITS + OUTPUTS)-1:1 + CLOCK_BITS + WIDTH_BITS];
+	wire[OUTPUTS-1:0] outputEnable = configuration[(1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 2))-1:1 + CLOCK_BITS + WIDTH_BITS + OUTPUTS];
+	wire[OUTPUTS-1:0] riseInterruptEnable = configuration[(1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 3))-1:1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 2)];
+	wire[OUTPUTS-1:0] fallInterruptEnable = configuration[(1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 4))-1:1 + CLOCK_BITS + WIDTH_BITS + (OUTPUTS * 3)];
 
 	// Current data register (for .WIDTH(16), .OUTPUTS(4))
 	// b00-b15: counterValue
@@ -115,6 +131,9 @@ module PWMDevice #(
 		.out(peripheralBus_dataRead),
 		.outputEnable(requestOutput));
 
+	wire[OUTPUTS-1:0] compareRise;
+	wire[OUTPUTS-1:0] compareFall;
+
 	// Outputs
 	genvar i;
 	generate
@@ -137,15 +156,20 @@ module PWMDevice #(
 				.clk(clk),
 				.rst(rst),
 				.compareValue(compareValue),
-				.enable(outputEnable[i]),
+				.enable(compareEnable[i]),
 				.counterValue(counterValue),
-				.pwm_out(outputs[i]));
+				.pwm_out(outputs[i]),
+				.compareRise(compareRise[i]),
+				.compareFall(compareFall[i]));
 		end
 	endgenerate
 
 	assign peripheralBus_busy = 1'b0;
 
-	assign pwm_en = outputEnable;
+	assign pwm_en = compareEnable & outputEnable;
 	assign pwm_out = outputs;
+
+	wire[OUTPUTS-1:0] comparatorIRQ = (riseInterruptEnable & compareRise) || (fallInterruptEnable & compareFall);
+	assign pwm_irq = |comparatorIRQ;
 
 endmodule

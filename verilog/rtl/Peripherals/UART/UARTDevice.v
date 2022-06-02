@@ -18,7 +18,8 @@ module UARTDevice  #(
 		// PWM output
 		output wire uart_en,
 		input wire uart_rx,
-		output wire uart_tx
+		output wire uart_tx,
+		output wire uart_irq
 	);
 
 	localparam RX_BUFFER_SIZE = 32;
@@ -34,14 +35,17 @@ module UARTDevice  #(
 		.deviceEnable(deviceEnable));
 
 	// Register
-	// Configuration register Default 0x01047
-	// b00-b15: cyclesPerBit  Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
-	// b16: waitForTxSpace	  Default 0x0
-	// b17: enable 			  Default 0x0
+	// Configuration register 				Default 0x01047
+	// b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+	// b16: waitForTxSpace	  				Default 0x0
+	// b17: enable 			  				Default 0x0
+	// b18: dataLostInterruptEnable			Default 0x0
+	// b19: rxDataAvaliableInterruptEnable	Default 0x0
+	// b20: txDataSentInterruptEnable		Default 0x0
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
-	wire[17:0] configuration;
-	ConfigurationRegister #(.WIDTH(18), .ADDRESS(12'h000), .DEFAULT(18'h01047)) configurationRegister(
+	wire[20:0] configuration;
+	ConfigurationRegister #(.WIDTH(21), .ADDRESS(12'h000), .DEFAULT(21'h001047)) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
@@ -57,6 +61,9 @@ module UARTDevice  #(
 	wire[15:0] cyclesPerBit = configuration[15:0];
 	wire waitForTxSpace = configuration[16];
 	assign uart_en = configuration[17];
+	wire dataLostInterruptEnable = configuration[18];
+	wire rxDataAvaliableInterruptEnable = configuration[19];
+	wire txDataSentInterruptEnable = configuration[20];
 
 	// Clear register
 	wire[3:0] clearWriteData;
@@ -88,12 +95,12 @@ module UARTDevice  #(
 	// b00: rxDataAvailable
 	// b01: rxBufferFull
 	// b02: rxDataLost
-	// b03: txByteOutAvailable
+	// b03: txDataAvailable
 	// b04: txBufferFull
 	// b05: txDataLost
 	wire txDataLost;
 	wire txBufferFull;
-	wire txByteOutAvailable;
+	wire txDataAvailable;
 	wire rxDataLost;
 	wire rxBufferFull;
 	wire rxDataAvailable;
@@ -118,7 +125,7 @@ module UARTDevice  #(
 		.writeData(statusRegisterWriteData_nc),
 		.writeData_en(statusRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ txDataLost, txBufferFull, txByteOutAvailable, rxDataLost, rxBufferFull, rxDataAvailable }),
+		.readData({ txDataLost, txBufferFull, txDataAvailable, rxDataLost, rxBufferFull, rxDataAvailable }),
 		.readData_en(statusRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
@@ -195,7 +202,7 @@ module UARTDevice  #(
 		.blockTransmition(!uart_en),
     	.busy(txSendBusy),
     	.dataIn(txByteOut),
-    	.dataAvailable(txByteOutAvailable));
+    	.dataAvailable(txDataAvailable));
 
 	FIFO #(.WORD_SIZE(8), .BUFFER_SIZE(RX_BUFFER_SIZE)) rxBuffer(
 		.clk(clk),
@@ -214,8 +221,8 @@ module UARTDevice  #(
 		.dataIn(txWriteData),
 		.we(txWriteDataEnable && peripheralBus_byteSelect[0] && (!waitForTxSpace || !txBufferFull)),
 		.dataOut(txByteOut),
-		.oe(txByteOutAvailable && uart_en && !txSendBusy),		
-		.isData(txByteOutAvailable),
+		.oe(txDataAvailable && uart_en && !txSendBusy),		
+		.isData(txDataAvailable),
 		.bufferFull(txBufferFull),
 		.dataLost(txDataLost));
 
@@ -227,5 +234,14 @@ module UARTDevice  #(
 													   					 ~32'b0;
 	assign peripheralBus_busy = txBusy;
 
+	reg sendingData = 1'b0;
+	always @(posedge clk) begin
+		if (rst) sendingData <= 1'b0;
+		else sendingData <= txDataAvailable;
+	end
+
+	assign uart_irq = (dataLostInterruptEnable && (rxDataLost || txDataLost))
+				   || (rxDataAvaliableInterruptEnable && rxOutAvailable)
+				   || (txDataSentInterruptEnable && sendingData && !txDataAvailable);
 
 endmodule

@@ -18,6 +18,9 @@ module Video (
 		output wire wb_error_o,
 		output wire[31:0] wb_data_o,
 
+		// IRQ
+		output wire[1:0] video_irq,
+
 		// Left Video SRAM rw port
 		output wire sram0_clk0,
 		output wire[1:0] sram0_csb0,
@@ -169,7 +172,8 @@ module Video (
 		.vga_g(vga_g),
 		.vga_b(vga_b),
 		.vga_vsync(vga_vsync),
-		.vga_hsync(vga_hsync));
+		.vga_hsync(vga_hsync),
+		.vga_irq(video_irq));
 
 	assign peripheralBus_busy = videoMemoryBusBusy || vgaBusBusy;
 	assign peripheralBus_dataRead = videoMemoryRequestOutput ? videoMemoryDataRead : 

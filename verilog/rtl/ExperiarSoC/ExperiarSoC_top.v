@@ -24,9 +24,10 @@ module ExperiarSoC (
 		output wire[`MPRJ_IO_PADS-1:0] io_out,
 		output wire[`MPRJ_IO_PADS-1:0] io_oeb,
 		
-		// Caravel UART
+		// Caravel
 		input wire caravel_uart_rx,
 		output wire caravel_uart_tx,
+		input wire[2:0] caravel_irq,
 
 		// Logic Analyzer Signals
 		input wire[127:0] la_data_in,
@@ -62,6 +63,7 @@ module ExperiarSoC (
 	// IRQ
 	// wire irq_en;
 	// wire irq_in;
+	wire[15:0] irq;
 
 	// Wishbone wires
 	// Master 0: Caravel
@@ -379,6 +381,7 @@ module ExperiarSoC (
 		.jtag_tms(jtag_tms),
 		.jtag_tdi(core0_tdi),
 		.jtag_tdo(core0_tdo),
+		.irq(irq),
 		.core_wb_cyc_o(core0_wb_cyc_o),
 		.core_wb_stb_o(core0_wb_stb_o),
 		.core_wb_we_o(core0_wb_we_o),
@@ -528,6 +531,7 @@ module ExperiarSoC (
 		.jtag_tms(jtag_tms),
 		.jtag_tdi(core1_tdi),
 		.jtag_tdo(core1_tdo),
+		.irq(irq),
 		.core_wb_cyc_o(core1_wb_cyc_o),
 		.core_wb_stb_o(core1_wb_stb_o),
 		.core_wb_we_o(core1_wb_we_o),
@@ -727,6 +731,7 @@ module ExperiarSoC (
 	wire[SRAM_ADDRESS_SIZE-1:0] videoSRAMRight_addr1;
 	wire[63:0] videoSRAMRight_dout1;
 
+	wire[1:0] video_irq;
 	Video video(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -744,6 +749,7 @@ module ExperiarSoC (
 		.wb_stall_o(videoMemory_wb_stall_o),
 		.wb_error_o(videoMemory_wb_error_o),
 		.wb_data_o(videoMemory_wb_data_o),
+		.video_irq(video_irq),
 		.sram0_clk0(videoSRAMLeft_clk0),
 		.sram0_csb0(videoSRAMLeft_csb0),
 		.sram0_web0(videoSRAMLeft_web0),
@@ -863,6 +869,7 @@ module ExperiarSoC (
 	//-------------------Peripherals-------------------//
 	//-------------------------------------------------//
 	wire[1:0] probe_blink;
+	wire[9:0] peripheral_irq;
 	Peripherals peripherals(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -899,6 +906,7 @@ module ExperiarSoC (
 		.flash_io1_read(flash_io1_read),
 		//.irq_en(irq_en),
 		//.irq_in(irq_in),
+		.peripheral_irq(peripheral_irq),
 		.vga_r(vga_r),
 		.vga_g(vga_g),
 		.vga_b(vga_b),
@@ -922,5 +930,11 @@ module ExperiarSoC (
 		probe_wishboneInterconnect,	// 16
 		probe_blink					// 2
 	};
+
+	//-------------------------------------------------//
+	//-----------------------IRQ-----------------------//
+	//-------------------------------------------------//
+
+	assign irq = { caravel_irq, video_irq, peripheral_irq };
 
 endmodule

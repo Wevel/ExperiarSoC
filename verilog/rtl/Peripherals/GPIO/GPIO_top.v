@@ -21,7 +21,8 @@ module GPIO #(
 
 		input wire[`MPRJ_IO_PADS-1:0] gpio_input,
 		output wire[`MPRJ_IO_PADS-1:0] gpio_output,
-		output wire[`MPRJ_IO_PADS-1:0] gpio_oe
+		output wire[`MPRJ_IO_PADS-1:0] gpio_oe,
+		output wire[1:0] gpio_irq
 	);
 	
 	wire[`MPRJ_IO_PADS_1-1:0] gpio0_input;
@@ -56,7 +57,8 @@ module GPIO #(
 		.requestOutput(device0OutputRequest),
 		.gpio_input(gpio0_input),
 		.gpio_output(gpio0_output),
-		.gpio_oe(gpio0_oe));
+		.gpio_oe(gpio0_oe),
+		.gpio_irq(gpio_irq[0]));
 
 	wire[31:0] device1OutputData;
 	wire device1OutputRequest;
@@ -75,7 +77,8 @@ module GPIO #(
 		.requestOutput(device1OutputRequest),
 		.gpio_input(gpio1_input),
 		.gpio_output(gpio1_output),
-		.gpio_oe(gpio1_oe));
+		.gpio_oe(gpio1_oe),
+		.gpio_irq(gpio_irq[1]));
 
 	assign requestOutput = device0OutputRequest || device1OutputRequest;
 	assign peripheralBus_dataRead = device0OutputRequest ? device0OutputData :

@@ -19,6 +19,7 @@ module RV32ICore(
 		// Management interface
 		input wire management_run,
 		input wire management_trapEnable,
+		input wire management_interruptEnable,
 		input wire management_writeEnable,
 		input wire[3:0] management_byteSelect,
 		input wire[15:0] management_address,
@@ -542,7 +543,7 @@ module RV32ICore(
 		.isEBREAK(eBreak),
 		.isECALL(eCall),
 		.isAddressBreakpoint(isAddressBreakpoint),
-		.userInterrupts(userInterrupts),
+		.userInterrupts(management_interruptEnable ? userInterrupts : 16'b0),
 		.trapReturn(trapReturn),
 		.inTrap(inTrap),
 		.trapVector(trapVector),

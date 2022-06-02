@@ -22,7 +22,8 @@ module UART #(
 		// UART
 		output wire[3:0] uart_en,	
 		input wire[3:0] uart_rx,
-		output wire[3:0] uart_tx
+		output wire[3:0] uart_tx,
+		output wire[3:0] uart_irq
 	);
 
 	localparam DEVICE_COUNT = 4;
@@ -61,7 +62,8 @@ module UART #(
 				.requestOutput(deviceOutputRequest[i]),
 				.uart_en(uart_en[i]),
 				.uart_rx(uart_rx[i]),
-				.uart_tx(uart_tx[i]));
+				.uart_tx(uart_tx[i]),
+				.uart_irq(uart_irq[i]));
 		end
 	endgenerate
 

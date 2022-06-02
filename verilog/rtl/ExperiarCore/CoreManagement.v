@@ -5,6 +5,7 @@ module CoreManagement (
 		// Interface to core
 		output wire management_run,
 		output wire management_trapEnable,
+		output wire management_interruptEnable,
 		output wire management_writeEnable,
 		output wire[3:0] management_byteSelect,
 		output wire[15:0] management_address,
@@ -67,10 +68,11 @@ module CoreManagement (
 	// Control register: Default 0x0
 	// b00: run
 	// b01: trapEnable
-	wire[1:0] control;
+	// b02: interruptEnable
+	wire[2:0] control;
 	wire[31:0] controlOutputData;
 	wire controlOutputRequest;
-	ConfigurationRegister #(.WIDTH(2), .ADDRESS(12'h000), .DEFAULT(2'b0)) controlRegister(
+	ConfigurationRegister #(.WIDTH(3), .ADDRESS(12'h000), .DEFAULT(3'b0)) controlRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(registerEnable),
@@ -114,6 +116,7 @@ module CoreManagement (
 	// Core
 	assign management_run = control[0];
 	assign management_trapEnable = control[1];
+	assign management_interruptEnable = control[2];
 	assign management_writeEnable = coreEnable && peripheralBus_we;
 	assign management_byteSelect = peripheralBus_byteSelect;
 	assign management_address = peripheralBus_address[15:0];

@@ -19,7 +19,7 @@ module ExperiarCore (
 		output wire jtag_tdo,
 
 		// Interrupts
-		//input wire[15:0] userInterrupts,
+		input wire[15:0] irq,
 
 		// Wishbone master interface from core
 		output wire core_wb_cyc_o,
@@ -140,6 +140,7 @@ module ExperiarCore (
 	// Core management
 	wire management_run;
 	wire management_trapEnable;
+	wire management_interruptEnable;
 	wire management_writeEnable;
 	wire[3:0] management_byteSelect;
 	wire[15:0] management_address;
@@ -186,6 +187,7 @@ module ExperiarCore (
 		.rst(wb_rst_i),
 		.management_run(management_run),
 		.management_trapEnable(management_trapEnable),
+		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
@@ -210,7 +212,6 @@ module ExperiarCore (
 		.wb_management_busy(wb_management_busy));
 
 	// Core
-	wire[15:0] userInterrupts = 16'b0;
 	RV32ICore core(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -227,6 +228,7 @@ module ExperiarCore (
 		.memoryBusy(coreMemoryBusy),
 		.management_run(management_run),
 		.management_trapEnable(management_trapEnable),
+		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
@@ -240,7 +242,7 @@ module ExperiarCore (
 		.eCall(eCall),
 		.eBreak(eBreak),
 		.isAddressBreakpoint(isAddressBreakpoint),
-		.userInterrupts(userInterrupts),
+		.userInterrupts(irq),
 		.probe_state(probe_state),
 		.probe_env(probe_env),
 		.probe_programCounter(probe_programCounter),

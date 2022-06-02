@@ -29,7 +29,10 @@ module VGA #(
 		output wire[1:0] vga_g,
 		output wire[1:0] vga_b,
 		output wire vga_vsync,
-		output wire vga_hsync
+		output wire vga_hsync,
+
+		// IRQ
+		output wire[1:0] vga_irq
 	);
 	
 	// MAX_ROW_WIDTH = 2^ROW_BITS = 64;
@@ -55,10 +58,12 @@ module VGA #(
 	// b04-b07: verticalPixelSize		Default 0xA
 	// b08-b09: drawMode 				Default 0b00
 	// b10: enableOutput				Default 0
-	wire[10:0] configuration;
+	// b11: hsyncInterruptEnable		Default 0
+	// b12: vsyncInterruptEnable		Default 0
+	wire[12:0] configuration;
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
-	ConfigurationRegister #(.WIDTH(11), .ADDRESS(12'h000), .DEFAULT(11'h0AA)) configurationRegister(
+	ConfigurationRegister #(.WIDTH(13), .ADDRESS(12'h000), .DEFAULT(11'h0AA)) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(configEnable),
@@ -75,6 +80,8 @@ module VGA #(
 	wire[3:0] verticalPixelSize   = configuration[7:4];
 	wire[1:0] drawMode 			  = configuration[9:8];
 	wire enableOutput 			  = configuration[10];
+	wire hsyncInterruptEnable 	  = configuration[11];
+	wire vsyncInterruptEnable 	  = configuration[12];
 
 	// Defaults are timing for 800 x 600 at 60Hz
 	// http://tinyvga.com/vga-timing/800x600@60Hz
@@ -520,5 +527,22 @@ module VGA #(
 	assign vga_r = enableOutput && onScreen ? raw_currentPixel[1:0] : 2'b0;
 	assign vga_g = enableOutput && onScreen ? raw_currentPixel[3:2] : 2'b0;
 	assign vga_b = enableOutput && onScreen ? raw_currentPixel[5:4] : 2'b0;
+
+	// IRQ
+	reg lastVSync;
+	reg lastHSync;
+	always @(posedge clk) begin
+		if (rst) begin
+			lastVSync <= 1'b0;
+			lastHSync <= 1'b0;
+		end else begin
+			lastVSync <= vsync;
+			lastHSync <= hsync;
+		end
+	end
+
+	wire vsync_irq = (lastVSync != vsync) && !vsync;
+	wire hsync_irq = (lastHSync != hsync) && !hsync;
+	assign vga_irq = { vsync_irq && vsyncInterruptEnable, hsync_irq && hsyncInterruptEnable };
 
 endmodule

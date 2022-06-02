@@ -32,6 +32,9 @@ module CaravelHost (
 		input wire caravel_uart_rx,
 		output wire caravel_uart_tx,
 
+		// Caravel IRQ
+		output wire[2:0] caravel_irq,
+
 		// Configuration constants
 		output wire[7:0] core0Index,
 		output wire[7:0] core1Index,
@@ -166,5 +169,7 @@ module CaravelHost (
 		.uart_en(uartEnable_nc),
 		.uart_rx(caravel_uart_rx),
 		.uart_tx(caravel_uart_tx));
+	
+	assign caravel_irq = 3'b0;
 	
 endmodule
