@@ -64,19 +64,18 @@ Several macros have max slew violations.
 
 # Need to do
 - Write SPI test
-- Write PWM test
-- Write core arch test
 - Fix timing violations
 - Make final version of art
-- Disable routing on met5
+- Add buffer to interrupt signals input
 
 # Could do
+- Misaligned architecture instructions 
 - Look into simulation with CVC
 - Write macro level simulations to get more coverage due to shorter simulations
 - Add JTAG test
+- Add interrupt test
 - Add uart pin swapping
 - Flash controller
-- Interrupts
 - Tile map rendering 
 - Fetch next instruction a clock cycle earlier so instructions only take 2 cycles
 - Allow JTAG to read from wishbone bus

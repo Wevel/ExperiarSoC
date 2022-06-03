@@ -43,7 +43,7 @@ module peripheralsPWM_tb;
 	// Need to add pulls (can be up or down) to all unsed io so that input data is known
 	assign mprj_io[2:0] = 3'b0;
 	assign mprj_io[11:4] = 8'b0;
-	assign mprj_io[37:14] = 24'b0;
+	assign mprj_io[37:17] = 24'b0;
 
 	initial begin
 		clock = 0;

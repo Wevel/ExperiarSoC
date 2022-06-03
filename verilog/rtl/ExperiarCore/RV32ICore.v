@@ -505,8 +505,8 @@ module RV32ICore(
 	end
 
 	// System commands 
-	assign eCall = isECALL && (state == STATE_EXECUTE);
-	assign eBreak = isEBREAK && (state == STATE_EXECUTE);
+	wire eCall = isECALL && (state == STATE_EXECUTE);
+	wire eBreak = isEBREAK && (state == STATE_EXECUTE);
 	wire trapReturn = isRET && (state == STATE_EXECUTE);
 
 	wire isMachineTimerInterrupt = 1'b0;

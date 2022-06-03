@@ -12,6 +12,12 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/CoreManagement.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/RV32ICore.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_ConfigurationRegister.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_DataRegister.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_ReadRegister.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_TimerRegister.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/CSR/Traps/Traps.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAG.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/JTAGRegister.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/Memory/LocalMemoryInterface.v \
@@ -46,7 +52,7 @@ set ::env(DIE_AREA) "0 0 450 900"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.285
+set ::env(PL_TARGET_DENSITY) 0.335
 
 # Margin for max slew as percentage
 # Not sure what the limits of this value should be

@@ -45,7 +45,7 @@ set ::env(PL_TIME_DRIVEN) 0
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 600 850"
+set ::env(DIE_AREA) "0 0 600 950"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -55,12 +55,15 @@ set ::env(DIE_AREA) "0 0 600 850"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.405
+set ::env(PL_TARGET_DENSITY) 0.425
 
 # Allow a larger margin on the slack to over fix hold violations
 # This should help to prevent hold violations
 # Not really sure the limits on what this value should be
 set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.25
+
+# similar setting for setup
+#set ::env(PL_RESIZER_SETUP_SLACK_MARGIN) 0.6ns
 
 # Maximum layer used for routing is metal 4.
 # This is because this macro will be inserted in a top level (user_project_wrapper) 

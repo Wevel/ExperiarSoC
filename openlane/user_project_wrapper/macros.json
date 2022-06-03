@@ -65,7 +65,7 @@
 			"displayName": "Flash Controller",
 			"position": {
 				"x": 2100,
-				"y": 750
+				"y": 700
 			},
 			"size": {
 				"x": 300,
@@ -78,11 +78,11 @@
 			"displayName": "Peripherals",
 			"position": {
 				"x": 2100,
-				"y": 1100
+				"y": 1000
 			},
 			"size": {
 				"x": 600,
-				"y": 850
+				"y": 950
 			},
 			"rotation": "N"
 		},

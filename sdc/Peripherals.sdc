@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Thu May 26 15:37:39 2022
+# Fri Jun  3 13:07:26 2022
 ###############################################################################
 current_design Peripherals
 ###############################################################################
@@ -210,6 +210,16 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {io
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tck}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tdi}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {jtag_tms}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[0]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[1]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[2]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[3]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[4]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[5]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[6]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[7]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[8]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {peripheral_irq[9]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {probe_blink[0]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {probe_blink[1]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wb_ack_o}]
@@ -335,6 +345,16 @@ set_load -pin_load 0.0334 [get_ports {io_out[3]}]
 set_load -pin_load 0.0334 [get_ports {io_out[2]}]
 set_load -pin_load 0.0334 [get_ports {io_out[1]}]
 set_load -pin_load 0.0334 [get_ports {io_out[0]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[9]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[8]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[7]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[6]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[5]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[4]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[3]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[2]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[1]}]
+set_load -pin_load 0.0334 [get_ports {peripheral_irq[0]}]
 set_load -pin_load 0.0334 [get_ports {probe_blink[1]}]
 set_load -pin_load 0.0334 [get_ports {probe_blink[0]}]
 set_load -pin_load 0.0334 [get_ports {wb_data_o[31]}]
