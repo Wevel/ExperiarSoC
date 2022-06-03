@@ -91,9 +91,9 @@ module PWMDevice #(
 	assign riseInterruptEnable = configuration[(1 + CLOCK_BITS + (OUTPUTS * 3))-1:1 + CLOCK_BITS + (OUTPUTS * 2)];
 	assign fallInterruptEnable = configuration[(1 + CLOCK_BITS + (OUTPUTS * 4))-1:1 + CLOCK_BITS + (OUTPUTS * 3)];
 
-	// Counter top compare Default 0x1388 (for .WIDTH(16))
+	// Counter top compare Default 0x1387 (for .WIDTH(16))
 	// With clockScale=0x03, this gives a 1kHz signal with a 200ns resolution
-	localparam DEFAULT_TOP_COMPARE_VALUE = 'h1388;
+	localparam DEFAULT_TOP_COMPARE_VALUE = 'h1387;
 	wire[31:0] topCompareRegisterOutputData;
 	wire topCompareRegisterOutputRequest;
 	wire topCompareRegisterBusBusy_nc;
