@@ -120,13 +120,15 @@ module peripheralsPWM_tb;
 		@(posedge pwmOutputs[0]);
 		timerLength = $realtime - timerStart;
 		$display("Device 0 Output 2 Low Time: ", timerLength);
-		if (timerLength < 499800000 || timerLength > 500200000) timingValid = 1'b0;
+		if (timerLength < 499800 || timerLength > 500200) timingValid = 1'b0;
+		else $display("Invalid time, should be between 499800 and 500200");
 
 		// Measure device 0 ouput value 2 period
 		@(negedge pwmOutputs[0]);
 		timerLength = $realtime - timerStart;
 		$display("Device 0 Output 2 Period:   ", timerLength);
-		if (timerLength < 999800000 || timerLength > 1000200000) timingValid = 1'b0;
+		if (timerLength < 999800 || timerLength > 1000200) timingValid = 1'b0;
+		else $display("Invalid time, should be between 999800 and 1000200");
 		@(posedge nextTestOutput);
 
 		//----------------Device 0 ouput value 3----------------//
@@ -139,13 +141,15 @@ module peripheralsPWM_tb;
 		@(posedge pwmOutputs[1]);
 		timerLength = $realtime - timerStart;
 		$display("Device 0 Output 3 Low Time: ", timerLength);
-		if (timerLength < 699800000 || timerLength > 700200000) timingValid = 1'b0;
+		if (timerLength < 699800 || timerLength > 700200) timingValid = 1'b0;
+		else $display("Invalid time, should be between 699800 and 700200");
 
 		// Measure device 0 ouput value 3 period
 		@(negedge pwmOutputs[1]);
 		timerLength = $realtime - timerStart;
 		$display("Device 0 Output 3 Period:   ", timerLength);
-		if (timerLength < 999800000 || timerLength > 1000200000) timingValid = 1'b0;
+		if (timerLength < 999800 || timerLength > 1000200) timingValid = 1'b0;
+		else $display("Invalid time, should be between 999800 and 1000200");
 		@(posedge nextTestOutput);
 
 		//----------------Device 1 ouput value 0----------------//
@@ -158,13 +162,15 @@ module peripheralsPWM_tb;
 		@(posedge pwmOutputs[2]);
 		timerLength = $realtime - timerStart;
 		$display("Device 1 Output 0 Low Time: ", timerLength);
-		if (timerLength < 799900000 || timerLength > 800100000) timingValid = 1'b0;
+		if (timerLength < 199900 || timerLength > 200100) timingValid = 1'b0;
+		else $display("Invalid time, should be between 199900 and 200100");
 
 		// Measure device 1 ouput value 0 period
 		@(negedge pwmOutputs[2]);
 		timerLength = $realtime - timerStart;
 		$display("Device 1 Output 0 Period:   ", timerLength);
-		if (timerLength < 999900000 || timerLength > 1000100000) timingValid = 1'b0;
+		if (timerLength < 999900 || timerLength > 1000100) timingValid = 1'b0;
+		else $display("Invalid time, should be between 999900 and 1000100");
 
 		// Wait for management core to output the final output test result
 		@(posedge nextTestOutput);
