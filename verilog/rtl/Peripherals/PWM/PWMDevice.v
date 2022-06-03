@@ -159,7 +159,7 @@ module PWMDevice #(
 				topCompare <= topCompareRegisterWriteData;
 			end else begin
 				if (counterEnable) begin
-					if (nextCounter == topCompare) baseCounter <= 'b0;
+					if (counterValue == topCompare) baseCounter <= 'b0;
 					else baseCounter <= nextCounter;
 				end else begin
 					baseCounter <= 'b0;
