@@ -24,12 +24,14 @@ BLOCKS := coreArch
 ## Caravel Verilog for Integration Tests
 #######################################################################
 
-export USER_PROJECT_VERILOG ?= /mnt/f/WSL/ASIC/ExperiarSoC/verilog
+export DESIGNS ?= /mnt/f/WSL/ASIC/ExperiarSoC
+export USER_PROJECT_VERILOG ?=  $(DESIGNS)/verilog
 export CARAVEL_ROOT ?= /mnt/f/WSL/ASIC/ExperiarSoC/caravel
 export IVERILOG_DUMPER = fst
 
-GCC_PATH=/opt/riscv32i/bin
-GCC_PREFIX=riscv32-unknown-elf
+
+GCC_PATH?=/opt/riscv32i/bin
+GCC_PREFIX?=riscv32-unknown-elf
 
 # RTL/GL/GL_SDF
 SIM?=RTL
@@ -65,7 +67,7 @@ endif
 
 ## GL
 ifeq ($(SIM),GL)
-	iiverilog -Ttyp -DFUNCTIONAL -DGL -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
+	iverilog -Ttyp -DFUNCTIONAL -DGL -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
 	-DSIGNATURE_START=$(SIGNATURE_START) -DSIGNATURE_END=$(SIGNATURE_END) -DCODE_END=$(CODE_END) \
 	-f$(USER_PROJECT_VERILOG)/includes/includes.gl.$(CONFIG) -o $@ $<
 endif 
@@ -81,9 +83,11 @@ endif
 coreArch.vcd: coreArch.vvp
 ifeq ($(SIM),RTL)
 	vvp  $<
+	 mv $@ RTL-$@
 endif
 ifeq ($(SIM),GL)
 	vvp  $<
+	 mv $@ GL-$@
 endif
 
 .PHONY: hex

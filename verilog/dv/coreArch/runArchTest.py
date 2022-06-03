@@ -21,7 +21,7 @@ def RunArchTest(elfFilePath:str, signatureFilePath:str):
 		makeFilePath = os.path.dirname(os.path.abspath(__file__))
 		shutil.copy2(os.path.join(makeFilePath, "coreArch_tb.v"), os.getcwd())
 		shutil.copy2(os.path.join(makeFilePath, "Makefile"), os.getcwd())
-		RunShellCommand(["make"])
+		RunShellCommand(["make"]) # , "SIM=GL"
 	except Exception as e:
 		print(e)
 		

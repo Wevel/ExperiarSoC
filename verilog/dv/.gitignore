@@ -1,0 +1,11 @@
+*.hex*
+*.lst
+*.vcd
+*.vcd.hier
+*.vvp
+*.gtkw
+coreArch/riscof/riscof_work/
+coreArch/riscof/sail_cSim/__pycache__/
+coreArch/riscof/ExperiarSoC/__pycache__/
+coreArch/DUT-ExperiarSoC.signature
+coreArch/coreArch.disass
