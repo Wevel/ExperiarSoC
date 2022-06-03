@@ -20,7 +20,7 @@ module GPIODevice #(
 		input wire[IO_COUNT-1:0] gpio_input,
 		output wire[IO_COUNT-1:0] gpio_output,
 		output wire[IO_COUNT-1:0] gpio_oe,
-		output wire gpio_irq
+		output reg gpio_irq
 	);
 
 	// Device select
@@ -93,7 +93,7 @@ module GPIODevice #(
 
 	// IRQ register: Default 0x0
 	wire[31:0] irqEnableRegisterOutputData;
-	wire oirqEnableRegisterOutputRequest;
+	wire irqEnableRegisterOutputRequest;
 	wire[IO_COUNT-1:0] irqEnable;
 	OutputRegister #(.WIDTH(IO_COUNT), .ADDRESS(8'h03), .DEFAULT({IO_COUNT{1'b0}})) irqEnableRegister(
 		.clk(clk),
@@ -118,6 +118,10 @@ module GPIODevice #(
 	
 
 	wire[IO_COUNT-1:0] pinIRQ = irqEnable & gpio_oe & gpio_input;
-	assign gpio_irq = |pinIRQ;
+
+	always @(posedge clk) begin
+		if (rst) gpio_irq <= 1'b0;
+		else gpio_irq <= |pinIRQ;
+	end
 
 endmodule
