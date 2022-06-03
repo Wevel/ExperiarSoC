@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Thu May 26 09:53:10 2022
+# Fri Jun  3 10:39:39 2022
 ###############################################################################
 current_design CaravelHost
 ###############################################################################
@@ -118,6 +118,10 @@ set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_sel_i[3]}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_stb_i}]
 set_input_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wbs_we_i}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_irq[0]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_irq[1]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_irq[2]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_irq[3]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_uart_tx}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_wb_adr_o[0]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {caravel_wb_adr_o[10]}]
@@ -274,6 +278,10 @@ set_load -pin_load 0.0334 [get_ports {caravel_wb_cyc_o}]
 set_load -pin_load 0.0334 [get_ports {caravel_wb_stb_o}]
 set_load -pin_load 0.0334 [get_ports {caravel_wb_we_o}]
 set_load -pin_load 0.0334 [get_ports {wbs_ack_o}]
+set_load -pin_load 0.0334 [get_ports {caravel_irq[3]}]
+set_load -pin_load 0.0334 [get_ports {caravel_irq[2]}]
+set_load -pin_load 0.0334 [get_ports {caravel_irq[1]}]
+set_load -pin_load 0.0334 [get_ports {caravel_irq[0]}]
 set_load -pin_load 0.0334 [get_ports {caravel_wb_adr_o[27]}]
 set_load -pin_load 0.0334 [get_ports {caravel_wb_adr_o[26]}]
 set_load -pin_load 0.0334 [get_ports {caravel_wb_adr_o[25]}]

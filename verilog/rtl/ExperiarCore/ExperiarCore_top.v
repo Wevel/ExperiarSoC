@@ -18,6 +18,9 @@ module ExperiarCore (
 		input wire jtag_tdi,
 		output wire jtag_tdo,
 
+		// Interrupts
+		input wire[15:0] irq,
+
 		// Wishbone master interface from core
 		output wire core_wb_cyc_o,
 		output wire core_wb_stb_o,
@@ -59,9 +62,10 @@ module ExperiarCore (
 
 		// Logic probes
 		output wire[1:0] probe_state,
+		output wire[1:0] probe_env,
 		output wire[31:0] probe_programCounter,
 		output wire[6:0] probe_opcode,
-		output wire[3:0] probe_errorCode,
+		output wire[1:0] probe_errorCode,
 		output wire probe_isBranch,
 		output wire probe_takeBranch,
 		output wire probe_isStore,
@@ -92,73 +96,9 @@ module ExperiarCore (
 	// 18			 | 12 	   | S 		   | Supervisor mode implemented
 	// 20			 | 13 	   | U 		   | User mode implemented
 	localparam CORE_MXL = 2'h1;
-	localparam CORE_EXTENSIONS = 14'b00_0001_0000_0000;
+	localparam CORE_EXTENSIONS = 26'b00_0000_0000_0000_0001_0000_0000;
+	localparam CORE_EXTENSIONS_SHORT = 14'b00_0001_0000_0000;
 	localparam CORE_VERSION = 8'h00;
-
-	wire management_run;
-	wire management_writeEnable;
-	wire[3:0] management_byteSelect;
-	wire[15:0] management_address;
-	wire[31:0] management_writeData;
-	wire[31:0] management_readData;
-
-	wire jtag_management_writeEnable;
-	wire jtag_management_readEnable;
-	wire[3:0] jtag_management_byteSelect;
-	wire[19:0] jtag_management_address;
-	wire[31:0] jtag_management_writeData;
-	wire[31:0] jtag_management_readData;
-
-	wire wb_management_writeEnable;
-	wire wb_management_readEnable;
-	wire[3:0] wb_management_byteSelect;
-	wire[19:0] wb_management_address;
-	wire[31:0] wb_management_writeData;
-	wire[31:0] wb_management_readData;
-	wire wb_management_busy;
-
-	JTAG jtag(
-		.clk(wb_clk_i),
-		.rst(wb_rst_i),
-		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS }),
-		.manufacturerID(manufacturerID),
-		.partID(partID),
-		.versionID(versionID),
-		.jtag_tck(jtag_tck),
-		.jtag_tms(jtag_tms),
-		.jtag_tdi(jtag_tdi),
-		.jtag_tdo(jtag_tdo),
-		.management_writeEnable(jtag_management_writeEnable),
-		.management_readEnable(jtag_management_readEnable),
-		.management_byteSelect(jtag_management_byteSelect),
-		.management_address(jtag_management_address),
-		.management_writeData(jtag_management_writeData),
-		.management_readData(jtag_management_readData),
-		.probe_jtagInstruction(probe_jtagInstruction));
-
-	CoreManagement coreManagement(
-		.clk(wb_clk_i),
-		.rst(wb_rst_i),
-		.management_run(management_run),
-		.management_writeEnable(management_writeEnable),
-		.management_byteSelect(management_byteSelect),
-		.management_address(management_address),
-		.management_writeData(management_writeData),
-		.management_readData(management_readData),
-		.core_errorCode(probe_errorCode),
-		.jtag_management_writeEnable(jtag_management_writeEnable),
-		.jtag_management_readEnable(jtag_management_readEnable),
-		.jtag_management_byteSelect(jtag_management_byteSelect),
-		.jtag_management_address(jtag_management_address),
-		.jtag_management_writeData(jtag_management_writeData),
-		.jtag_management_readData(jtag_management_readData),
-		.wb_management_writeEnable(wb_management_writeEnable),
-		.wb_management_readEnable(wb_management_readEnable),
-		.wb_management_byteSelect(wb_management_byteSelect),
-		.wb_management_address(wb_management_address),
-		.wb_management_writeData(wb_management_writeData),
-		.wb_management_readData(wb_management_readData),
-		.wb_management_busy(wb_management_busy));
 
 	// Core
 	// Memory interface from core
@@ -169,6 +109,7 @@ module ExperiarCore (
 	wire[31:0] coreMemoryDataWrite;
 	wire[31:0] coreMemoryDataRead;
 	wire coreMemoryBusy;
+	wire coreMemoryAccessFault = 1'b0;
 
 	// Memory interface from core to local memory
 	wire coreLocalMemoryWriteEnable;
@@ -197,6 +138,81 @@ module ExperiarCore (
 	wire[31:0] wbLocalMemoryDataRead;
 	wire wbLocalMemoryBusy;
 
+	// Core management
+	wire management_run;
+	wire management_trapEnable;
+	wire management_interruptEnable;
+	wire management_writeEnable;
+	wire[3:0] management_byteSelect;
+	wire[15:0] management_address;
+	wire[31:0] management_writeData;
+	wire[31:0] management_readData;
+
+	wire jtag_management_writeEnable;
+	wire jtag_management_readEnable;
+	wire[3:0] jtag_management_byteSelect;
+	wire[19:0] jtag_management_address;
+	wire[31:0] jtag_management_writeData;
+	wire[31:0] jtag_management_readData;
+
+	wire wb_management_writeEnable;
+	wire wb_management_readEnable;
+	wire[3:0] wb_management_byteSelect;
+	wire[19:0] wb_management_address;
+	wire[31:0] wb_management_writeData;
+	wire[31:0] wb_management_readData;
+	wire wb_management_busy;
+
+	JTAG jtag(
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
+		.coreID({ coreIndex, CORE_VERSION, CORE_MXL, CORE_EXTENSIONS_SHORT }),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.jtag_tck(jtag_tck),
+		.jtag_tms(jtag_tms),
+		.jtag_tdi(jtag_tdi),
+		.jtag_tdo(jtag_tdo),
+		.management_writeEnable(jtag_management_writeEnable),
+		.management_readEnable(jtag_management_readEnable),
+		.management_byteSelect(jtag_management_byteSelect),
+		.management_address(jtag_management_address),
+		.management_writeData(jtag_management_writeData),
+		.management_readData(jtag_management_readData),
+		.probe_jtagInstruction(probe_jtagInstruction));
+
+	wire isAddressBreakpoint;
+	CoreManagement coreManagement(
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
+		.management_run(management_run),
+		.management_trapEnable(management_trapEnable),
+		.management_interruptEnable(management_interruptEnable),
+		.management_writeEnable(management_writeEnable),
+		.management_byteSelect(management_byteSelect),
+		.management_address(management_address),
+		.management_writeData(management_writeData),
+		.management_readData(management_readData),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.coreAddress(coreMemoryAddress),
+		.core_env(probe_env),
+		.core_errorCode(probe_errorCode),
+		.jtag_management_writeEnable(jtag_management_writeEnable),
+		.jtag_management_readEnable(jtag_management_readEnable),
+		.jtag_management_byteSelect(jtag_management_byteSelect),
+		.jtag_management_address(jtag_management_address),
+		.jtag_management_writeData(jtag_management_writeData),
+		.jtag_management_readData(jtag_management_readData),
+		.wb_management_writeEnable(wb_management_writeEnable),
+		.wb_management_readEnable(wb_management_readEnable),
+		.wb_management_byteSelect(wb_management_byteSelect),
+		.wb_management_address(wb_management_address),
+		.wb_management_writeData(wb_management_writeData),
+		.wb_management_readData(wb_management_readData),
+		.wb_management_busy(wb_management_busy));
+
+	// Core
 	RV32ICore core(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -211,13 +227,24 @@ module ExperiarCore (
 		.memoryDataWrite(coreMemoryDataWrite),
 		.memoryDataRead(coreMemoryDataRead),
 		.memoryBusy(coreMemoryBusy),
+		.memoryAccessFault(coreMemoryAccessFault),
 		.management_run(management_run),
+		.management_trapEnable(management_trapEnable),
+		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
 		.management_writeData(management_writeData),
 		.management_readData(management_readData),
+		.coreIndex(coreIndex),
+		.manufacturerID(manufacturerID),
+		.partID(partID),
+		.versionID(versionID),
+		.extensions(CORE_EXTENSIONS),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.userInterrupts(irq),
 		.probe_state(probe_state),
+		.probe_env(probe_env),
 		.probe_programCounter(probe_programCounter),
 		.probe_opcode(probe_opcode),
 		.probe_errorCode(probe_errorCode),

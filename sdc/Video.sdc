@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Thu May 26 17:07:32 2022
+# Thu Jun  2 22:17:02 2022
 ###############################################################################
 current_design Video
 ###############################################################################
@@ -460,6 +460,8 @@ set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vg
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vga_r[0]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vga_r[1]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {vga_vsync}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {video_irq[0]}]
+set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {video_irq[1]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wb_ack_o}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wb_data_o[0]}]
 set_output_delay 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {wb_data_o[10]}]
@@ -631,6 +633,8 @@ set_load -pin_load 0.0334 [get_ports {vga_g[1]}]
 set_load -pin_load 0.0334 [get_ports {vga_g[0]}]
 set_load -pin_load 0.0334 [get_ports {vga_r[1]}]
 set_load -pin_load 0.0334 [get_ports {vga_r[0]}]
+set_load -pin_load 0.0334 [get_ports {video_irq[1]}]
+set_load -pin_load 0.0334 [get_ports {video_irq[0]}]
 set_load -pin_load 0.0334 [get_ports {wb_data_o[31]}]
 set_load -pin_load 0.0334 [get_ports {wb_data_o[30]}]
 set_load -pin_load 0.0334 [get_ports {wb_data_o[29]}]

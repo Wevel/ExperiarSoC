@@ -71,8 +71,16 @@ uint32_t wbRead (uint32_t* location)
 
 void nextTest (bool testPassing)
 {
-	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
-	wbWrite (GPIO0_OUTPUT_SET_ADDR, testPassingOutput | 0x02000);
+	if (testPassing)
+	{
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x03000);
+	}
+	else
+	{
+		wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x01000);
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x02000);
+	}
+
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x02000);
 }
 
@@ -107,6 +115,7 @@ void main ()
 	reg_wb_enable = 1;
 
 	// Enable GPIO
+	reg_mprj_io_7 = GPIO_MODE_USER_STD_INPUT_NOPULL;
 	reg_mprj_io_12 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_14 = GPIO_MODE_USER_STD_OUTPUT;
@@ -130,32 +139,38 @@ void main ()
 	wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x10000);
 	wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x20000);
 	wbWrite (GPIO0_OUTPUT_TOGGLE_ADDR, 0x3C000);
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, 0x3C000);
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, 0x3C000 | 0x01000); // Need to write to testPass pin as well, otherwise to goes low temporarily
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x04000);
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x08000);
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x10000);
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x20000);
 	nextTest (testPass);
 
+	wbWrite (GPIO0_OE_SET_ADDR, 0x00080);
+	uint32_t ioData = wbRead (GPIO0_INPUT_ADDR);
+	if (ioData != 0x80) testPass = false; // input = 1'b1
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (((ioData >> 7) & 0xF) << 14));
+	nextTest (testPass);
+
 	wbWrite (GPIO1_OE_WRITE_ADDR, ~0x00000);
-	uint32_t ioData = wbRead (GPIO1_INPUT_ADDR);
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (ioData << 15));
+	ioData = wbRead (GPIO1_INPUT_ADDR);
 	if (ioData != 0x2) testPass = false; // input = 2'b10
-
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | ((ioData & 0xF) << 14));
 	nextTest (testPass);
+
 	ioData = wbRead (GPIO1_INPUT_ADDR);
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (ioData << 15));
 	if (ioData != 0x1) testPass = false; // input = 2'b01
-
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | ((ioData & 0xF) << 14));
 	nextTest (testPass);
+
 	ioData = wbRead (GPIO1_INPUT_ADDR);
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (ioData << 15));
 	if (ioData != 0x3) testPass = false; // input = 2'b11
-
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | ((ioData & 0xF) << 14));
 	nextTest (testPass);
+
 	ioData = wbRead (GPIO1_INPUT_ADDR);
-	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | (ioData << 15));
-	if (ioData != 0) testPass = false; // input = 2'b00
+	if (ioData != 0x0) testPass = false; // input = 2'b00
+	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, (testPass ? 0x01000 : 0) | ((ioData & 0xF) << 14));
 
 	// Finish test
 	nextTest (testPass);

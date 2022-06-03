@@ -25,7 +25,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 <p float="left">
   <img alt="Experiar SoC macro layout" src="docs/Design/MacrosPlacement.png" width = 49% />
-  <img alt="Experiar SoC macro layout with detailed routing guide overlay" src="docs/Scripts/detailed.guide.jpg" width = 49% />
+   <img alt="Experiar SoC routed layout" src="docs/Images/user_project_wrapper.png" width = 49% />
 </p>
 
 ## Build Status
@@ -52,30 +52,33 @@ Several macros have max slew violations.
 ### verify-coreArch-rtl: Not implemented
 
 ## GL
-### verify-peripheralsGPIO-gl: Failed
-### verify-peripheralsUART-gl: Failed
+### verify-peripheralsGPIO-gl: Success
+### verify-peripheralsUART-gl: Success
 ### verify-peripheralsSPI-gl: Not implemented
 ### verify-peripheralsPWM-gl: Not implemented
-### verify-memory-gl: Not run
-### verify-video-gl: Not run
-### verify-corePC-gl: Failed
+### verify-memory-gl: Success
+### verify-video-gl: Success
+### verify-corePC-gl: Success
 ### verify-coreMemory-gl: Not implemented
 ### verify-coreArch-gl: Not implemented
 
 # Need to do
-- Write remaining tests (and fix everything until they pass)
+- Write SPI test
 - Fix timing violations
-- Make version of art which passes prechecks
+- Make final version of art
+- Add buffer to interrupt signals input
 
 # Could do
+- Misaligned architecture instructions 
+- Look into simulation with CVC
+- Write macro level simulations to get more coverage due to shorter simulations
+- Add JTAG test
+- Add interrupt test
 - Add uart pin swapping
 - Flash controller
-- JTAG core management controller
-- CSRs
-- More tests
 - Tile map rendering 
-- Change peripheral bus design to have a read ready signal
 - Fetch next instruction a clock cycle earlier so instructions only take 2 cycles
+- Allow JTAG to read from wishbone bus
 
 # Reference work and inspiration
 - [Zero to ASIC Course](https://www.zerotoasiccourse.com/): Complete course on ASIC design. Also has useful references and terminology definitions.

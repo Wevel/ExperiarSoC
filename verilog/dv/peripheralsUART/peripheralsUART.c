@@ -83,8 +83,16 @@ uint32_t wbRead (uint32_t* location)
 
 void nextTest (bool testPassing)
 {
-	uint32_t testPassingOutput = testPassing ? 0x01000 : 0;
-	wbWrite (GPIO0_OUTPUT_SET_ADDR, testPassingOutput | 0x02000);
+	if (testPassing)
+	{
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x03000);
+	}
+	else
+	{
+		wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x01000);
+		wbWrite (GPIO0_OUTPUT_SET_ADDR, 0x02000);
+	}
+
 	wbWrite (GPIO0_OUTPUT_CLEAR_ADDR, 0x02000);
 }
 
@@ -178,9 +186,9 @@ void main ()
 
 	// Read back data from peripheral
 	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
-	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[0])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[1])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[2])) testPass = false;
+	if (wbRead (SOC_UART0_RX_ADDR) != (0x100 | testData[3])) testPass = false;
 	nextTest (testPass);
 
 	// Try reading an extra time and make sure there is no data

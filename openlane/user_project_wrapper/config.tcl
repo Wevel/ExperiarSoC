@@ -105,6 +105,7 @@ set ::env(EXTRA_GDS_FILES) "\
 
 # Exclude regions for Art and SRAM
 set ::env(GLB_RT_OBS) "\
+        met5 0.0 0.0 2920.0 3520.0,\
         li1 210.0 2508.0 515.0 3258.0,\
         met1 210.0 2508.0 515.0 3258.0,\
         met2 210.0 2508.0 515.0 3258.0,\
@@ -174,7 +175,7 @@ set ::env(RUN_MAGIC_DRC) 0
 
 # Defaults to 0.3. Set lower to give more space to routing
 # This can help reduce congestion
-#set ::env(GLB_RT_ADJUSTMENT) 0.25
+set ::env(GLB_RT_ADJUSTMENT) 0.25
 
 # If there is congestion allow it in the build, then look at the .guide files
 #set ::env(GLB_RT_ALLOW_CONGESTION) 1

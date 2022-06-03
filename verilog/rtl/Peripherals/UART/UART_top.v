@@ -22,7 +22,8 @@ module UART #(
 		// UART
 		output wire[3:0] uart_en,	
 		input wire[3:0] uart_rx,
-		output wire[3:0] uart_tx
+		output wire[3:0] uart_tx,
+		output wire[3:0] uart_irq
 	);
 
 	localparam DEVICE_COUNT = 4;
@@ -38,7 +39,7 @@ module UART #(
 	wire[DEVICE_COUNT-1:0] deviceBusy;
 	wire[DEVICE_COUNT-1:0] deviceOutputRequest;
 	wire[(32 * DEVICE_COUNT) - 1:0] deviceOutputData;
-	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT)) mux(
+	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT), .DEFAULT(~32'b0)) mux(
 		.select(deviceOutputRequest),
 		.in(deviceOutputData),
 		.out(peripheralBus_dataRead),
@@ -61,7 +62,8 @@ module UART #(
 				.requestOutput(deviceOutputRequest[i]),
 				.uart_en(uart_en[i]),
 				.uart_rx(uart_rx[i]),
-				.uart_tx(uart_tx[i]));
+				.uart_tx(uart_tx[i]),
+				.uart_irq(uart_irq[i]));
 		end
 	endgenerate
 

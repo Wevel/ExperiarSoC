@@ -94,9 +94,10 @@ module user_project_wrapper #(
 	wire caravel_wb_error_i;
 	wire[31:0] caravel_wb_data_i;
 
-	// Caravel UART
+	// Caravel
 	wire caravel_uart_rx;
 	wire caravel_uart_tx;
+	wire[3:0] caravel_irq;
 
 	// Configuration
 	wire[7:0] core0Index;
@@ -164,6 +165,7 @@ module user_project_wrapper #(
 		// Swap Tx and Rx pins, as these are with reference to the interface
 		.caravel_uart_rx(caravel_uart_tx),
 		.caravel_uart_tx(caravel_uart_rx),
+		.caravel_irq(caravel_irq),
 		.core0Index(core0Index),
 		.core1Index(core1Index),
 		.manufacturerID(manufacturerID),

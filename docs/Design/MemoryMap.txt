@@ -12,6 +12,7 @@
 				0x1081_0004: Relative Jump
 				0x1081_0008: Step
 				0x1081_0010: Current Instruction
+				0x1081_0020: Clear error
 				0x1081_1000-0x1081_101F: Register
 				0x1081_2000-0x1081_2FFF: CSRs			
 	0x11xx_xxxx: Slave 1 (Core 1 local memory)
@@ -25,6 +26,7 @@
 				0x1181_0004: Relative Jump
 				0x1181_0008: Step
 				0x1181_0010: Current Instruction
+				0x1181_0020: Clear error
 				0x1181_1000-0x1181_101F: Register
 				0x1181_2000-0x1181_2FFF: CSRs		
 	0x12xx_xxxx: Slave 2 (Video SRAM)
@@ -82,32 +84,36 @@
 				0x1302_0000: Peripheral configuration register (Might not exist)
 			0x1302_1xxx: Device 0
 				0x1302_1000: Configuration register
-				0x1302_1004: Counter value
-				0x1302_1008: Output 0 compare
-				0x1302_100C: Output 1 compare
-				0x1302_1010: Output 2 compare
-				0x1302_1014: Output 3 compare
+				0x1302_1004: Counter top
+				0x1302_1008: Counter value
+				0x1302_1010: Output 0 compare
+				0x1302_1014: Output 1 compare
+				0x1302_1018: Output 2 compare
+				0x1302_101C: Output 3 compare
 			0x1302_2xxx: Device 1
 				0x1302_2000: Configuration register
-				0x1302_2004: Counter value
-				0x1302_2008: Output 0 compare
-				0x1302_200C: Output 1 compare
-				0x1302_2010: Output 2 compare
-				0x1302_2014: Output 3 compare
+				0x1302_2004: Counter top
+				0x1302_2008: Counter value
+				0x1302_2010: Output 0 compare
+				0x1302_2014: Output 1 compare
+				0x1302_2018: Output 2 compare
+				0x1302_201C: Output 3 compare
 			0x1302_3xxx: Device 2
 				0x1302_3000: Configuration register
-				0x1302_3004: Counter value
-				0x1302_3008: Output 0 compare
-				0x1302_300C: Output 1 compare
-				0x1302_3010: Output 2 compare
-				0x1302_3014: Output 3 compare
+				0x1302_3004: Counter top
+				0x1302_3008: Counter value
+				0x1302_3010: Output 0 compare
+				0x1302_3014: Output 1 compare
+				0x1302_3018: Output 2 compare
+				0x1302_301C: Output 3 compare
 			0x1302_4xxx: Device 3
 				0x1302_4000: Configuration register
-				0x1302_4004: Counter value
-				0x1302_4008: Output 0 compare
-				0x1302_400C: Output 1 compare
-				0x1302_4010: Output 2 compare
-				0x1302_4014: Output 3 compare
+				0x1302_4004: Counter top
+				0x1302_4008: Counter value
+				0x1302_4010: Output 0 compare
+				0x1302_4014: Output 1 compare
+				0x1302_4018: Output 2 compare
+				0x1302_401C: Output 3 compare
 		0x1303_xxxx: Peripheral 3 (GPIO)
 			0x1303_0xxx: Peripheral configuration
 				0x1303_0000: Peripheral configuration register (Might not exist)
@@ -123,6 +129,11 @@
 					0x1303_1018: Clear
 					0x1303_101C: Toggle
 				0x1303_1020: Input
+				0x1303_101x: IRQ
+					0x1303_1010: Write
+					0x1303_1014: Set
+					0x1303_1018: Clear
+					0x1303_101C: Toggle
 			0x1303_2xxx: Device 1 (Side 2)
 				0x1303_200x: OutputEnable
 					0x1303_2000: Write

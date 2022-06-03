@@ -20,7 +20,8 @@ module PWM #(
 		output wire requestOutput,
 
 		output wire[15:0] pwm_en,
-		output wire[15:0] pwm_out
+		output wire[15:0] pwm_out,
+		output wire[3:0] pwm_irq
 	);
 
 	localparam DEVICE_COUNT = 4;
@@ -36,7 +37,7 @@ module PWM #(
 	
 	wire[DEVICE_COUNT-1:0] deviceOutputRequest;
 	wire[(32 * DEVICE_COUNT) - 1:0] deviceOutputData;
-	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT)) mux(
+	Mux #(.WIDTH(32), .INPUTS(DEVICE_COUNT), .DEFAULT(~32'b0)) mux(
 		.select(deviceOutputRequest),
 		.in(deviceOutputData),
 		.out(peripheralBus_dataRead),
@@ -60,7 +61,8 @@ module PWM #(
 				.peripheralBus_dataRead(deviceOutputData[(i * 32) + 31:i * 32]),
 				.requestOutput(deviceOutputRequest[i]),
 				.pwm_en(pwm_en[(i * OUTPUTS_PER_DEVICE) + OUTPUTS_PER_DEVICE - 1:i * OUTPUTS_PER_DEVICE]),
-				.pwm_out(pwm_out[(i * OUTPUTS_PER_DEVICE) + OUTPUTS_PER_DEVICE - 1:i * OUTPUTS_PER_DEVICE]));
+				.pwm_out(pwm_out[(i * OUTPUTS_PER_DEVICE) + OUTPUTS_PER_DEVICE - 1:i * OUTPUTS_PER_DEVICE]),
+				.pwm_irq(pwm_irq[i]));
 		end
 	endgenerate
 

@@ -46,6 +46,7 @@ module Peripherals (
 		// IRQ
 		// input wire irq_en,
 		// output wire irq_in,
+		output wire[9:0] peripheral_irq,
 
 		// VGA
 		input wire[1:0] vga_r,
@@ -99,6 +100,7 @@ module Peripherals (
 	wire[3:0] uart_en;	
 	wire[3:0] uart_rx;
 	wire[3:0] uart_tx;
+	wire[3:0] uart_irq;
 	UART #(.ID(8'h00)) uart(
 	`ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -116,7 +118,8 @@ module Peripherals (
 		.requestOutput(uart_requestOutput),
 		.uart_en(uart_en),
 		.uart_rx(uart_rx),
-		.uart_tx(uart_tx));
+		.uart_tx(uart_tx),
+		.uart_irq(uart_irq));
 
 	assign uart_rx[0] = internal_uart_rx;
 	assign internal_uart_tx = uart_tx[0];
@@ -153,6 +156,7 @@ module Peripherals (
 	wire pwm_requestOutput;
 	wire[15:0] pwm_en;
 	wire[15:0] pwm_out;
+	wire[3:0] pwm_irq;
 	PWM #(.ID(8'h02)) pwm(
 	`ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -169,13 +173,15 @@ module Peripherals (
 		.peripheralBus_dataWrite(peripheralBus_dataWrite),
 		.requestOutput(pwm_requestOutput),
 		.pwm_en(pwm_en),
-		.pwm_out(pwm_out));
+		.pwm_out(pwm_out),
+		.pwm_irq(pwm_irq));
 
 	wire[31:0] gpio_peripheralBus_dataRead;
 	wire gpio_requestOutput;
 	wire[`MPRJ_IO_PADS-1:0] gpio_input;
 	wire[`MPRJ_IO_PADS-1:0] gpio_output;
 	wire[`MPRJ_IO_PADS-1:0] gpio_oe;
+	wire[1:0] gpio_irq;
 	GPIO #(.ID(8'h03)) gpio(
 	`ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -193,7 +199,8 @@ module Peripherals (
 		.requestOutput(gpio_requestOutput),
 		.gpio_input(gpio_input),
 		.gpio_output(gpio_output),
-		.gpio_oe(gpio_oe));
+		.gpio_oe(gpio_oe),
+		.gpio_irq(gpio_irq));
 
 	IOMultiplexer ioMux(
 	`ifdef USE_POWER_PINS
@@ -245,8 +252,10 @@ module Peripherals (
 			spi_requestOutput:  peripheralBus_dataRead <= spi_peripheralBus_dataRead;
 			pwm_requestOutput:  peripheralBus_dataRead <= pwm_peripheralBus_dataRead;
 			gpio_requestOutput: peripheralBus_dataRead <= gpio_peripheralBus_dataRead;
-			default: 			peripheralBus_dataRead <= 32'b0;
+			default: 			peripheralBus_dataRead <= ~32'b0;
 		endcase
 	end
+
+	assign peripheral_irq = { pwm_irq, uart_irq, gpio_irq };
 
 endmodule

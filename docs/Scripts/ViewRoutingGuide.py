@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 import os
 import sys
 import json
+import shutil
 
 from JSONWrapper import JSONWrapper
 
@@ -210,7 +211,12 @@ def main():
 			else:
 				print(f"Invalid argument '{item}' but be a path to a guide file")
 	else:
-		ViewGuideFile("docs/Scripts/detailed.guide", "openlane/user_project_wrapper/macros.json")
+		wrapperGuideFileName = "openlane/user_project_wrapper/runs/user_project_wrapper/tmp/routing/detailed.guide"
+		wrapperGuideCopyFileName = "docs/Images/detailed.guide"
+		if os.path.exists(wrapperGuideFileName):
+			shutil.copy2(wrapperGuideFileName, wrapperGuideCopyFileName)
+		
+		ViewGuideFile(wrapperGuideCopyFileName, "openlane/user_project_wrapper/macros.json")
 
 if __name__ == "__main__":
 	main()

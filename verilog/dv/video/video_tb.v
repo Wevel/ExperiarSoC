@@ -34,6 +34,7 @@ module video_tb;
 	wire vgaVSync = mprj_io[36];
 	wire vgaHSync = mprj_io[37];
 
+	pullup(mprj_io[3]);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 
 	reg timingValid = 1'b1;
@@ -43,6 +44,11 @@ module video_tb;
 	// would be the fast clock.
 	always #12.5 clock <= (clock === 1'b0);
 
+	// Need to add pulls (can be up or down) to all unsed io so that input data is known
+	assign mprj_io[2:0] = 3'b0;
+	assign mprj_io[11:4] = 8'b0;
+	assign mprj_io[29:14] = 16'b0;
+
 	initial begin
 		clock = 0;
 		timingValid = 1'b1;
@@ -50,7 +56,13 @@ module video_tb;
 
 	initial begin
 		$dumpfile("video.vcd");
+
+`ifdef SIM
 		$dumpvars(0, video_tb);
+`else
+		$dumpvars(1, video_tb);
+		$dumpvars(2, video_tb.uut.mprj);
+`endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (1000) begin
@@ -94,12 +106,14 @@ module video_tb;
 		timerLength = $realtime - timerStart;
 		$display("H Sync pulse period: %t", timerLength);
 		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
+		else $display("Invalid time, should be between 390 and 410");
 
 		// Measure hsync period
 		@(negedge vgaHSync);
 		timerLength = $realtime - timerStart;
 		$display("H Sync period: %t", timerLength);
 		if (timerLength < 3290 || timerLength > 3310) timingValid = 1'b0;
+		else $display("Invalid time, should be between 3290 and 3310");
 
 		@(negedge vgaVSync);
 		timerStart = $realtime;
@@ -109,12 +123,14 @@ module video_tb;
 		timerLength = $realtime - timerStart;
 		$display("V Sync pulse period: %t", timerLength);
 		if (timerLength < 13190 || timerLength > 13210) timingValid = 1'b0;
+		else $display("Invalid time, should be between 13190 and 13210");
 
 		// Measure vsync period
 		@(negedge vgaVSync);
 		timerLength = $realtime - timerStart;
 		$display("V Sync period: %t", timerLength);
 		if (timerLength < 2072390 || timerLength > 2072410) timingValid = 1'b0;
+		else $display("Invalid time, should be between 2072390 and 2072410");
 
 		// Test tight memory mode
 		@(posedge nextTestOutput);
@@ -127,12 +143,14 @@ module video_tb;
 		timerLength = $realtime - timerStart;
 		$display("H Sync pulse period: %t", timerLength);
 		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
+		else $display("Invalid time, should be between 390 and 410");
 
 		// Measure hsync period
 		@(negedge vgaHSync);
 		timerLength = $realtime - timerStart;
 		$display("H Sync period: %t", timerLength);
 		if (timerLength < 3290 || timerLength > 3310) timingValid = 1'b0;
+		else $display("Invalid time, should be between 3290 and 3310");
 
 		@(negedge vgaVSync);
 		timerStart = $realtime;
@@ -142,12 +160,14 @@ module video_tb;
 		timerLength = $realtime - timerStart;
 		$display("V Sync pulse period: %t", timerLength);
 		if (timerLength < 13190 || timerLength > 13210) timingValid = 1'b0;
+		else $display("Invalid time, should be between 13190 and 13210");
 
 		// Measure vsync period
 		@(negedge vgaVSync);
 		timerLength = $realtime - timerStart;
 		$display("V Sync period: %t", timerLength);
 		if (timerLength < 2072390 || timerLength > 2072410) timingValid = 1'b0;
+		else $display("Invalid time, should be between 2072390 and 2072410");
 
 		// Wait for test to finish
 		@(posedge nextTestOutput);

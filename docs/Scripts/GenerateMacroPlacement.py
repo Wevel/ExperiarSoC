@@ -45,7 +45,7 @@ def PrintMacroPlacement(macroPlacementFileName:str):
 	print()
 	print(f"Macro obstructions for '{macroPlacementFileName}':")
 	print("set ::env(GLB_RT_OBS) \"\\", end="")
-	isFirst = True
+	print(f"\n	met5 0.0 0.0 2920.0 3520.0", end="")
 	for item in macroPlacement:
 		if item.HasEntry("obstructions"):
 			name = item.GetEntry("name").AsString()
@@ -61,11 +61,7 @@ def PrintMacroPlacement(macroPlacementFileName:str):
 			boundsString = f"{bounds[0]} {bounds[1]} {bounds[2]} {bounds[3]}"
 			obstructions = item.GetEntry("obstructions")
 			for obs in obstructions:
-				if isFirst:
-					isFirst = False
-					print(f"\n	{obs.AsString()} {boundsString}", end="")
-				else:
-					print(f",\\\n	{obs.AsString()} {boundsString}", end="")
+				print(f",\\\n	{obs.AsString()} {boundsString}", end="")
 	print("\"")
 
 	print()
