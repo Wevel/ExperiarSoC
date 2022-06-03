@@ -69,6 +69,7 @@ module PWMDevice #(
 	wire[31:0] configurationRegisterOutputData;
 	wire configurationRegisterOutputRequest;
 	ConfigurationRegister #(.WIDTH(CONFIG_WIDTH), .ADDRESS(12'h000), .DEFAULT({CONFIG_WIDTH{12'h3DC}})) configurationRegister(
+	ConfigurationRegister #(.WIDTH(CONFIG_WIDTH), .ADDRESS(12'h000), .DEFAULT({ {(CONFIG_WIDTH-5){1'b0}}, 5'h0E })) configurationRegister(
 		.clk(clk),
 		.rst(rst),
 		.enable(deviceEnable),
