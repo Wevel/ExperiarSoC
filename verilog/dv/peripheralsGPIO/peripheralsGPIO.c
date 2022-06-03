@@ -115,7 +115,7 @@ void main ()
 	reg_wb_enable = 1;
 
 	// Enable GPIO
-	reg_mprj_io_11 = GPIO_MODE_USER_STD_INPUT_NOPULL;
+	reg_mprj_io_7 = GPIO_MODE_USER_STD_INPUT_NOPULL;
 	reg_mprj_io_12 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_14 = GPIO_MODE_USER_STD_OUTPUT;

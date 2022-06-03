@@ -15,6 +15,7 @@ module RV32ICore(
 		output wire[31:0] memoryDataWrite,
 		input wire[31:0] memoryDataRead,
 		input wire memoryBusy,
+		input wire memoryAccessFault,
 
 		// Management interface
 		input wire management_run,
@@ -32,10 +33,6 @@ module RV32ICore(
 		input wire[15:0] partID,
 		input wire[3:0] versionID,
 		input wire[25:0] extensions,
-
-		// System commands
-		output wire eCall,
-		output wire eBreak,
 
 		// Traps
 		input wire isAddressBreakpoint,
@@ -512,6 +509,10 @@ module RV32ICore(
 	assign eBreak = isEBREAK && (state == STATE_EXECUTE);
 	wire trapReturn = isRET && (state == STATE_EXECUTE);
 
+	wire isMachineTimerInterrupt = 1'b0;
+	wire isMachineExternalInterrupt = 1'b0;
+	wire isMachineSoftwareInterrupt = 1'b0;
+
 	// CSRs
 	wire instructionCompleted = (state == STATE_EXECUTE) && progressExecute;
 	CSR csr(
@@ -538,7 +539,7 @@ module RV32ICore(
 		.isMachineSoftwareInterrupt(isMachineSoftwareInterrupt),
 		.isAddressMisaligned(isAddressMisaligned),
 		.isJumpMissaligned(jumpMissaligned),
-		.isAccessFault(isAccessFault),
+		.isAccessFault(memoryAccessFault),
 		.isInvalidInstruction(isInvalidInstruction),
 		.isEBREAK(eBreak),
 		.isECALL(eCall),

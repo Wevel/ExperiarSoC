@@ -30,17 +30,19 @@ module coreArch_tb;
 	wire[31:0] memoryDataWrite;
 	wire[31:0] memoryDataRead;
 	wire memoryBusy = 1'b0;
+	wire memoryAccessFault = 1'b0;
 	
 	wire management_run = 1'b1;
 	wire management_trapEnable = 1'b1;
+	wire management_interruptEnable = 1'b1;
 	wire management_writeEnable = 1'b0;
 	wire[3:0] management_byteSelect = 4'b0000;
 	wire[15:0] management_address = 'b0;
 	wire[31:0] management_writeData = 'b0;
 	wire[31:0] management_readData;
 
-	wire eCall;
-	wire eBreak;
+	wire isAddressBreakpoint = 1'b0;
+	wire[15:0] userInterrupts = 16'b0;
 
 	wire[1:0] probe_state;
 	wire[1:0] probe_env;
@@ -71,7 +73,6 @@ module coreArch_tb;
 		$display("CODE_END: 0x%h", 32'h`CODE_END);
 
 		wait((probe_programCounter == 32'h`CODE_END) || (|probe_errorCode));
-		//wait(eBreak || (|probe_errorCode));
 
 		#50
 
@@ -184,8 +185,10 @@ module coreArch_tb;
 		.memoryDataWrite(memoryDataWrite),
 		.memoryDataRead(memoryDataRead),
 		.memoryBusy(memoryBusy),
+		.memoryAccessFault(memoryAccessFault),
 		.management_run(management_run),
 		.management_trapEnable(management_trapEnable),
+		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
@@ -196,8 +199,8 @@ module coreArch_tb;
 		.partID(16'hCD55),
 		.versionID(4'h0),
 		.extensions(CORE_EXTENSIONS),
-		.eCall(eCall),
-		.eBreak(eBreak),
+		.isAddressBreakpoint(isAddressBreakpoint),
+		.userInterrupts(userInterrupts),
 		.probe_state(probe_state),
 		.probe_env(probe_env),
 		.probe_programCounter(probe_programCounter),

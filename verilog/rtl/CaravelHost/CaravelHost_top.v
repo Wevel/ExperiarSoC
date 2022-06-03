@@ -33,7 +33,7 @@ module CaravelHost (
 		output wire caravel_uart_tx,
 
 		// Caravel IRQ
-		output wire[2:0] caravel_irq,
+		output wire[3:0] caravel_irq,
 
 		// Configuration constants
 		output wire[7:0] core0Index,

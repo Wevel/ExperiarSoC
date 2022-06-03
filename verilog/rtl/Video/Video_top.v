@@ -104,6 +104,7 @@ module Video (
 	wire videoMemoryBusBusy;
 	wire[31:0] videoMemoryDataRead;
 	wire videoMemoryRequestOutput;
+	wire vga_fetchData;
 	VideoMemory videoMemory(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power

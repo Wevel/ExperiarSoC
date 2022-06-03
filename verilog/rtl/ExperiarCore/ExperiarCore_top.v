@@ -109,6 +109,7 @@ module ExperiarCore (
 	wire[31:0] coreMemoryDataWrite;
 	wire[31:0] coreMemoryDataRead;
 	wire coreMemoryBusy;
+	wire coreMemoryAccessFault = 1'b0;
 
 	// Memory interface from core to local memory
 	wire coreLocalMemoryWriteEnable;
@@ -226,6 +227,7 @@ module ExperiarCore (
 		.memoryDataWrite(coreMemoryDataWrite),
 		.memoryDataRead(coreMemoryDataRead),
 		.memoryBusy(coreMemoryBusy),
+		.memoryAccessFault(coreMemoryAccessFault),
 		.management_run(management_run),
 		.management_trapEnable(management_trapEnable),
 		.management_interruptEnable(management_interruptEnable),
@@ -239,8 +241,6 @@ module ExperiarCore (
 		.partID(partID),
 		.versionID(versionID),
 		.extensions(CORE_EXTENSIONS),
-		.eCall(eCall),
-		.eBreak(eBreak),
 		.isAddressBreakpoint(isAddressBreakpoint),
 		.userInterrupts(irq),
 		.probe_state(probe_state),

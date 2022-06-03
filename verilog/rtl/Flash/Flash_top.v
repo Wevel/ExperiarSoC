@@ -109,8 +109,8 @@ module Flash (
 
 	// QSPI controller
 	QSPIDevice #(.CLOCK_WIDTH(8)) qspiDevice (
-		.clk(clk),
-		.rst(rst),
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
 		.dataRequest_address(dataRequest_address),
 		.dataRequest_enable(dataRequest_enable),
 		.dataRequest_data(dataRequest_data),

@@ -27,7 +27,7 @@ module ExperiarSoC (
 		// Caravel
 		input wire caravel_uart_rx,
 		output wire caravel_uart_tx,
-		input wire[2:0] caravel_irq,
+		input wire[3:0] caravel_irq,
 
 		// Logic Analyzer Signals
 		input wire[127:0] la_data_in,
