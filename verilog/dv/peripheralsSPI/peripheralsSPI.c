@@ -117,7 +117,7 @@ void main ()
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_22 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_23 = GPIO_MODE_USER_STD_OUTPUT;
-	reg_mprj_io_24 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_24 = GPIO_MODE_USER_STD_INPUT_NOPULL;
 	reg_mprj_io_25 = GPIO_MODE_USER_STD_OUTPUT;
 
 	/* Apply configuration */
@@ -155,7 +155,7 @@ void main ()
 	if (wbRead (SPI0_STATUS_REGISTER) != 0) testPass = false;
 	nextTest (testPass);
 
-	// Check data data was received
+	// Check that data was received
 	if (wbRead (SPI0_DATA) != 0xC5) testPass = false;
 	nextTest (testPass);
 
@@ -165,6 +165,33 @@ void main ()
 	// Check data received back is correct
 	// This should be the first test byte
 	if (wbRead (SPI0_DATA) != 0x1F) testPass = false;
+	nextTest (testPass);
+
+	// Change to active low clock mode
+	device0Config = (0b1 << 8) | (0b11 << 5) | (0b11 << 3) | 0x04;
+	wbWrite (SPI0_CONFIGURATION_REGISTER, device0Config);
+	if (wbRead (SPI0_CONFIGURATION_REGISTER) != device0Config) testPass = false;
+	nextTest (testPass);
+
+	// Write fist test byte
+	wbWrite (SPI0_DATA, 0x1F);
+
+	// Check data data was received
+	if (wbRead (SPI0_DATA) != 0xA3) testPass = false;
+	nextTest (testPass);
+
+	// Write second test byte
+	wbWrite (SPI0_DATA, 0x83);
+
+	// Check data received back is correct
+	// This should be the first test byte
+	if (wbRead (SPI0_DATA) != 0x1F) testPass = false;
+	nextTest (testPass);
+
+	device0Config = (0b1 << 8) | (0b11 << 5) | 0x04;
+	wbWrite (SPI0_CONFIGURATION_REGISTER, device0Config);
+	if (wbRead (SPI0_CONFIGURATION_REGISTER) != device0Config) testPass = false;
+	nextTest (testPass);
 
 	// Write third test byte for timing test
 	wbWrite (SPI0_DATA, 0x9B);

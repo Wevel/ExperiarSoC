@@ -54,14 +54,18 @@ module peripheralsSPI_tb;
 	assign mprj_io[21:17] = 5'b0;
 	assign mprj_io[37:26] = 12'b0;
 
-	always @(posedge sck) begin
-		if (!chipSelect) shiftValue <= { shiftValue[7:1], mosi };
+	reg clockMode;
+	wire spiClock = clockMode ^ sck;
+
+	always @(posedge spiClock) begin
+		if (!chipSelect) shiftValue <= { shiftValue[6:0], mosi };
 	end
 
 	initial begin
 		clock = 0;
 		timingValid = 1'b1;
 		shiftValue = 8'hC5;
+		clockMode = 1'b0;
 	end
 
 	realtime timerStart;
@@ -78,7 +82,7 @@ module peripheralsSPI_tb;
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (200) begin
+		repeat (500) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -97,7 +101,7 @@ module peripheralsSPI_tb;
 		// Wait for clock signal
 		@(posedge chipSelect);
 		@(posedge sck);
-		@(posedge sck);
+		@(negedge sck);
 
 		// Check device 0 config
 		@(posedge nextTestOutput);
@@ -108,25 +112,48 @@ module peripheralsSPI_tb;
 		// Check device isn't busy
 		@(posedge nextTestOutput);
 
-		// Check data data was received
+		// Check that data was received
 		@(posedge nextTestOutput);
 
 		// Check that CS is asserted 
-		wait(chipSelect == 1'b0);
+		@(negedge chipSelect);
 
 		// Check that the second byte was received correctly
 		wait(shiftValue == 8'hA3);
 
 		// Check that CS is cleared
-		wait(chipSelect == 1'b1);
+		@(posedge chipSelect);
 
 		// Check data received back in
 		@(posedge nextTestOutput);
 
-		// Check that the third byte was received correctly
-		wait(shiftValue == 8'h9B);
+		clockMode = 1'b1;
+
+		// Check device 0 config
+		@(posedge nextTestOutput);
+
+		// Check that the first byte was received correctly
+		wait(shiftValue == 8'h1F);
+
+		// Check that data was received
+		@(posedge nextTestOutput);
+
+		// Check that the second byte was received correctly
+		wait(shiftValue == 8'h83);
+
+		// Check data received back in
+		@(posedge nextTestOutput);
+
+		clockMode = 1'b0;
+
+		// Check device 0 config
+		@(posedge nextTestOutput);
 
 		// Check clock period is correct
+		
+		// Check that CS is asserted 
+		wait(chipSelect == 1'b0);
+
 		// Wait for signal start
 		@(negedge sck);
 		timerStart = $realtime;
@@ -145,6 +172,8 @@ module peripheralsSPI_tb;
 		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
 		else $display("Invalid time, should be between 390 and 410");
 		
+		// Check that the third byte was received correctly
+		wait(shiftValue == 8'h9B);
 
 		// Wait for management core to output the final output test result
 		@(posedge nextTestOutput);

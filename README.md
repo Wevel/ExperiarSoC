@@ -63,10 +63,9 @@ Several macros have max slew violations.
 ### verify-coreArch-gl: Not implemented
 
 # Need to do
-- Write SPI test
 - Fix timing violations
 - Make final version of art
-- Add buffer to interrupt signals input
+- Add buffer to interrupt signals input and data registers
 
 # Could do
 - Misaligned architecture instructions 
