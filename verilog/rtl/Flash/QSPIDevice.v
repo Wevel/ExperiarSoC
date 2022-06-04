@@ -120,7 +120,7 @@ module QSPIDevice #(
 
 	// reg[CLOCK_WIDTH-1:0] clockCounter = {CLOCK_WIDTH{1'b0}};
 	// wire nextClockCounter = clockCounter + 1;
-	// wire[CLOCK_WIDTH-1:0] clockScaleHalfMask = {CLOCK_BITS{1'b1}} << clockScale;
+	// wire[CLOCK_WIDTH-1:0] clockScaleHalfMask = {(CLOCK_WIDTH-1){1'b0}, 1'b1} << clockScale;
 	// wire[CLOCK_WIDTH-1:0] clockScaleMask 	 = { clockScaleMask[CLOCK_WIDTH-2:0], 1'b0 };
 	// wire spiHalfClock = clockCounter == (clockScaleHalfMask - 1);//|(clockCounter & clockScaleHalfMask);
 	// wire spiClock 	  = clockCounter == (clockScaleMask - 1);

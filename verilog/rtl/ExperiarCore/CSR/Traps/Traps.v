@@ -46,10 +46,16 @@ module Traps (
 	reg[31:0] mtvalValue;
 	reg[31:0] mipValue;
 
+	reg[15:0] userInterruptsBuffered;
+	always @(posedge clk) begin
+		if (rst) userInterruptsBuffered <= 16'b0;
+		else userInterruptsBuffered <= userInterrupts;
+	end
+
 	wire[11:0] systemInterrupts = { isMachineExternalInterrupt, 1'b0, 1'b0, 1'b0, 
 									isMachineTimerInterrupt, 1'b0, 1'b0, 1'b0, 
 									isMachineSoftwareInterrupt, 1'b0, 1'b0, 1'b0 };
-	wire[31:0] pendingInterrupts = { userInterrupts, 4'b0000, systemInterrupts } & mieValue;
+	wire[31:0] pendingInterrupts = { userInterruptsBuffered, 4'b0000, systemInterrupts } & mieValue;
 
 	wire misalignedInstructionFetch = (isAddressMisaligned && (coreState == CORE_STATE_FETCH)) || isJumpMissaligned;
 
@@ -59,7 +65,7 @@ module Traps (
 			case (1'b1)
 				isMachineSoftwareInterrupt: trapCause <= 30'd3;
 				isMachineTimerInterrupt: trapCause <= 30'd7;
-				|userInterrupts: trapCause <= 30'd8;
+				|userInterruptsBuffered: trapCause <= 30'd8;
 				isMachineExternalInterrupt: trapCause <= 30'd11;
 				default: trapCause <= 30'b0;
 			endcase

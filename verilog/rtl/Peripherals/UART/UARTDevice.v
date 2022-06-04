@@ -131,6 +131,7 @@ module UARTDevice  #(
 	// b03: txDataAvailable
 	// b04: txBufferFull
 	// b05: txDataLost
+	reg[5:0] statusRegisterBuffered;
 	wire[31:0] statusRegisterOutputData;
 	wire statusRegisterOutputRequest;
 	wire statusRegisterBusBusy_nc;
@@ -152,17 +153,26 @@ module UARTDevice  #(
 		.writeData(statusRegisterWriteData_nc),
 		.writeData_en(statusRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ 
-			txDataLostBuffered, 
-			txBufferFullBuffered, 
-			txDataAvailableBuffered, 
-			rxDataLostBuffered, 
-			rxBufferFullBuffered, 
-			rxDataAvailableBuffered }),
+		.readData(statusRegisterBuffered),
 		.readData_en(statusRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
+	always @(posedge clk) begin
+		if (rst) statusRegisterBuffered <= 6'b0;
+		else begin
+			statusRegisterBuffered <= { 
+				txDataLostBuffered, 
+				txBufferFullBuffered, 
+				txDataAvailableBuffered, 
+				rxDataLostBuffered, 
+				rxBufferFullBuffered, 
+				rxDataAvailableBuffered
+			};
+		end
+	end
+
 	// Rx register
+	reg[8:0] rxRegisterBuffered;
 	wire[31:0] rxRegisterOutputData;
 	wire rxRegisterOutputRequest;
 	wire[7:0] rxReadData;
@@ -185,9 +195,14 @@ module UARTDevice  #(
 		.writeData(rxRegisterWriteData_nc),
 		.writeData_en(rxRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData(rxDataAvailable ? { 1'b1, rxReadData } : 9'h0),
+		.readData(rxRegisterBuffered),
 		.readData_en(rxReadDataEnable),
 		.readData_busy(1'b0));
+
+	always @(posedge clk) begin
+		if (rst) rxRegisterBuffered <= 9'b0;
+		else rxRegisterBuffered <= rxDataAvailable ? { 1'b1, rxReadData } : 9'h0;
+	end
 
 	// Tx register
 	wire[31:0] txRegisterOutputData;

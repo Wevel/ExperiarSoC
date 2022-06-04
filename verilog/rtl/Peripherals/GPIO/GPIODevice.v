@@ -23,6 +23,12 @@ module GPIODevice #(
 		output reg gpio_irq
 	);
 
+	reg[IO_COUNT-1:0] inputBuffered;
+	always @(posedge clk) begin
+		if (rst) inputBuffered <= {IO_COUNT{1'b0}};
+		else inputBuffered <= gpio_input;
+	end
+
 	// Device select
 	wire[11:0] localAddress;
 	wire deviceEnable;
@@ -87,7 +93,7 @@ module GPIODevice #(
 		.writeData(inputRegisterWriteData_nc),
 		.writeData_en(inputRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData(gpio_input),
+		.readData(inputBuffered),
 		.readData_en(inputRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
 
@@ -117,7 +123,7 @@ module GPIODevice #(
 	assign peripheralBus_busy = 1'b0;
 	
 
-	wire[IO_COUNT-1:0] pinIRQ = irqEnable & gpio_oe & gpio_input;
+	wire[IO_COUNT-1:0] pinIRQ = irqEnable & gpio_oe & inputBuffered;
 
 	always @(posedge clk) begin
 		if (rst) gpio_irq <= 1'b0;
