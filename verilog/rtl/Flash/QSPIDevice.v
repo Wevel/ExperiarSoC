@@ -107,10 +107,11 @@ module QSPIDevice (
 							qspi_readDataValid <= 1'b1;
 						end	else begin
 							bitCounter <= nextBitCounter;
+							outputClock <= 1'b1;
 						end
+					end else begin
+						outputClock <= 1'b0;
 					end
-
-					outputClock <= !outputClock;
 
 					if (qspi_changeAddress) state <= STATE_IDLE;
 				end
