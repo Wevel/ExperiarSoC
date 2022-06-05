@@ -1,141 +1,140 @@
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[5927]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6131]: Warning: Wire Peripherals.\wb_stall_o is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6132]: Warning: Wire Peripherals.\wb_error_o is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6133]: Warning: Wire Peripherals.\wb_data_o [31] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6134]: Warning: Wire Peripherals.\wb_data_o [30] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6135]: Warning: Wire Peripherals.\wb_data_o [29] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6136]: Warning: Wire Peripherals.\wb_data_o [28] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6137]: Warning: Wire Peripherals.\wb_data_o [27] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6138]: Warning: Wire Peripherals.\wb_data_o [26] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6139]: Warning: Wire Peripherals.\wb_data_o [25] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6140]: Warning: Wire Peripherals.\wb_data_o [24] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6141]: Warning: Wire Peripherals.\wb_data_o [23] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6142]: Warning: Wire Peripherals.\wb_data_o [22] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6143]: Warning: Wire Peripherals.\wb_data_o [21] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6144]: Warning: Wire Peripherals.\wb_data_o [20] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6145]: Warning: Wire Peripherals.\wb_data_o [19] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6146]: Warning: Wire Peripherals.\wb_data_o [18] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6147]: Warning: Wire Peripherals.\wb_data_o [17] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6148]: Warning: Wire Peripherals.\wb_data_o [16] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6149]: Warning: Wire Peripherals.\wb_data_o [15] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6150]: Warning: Wire Peripherals.\wb_data_o [14] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6151]: Warning: Wire Peripherals.\wb_data_o [13] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6152]: Warning: Wire Peripherals.\wb_data_o [12] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6153]: Warning: Wire Peripherals.\wb_data_o [11] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6154]: Warning: Wire Peripherals.\wb_data_o [10] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6155]: Warning: Wire Peripherals.\wb_data_o [9] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6156]: Warning: Wire Peripherals.\wb_data_o [8] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6157]: Warning: Wire Peripherals.\wb_data_o [7] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6158]: Warning: Wire Peripherals.\wb_data_o [6] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6159]: Warning: Wire Peripherals.\wb_data_o [5] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6160]: Warning: Wire Peripherals.\wb_data_o [4] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6161]: Warning: Wire Peripherals.\wb_data_o [3] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6162]: Warning: Wire Peripherals.\wb_data_o [2] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6163]: Warning: Wire Peripherals.\wb_data_o [1] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6164]: Warning: Wire Peripherals.\wb_data_o [0] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6165]: Warning: Wire Peripherals.\wb_ack_o is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6166]: Warning: Wire Peripherals.\probe_blink [1] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6167]: Warning: Wire Peripherals.\probe_blink [0] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6168]: Warning: Wire Peripherals.\peripheral_irq [9] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6169]: Warning: Wire Peripherals.\peripheral_irq [8] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6170]: Warning: Wire Peripherals.\peripheral_irq [7] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6171]: Warning: Wire Peripherals.\peripheral_irq [6] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6172]: Warning: Wire Peripherals.\peripheral_irq [5] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6173]: Warning: Wire Peripherals.\peripheral_irq [4] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6174]: Warning: Wire Peripherals.\peripheral_irq [3] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6175]: Warning: Wire Peripherals.\peripheral_irq [2] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6176]: Warning: Wire Peripherals.\peripheral_irq [1] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6177]: Warning: Wire Peripherals.\peripheral_irq [0] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6178]: Warning: Wire Peripherals.\jtag_tms is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6179]: Warning: Wire Peripherals.\jtag_tdi is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6180]: Warning: Wire Peripherals.\jtag_tck is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6181]: Warning: Wire Peripherals.\io_out [37] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6182]: Warning: Wire Peripherals.\io_out [36] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6183]: Warning: Wire Peripherals.\io_out [35] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6184]: Warning: Wire Peripherals.\io_out [34] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6185]: Warning: Wire Peripherals.\io_out [33] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6186]: Warning: Wire Peripherals.\io_out [32] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6187]: Warning: Wire Peripherals.\io_out [31] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6188]: Warning: Wire Peripherals.\io_out [30] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6189]: Warning: Wire Peripherals.\io_out [29] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6190]: Warning: Wire Peripherals.\io_out [28] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6191]: Warning: Wire Peripherals.\io_out [27] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6192]: Warning: Wire Peripherals.\io_out [26] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6193]: Warning: Wire Peripherals.\io_out [25] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6194]: Warning: Wire Peripherals.\io_out [24] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6195]: Warning: Wire Peripherals.\io_out [23] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6196]: Warning: Wire Peripherals.\io_out [22] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6197]: Warning: Wire Peripherals.\io_out [21] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6198]: Warning: Wire Peripherals.\io_out [20] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6199]: Warning: Wire Peripherals.\io_out [19] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6200]: Warning: Wire Peripherals.\io_out [18] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6201]: Warning: Wire Peripherals.\io_out [17] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6202]: Warning: Wire Peripherals.\io_out [16] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6203]: Warning: Wire Peripherals.\io_out [15] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6204]: Warning: Wire Peripherals.\io_out [14] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6205]: Warning: Wire Peripherals.\io_out [13] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6206]: Warning: Wire Peripherals.\io_out [12] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6207]: Warning: Wire Peripherals.\io_out [11] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6208]: Warning: Wire Peripherals.\io_out [10] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6209]: Warning: Wire Peripherals.\io_out [9] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6210]: Warning: Wire Peripherals.\io_out [8] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6211]: Warning: Wire Peripherals.\io_out [7] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6212]: Warning: Wire Peripherals.\io_out [6] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6213]: Warning: Wire Peripherals.\io_out [5] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6214]: Warning: Wire Peripherals.\io_out [4] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6215]: Warning: Wire Peripherals.\io_out [3] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6216]: Warning: Wire Peripherals.\io_out [2] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6217]: Warning: Wire Peripherals.\io_out [1] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6218]: Warning: Wire Peripherals.\io_out [0] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6219]: Warning: Wire Peripherals.\io_oeb [37] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6220]: Warning: Wire Peripherals.\io_oeb [36] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6221]: Warning: Wire Peripherals.\io_oeb [35] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6222]: Warning: Wire Peripherals.\io_oeb [34] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6223]: Warning: Wire Peripherals.\io_oeb [33] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6224]: Warning: Wire Peripherals.\io_oeb [32] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6225]: Warning: Wire Peripherals.\io_oeb [31] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6226]: Warning: Wire Peripherals.\io_oeb [30] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6227]: Warning: Wire Peripherals.\io_oeb [29] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6228]: Warning: Wire Peripherals.\io_oeb [28] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6229]: Warning: Wire Peripherals.\io_oeb [27] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6230]: Warning: Wire Peripherals.\io_oeb [26] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6231]: Warning: Wire Peripherals.\io_oeb [25] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6232]: Warning: Wire Peripherals.\io_oeb [24] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6233]: Warning: Wire Peripherals.\io_oeb [23] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6234]: Warning: Wire Peripherals.\io_oeb [22] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6235]: Warning: Wire Peripherals.\io_oeb [21] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6236]: Warning: Wire Peripherals.\io_oeb [20] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6237]: Warning: Wire Peripherals.\io_oeb [19] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6238]: Warning: Wire Peripherals.\io_oeb [18] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6239]: Warning: Wire Peripherals.\io_oeb [17] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6240]: Warning: Wire Peripherals.\io_oeb [16] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6241]: Warning: Wire Peripherals.\io_oeb [15] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6242]: Warning: Wire Peripherals.\io_oeb [14] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6243]: Warning: Wire Peripherals.\io_oeb [13] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6244]: Warning: Wire Peripherals.\io_oeb [12] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6245]: Warning: Wire Peripherals.\io_oeb [11] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6246]: Warning: Wire Peripherals.\io_oeb [10] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6247]: Warning: Wire Peripherals.\io_oeb [9] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6248]: Warning: Wire Peripherals.\io_oeb [8] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6249]: Warning: Wire Peripherals.\io_oeb [7] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6250]: Warning: Wire Peripherals.\io_oeb [6] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6251]: Warning: Wire Peripherals.\io_oeb [5] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6252]: Warning: Wire Peripherals.\io_oeb [4] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6253]: Warning: Wire Peripherals.\io_oeb [3] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6254]: Warning: Wire Peripherals.\io_oeb [2] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6255]: Warning: Wire Peripherals.\io_oeb [1] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6256]: Warning: Wire Peripherals.\io_oeb [0] is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6257]: Warning: Wire Peripherals.\internal_uart_tx is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6258]: Warning: Wire Peripherals.\flash_io1_read is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6259]: Warning: Wire Peripherals.\flash_io0_read is used but has no driver.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6348]: Warnings: 129 unique messages, 129 total
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\floorplan\4-place_io_ol.log[15]: Warning: Some pins weren't matched by the config file
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\26-gds_ptrs.log[111]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\26-gds_ptrs.log[112]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6154]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6359]: Warning: Wire Peripherals.\wb_stall_o is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6360]: Warning: Wire Peripherals.\wb_error_o is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6361]: Warning: Wire Peripherals.\wb_data_o [31] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6362]: Warning: Wire Peripherals.\wb_data_o [30] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6363]: Warning: Wire Peripherals.\wb_data_o [29] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6364]: Warning: Wire Peripherals.\wb_data_o [28] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6365]: Warning: Wire Peripherals.\wb_data_o [27] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6366]: Warning: Wire Peripherals.\wb_data_o [26] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6367]: Warning: Wire Peripherals.\wb_data_o [25] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6368]: Warning: Wire Peripherals.\wb_data_o [24] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6369]: Warning: Wire Peripherals.\wb_data_o [23] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6370]: Warning: Wire Peripherals.\wb_data_o [22] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6371]: Warning: Wire Peripherals.\wb_data_o [21] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6372]: Warning: Wire Peripherals.\wb_data_o [20] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6373]: Warning: Wire Peripherals.\wb_data_o [19] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6374]: Warning: Wire Peripherals.\wb_data_o [18] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6375]: Warning: Wire Peripherals.\wb_data_o [17] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6376]: Warning: Wire Peripherals.\wb_data_o [16] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6377]: Warning: Wire Peripherals.\wb_data_o [15] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6378]: Warning: Wire Peripherals.\wb_data_o [14] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6379]: Warning: Wire Peripherals.\wb_data_o [13] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6380]: Warning: Wire Peripherals.\wb_data_o [12] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6381]: Warning: Wire Peripherals.\wb_data_o [11] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6382]: Warning: Wire Peripherals.\wb_data_o [10] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6383]: Warning: Wire Peripherals.\wb_data_o [9] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6384]: Warning: Wire Peripherals.\wb_data_o [8] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6385]: Warning: Wire Peripherals.\wb_data_o [7] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6386]: Warning: Wire Peripherals.\wb_data_o [6] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6387]: Warning: Wire Peripherals.\wb_data_o [5] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6388]: Warning: Wire Peripherals.\wb_data_o [4] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6389]: Warning: Wire Peripherals.\wb_data_o [3] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6390]: Warning: Wire Peripherals.\wb_data_o [2] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6391]: Warning: Wire Peripherals.\wb_data_o [1] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6392]: Warning: Wire Peripherals.\wb_data_o [0] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6393]: Warning: Wire Peripherals.\wb_ack_o is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6394]: Warning: Wire Peripherals.\probe_blink [1] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6395]: Warning: Wire Peripherals.\probe_blink [0] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6396]: Warning: Wire Peripherals.\peripheral_irq [9] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6397]: Warning: Wire Peripherals.\peripheral_irq [8] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6398]: Warning: Wire Peripherals.\peripheral_irq [7] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6399]: Warning: Wire Peripherals.\peripheral_irq [6] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6400]: Warning: Wire Peripherals.\peripheral_irq [5] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6401]: Warning: Wire Peripherals.\peripheral_irq [4] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6402]: Warning: Wire Peripherals.\peripheral_irq [3] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6403]: Warning: Wire Peripherals.\peripheral_irq [2] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6404]: Warning: Wire Peripherals.\peripheral_irq [1] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6405]: Warning: Wire Peripherals.\peripheral_irq [0] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6406]: Warning: Wire Peripherals.\jtag_tms is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6407]: Warning: Wire Peripherals.\jtag_tdi is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6408]: Warning: Wire Peripherals.\jtag_tck is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6409]: Warning: Wire Peripherals.\io_out [37] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6410]: Warning: Wire Peripherals.\io_out [36] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6411]: Warning: Wire Peripherals.\io_out [35] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6412]: Warning: Wire Peripherals.\io_out [34] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6413]: Warning: Wire Peripherals.\io_out [33] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6414]: Warning: Wire Peripherals.\io_out [32] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6415]: Warning: Wire Peripherals.\io_out [31] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6416]: Warning: Wire Peripherals.\io_out [30] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6417]: Warning: Wire Peripherals.\io_out [29] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6418]: Warning: Wire Peripherals.\io_out [28] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6419]: Warning: Wire Peripherals.\io_out [27] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6420]: Warning: Wire Peripherals.\io_out [26] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6421]: Warning: Wire Peripherals.\io_out [25] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6422]: Warning: Wire Peripherals.\io_out [24] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6423]: Warning: Wire Peripherals.\io_out [23] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6424]: Warning: Wire Peripherals.\io_out [22] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6425]: Warning: Wire Peripherals.\io_out [21] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6426]: Warning: Wire Peripherals.\io_out [20] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6427]: Warning: Wire Peripherals.\io_out [19] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6428]: Warning: Wire Peripherals.\io_out [18] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6429]: Warning: Wire Peripherals.\io_out [17] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6430]: Warning: Wire Peripherals.\io_out [16] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6431]: Warning: Wire Peripherals.\io_out [15] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6432]: Warning: Wire Peripherals.\io_out [14] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6433]: Warning: Wire Peripherals.\io_out [13] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6434]: Warning: Wire Peripherals.\io_out [12] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6435]: Warning: Wire Peripherals.\io_out [11] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6436]: Warning: Wire Peripherals.\io_out [10] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6437]: Warning: Wire Peripherals.\io_out [9] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6438]: Warning: Wire Peripherals.\io_out [8] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6439]: Warning: Wire Peripherals.\io_out [7] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6440]: Warning: Wire Peripherals.\io_out [6] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6441]: Warning: Wire Peripherals.\io_out [5] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6442]: Warning: Wire Peripherals.\io_out [4] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6443]: Warning: Wire Peripherals.\io_out [3] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6444]: Warning: Wire Peripherals.\io_out [2] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6445]: Warning: Wire Peripherals.\io_out [1] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6446]: Warning: Wire Peripherals.\io_out [0] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6447]: Warning: Wire Peripherals.\io_oeb [37] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6448]: Warning: Wire Peripherals.\io_oeb [36] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6449]: Warning: Wire Peripherals.\io_oeb [35] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6450]: Warning: Wire Peripherals.\io_oeb [34] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6451]: Warning: Wire Peripherals.\io_oeb [33] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6452]: Warning: Wire Peripherals.\io_oeb [32] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6453]: Warning: Wire Peripherals.\io_oeb [31] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6454]: Warning: Wire Peripherals.\io_oeb [30] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6455]: Warning: Wire Peripherals.\io_oeb [29] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6456]: Warning: Wire Peripherals.\io_oeb [28] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6457]: Warning: Wire Peripherals.\io_oeb [27] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6458]: Warning: Wire Peripherals.\io_oeb [26] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6459]: Warning: Wire Peripherals.\io_oeb [25] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6460]: Warning: Wire Peripherals.\io_oeb [24] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6461]: Warning: Wire Peripherals.\io_oeb [23] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6462]: Warning: Wire Peripherals.\io_oeb [22] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6463]: Warning: Wire Peripherals.\io_oeb [21] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6464]: Warning: Wire Peripherals.\io_oeb [20] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6465]: Warning: Wire Peripherals.\io_oeb [19] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6466]: Warning: Wire Peripherals.\io_oeb [18] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6467]: Warning: Wire Peripherals.\io_oeb [17] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6468]: Warning: Wire Peripherals.\io_oeb [16] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6469]: Warning: Wire Peripherals.\io_oeb [15] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6470]: Warning: Wire Peripherals.\io_oeb [14] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6471]: Warning: Wire Peripherals.\io_oeb [13] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6472]: Warning: Wire Peripherals.\io_oeb [12] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6473]: Warning: Wire Peripherals.\io_oeb [11] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6474]: Warning: Wire Peripherals.\io_oeb [10] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6475]: Warning: Wire Peripherals.\io_oeb [9] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6476]: Warning: Wire Peripherals.\io_oeb [8] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6477]: Warning: Wire Peripherals.\io_oeb [7] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6478]: Warning: Wire Peripherals.\io_oeb [6] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6479]: Warning: Wire Peripherals.\io_oeb [5] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6480]: Warning: Wire Peripherals.\io_oeb [4] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6481]: Warning: Wire Peripherals.\io_oeb [3] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6482]: Warning: Wire Peripherals.\io_oeb [2] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6483]: Warning: Wire Peripherals.\io_oeb [1] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6484]: Warning: Wire Peripherals.\io_oeb [0] is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6485]: Warning: Wire Peripherals.\internal_uart_tx is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6486]: Warning: Wire Peripherals.\flash_io1_read is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6487]: Warning: Wire Peripherals.\flash_io0_read is used but has no driver.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\synthesis\1-synthesis.log[6577]: Warnings: 129 unique messages, 129 total
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\26-gds_ptrs.log[140]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\26-gds_ptrs.log[141]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\27-gdsii-klayout.log[12]: WARNING: no fill config file specified
 openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\32-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
 openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\32-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
 openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\32-lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\33-drc.log[111]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\33-drc.log[112]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\33-drc.log[140]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+openlane/Peripherals_Flat\runs\Peripherals_Flat\logs\finishing\33-drc.log[141]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
 openlane/Peripherals_Flat\runs\Peripherals_Flat\reports\finishing\antenna.rpt[0]: Warning - class CORE ANTENNACELL is not found. This message can be ignored if not in the antenna-avoid flow

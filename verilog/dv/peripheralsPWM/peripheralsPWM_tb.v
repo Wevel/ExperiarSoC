@@ -227,8 +227,8 @@ module peripheralsPWM_tb;
 		power4 <= 1'b1;
 	end
 
-	always @(succesOutput, nextTestOutput) begin
-		#1 $display("Success:0b%b Next test:0b%b", succesOutput, nextTestOutput);
+	always @(succesOutput, nextTestOutput, timingValid) begin
+		#1 $display("Success:0b%b Timing Valid:0b%b Next test:0b%b", succesOutput, timingValid, nextTestOutput);
 	end
 
 	wire flash_csb;

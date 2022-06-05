@@ -75,10 +75,8 @@
 				0x1301_0000: Peripheral configuration register (Might not exist)
 			0x1301_1xxx: Device 0
 				0x1301_1000: Configuration register
-				0x1301_1004: Data
-			0x1301_2xxx: Device 1
-				0x1301_2000: Configuration register
-				0x1301_2004: Data
+				0x1301_1004: Status register
+				0x1301_1008: Data
 		0x1302_xxxx: Peripheral 2 (PWM)
 			0x1302_0xxx: Peripheral configuration
 				0x1302_0000: Peripheral configuration register (Might not exist)
@@ -147,7 +145,9 @@
 					0x1303_201C: Toggle
 				0x1303_2020: Input
 	0x14xx_xxxx: Slave 4 (Flash)
-		0x1400_00000-0x1400_0FFFF: Flash cache
+		0x1400_0000-0x1400_0FFF: Flash cache
+		0x1400_1000: Base address
+		0x1400_1004: Cached address
 	0x1Fxx_xxxx: Reserved for caravel interface
 		Caravel accessed everything with 0x3xxx_xxxx, but has its own UART interface at 0x3F00_0000 so would not be able to access 0x1Fxx_xxxx
 0x3xxx_xxxx: Reserved for caravel interface

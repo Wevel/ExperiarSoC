@@ -42,7 +42,7 @@ set ::env(CLOCK_BUFFER_FANOUT) "8"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 450 900"
+set ::env(DIE_AREA) "0 0 500 1000"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -52,13 +52,13 @@ set ::env(DIE_AREA) "0 0 450 900"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.335
+set ::env(PL_TARGET_DENSITY) 0.275
 
 # Margin for max slew as percentage
 # Not sure what the limits of this value should be
 # But it can be changed to remove slew violations
-set ::env(PL_RESIZER_MAX_SLEW_MARGIN) 15
-set ::env(GLB_RESIZER_MAX_SLEW_MARGIN) 5
+#set ::env(PL_RESIZER_MAX_SLEW_MARGIN) 15
+#set ::env(GLB_RESIZER_MAX_SLEW_MARGIN) 5
 
 # If this cell is placed in the top level (user_project_wrapper), then it can't have anything on metal layer 5 as this is used for PDN
 # If this cell is placed in another macro, then we can't have anything on metal layer 4 as the parent macro will add the PDN
@@ -72,7 +72,7 @@ set ::env(GND_NETS) [list {vssd1}]
 set ::env(RUN_CVC) 1
 
 set ::env(GLB_RT_MAX_DIODE_INS_ITERS) 10
-set ::env(DIODE_INSERTION_STRATEGY) 4
+set ::env(DIODE_INSERTION_STRATEGY) 3
 
 # Save a .png after each SYNTH_TOP_LEVEL
 # This doesn't work right now :(

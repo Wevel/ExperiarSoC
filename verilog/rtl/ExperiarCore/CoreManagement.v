@@ -88,7 +88,6 @@ module CoreManagement (
 	// State register
 	// b00-b03: probe_errorCode
 	// b04: isRunning
-	reg[4:0] stateBuffered;
 	wire[31:0] stateOutputData;
 	wire stateOutputRequest;
 	wire stateBusBusy_nc;
@@ -110,14 +109,9 @@ module CoreManagement (
 		.writeData(stateWriteData_nc),
 		.writeData_en(stateWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData(stateBuffered),
+		.readData({ management_run, core_env, core_errorCode }),
 		.readData_en(stateReadDataEnable_nc),
 		.readData_busy(1'b0));
-
-	always @(posedge clk) begin
-		if (rst) stateBuffered <= 3'b0;
-		else stateBuffered <= { management_run, core_env, core_errorCode };
-	end
 
 	// Core
 	assign management_run = control[0];
