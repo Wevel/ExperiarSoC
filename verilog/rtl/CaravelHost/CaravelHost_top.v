@@ -58,7 +58,7 @@ module CaravelHost (
 	wire[3:0] userSpace_wb_sel_i;
 	wire[31:0] userSpace_wb_data_i;
 	wire[31:0] userSpace_wb_adr_i;
-	wire userSpace_wb_ack_o;
+	reg userSpace_wb_ack_o;
 	wire[31:0] userSpace_wb_data_o;
 
 	WBAddressExtension wbAddressExtension(
@@ -105,7 +105,18 @@ module CaravelHost (
 	assign caravel_wb_data_o = caravelEnable ? userSpace_wb_data_i : ~32'b0;
 	assign caravel_wb_adr_o = caravelEnable ? userSpace_wb_adr_i[27:0] : 28'b0;
 
-	assign userSpace_wb_ack_o   = hostConfigEnable ? caravelHost_wb_ack_o : caravel_wb_ack_i || caravel_wb_error_i;
+	always @(*) begin
+		if (userSpace_wb_cyc_i) begin
+			if (hostConfigEnable) userSpace_wb_ack_o <= caravelHost_wb_ack_o;
+			else begin
+				if (userSpaceEnable) userSpace_wb_ack_o <= caravel_wb_ack_i || caravel_wb_error_i;
+				else userSpace_wb_ack_o <= 1'b1;
+			end 
+		end else begin
+			userSpace_wb_ack_o <= 1'b0;
+		end
+	end
+
 	//assign userSpace_wb_stall_i = hostConfigEnable ? caravelHost_wb_stall_o : caravel_wb_stall_i;
 	//assign userSpace_wb_error_i = hostConfigEnable ? caravelHost_wb_error_o : caravel_wb_error_i;
 	assign userSpace_wb_data_o  = hostConfigEnable ? caravelHost_wb_data_o : caravel_wb_data_i;
