@@ -154,7 +154,7 @@ module FlashBuffer #(
 			cachedCount <= {SRAM_ADDRESS_SIZE{1'b0}};
 			qspi_requestData <= 1'b0;
 		end	else if (baseAddressRegisterWriteDataEnable) begin
-			cachedAddress <= baseAddressRegisterWriteData[23:2];
+			cachedAddress <= { baseAddressRegisterWriteData[23:2], 2'b00 };
 			cachedCount <= {SRAM_ADDRESS_SIZE{1'b0}};
 			qspi_requestData <= 1'b1;
 		end else if (qspi_requestData && qspi_readDataValid) begin

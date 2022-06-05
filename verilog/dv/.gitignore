@@ -10,3 +10,4 @@ coreArch/riscof/sail_cSim/__pycache__/
 coreArch/riscof/ExperiarSoC/__pycache__/
 coreArch/DUT-ExperiarSoC.signature
 coreArch/coreArch.disass
+!flash/test.hex

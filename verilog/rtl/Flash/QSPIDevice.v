@@ -40,6 +40,7 @@ module QSPIDevice (
 	wire deviceBusy = state != STATE_IDLE;
 	reg[1:0] resetState = RESET_NONE;
 	wire resetDevice = resetState != RESET_NONE;
+	reg settingAddress = 1'b0;
 
 	reg outputClock = 1'b0;	
 	reg[4:0] bitCounter = 5'b0;
@@ -81,6 +82,7 @@ module QSPIDevice (
 			outputClock <= 1'b0;
 			bitCounter <= 5'b0;
 			resetState <= RESET_START;
+			settingAddress <= 1'b0;
 			qspi_readDataValid <= 1'b0;
 		end else begin
 			case (state)
@@ -89,7 +91,10 @@ module QSPIDevice (
 					bitCounter <= 5'b0;
 
 					if (qspi_enable) begin
-						if (resetDevice || qspi_changeAddress) state <= STATE_SETUP;
+						if (resetDevice || qspi_changeAddress) begin
+							state <= STATE_SETUP;
+							settingAddress <= qspi_changeAddress;
+						end
 					end
 				end
 
@@ -104,7 +109,7 @@ module QSPIDevice (
 					if (!outputClock) begin
 						if ((resetDevice && bitCounter == 5'h07) || (bitCounter == 5'h1F)) begin
 							state <= STATE_END;
-							qspi_readDataValid <= 1'b1;
+							qspi_readDataValid <= !settingAddress;
 						end	else begin
 							bitCounter <= nextBitCounter;
 							outputClock <= 1'b1;
@@ -121,6 +126,7 @@ module QSPIDevice (
 					else state <= STATE_IDLE;
 
 					outputClock <= 1'b0;
+					settingAddress <= 1'b0;
 					qspi_readDataValid <= 1'b0;
 					
 					if (resetState == RESET_START) resetState <= RESET_WAKE;
@@ -131,6 +137,7 @@ module QSPIDevice (
 					state <= STATE_IDLE;
 					bitCounter <= 5'b0;
 					outputClock <= 1'b0;
+					settingAddress <= 1'b0;
 					qspi_readDataValid <= 1'b0;
 					resetState <= RESET_START;
 				end

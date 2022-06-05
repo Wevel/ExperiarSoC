@@ -38,7 +38,7 @@
 #define GPIO1_OUTPUT_TOGGLE_ADDR ((uint32_t*)0x3303201C)
 #define GPIO1_INPUT_ADDR ((uint32_t*)0x33032020)
 
-#define FLASH_DATA ((uint32_t*)0x3400000)
+#define FLASH_DATA ((uint32_t*)0x34000000)
 #define FLASH_CONFIGURATION ((uint32_t*)0x34001000)
 #define FLASH_BASE_ADDRESS ((uint32_t*)0x34001004)
 #define FLASH_CACHED_ADDRESS ((uint32_t*)0x34001008)
@@ -143,8 +143,8 @@ void main ()
 	nextTest (testPass);
 
 	// Check that data is marked as cached
-	uint32_t tries = 5;
-	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) < 0x20) tries--;
+	uint32_t tries = 2;
+	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) != 0x800) tries--;
 	if (tries == 0) testPass = false;
 	nextTest (testPass);
 
@@ -165,12 +165,12 @@ void main ()
 	// Set the base address
 	// This will probably be the default value
 	wbWrite (FLASH_BASE_ADDRESS, 0xF000);
-	if (wbRead (FLASH_BASE_ADDRESS) != 0x0) testPass = false;
+	if (wbRead (FLASH_BASE_ADDRESS) != 0xF000) testPass = false;
 	nextTest (testPass);
 
 	// Check that data is marked as cached
-	tries = 5;
-	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) < 0x20) tries--;
+	tries = 2;
+	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) != 0xF800) tries--;
 	if (tries == 0) testPass = false;
 	nextTest (testPass);
 
