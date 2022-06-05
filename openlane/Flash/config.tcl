@@ -12,7 +12,10 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/Flash/Flash_top.v \
 	$script_dir/../../verilog/rtl/Flash/FlashBuffer.v \
 	$script_dir/../../verilog/rtl/Flash/QSPIDevice.v \
-	$script_dir/../../verilog/rtl/Flash/WBFlashInterface.v"
+	$script_dir/../../verilog/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v \
+	$script_dir/../../verilog/rtl/Peripherals/Registers/ConfigurationRegister.v \
+	$script_dir/../../verilog/rtl/Peripherals/Registers/DataRegister.v \
+	$script_dir/../../verilog/rtl/Utility/ShiftRegister.v"
 
 set ::env(DESIGN_IS_CORE) 0
 set ::env(FP_PDN_CORE_RING) 0

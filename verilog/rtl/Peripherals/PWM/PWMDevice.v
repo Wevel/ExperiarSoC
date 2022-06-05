@@ -123,6 +123,7 @@ module PWMDevice #(
 	// Current data register (for .WIDTH(16), .OUTPUTS(4))
 	// b00-b15: counterValue
 	// b16-b19: output
+	reg[WIDTH+OUTPUTS-1:0] dataRegisterBuffered;
 	wire[OUTPUTS-1:0] outputs;
 	wire[31:0] dataRegisterOutputData;
 	wire dataRegisterOutputRequest;
@@ -145,9 +146,14 @@ module PWMDevice #(
 		.writeData(dataRegisterWriteData_nc),
 		.writeData_en(dataRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ outputs, counterValue }),
+		.readData(dataRegisterBuffered),
 		.readData_en(dataRegisterReadDataEnable_nc),
 		.readData_busy(1'b0));
+
+	always @(posedge clk) begin
+		if (rst) dataRegisterBuffered <= {(WIDTH + OUTPUTS){1'b0}};
+		else dataRegisterBuffered <= { outputs, counterValue };
+	end
 
 	always @(posedge clk) begin
 		if (rst) begin

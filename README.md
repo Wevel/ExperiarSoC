@@ -63,10 +63,9 @@ Several macros have max slew violations.
 ### verify-coreArch-gl: Not implemented
 
 # Need to do
-- Write SPI test
-- Fix timing violations
 - Make final version of art
-- Add buffer to interrupt signals input
+- Decide on probe values
+- Fix flash controller
 
 # Could do
 - Misaligned architecture instructions 
@@ -75,7 +74,7 @@ Several macros have max slew violations.
 - Add JTAG test
 - Add interrupt test
 - Add uart pin swapping
-- Flash controller
+- Page based flash controller
 - Tile map rendering 
 - Fetch next instruction a clock cycle earlier so instructions only take 2 cycles
 - Allow JTAG to read from wishbone bus

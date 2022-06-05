@@ -155,13 +155,10 @@ jobs:
 
       - name: Run DV RTL tests
         run: |
-          make verify-peripheralsGPIO-rtl
-          make verify-peripheralsUART-rtl
-          make verify-memory-rtl
-          make verify-video-rtl
-          make verify-corePC-rtl
+          make verify-all-rtl
         
       - name: Run DV GL tests
         run: |
           make verify-peripheralsGPIO-gl
           make verify-corePC-gl
+          make verify-coreArch-gl

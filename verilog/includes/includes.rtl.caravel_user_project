@@ -22,7 +22,6 @@
 -v $(USER_PROJECT_VERILOG)/rtl/Flash/Flash_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Flash/FlashBuffer.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Flash/QSPIDevice.v 
--v $(USER_PROJECT_VERILOG)/rtl/Flash/WBFlashInterface.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/Peripherals_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/WBPeripheralBusInterface/WBPeripheralBusInterface_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/Peripherals/GPIO/GPIO_top.v 

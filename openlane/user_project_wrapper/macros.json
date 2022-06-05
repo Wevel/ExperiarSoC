@@ -25,7 +25,7 @@
 			"name": "caravelHost",
 			"displayName": "Caravel Host",
 			"position": {
-				"x": 1550,
+				"x": 1600,
 				"y": 250
 			},
 			"size": {
@@ -39,11 +39,11 @@
 			"displayName": "Core 0",
 			"position": {
 				"x": 925,
-				"y": 200
+				"y": 150
 			},
 			"size": {
-				"x": 450,
-				"y": 900
+				"x": 500,
+				"y": 1000
 			},
 			"rotation": "N"
 		},
@@ -52,11 +52,11 @@
 			"displayName": "Core 1",
 			"position": {
 				"x": 925,
-				"y": 1350
+				"y": 1280
 			},
 			"size": {
-				"x": 450,
-				"y": 900
+				"x": 500,
+				"y": 1000
 			},
 			"rotation": "N"
 		},
@@ -90,7 +90,7 @@
 			"name": "experiarSoC/video",
 			"displayName": "Video",
 			"position": {
-				"x": 1550,
+				"x": 1600,
 				"y": 2633
 			},
 			"size": {
@@ -103,7 +103,7 @@
 			"name": "experiarSoC/wishboneInterconnect",
 			"displayName": "Wishbone Interconnect",
 			"position": {
-				"x": 1550,
+				"x": 1600,
 				"y": 725
 			},
 			"size": {
@@ -184,7 +184,7 @@
 			"name": "experiarSoC/videoSRAM0",
 			"displayName": "Video SRAM 0",
 			"position": {
-				"x": 717,
+				"x": 767,
 				"y": 2400
 			},
 			"size": {
@@ -201,7 +201,7 @@
 			"name": "experiarSoC/videoSRAM1",
 			"displayName": "Video SRAM 1",
 			"position": {
-				"x": 717,
+				"x": 767,
 				"y": 2950
 			},
 			"size": {
@@ -218,7 +218,7 @@
 			"name": "experiarSoC/videoSRAM2",
 			"displayName": "Video SRAM 2",
 			"position": {
-				"x": 2050,
+				"x": 2100,
 				"y": 2400
 			},
 			"size": {
@@ -235,7 +235,7 @@
 			"name": "experiarSoC/videoSRAM3",
 			"displayName": "Video SRAM 3",
 			"position": {
-				"x": 2050,
+				"x": 2100,
 				"y": 2950
 			},
 			"size": {

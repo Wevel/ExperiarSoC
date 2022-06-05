@@ -1,33 +1,22 @@
-openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1962]: ABC: Error: The network is combinational.
-openlane/Video\runs\Video\logs\routing\16-global.log[1306]: [INFO GRT-0012] Antenna violations: 72
-openlane/Video\runs\Video\logs\routing\16-global.log[1563]: [INFO GRT-0012] Antenna violations: 42
-openlane/Video\runs\Video\logs\routing\16-global.log[1834]: [INFO GRT-0012] Antenna violations: 8
-openlane/Video\runs\Video\logs\routing\16-global_2.log[1324]: [INFO GRT-0012] Antenna violations: 7
-openlane/Video\runs\Video\logs\routing\16-global_2.log[1599]: [INFO GRT-0012] Antenna violations: 1
-openlane/Video\runs\Video\logs\routing\19-detailed.log[188]: [INFO DRT-0199]   Number of violations = 1888.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[232]: [INFO DRT-0199]   Number of violations = 765.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[276]: [INFO DRT-0199]   Number of violations = 639.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[320]: [INFO DRT-0199]   Number of violations = 103.
-openlane/Video\runs\Video\logs\routing\19-detailed.log[364]: [INFO DRT-0199]   Number of violations = 6.
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[57120]: 0.00   slack (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[179684]: _2278_/Y                                0.07    0.07   -0.00 (VIOLATED)
-openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[179696]: max cap violation count 1
-openlane/Video\runs\Video\logs\placement\7-global.log[1511]: _4149_/A                                1.50    1.74   -0.24 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1512]: _2933_/B                                1.50    1.74   -0.24 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1513]: _2101_/X                                1.51    1.74   -0.23 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1514]: _4150_/A                                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1515]: _2989_/B                                1.50    1.63   -0.13 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1516]: _2099_/X                                1.51    1.63   -0.12 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1517]: _4103_/A                                1.50    1.53   -0.03 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1518]: _2456_/Y                                1.50    1.53   -0.02 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1519]: _4102_/A                                1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1520]: _2556_/B1                               1.50    1.51   -0.01 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1521]: _2084_/X                                1.51    1.51   -0.00 (VIOLATED)
-openlane/Video\runs\Video\logs\placement\7-global.log[1525]: max slew violation count 11
-openlane/Video\runs\Video\logs\finishing\32-Video.lef.log[1857]: HI                                         |(no matching pin)
-openlane/Video\runs\Video\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 14 net violations in 3153 nets.
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.min.rpt[56105]: 0.00   slack (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[11]: _2278_/Y                                0.07    0.07   -0.00 (VIOLATED)
-openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.slew.rpt[23]: max cap violation count 1
-openlane/Video\runs\Video\reports\finishing\antenna.rpt[168946]: Number of pins violated: 15
-openlane/Video\runs\Video\reports\finishing\antenna.rpt[168947]: Number of nets violated: 14
+openlane/Video\runs\Video\logs\synthesis\1-synthesis.log[1970]: ABC: Error: The network is combinational.
+openlane/Video\runs\Video\logs\routing\16-global.log[1293]: [INFO GRT-0012] Antenna violations: 84
+openlane/Video\runs\Video\logs\routing\16-global.log[1550]: [INFO GRT-0012] Antenna violations: 29
+openlane/Video\runs\Video\logs\routing\16-global.log[1814]: [INFO GRT-0012] Antenna violations: 6
+openlane/Video\runs\Video\logs\routing\16-global_2.log[1317]: [INFO GRT-0012] Antenna violations: 4
+openlane/Video\runs\Video\logs\routing\16-global_2.log[1583]: [INFO GRT-0012] Antenna violations: 2
+openlane/Video\runs\Video\logs\routing\19-detailed.log[187]: [INFO DRT-0199]   Number of violations = 1977.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[231]: [INFO DRT-0199]   Number of violations = 728.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[275]: [INFO DRT-0199]   Number of violations = 645.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[319]: [INFO DRT-0199]   Number of violations = 59.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[363]: [INFO DRT-0199]   Number of violations = 13.
+openlane/Video\runs\Video\logs\routing\19-detailed.log[407]: [INFO DRT-0199]   Number of violations = 9.
+openlane/Video\runs\Video\logs\routing\25-parasitics_multi_corner_sta.log[57957]: -0.04   slack (VIOLATED)
+openlane/Video\runs\Video\logs\placement\7-global.log[1513]: _4137_/A                                1.50    1.70   -0.20 (VIOLATED)
+openlane/Video\runs\Video\logs\placement\7-global.log[1514]: _2630_/B1                               1.50    1.70   -0.20 (VIOLATED)
+openlane/Video\runs\Video\logs\placement\7-global.log[1515]: _2131_/X                                1.51    1.70   -0.19 (VIOLATED)
+openlane/Video\runs\Video\logs\placement\7-global.log[1519]: max slew violation count 3
+openlane/Video\runs\Video\logs\finishing\32-Video.lef.log[1573]: HI                                         |(no matching pin)
+openlane/Video\runs\Video\logs\finishing\34-antenna.log[18]: [INFO ANT-0002] Found 10 net violations in 3173 nets.
+openlane/Video\runs\Video\reports\routing\25-parasitics_multi_corner_sta.min.rpt[56942]: -0.04   slack (VIOLATED)
+openlane/Video\runs\Video\reports\finishing\antenna.rpt[169721]: Number of pins violated: 10
+openlane/Video\runs\Video\reports\finishing\antenna.rpt[169722]: Number of nets violated: 10

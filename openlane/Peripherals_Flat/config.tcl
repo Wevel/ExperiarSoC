@@ -55,7 +55,7 @@ set ::env(DIE_AREA) "0 0 600 950"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.425
+set ::env(PL_TARGET_DENSITY) 0.435
 
 # Allow a larger margin on the slack to over fix hold violations
 # This should help to prevent hold violations

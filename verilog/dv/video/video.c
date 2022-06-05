@@ -19,12 +19,6 @@
 #include <defs.h>
 #include <stub.c>
 
-/*
-	IO Test:
-		- Configures MPRJ lower 8-IO pins as outputs
-		- Observes counter value through the MPRJ lower 8 IO pins (in the testbench)
-*/
-
 #define GPIO0_OE_WRITE_ADDR ((uint32_t*)0x33031000)
 #define GPIO0_OE_SET_ADDR ((uint32_t*)0x33031004)
 #define GPIO0_OE_CLEAR_ADDR ((uint32_t*)0x33031008)

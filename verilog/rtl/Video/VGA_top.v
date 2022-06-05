@@ -222,6 +222,7 @@ module VGA #(
 		.currentValue(verticalWholeLineCompare));
 
 	// VGA state register
+	reg[4:0] stateRegisterBuffered;
 	reg inVerticalVisibleArea = 1'b1;
 	reg inHorizontalVisibleArea = 1'b1;
 	wire[31:0] stateRegisterOutputData;
@@ -245,9 +246,14 @@ module VGA #(
 		.writeData(stateRegisterWriteData_nc),
 		.writeData_en(stateRegisterWriteDataEnable_nc),
 		.writeData_busy(1'b0),
-		.readData({ inVerticalVisibleArea, inHorizontalVisibleArea, !vga_vsync, !vga_hsync, enableOutput }),
+		.readData(stateRegisterBuffered),
 		.readData_en(stateReadDataEnable_nc),
 		.readData_busy(1'b0));
+
+	always @(posedge clk) begin
+		if (rst) stateRegisterBuffered <= 5'b0;
+		else stateRegisterBuffered <= { inVerticalVisibleArea, inHorizontalVisibleArea, !vga_vsync, !vga_hsync, enableOutput };
+	end
 
 	assign peripheralBus_busy = 1'b0;
 	assign requestOutput = configurationRegisterOutputRequest
