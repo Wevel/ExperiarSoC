@@ -65,7 +65,6 @@ Several macros have max slew violations.
 # Need to do
 - Make final version of art
 - Decide on probe values
-- Fix flash controller
 
 # Could do
 - Misaligned architecture instructions 

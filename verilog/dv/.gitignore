@@ -5,9 +5,11 @@
 *.vvp
 *.vvp.gz
 *.gtkw
+*.elf
 coreArch/riscof/riscof_work/
 coreArch/riscof/sail_cSim/__pycache__/
 coreArch/riscof/ExperiarSoC/__pycache__/
 coreArch/DUT-ExperiarSoC.signature
 coreArch/coreArch.disass
+!coreArch/coreArch.elf
 !flash/test.hex

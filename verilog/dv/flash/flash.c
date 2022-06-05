@@ -143,7 +143,7 @@ void main ()
 	nextTest (testPass);
 
 	// Check that data is marked as cached
-	uint32_t tries = 2;
+	uint32_t tries = 4;
 	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) != 0x800) tries--;
 	if (tries == 0) testPass = false;
 	nextTest (testPass);
@@ -169,7 +169,7 @@ void main ()
 	nextTest (testPass);
 
 	// Check that data is marked as cached
-	tries = 2;
+	tries = 4;
 	while (tries > 0 && wbRead (FLASH_CACHED_ADDRESS) != 0xF800) tries--;
 	if (tries == 0) testPass = false;
 	nextTest (testPass);

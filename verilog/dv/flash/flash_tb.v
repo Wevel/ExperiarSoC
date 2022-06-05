@@ -64,7 +64,7 @@ module flash_tb;
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (500) begin
+		repeat (600) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
