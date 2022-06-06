@@ -144,7 +144,6 @@ jobs:
       - name: Harden using Openlane
         run: |
           [ -f gds/Art.gds.gz ] && gzip -d gds/Art.gds.gz
-          [ -f gds/Art_Empty.gds.gz ] && gzip -d gds/Art_Empty.gds.gz
           make CaravelHost
           make ExperiarCore
           make Flash
@@ -155,10 +154,5 @@ jobs:
 
       - name: Run DV RTL tests
         run: |
-          make verify-all-rtl
-        
-      - name: Run DV GL tests
-        run: |
-          make verify-peripheralsGPIO-gl
-          make verify-corePC-gl
-          make verify-coreArch-gl
+          make verify-all-rtl -j4
+

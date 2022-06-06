@@ -1,4 +1,4 @@
-# Experiar Core Tests
+## Experiar Core Tests
 A number of tests can (when they have been implemented) be run on both the management core and user core, to ensure all aspects of the SoC work correctly. All tests should be compatible with fabricated hardware, with success measurable from changes to GPIO states.
 
 ## Peripherals

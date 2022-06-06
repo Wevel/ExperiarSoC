@@ -37,34 +37,32 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - WishboneInterconnect: Success
 - user_project_wrapper: Success
 
-Several macros have max slew violations.
-
 # Tests
 ## RTL
-### verify-peripheralsGPIO-rtl: Success
-### verify-peripheralsUART-rtl: Success
-### verify-peripheralsSPI-rtl: Not implemented
-### verify-peripheralsPWM-rtl: Not implemented
-### verify-memory-rtl: Success
-### verify-video-rtl: Success (Not validating correct pixel data)
+### verify-coreArch-rtl: Success
 ### verify-corePC-rtl: Success
-### verify-coreMemory-rtl: Not implemented
-### verify-coreArch-rtl: Not implemented
+### verify-flash-rtl: Success
+### verify-memory-rtl: Success
+### verify-peripheralsGPIO-rtl: Success
+### verify-peripheralsPWM-rtl: Success
+### verify-peripheralsSPI-rtl: Success
+### verify-peripheralsUART-rtl: Success
+### verify-video-rtl: Success (Not validating correct pixel data)
 
 ## GL
-### verify-peripheralsGPIO-gl: Success
-### verify-peripheralsUART-gl: Success
-### verify-peripheralsSPI-gl: Not implemented
-### verify-peripheralsPWM-gl: Not implemented
-### verify-memory-gl: Success
-### verify-video-gl: Success
 ### verify-corePC-gl: Success
-### verify-coreMemory-gl: Not implemented
-### verify-coreArch-gl: Not implemented
+### verify-flash-gl: Not run
+### verify-memory-gl: Success
+### verify-peripheralsGPIO-gl: Success
+### verify-peripheralsPWM-gl: Success
+### verify-peripheralsSPI-gl: Success
+### verify-peripheralsUART-gl: Success
+### verify-video-gl: Success
 
 # Need to do
 - Make final version of art
 - Decide on probe values
+- Check for any remaining errors
 
 # Could do
 - Misaligned architecture instructions 
