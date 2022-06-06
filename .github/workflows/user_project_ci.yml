@@ -154,5 +154,5 @@ jobs:
 
       - name: Run DV RTL tests
         run: |
-          make verify-all-rtl -j4
+          make verify-all-rtl -j2
 

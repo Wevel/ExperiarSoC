@@ -65,6 +65,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - Make final version of art
 - Decide on probe values
 - Check for any remaining errors
+- Add stall signal if two wishbone masters read from the same slave at the same time
 
 # Could do
 - Misaligned architecture instructions 
