@@ -163,7 +163,7 @@ void main ()
 	wbWrite (GPIO0_OE_WRITE_ADDR, ~0x03000);
 
 	wbWrite (CORE0_SRAM + 3, 0x0000a183);
-	wbWrite (CORE0_SRAM + 4, 0x00312223);
+	wbWrite (CORE0_SRAM + 4, 0x0030a223);
 
 	if (!testMemory (0x30000000, 0x000000b7, 0x12345678)) testPass = false;
 	nextTest (testPass);

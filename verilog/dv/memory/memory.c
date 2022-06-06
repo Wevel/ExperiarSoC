@@ -39,7 +39,6 @@
 #define GPIO1_INPUT_ADDR ((uint32_t*)0x33032020)
 
 #define CORE0_SRAM ((uint32_t*)0x30000000)
-#define CORE0_SRAM ((uint32_t*)0x30000000)
 #define CORE1_SRAM ((uint32_t*)0x31000000)
 #define VGA_SRAM ((uint32_t*)0x32000000)
 #define SRAM_BANK_SIZE 0x200

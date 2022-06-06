@@ -57,6 +57,6 @@ module MasterArbiter (
 		else currentMaster <= nextMaster;
 	end
 
-	assign masterSelected = currentMaster;
+	assign masterSelected = nextMaster;
 
 endmodule
