@@ -12,4 +12,5 @@ coreArch/riscof/ExperiarSoC/__pycache__/
 coreArch/DUT-ExperiarSoC.signature
 coreArch/coreArch.disass
 !coreArch/coreArch.elf
+!coreMemory/test.hex
 !flash/test.hex

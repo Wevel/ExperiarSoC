@@ -41,6 +41,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ## RTL
 ### verify-coreArch-rtl: Success
 ### verify-corePC-rtl: Success
+### verify-coreMemory-rtl: Success
 ### verify-flash-rtl: Success
 ### verify-memory-rtl: Success
 ### verify-peripheralsGPIO-rtl: Success
@@ -51,7 +52,8 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 ## GL
 ### verify-corePC-gl: Success
-### verify-flash-gl: Not run
+### verify-coreMemory-rtl: Not run
+### verify-flash-gl: Success
 ### verify-memory-gl: Success
 ### verify-peripheralsGPIO-gl: Success
 ### verify-peripheralsPWM-gl: Success

@@ -29,6 +29,13 @@ module coreMemory_tb;
 
 	wire succesOutput = mprj_io[12];
 	wire nextTestOutput = mprj_io[13];
+	wire gpioTestOutput = mprj_io[14];
+
+	wire user_flash_csb = mprj_io[8];
+	wire user_flash_clk = mprj_io[9];
+	wire user_flash_io0 = mprj_io[10];
+	wire user_flash_io1;
+	assign mprj_io[11] = user_flash_io1;
 
 	pullup(mprj_io[3]);
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
@@ -40,8 +47,8 @@ module coreMemory_tb;
 
 	// Need to add pulls (can be up or down) to all unsed io so that input data is known
 	assign mprj_io[2:0] = 3'b0;
-	assign mprj_io[11:4] = 8'b0;
-	assign mprj_io[37:14] = 24'b0;
+	assign mprj_io[7:4] = 4'b0;
+	assign mprj_io[37:15] = 23'b0;
 
 	initial begin
 		clock = 0;
@@ -58,7 +65,7 @@ module coreMemory_tb;
 `endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (500) begin
+		repeat (600) begin
 			repeat (1000) @(posedge clock);
 			//$display("+1000 cycles");
 		end
@@ -77,6 +84,10 @@ module coreMemory_tb;
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
 		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+		@(posedge nextTestOutput);
+
+		@(posedge gpioTestOutput);
 
 		// Wait for management core to output a output test result
 		@(posedge nextTestOutput);
@@ -178,6 +189,17 @@ module coreMemory_tb;
 		.clk(flash_clk),
 		.io0(flash_io0),
 		.io1(flash_io1),
+		.io2(),			// not used
+		.io3()			// not used
+	);
+
+	spiflash #(
+		.FILENAME("test.hex")
+	) testflash (
+		.csb(user_flash_csb),
+		.clk(user_flash_clk),
+		.io0(user_flash_io0),
+		.io1(user_flash_io1),
 		.io2(),			// not used
 		.io3()			// not used
 	);

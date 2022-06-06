@@ -45,31 +45,19 @@
 #define CORE0_REG_STEP_ADDR ((uint32_t*)0x30810008)
 #define CORE0_REG_INSTR_ADDR ((uint32_t*)0x30810010)
 #define CORE0_REG_IREG_ADDR ((uint32_t*)0x30811000)
-#define CORE0_SRAM_ADDR ((uint32_t*)0x30000000)
-
-#define CORE1_CONFIG_ADDR ((uint32_t*)0x31800000)
-#define CORE1_STATUS_ADDR ((uint32_t*)0x31800004)
-#define CORE1_REG_PC_ADDR ((uint32_t*)0x31810000)
-#define CORE1_REG_JUMP_ADDR ((uint32_t*)0x31810004)
-#define CORE1_REG_STEP_ADDR ((uint32_t*)0x31810008)
-#define CORE1_REG_INSTR_ADDR ((uint32_t*)0x31810010)
-#define CORE1_REG_IREG_ADDR ((uint32_t*)0x31811000)
-#define CORE1_SRAM_ADDR ((uint32_t*)0x31000000)
 
 #define CORE0_SRAM ((uint32_t*)0x30000000)
 #define CORE1_SRAM ((uint32_t*)0x31000000)
 #define VGA_SRAM ((uint32_t*)0x32000000)
 #define SRAM_BANK_SIZE 0x200
 
+#define FLASH_DATA ((uint32_t*)0x34000000)
+#define FLASH_CONFIGURATION ((uint32_t*)0x34001000)
+#define FLASH_BASE_ADDRESS ((uint32_t*)0x34001004)
+#define FLASH_CACHED_ADDRESS ((uint32_t*)0x34001008)
+
 #define MPRJ_WB_ADDRESS (*(volatile uint32_t*)0x30000000)
 #define MPRJ_WB_DATA_LOCATION 0x30008000
-
-#define CORE_RUN 0x1
-#define CORE_HALT 0x0
-#define CORE_RUNNING_NOERROR 0x10
-
-#define RV32I_NOP 0x00000013
-#define RV32I_JMP_PREV 0xFFDFF06F
 
 void wbWrite (uint32_t* location, uint32_t value)
 {
@@ -150,8 +138,18 @@ void main ()
 	reg_wb_enable = 1;
 
 	// Enable GPIO
+	// Flash interface
+	reg_mprj_io_8 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_9 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_10 = GPIO_MODE_USER_STD_OUTPUT;
+	reg_mprj_io_11 = GPIO_MODE_USER_STD_INPUT_NOPULL;
+
+	// Test control signals
 	reg_mprj_io_12 = GPIO_MODE_USER_STD_OUTPUT;
 	reg_mprj_io_13 = GPIO_MODE_USER_STD_OUTPUT;
+
+	// Peripheral test output
+	reg_mprj_io_14 = GPIO_MODE_USER_STD_OUTPUT;
 
 	/* Apply configuration */
 	reg_mprj_xfer = 1;
@@ -160,21 +158,58 @@ void main ()
 	// Setup test output
 	bool testPass = true;
 	wbWrite (GPIO0_OUTPUT_WRITE_ADDR, 0x01000);
-	wbWrite (GPIO0_OE_WRITE_ADDR, ~0x03000);
+	wbWrite (GPIO0_OE_WRITE_ADDR, ~0x07000);
 
+	// Enable flash for later test
+	wbWrite (FLASH_CONFIGURATION, 0x1);
+	if (wbRead (FLASH_CONFIGURATION) != 0x1) testPass = false;
+
+	// Set the base address
+	// This will probably be the default value
+	wbWrite (FLASH_BASE_ADDRESS, 0x0);
+	if (wbRead (FLASH_BASE_ADDRESS) != 0x0) testPass = false;
+
+	// Setup for sram tests
 	wbWrite (CORE0_SRAM + 3, 0x0000a183);
 	wbWrite (CORE0_SRAM + 4, 0x0030a223);
 
+	// Test core local sram
 	if (!testMemory (0x30000000, 0x000000b7, 0x12345678)) testPass = false;
 	nextTest (testPass);
 
+	// Test core0 sram via wishbone bus
 	if (!testMemory (0x30000000, 0x100000b7, 0x9ABCDEF0)) testPass = false;
 	nextTest (testPass);
 
+	// Test core1 sram
 	if (!testMemory (0x31000000, 0x110000b7, 0x849A5C12)) testPass = false;
 	nextTest (testPass);
 
+	// Test video sram
 	if (!testMemory (0x32000000, 0x120000b7, 0xBE091D57)) testPass = false;
+	nextTest (testPass);
+
+	// Test flash
+	wbWrite (CORE0_SRAM + 2, 0x000000b7);
+	wbWrite (CORE0_SRAM + 3, 0x14000137);
+	wbWrite (CORE0_SRAM + 4, 0x00012183);
+	wbWrite (CORE0_SRAM + 5, 0x0030a023);
+	wbWrite (CORE0_REG_PC_ADDR, 0x8);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	if (wbRead ((uint32_t*)(0x30000000)) != 0x03020100) testPass = false;
+	nextTest (testPass);
+
+	// Test peripheral by performing gpio write
+	wbWrite (CORE0_SRAM + 2, 0x130310b7);
+	wbWrite (CORE0_SRAM + 3, 0x000041b7);
+	wbWrite (CORE0_SRAM + 4, 0x0030a223);
+	wbWrite (CORE0_REG_PC_ADDR, 0x8);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
+	wbWrite (CORE0_REG_STEP_ADDR, 0x0);
 
 	// Finish test
 	nextTest (testPass);
