@@ -68,6 +68,7 @@ module LocalMemoryInterface #(
 	reg coreReadReady = 1'b0;
 	always @(posedge clk) begin
 		if (rst) coreReadReady <= 1'b0;
+		else if (!coreBusy) coreReadReady <= 1'b0;
 		else if (coreSRAMReadEnable) coreReadReady <= 1'b1;
 		else coreReadReady <= 1'b0;
 	end
