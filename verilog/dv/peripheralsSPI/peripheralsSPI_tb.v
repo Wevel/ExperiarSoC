@@ -162,15 +162,19 @@ module peripheralsSPI_tb;
 		@(posedge sck);
 		timerLength = $realtime - timerStart;
 		$display("SCK Low Time: ", timerLength);
-		if (timerLength < 190 || timerLength > 210) timingValid = 1'b0;
-		else $display("Invalid time, should be between 190 and 210");
+		if (timerLength < 190 || timerLength > 210) begin
+			timingValid = 1'b0;
+			$display("Invalid time, should be between 0.190us and 0.210us");
+		end
 
 		// Period
 		@(negedge sck);
 		timerLength = $realtime - timerStart;
 		$display("SCK Period:   ", timerLength);
-		if (timerLength < 390 || timerLength > 410) timingValid = 1'b0;
-		else $display("Invalid time, should be between 390 and 410");
+		if (timerLength < 390 || timerLength > 410) begin
+			timingValid = 1'b0;
+			$display("Invalid time, should be between 0.390us and 0.410us");
+		end
 		
 		// Check that the third byte was received correctly
 		wait(shiftValue == 8'h9B);
