@@ -99,6 +99,8 @@ module user_project_wrapper #(
 	wire caravel_uart_tx;
 	wire[3:0] caravel_irq;
 
+	assign user_irq = caravel_irq[2:0];
+
 	// Configuration
 	wire[7:0] core0Index;
 	wire[7:0] core1Index;
@@ -128,6 +130,7 @@ module user_project_wrapper #(
 		.io_oeb(io_oeb),
 		.caravel_uart_rx(caravel_uart_rx),
 		.caravel_uart_tx(caravel_uart_tx),
+		.caravel_irq(caravel_irq),
 		.la_data_in(la_data_in),
 		.la_data_out(la_data_out),
 		.la_oenb(la_oenb),

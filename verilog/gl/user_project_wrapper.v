@@ -53,9 +53,6 @@ module user_project_wrapper (user_clock2,
  output [31:0] wbs_dat_o;
  input [3:0] wbs_sel_i;
 
- wire \caravel_irq[0] ;
- wire \caravel_irq[1] ;
- wire \caravel_irq[2] ;
  wire \caravel_irq[3] ;
  wire caravel_uart_rx;
  wire caravel_uart_tx;
@@ -1814,7 +1811,6 @@ module user_project_wrapper (user_clock2,
  wire \versionID[1] ;
  wire \versionID[2] ;
  wire \versionID[3] ;
- wire [3:0] \experiarSoC/caravel_irq ;
 
  Art art (.vccd1(vccd1),
     .vssd1(vssd1));
@@ -1835,9 +1831,9 @@ module user_project_wrapper (user_clock2,
     .wbs_stb_i(wbs_stb_i),
     .wbs_we_i(wbs_we_i),
     .caravel_irq({\caravel_irq[3] ,
-    \caravel_irq[2] ,
-    \caravel_irq[1] ,
-    \caravel_irq[0] }),
+    user_irq[2],
+    user_irq[1],
+    user_irq[0]}),
     .caravel_wb_adr_o({\caravel_wb_adr_o[27] ,
     \caravel_wb_adr_o[26] ,
     \caravel_wb_adr_o[25] ,
@@ -2395,10 +2391,10 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core0SRAM0_dout1[2] ,
     \experiarSoC/core0SRAM0_dout1[1] ,
     \experiarSoC/core0SRAM0_dout1[0] }),
-    .irq({\experiarSoC/caravel_irq [3],
-    \experiarSoC/caravel_irq [2],
-    \experiarSoC/caravel_irq [1],
-    \experiarSoC/caravel_irq [0],
+    .irq({\caravel_irq[3] ,
+    user_irq[2],
+    user_irq[1],
+    user_irq[0],
     \experiarSoC/irq[11] ,
     \experiarSoC/irq[10] ,
     \experiarSoC/irq[9] ,
@@ -3152,10 +3148,10 @@ module user_project_wrapper (user_clock2,
     \experiarSoC/core1SRAM0_dout1[2] ,
     \experiarSoC/core1SRAM0_dout1[1] ,
     \experiarSoC/core1SRAM0_dout1[0] }),
-    .irq({\experiarSoC/caravel_irq [3],
-    \experiarSoC/caravel_irq [2],
-    \experiarSoC/caravel_irq [1],
-    \experiarSoC/caravel_irq [0],
+    .irq({\caravel_irq[3] ,
+    user_irq[2],
+    user_irq[1],
+    user_irq[0],
     \experiarSoC/irq[11] ,
     \experiarSoC/irq[10] ,
     \experiarSoC/irq[9] ,

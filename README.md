@@ -52,7 +52,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 ## GL
 ### verify-corePC-gl: Success
-### verify-coreMemory-rtl: Not run
+### verify-coreMemory-rtl: Success
 ### verify-flash-gl: Success
 ### verify-memory-gl: Success
 ### verify-peripheralsGPIO-gl: Success
@@ -62,10 +62,11 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-video-gl: Success
 
 # Need to do
-- Make final version of art
-- Decide on probe values
+- Update probe values
 - Check for any remaining errors
 - Add stall signal if two wishbone masters read from the same location at the same time
+- Fix some writes not correctly using byte mask
+- Fix interrupt cause signals not being gated by mie meaning that the wrong interrupt cause could be set
 
 # Could do
 - Misaligned architecture instructions 
