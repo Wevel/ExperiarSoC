@@ -7,7 +7,8 @@ module CSR_DataRegister #(
 		// CSR interface
 		input wire csrWriteEnable,
 		input wire csrReadEnable,
-		input wire[11:0] csrAddress,
+		input wire[11:0] csrWriteAddress,
+		input wire[11:0] csrReadAddress,
 		input wire[31:0] csrWriteData,
 		output wire[31:0] csrReadData,
 		output wire csrRequestOutput,
@@ -19,13 +20,14 @@ module CSR_DataRegister #(
 		output wire writeDataEnable
 	);
 	
-	wire csrEnabled = csrAddress == ADDRESS;
+	wire csrWriteEnabled = csrWriteAddress == ADDRESS;
+	wire csrReadEnabled = csrReadAddress == ADDRESS;
 
-	assign csrReadData = csrEnabled && csrReadEnable ? readData : 32'b0;
-	assign readDataEnable = csrEnabled && csrReadEnable;
+	assign csrReadData = csrReadEnabled && csrReadEnable ? readData : 32'b0;
+	assign readDataEnable = csrReadEnabled && csrReadEnable;
 	assign writeData = csrWriteData;
-	assign writeDataEnable = csrEnabled && csrWriteEnable;
+	assign writeDataEnable = csrWriteEnabled && csrWriteEnable;
 
-	assign csrRequestOutput = csrEnabled && csrReadEnable;
+	assign csrRequestOutput = csrReadEnabled && csrReadEnable;
 	
 endmodule

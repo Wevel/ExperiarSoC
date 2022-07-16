@@ -61,24 +61,30 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 ### verify-peripheralsUART-gl: Success
 ### verify-video-gl: Success
 
-# Need to do
+# Roadmap
+## Versions
+- 0.2.3(Current): Initial MPW-6 design
+- 0.3.0: Pipeline CPU
+- 0.4.0: Mesh bus
+- 0.5.0: Flash/PSRAM controller with caching
+- 0.6.0: L1 instruction cache and L2 instruction/data cache
+
+## Need to do
 - Update probe values
-- Check for any remaining errors
 - Add stall signal if two wishbone masters read from the same location at the same time
 - Fix some writes not correctly using byte mask
 - Fix interrupt cause signals not being gated by mie meaning that the wrong interrupt cause could be set
 
-# Could do
+## Could do
 - Misaligned architecture instructions 
 - Look into simulation with CVC
 - Write macro level simulations to get more coverage due to shorter simulations
 - Add JTAG test
 - Add interrupt test
 - Add uart pin swapping
-- Page based flash controller
-- Tile map rendering 
-- Fetch next instruction a clock cycle earlier so instructions only take 2 cycles
+- Tile map rendering
 - Allow JTAG to read from wishbone bus
+- Only wait for write if trying to load/store again
 
 # Reference work and inspiration
 - [Zero to ASIC Course](https://www.zerotoasiccourse.com/): Complete course on ASIC design. Also has useful references and terminology definitions.

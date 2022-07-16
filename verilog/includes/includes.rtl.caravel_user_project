@@ -7,6 +7,11 @@
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/ExperiarCore_top.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CoreManagement.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/RV32ICore.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeFetch.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeOperation.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeStage.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeStore.v 
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Utility/InstructionDecode.v
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR_ConfigurationRegister.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR_DataRegister.v 

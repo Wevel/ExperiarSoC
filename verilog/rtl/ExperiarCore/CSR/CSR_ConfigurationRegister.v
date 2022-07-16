@@ -8,7 +8,8 @@ module CSR_ConfigurationRegister #(
 		// CSR interface
 		input wire csrWriteEnable,
 		input wire csrReadEnable,
-		input wire[11:0] csrAddress,
+		input wire[11:0] csrWriteAddress,
+		input wire[11:0] csrReadAddress,
 		input wire[31:0] csrWriteData,
 		output wire[31:0] csrReadData,
 		output wire csrRequestOutput,
@@ -17,7 +18,8 @@ module CSR_ConfigurationRegister #(
 		output wire[31:0] value
 	);
 	
-	wire csrEnabled = csrAddress == ADDRESS;
+	wire csrWriteEnabled = csrWriteAddress == ADDRESS;
+	wire csrReadEnabled = csrReadAddress == ADDRESS;
 
 	reg[31:0] currentValue = DEFAULT;
 
@@ -25,12 +27,12 @@ module CSR_ConfigurationRegister #(
 		if (rst) begin
 			currentValue <= DEFAULT;
 		end else begin
-			if (csrEnabled && csrWriteEnable) currentValue <= csrWriteData;
+			if (csrWriteEnabled && csrWriteEnable) currentValue <= csrWriteData;
 		end
 	end
 
-	assign csrReadData = csrEnabled && csrReadEnable ? currentValue : 32'b0;
-	assign csrRequestOutput = csrEnabled && csrReadEnable;
+	assign csrReadData = csrReadEnabled && csrReadEnable ? currentValue : 32'b0;
+	assign csrRequestOutput = csrReadEnabled && csrReadEnable;
 
 	assign value = currentValue;
 	

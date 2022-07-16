@@ -1,0 +1,13 @@
+vvp  coreArch.vvp
+SIGNATURE_START: 0x00005210
+SIGNATURE_END: 0x00005b40
+CODE_END: 0x00003224
+FST info: dumpfile coreArch.vcd opened for output.
+Reading from coreArch.hex
+coreArch.hex loaded into memory
+Memory 5 bytes = 0xb7 0xc0 0xed 0xfe 0x93
+[1;92m
+Monitor: Core Arch Test (RTL) Completed
+[0m
+Writing memory dump to memory.hex
+mv coreArch.vcd RTL-coreArch.vcd

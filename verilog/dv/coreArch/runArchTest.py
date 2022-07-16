@@ -27,6 +27,16 @@ def RunArchTest(elfFilePath:str, signatureFilePath:str):
 		
 	print(f"Simulation completed")
 
+def RunArchTestLocal():
+	print(f"Running simulation")
+
+	try:
+		RunShellCommand(["make"]) # , "SIM=GL"
+	except Exception as e:
+		print(e)
+		
+	print(f"Simulation completed")
+
 def main():
 	if len(sys.argv) > 1:
 		args = {}
@@ -56,6 +66,8 @@ def main():
 				print(f"Invalid isa '{isa}' must be 'rv32i'")
 		else:
 			print(f"Missing argument 'isa'")
+	else:
+		RunArchTestLocal()
 		
 if __name__ == "__main__":
 	main()

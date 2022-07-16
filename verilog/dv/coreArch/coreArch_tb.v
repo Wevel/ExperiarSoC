@@ -22,18 +22,27 @@ module coreArch_tb;
 	reg RSTB;
 	reg power1, power2;
 	reg power3, power4;
-
-	wire[31:0] memoryAddress;
-	wire[3:0] memoryByteSelect;
-	wire memoryWriteEnable;
-	wire memoryReadEnable;
-	wire[31:0] memoryDataWrite;
-	wire[31:0] memoryDataRead;
-	wire memoryBusy = 1'b0;
-	wire memoryAccessFault = 1'b0;
 	
+	reg run = 1'b1;
+
+	// Instruction cache interface
+	wire[31:0] instruction_memoryAddress;
+	wire instruction_memoryReadEnable;
+	reg[31:0] instruction_memoryDataRead;
+	wire instruction_memoryBusy = 1'b0;
+	wire instruction_memoryAccessFault = 1'b0;
+
+	// Data cache interface
+	wire[31:0] data_memoryAddress;
+	wire[3:0] data_memoryByteSelect;
+	wire data_memoryWriteEnable;
+	wire data_memoryReadEnable;
+	wire[31:0] data_memoryDataWrite;
+	reg[31:0] data_memoryDataRead;
+	wire data_memoryBusy = 1'b0;
+	wire data_memoryAccessFault = 1'b0;
+
 	wire management_run = 1'b1;
-	wire management_trapEnable = 1'b1;
 	wire management_interruptEnable = 1'b1;
 	wire management_writeEnable = 1'b0;
 	wire[3:0] management_byteSelect = 4'b0000;
@@ -47,13 +56,6 @@ module coreArch_tb;
 	wire[1:0] probe_state;
 	wire[1:0] probe_env;
 	wire[31:0] probe_programCounter;
-	wire[6:0] probe_opcode;
-	wire[1:0] probe_errorCode;
-	wire probe_isBranch;
-	wire probe_takeBranch;
-	wire probe_isStore;
-	wire probe_isLoad;
-	wire probe_isCompressed;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -61,6 +63,7 @@ module coreArch_tb;
 	always #12.5 clock <= (clock === 1'b0);
 
 	initial begin
+		run = 1'b1;
 		clock = 0;
 	end
 
@@ -72,27 +75,17 @@ module coreArch_tb;
 		$display("SIGNATURE_END: 0x%h", 32'h`SIGNATURE_END);
 		$display("CODE_END: 0x%h", 32'h`CODE_END);
 
-		wait((probe_programCounter == 32'h`CODE_END) || (|probe_errorCode));
+		wait((probe_programCounter == 32'h`CODE_END));
+		
+		run = 1'b0;
 
-		#50
-
-		if (|probe_errorCode) begin
-			$display("%c[1;31m",27);
-			`ifdef GL
-				$display ("Monitor: Core Arch Test (GL) Failed");
-			`else
-				$display ("Monitor: Core Arch Test (RTL) Failed");
-			`endif
-			$display("%c[0m",27);
-		end else begin
-			$display("%c[1;92m",27);
-			`ifdef GL
-				$display ("Monitor: Core Arch Test (GL) Completed");
-			`else
-				$display ("Monitor: Core Arch Test (RTL) Completed");
-			`endif
-			$display("%c[0m",27);
-		end
+		$display("%c[1;92m",27);
+		`ifdef GL
+			$display ("Monitor: Core Arch Test (GL) Completed");
+		`else
+			$display ("Monitor: Core Arch Test (RTL) Completed");
+		`endif
+		$display("%c[0m",27);
 
 		$display("Writing memory dump to memory.hex");
 
@@ -108,19 +101,14 @@ module coreArch_tb;
 	end
 
 	initial begin
-		$dumpfile("coreArch.vcd");
-
-`ifdef SIM
-		$dumpvars(0, coreArch_tb);
-`else
-		$dumpvars(2, coreArch_tb);
-`endif
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (20) begin
+		repeat (10) begin
 			repeat (1000) @(posedge clock);
 		end
 		
+		run = 1'b0;
+
 		$display("%c[1;35m",27);
 		`ifdef GL
 			$display ("Monitor: Timeout, Core Arch Test (GL) Failed");
@@ -178,16 +166,20 @@ module coreArch_tb;
 		.vssd1 (VSS),		// User area 1 digital ground
 		.clk(clock),
 		.rst(!RSTB),
-		.memoryAddress(memoryAddress),
-		.memoryByteSelect(memoryByteSelect),
-		.memoryWriteEnable(memoryWriteEnable),
-		.memoryReadEnable(memoryReadEnable),
-		.memoryDataWrite(memoryDataWrite),
-		.memoryDataRead(memoryDataRead),
-		.memoryBusy(memoryBusy),
-		.memoryAccessFault(memoryAccessFault),
+		.instruction_memoryAddress(instruction_memoryAddress),
+		.instruction_memoryReadEnable(instruction_memoryReadEnable),
+		.instruction_memoryDataRead(instruction_memoryDataRead),
+		.instruction_memoryBusy(instruction_memoryBusy),
+		.instruction_memoryAccessFault(instruction_memoryAccessFault),
+		.data_memoryAddress(data_memoryAddress),
+		.data_memoryByteSelect(data_memoryByteSelect),
+		.data_memoryWriteEnable(data_memoryWriteEnable),
+		.data_memoryReadEnable(data_memoryReadEnable),
+		.data_memoryDataWrite(data_memoryDataWrite),
+		.data_memoryDataRead(data_memoryDataRead),
+		.data_memoryBusy(data_memoryBusy),
+		.data_memoryAccessFault(data_memoryAccessFault),
 		.management_run(management_run),
-		.management_trapEnable(management_trapEnable),
 		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
@@ -203,47 +195,71 @@ module coreArch_tb;
 		.userInterrupts(userInterrupts),
 		.probe_state(probe_state),
 		.probe_env(probe_env),
-		.probe_programCounter(probe_programCounter),
-		.probe_opcode(probe_opcode),
-		.probe_errorCode(probe_errorCode),
-		.probe_isBranch(probe_isBranch),
-		.probe_takeBranch(probe_takeBranch),
-		.probe_isStore(probe_isStore),
-		.probe_isLoad(probe_isLoad),
-		.probe_isCompressed(probe_isCompressed));
+		.probe_programCounter(probe_programCounter));
 
 	// Emulate SRAM for test
 	// 16MiB SRAM
 	reg[7:0] memory [0:(16 * 1024 * 1024)-1];
 
 	initial begin
+		$dumpfile("coreArch.vcd");
+
+`ifdef SIM
+		$dumpvars(0, coreArch_tb);
+`else
+		$dumpvars(2, coreArch_tb);
+`endif
+
 		$display("Reading from coreArch.hex");
 		$readmemh("coreArch.hex", memory);
 		$display("%s loaded into memory", "coreArch.hex");
 		$display("Memory 5 bytes = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x", memory[0], memory[1], memory[2], memory[3], memory[4]);
 	end
 
-	wire sramEnable = RSTB && ((memoryAddress[31:24] == 8'h00) || (memoryAddress[31:24] == 8'h80));
-	wire sramWriteEnable = sramEnable && memoryWriteEnable;
-	wire sramReadEnable = sramEnable && memoryReadEnable;
-	wire[23:0] localAddress = memoryAddress[23:0];
+	wire instruction_sramEnable = RSTB && ((instruction_memoryAddress[31:24] == 8'h00) || (instruction_memoryAddress[31:24] == 8'h80));
+	wire instruction_sramReadEnable = instruction_sramEnable && instruction_memoryReadEnable;
+	wire[23:0] instruction_localAddress = instruction_memoryAddress[23:0];
 
 	always @(posedge clock) begin
-		if (sramWriteEnable) begin
-			if (memoryByteSelect[0]) memory[localAddress] <= memoryDataWrite[7:0];
-			if (memoryByteSelect[1]) memory[localAddress + 1] <= memoryDataWrite[15:8];
-			if (memoryByteSelect[2]) memory[localAddress + 2] <= memoryDataWrite[23:16];
-			if (memoryByteSelect[3]) memory[localAddress + 3] <= memoryDataWrite[31:24];
-			$display("Write of 0x%h to 0x%h", memoryDataWrite, localAddress);
+		if (!RSTB) begin
+			instruction_memoryDataRead <= 32'b0;
+		end if (run) begin
+			instruction_memoryDataRead <= {
+				instruction_sramReadEnable ? memory[instruction_localAddress + 3] : 8'b0,
+				instruction_sramReadEnable ? memory[instruction_localAddress + 2] : 8'b0,
+				instruction_sramReadEnable ? memory[instruction_localAddress + 1] : 8'b0,
+				instruction_sramReadEnable ? memory[instruction_localAddress] : 8'b0 
+			};
 		end
 	end
 
-	assign memoryDataRead = {
-		memoryByteSelect[3] && sramReadEnable ? memory[localAddress + 3] : 8'b0,
-		memoryByteSelect[2] && sramReadEnable ? memory[localAddress + 2] : 8'b0,
-		memoryByteSelect[1] && sramReadEnable ? memory[localAddress + 1] : 8'b0,
-		memoryByteSelect[0] && sramReadEnable ? memory[localAddress] : 8'b0 
-	};
+	wire data_sramEnable = RSTB && ((data_memoryAddress[31:24] == 8'h00) || (data_memoryAddress[31:24] == 8'h80));
+	wire data_sramWriteEnable = data_sramEnable && data_memoryWriteEnable;
+	wire data_sramReadEnable = data_sramEnable && data_memoryReadEnable;
+	wire[23:0] data_localAddress = data_memoryAddress[23:0];
+
+	always @(posedge clock) begin
+		if (!RSTB) begin
+			data_memoryDataRead <= 32'b0;
+		end if (run) begin
+			if (data_sramWriteEnable) begin
+				if (data_memoryByteSelect[0]) memory[data_localAddress] <= data_memoryDataWrite[7:0];
+				if (data_memoryByteSelect[1]) memory[data_localAddress + 1] <= data_memoryDataWrite[15:8];
+				if (data_memoryByteSelect[2]) memory[data_localAddress + 2] <= data_memoryDataWrite[23:16];
+				if (data_memoryByteSelect[3]) memory[data_localAddress + 3] <= data_memoryDataWrite[31:24];
+				$display("Write of 0x%h to 0x%h", data_memoryDataWrite, data_localAddress);
+			end
+
+			if (data_sramReadEnable) begin
+				data_memoryDataRead <= {
+					data_memoryByteSelect[3] && data_sramReadEnable ? memory[data_localAddress + 3] : 8'b0,
+					data_memoryByteSelect[2] && data_sramReadEnable ? memory[data_localAddress + 2] : 8'b0,
+					data_memoryByteSelect[1] && data_sramReadEnable ? memory[data_localAddress + 1] : 8'b0,
+					data_memoryByteSelect[0] && data_sramReadEnable ? memory[data_localAddress] : 8'b0 
+				};
+			end
+		end
+	end
 
 endmodule
 `default_nettype wire

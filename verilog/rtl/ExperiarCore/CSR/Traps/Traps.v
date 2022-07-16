@@ -5,37 +5,38 @@ module Traps (
 		// CSR interface
 		input wire csrWriteEnable,
 		input wire csrReadEnable,
-		input wire[11:0] csrAddress,
+		input wire[11:0] csrWriteAddress,
+		input wire[11:0] csrReadAddress,
 		input wire[31:0] csrWriteData,
 		output reg[31:0] csrReadData,
 		output wire requestOutput,
 
 		// System interface
-		input wire[1:0] coreState,
 		input wire[31:0] programCounter,
 		input wire[31:0] currentInstruction,
-		input wire isLoad,
-		input wire isStore,
+		input wire[31:0] instruction_memoryAddress,
+		input wire[31:0] data_memoryAddress,
 		input wire isMachineTimerInterrupt,
 		input wire isMachineExternalInterrupt,
 		input wire isMachineSoftwareInterrupt,
-		input wire isAddressMisaligned,
+		input wire isFetchAddressMisaligned,
+		input wire isDataAddressMisaligned_load,
+		input wire isDataAddressMisaligned_store,
 		input wire isJumpMissaligned,
-		input wire isAccessFault,
+		input wire isFetchAccessFault,
+		input wire isDataAccessFault_load,
+		input wire isDataAccessFault_store,
 		input wire isInvalidInstruction,
 		input wire isEBREAK,
 		input wire isECALL,
-		input wire isAddressBreakpoint,
+		input wire isFetchAddressBreakpoint,
+		input wire isDataAddressBreakpoint,
 		input wire[15:0] userInterrupts,
 		input wire trapReturn,
 		output wire inTrap,
 		output wire[31:0] trapVector,
 		output wire[31:0] trapReturnVector
 	);
-	
-	localparam CORE_STATE_HALT 	 	 = 2'b00;
-	localparam CORE_STATE_FETCH   	 = 2'b10;
-	localparam CORE_STATE_EXECUTE 	 = 2'b11;
 
 	reg machineInterruptEnable;
 	reg machinePreviousInterruptEnable;
@@ -51,7 +52,7 @@ module Traps (
 									isMachineSoftwareInterrupt, 1'b0, 1'b0, 1'b0 };
 	wire[31:0] pendingInterrupts = { userInterrupts, 4'b0000, systemInterrupts } & mieValue;
 
-	wire misalignedInstructionFetch = (isAddressMisaligned && (coreState == CORE_STATE_FETCH)) || isJumpMissaligned;
+	wire misalignedInstructionFetch = isFetchAddressMisaligned || isJumpMissaligned;
 
 	reg[30:0] trapCause;
 	always @(*) begin
@@ -65,17 +66,17 @@ module Traps (
 			endcase
 		end else begin
 			case (1'b1)
-				isAddressBreakpoint && (coreState == CORE_STATE_FETCH): trapCause <= 30'd3;
-				isAccessFault && (coreState == CORE_STATE_FETCH): trapCause <= 30'd1;
+				isFetchAddressBreakpoint: trapCause <= 30'd3;
+				isFetchAccessFault: trapCause <= 30'd1;
 				isInvalidInstruction: trapCause <= 30'd2;
 				misalignedInstructionFetch: trapCause <= 30'd0;
 				isECALL: trapCause <= 30'd11;
 				isEBREAK: trapCause <= 30'd3;
-				isAddressBreakpoint && (coreState == CORE_STATE_EXECUTE) && (isLoad || isStore): trapCause <= 30'd3;
-				isAddressMisaligned && (coreState == CORE_STATE_EXECUTE) && isStore: trapCause <= 30'd6;
-				isAddressMisaligned && (coreState == CORE_STATE_EXECUTE) && isLoad: trapCause <= 30'd4;
-				isAccessFault && (coreState == CORE_STATE_EXECUTE) && isStore: trapCause <= 30'd7;
-				isAccessFault && (coreState == CORE_STATE_EXECUTE) && isLoad: trapCause <= 30'd5;				
+				isDataAddressBreakpoint: trapCause <= 30'd3;
+				isDataAddressMisaligned_store: trapCause <= 30'd6;
+				isDataAddressMisaligned_load: trapCause <= 30'd4;
+				isDataAccessFault_store: trapCause <= 30'd7;
+				isDataAccessFault_load: trapCause <= 30'd5;				
 				default: trapCause <= 30'b0;
 			endcase
 		end		
@@ -84,7 +85,7 @@ module Traps (
 	// Misaligned instruction fetch sets trap cause to zero, so needs to be triggered specifically
 	wire isException = |trapCause || misalignedInstructionFetch;
 	wire isInterrupt = |pendingInterrupts;
-	wire isBreakPoint = isEBREAK || isAddressBreakpoint;
+	wire isBreakPoint = isEBREAK || isFetchAddressBreakpoint || isDataAddressBreakpoint;
 	wire isTrap = isException || isInterrupt;
 
 	assign inTrap = isTrap;
@@ -96,7 +97,8 @@ module Traps (
 		 if (isTrap) begin
 			 case (1'b1)
 				 isBreakPoint: mtvalLoadValue <= programCounter;
-				 isAddressMisaligned: mtvalLoadValue <= programCounter;
+				 isFetchAddressMisaligned: mtvalLoadValue <= instruction_memoryAddress;
+				 isDataAddressMisaligned_store || isDataAddressMisaligned_load: mtvalLoadValue <=  data_memoryAddress;
 				 isInvalidInstruction: mtvalLoadValue <= currentInstruction;
 				 default: mtvalLoadValue <= 32'b0;
 			 endcase			
@@ -116,7 +118,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mstatusReadData),
 		.csrRequestOutput(mstatusRequestOutput),
@@ -152,7 +155,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mieReadData),
 		.csrRequestOutput(mieRequestOutput),
@@ -172,7 +176,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mtvecReadData),
 		.csrRequestOutput(mtvecRequestOutput),
@@ -202,7 +207,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mscratchReadData),
 		.csrRequestOutput(mscratchRequestOutput),
@@ -219,7 +225,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mepcReadData),
 		.csrRequestOutput(mepcRequestOutput),
@@ -249,7 +256,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mcauseReadData),
 		.csrRequestOutput(mcauseRequestOutput),
@@ -277,7 +285,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mtvalReadData),
 		.csrRequestOutput(mtvalRequestOutput),
@@ -305,7 +314,8 @@ module Traps (
 		.rst(rst),
 		.csrWriteEnable(csrWriteEnable),
 		.csrReadEnable(csrReadEnable),
-		.csrAddress(csrAddress),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
 		.csrWriteData(csrWriteData),
 		.csrReadData(mipReadData),
 		.csrRequestOutput(mipRequestOutput),
