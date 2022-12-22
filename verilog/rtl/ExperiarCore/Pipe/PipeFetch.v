@@ -8,24 +8,38 @@ module PipeFetch #(
 		input wire stepPipe,
 		input wire pipeStall,
 		output reg currentPipeStall,
-		input wire[31:0] programCounter,
+		output wire active,
+		input wire[31:0] currentInstruction,
+		output reg[31:0] lastInstruction,
 
 		// Control
-		output wire addressMisaligned,
+		input wire[31:0] programCounter,
+		output reg[31:0] lastProgramCounter,
+		output wire addressMisaligned,		
 
 		// Memory access
 		output wire[31:0] fetchAddress,
 		output wire fetchEnable
 	);
 
+	// Pipe control
 	always @(posedge clk) begin
 		if (rst) begin
-			currentPipeStall <= 1'b0;
+			currentPipeStall <= 1'b1;
+			lastInstruction <= 32'b0;
 		end else begin
 			if (stepPipe) begin
 				currentPipeStall <= pipeStall;
+				if (!currentPipeStall) lastInstruction <= currentInstruction;
 			end
 		end
+	end
+
+	assign active = !currentPipeStall;
+
+	always @(posedge clk) begin
+		if (rst) lastProgramCounter <= 32'b0;
+		else lastProgramCounter <= programCounter;
 	end
 
 	assign addressMisaligned = |programCounter[1:0];

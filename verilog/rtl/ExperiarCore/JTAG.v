@@ -14,8 +14,8 @@ module JTAG (
 		output wire jtag_tdo,
 
 		// Management interface
+		output wire management_enable,
 		output wire management_writeEnable,
-		output wire management_readEnable,
 		output wire[3:0] management_byteSelect,
 		output wire[19:0] management_address,
 		output wire[31:0] management_writeData,
@@ -260,7 +260,7 @@ module JTAG (
 	assign bsrDataWrite = managementReadData;
 
 	assign management_writeEnable = managementState == MANAGEMENT_STATE_WRITE;
-	assign management_readEnable = managementState == MANAGEMENT_STATE_READ;
+	assign management_enable = (managementState == MANAGEMENT_STATE_READ) || (managementState == MANAGEMENT_STATE_WRITE);
 	assign management_byteSelect = managementByteSelect;
 	assign management_address = managementAddress[19:0];
 	assign management_writeData = managementState == MANAGEMENT_STATE_WRITE ? managementReadData : 32'b0;

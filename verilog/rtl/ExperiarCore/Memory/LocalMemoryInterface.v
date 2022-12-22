@@ -7,8 +7,8 @@ module LocalMemoryInterface #(
 		// Core interface
 		input wire[23:0] coreAddress,
 		input wire[3:0] coreByteSelect,
+		input wire coreEnable,
 		input wire coreWriteEnable,
-		input wire coreReadEnable,
 		input wire[31:0] coreDataWrite,
 		output wire[31:0] coreDataRead,
 		output wire coreBusy,
@@ -16,8 +16,8 @@ module LocalMemoryInterface #(
 		// WB interface
 		input wire[23:0] wbAddress,
 		input wire[3:0] wbByteSelect,
+		input wire wbEnable,
 		input wire wbWriteEnable,
-		input wire wbReadEnable,
 		input wire[31:0] wbDataWrite,
 		output wire[31:0] wbDataRead,
 		output wire wbBusy,
@@ -25,8 +25,8 @@ module LocalMemoryInterface #(
 		// Flash interface
 		output wire[22:0] flashAddress,
 		output wire[3:0] flashByteSelect,
+		output wire flashEnable,
 		output wire flashWriteEnable,
-		output wire flashReadEnable,
 		output wire[31:0] flashDataWrite,
 		input wire[31:0] flashDataRead,
 		input wire flashBusy,
@@ -48,14 +48,14 @@ module LocalMemoryInterface #(
 	);
 
 	// Core enable pins
-	wire coreSRAMEnable = coreAddress[23:SRAM_ADDRESS_SIZE+3] == 'b0 && (coreWriteEnable || coreReadEnable);
-	wire coreSRAMWriteEnable = coreSRAMEnable && coreWriteEnable && !coreReadEnable;
-	wire coreSRAMReadEnable = coreSRAMEnable && !coreSRAMWriteEnable;
+	wire coreSRAMEnable = coreAddress[23:SRAM_ADDRESS_SIZE+3] == 'b0 && coreEnable;
+	wire coreSRAMWriteEnable = coreSRAMEnable && coreWriteEnable;
+	wire coreSRAMReadEnable = coreSRAMEnable && !coreWriteEnable;
 
 	// Wishbone enable pins
-	wire wbSRAMEnable = wbAddress[23:SRAM_ADDRESS_SIZE+3] == 'b0 && (wbWriteEnable || wbReadEnable);
-	wire wbSRAMWriteEnable = wbSRAMEnable && wbWriteEnable && !wbReadEnable;
-	wire wbSRAMReadEnable = wbSRAMEnable && !wbSRAMWriteEnable;
+	wire wbSRAMEnable = wbAddress[23:SRAM_ADDRESS_SIZE+3] == 'b0 && wbEnable;
+	wire wbSRAMWriteEnable = wbSRAMEnable && wbWriteEnable;
+	wire wbSRAMReadEnable = wbSRAMEnable && !wbWriteEnable;
 
 	// Generate SRAM control signals
 	// Core can always read from read only port
@@ -64,23 +64,53 @@ module LocalMemoryInterface #(
 	wire[31:0] rwPortReadData;
 	wire[31:0] rPortReadData;
 
+	wire rBankSelect;
+	wire rwBankSelect;
+
 	// Busy signals
 	reg coreReadReady = 1'b0;
+	reg lastRBankSelect = 1'b0;
+	reg[3:0] lastCoreByteSelect = 4'b0;
 	always @(posedge clk) begin
-		if (rst) coreReadReady <= 1'b0;
-		else if (!coreBusy) coreReadReady <= 1'b0;
-		else if (coreSRAMReadEnable) coreReadReady <= 1'b1;
-		else coreReadReady <= 1'b0;
+		if (rst) begin
+			coreReadReady <= 1'b0;
+			lastRBankSelect = 1'b0;
+			lastCoreByteSelect = 4'b0;
+		end else if (!coreBusy) begin
+			coreReadReady <= 1'b0;
+			lastRBankSelect = 1'b0;
+			lastCoreByteSelect = 4'b0;
+		end	else if (coreSRAMReadEnable) begin
+			coreReadReady <= 1'b1;
+			lastRBankSelect <= rBankSelect;
+			lastCoreByteSelect <= coreByteSelect;
+		end else begin 
+			coreReadReady <= 1'b0;
+			lastRBankSelect = 1'b0;
+			lastCoreByteSelect <= 4'b0;
+		end
 	end
 
 	reg wbReadReady = 1'b0;
+	reg lastRWBankSelect = 1'b0;
+	reg[3:0] lastWBByteSelect = 4'b0;
 	always @(posedge clk) begin
-		if (rst) wbReadReady <= 1'b0;
-		else if (wbSRAMReadEnable) wbReadReady <= 1'b1;
-		else wbReadReady <= 1'b0;
+		if (rst) begin 
+			wbReadReady <= 1'b0;
+			lastRWBankSelect <= 1'b0;
+			lastWBByteSelect <= 4'b0;
+		end else if (wbSRAMReadEnable) begin
+			wbReadReady <= 1'b1;
+			lastRWBankSelect <= rwBankSelect;
+			lastWBByteSelect <= wbByteSelect;
+		end else begin
+			wbReadReady <= 1'b0;
+			lastRWBankSelect <= 1'b0;
+			lastWBByteSelect <= 4'b0;
+		end
 	end
 
-	assign coreBusy = coreSRAMReadEnable && !coreReadReady;
+	assign coreBusy = !coreReadReady;
 	assign wbBusy = (wbSRAMEnable && coreSRAMWriteEnable) || (wbSRAMReadEnable && !wbReadReady);
 
 	// Read/Write port
@@ -88,25 +118,25 @@ module LocalMemoryInterface #(
 	wire rwWriteEnable = coreSRAMWriteEnable || (!coreSRAMWriteEnable && wbSRAMWriteEnable);
 	wire[SRAM_ADDRESS_SIZE:0] rwAddress = coreSRAMWriteEnable ? coreAddress[SRAM_ADDRESS_SIZE+2:2] :
 				   						  wbSRAMEnable        ?   wbAddress[SRAM_ADDRESS_SIZE+2:2] : 'b0;
-	wire rwBankSelect = rwAddress[SRAM_ADDRESS_SIZE];
+	assign rwBankSelect = rwAddress[SRAM_ADDRESS_SIZE];
 
 	assign wbDataRead = {
-		wbByteSelect[3] && wbReadReady ? rwPortReadData[31:24] : ~8'h00,
-		wbByteSelect[2] && wbReadReady ? rwPortReadData[23:16] : ~8'h00,
-		wbByteSelect[1] && wbReadReady ? rwPortReadData[15:8]  : ~8'h00,
-		wbByteSelect[0] && wbReadReady ? rwPortReadData[7:0]   : ~8'h00
+		lastWBByteSelect[3] && wbReadReady ? rwPortReadData[31:24] : ~8'h00,
+		lastWBByteSelect[2] && wbReadReady ? rwPortReadData[23:16] : ~8'h00,
+		lastWBByteSelect[1] && wbReadReady ? rwPortReadData[15:8]  : ~8'h00,
+		lastWBByteSelect[0] && wbReadReady ? rwPortReadData[7:0]   : ~8'h00
 	};
 
 	// Read port
 	wire rPortEnable = coreSRAMReadEnable && !coreReadReady;
 	wire[SRAM_ADDRESS_SIZE:0] rAddress = coreAddress[SRAM_ADDRESS_SIZE+2:2];
-	wire rBankSelect = rAddress[SRAM_ADDRESS_SIZE];
+	assign rBankSelect = rAddress[SRAM_ADDRESS_SIZE];
 
 	assign coreDataRead = {
-		coreByteSelect[3] && coreReadReady ? rPortReadData[31:24] : ~8'h00,
-		coreByteSelect[2] && coreReadReady ? rPortReadData[23:16] : ~8'h00,
-		coreByteSelect[1] && coreReadReady ? rPortReadData[15:8]  : ~8'h00,
-		coreByteSelect[0] && coreReadReady ? rPortReadData[7:0]   : ~8'h00
+		lastCoreByteSelect[3] && coreReadReady ? rPortReadData[31:24] : ~8'h00,
+		lastCoreByteSelect[2] && coreReadReady ? rPortReadData[23:16] : ~8'h00,
+		lastCoreByteSelect[1] && coreReadReady ? rPortReadData[15:8]  : ~8'h00,
+		lastCoreByteSelect[0] && coreReadReady ? rPortReadData[7:0]   : ~8'h00
 	};
 
 	// SRAM connections
@@ -118,11 +148,11 @@ module LocalMemoryInterface #(
 	assign addr0 = rwAddress[SRAM_ADDRESS_SIZE-1:0];
 	assign din0 = coreSRAMWriteEnable ? coreDataWrite : 
 				  wbSRAMWriteEnable   ? wbDataWrite   : 32'b0;
-	assign rwPortReadData = rwBankSelect ? dout0[63:32] : dout0[31:0];
+	assign rwPortReadData = lastRWBankSelect ? dout0[63:32] : dout0[31:0];
 
 	assign clk1 = clk;
 	assign csb1 = { !(rPortEnable && rBankSelect), !(rPortEnable && !rBankSelect) };
 	assign addr1 = rAddress[SRAM_ADDRESS_SIZE-1:0];
-	assign rPortReadData = rBankSelect ? dout1[63:32] : dout1[31:0];
+	assign rPortReadData = lastRBankSelect ? dout1[63:32] : dout1[31:0];
 
 endmodule

@@ -20,7 +20,7 @@ module InstructionDecode (
 		output reg isALUImmShift,
 		output reg isALUImm,
 		output reg isALU,
-		output reg isFENCE,
+		output reg isFence,
 		output reg isSystem,
 		output reg isCSR,
 		output reg isCSRIMM,
@@ -71,7 +71,7 @@ module InstructionDecode (
 			isALUImmShift  <= 1'b0;
 			isALUImm 	   <= 1'b0;
 			isALU 	 	   <= 1'b0;
-			isFENCE  	   <= 1'b0;
+			isFence  	   <= 1'b0;
 			isSystem 	   <= 1'b0;
 		end else begin
 			isLUI 		   <= (opcode == 7'b0110111);
@@ -86,7 +86,7 @@ module InstructionDecode (
 			isALUImmShift  <= isALUImmBase && ((funct3 == 3'b001 && funct7 == 7'b0000000) || (funct3 == 3'b101 && (funct7 == 7'b0000000 || funct7 == 7'b0100000)));
 			isALUImm 	   <= isALUImmShift || isALUImmNormal;
 			isALU 	 	   <= (opcode == 7'b0110011) && (funct7 == 7'b0000000 || ((funct7 == 7'b0100000) && (funct3 == 3'b000 || funct3 == 3'b101)));
-			isFENCE  	   <= (opcode == 7'b0001111) && (funct3 == 3'b000);
+			isFence  	   <= (opcode == 7'b0001111) && (funct3 == 3'b000);
 			isSystem 	   <= (opcode == 7'b1110011);
 		end
 	end
@@ -121,21 +121,20 @@ module InstructionDecode (
 		if (stall) begin
 			invalidInstruction <= 1'b0;
 		end else begin
-			invalidInstruction <= 1'b0;
-			// case ({ isLUI, isAUIPC, isJAL, isJALR, isBranch, isLoad, isStore, isALUImm, isALU, isFENCE, isSystem })
-			// 	'b00000000001: invalidInstruction <= 1'b0;
-			// 	'b00000000010: invalidInstruction <= 1'b0;
-			// 	'b00000000100: invalidInstruction <= 1'b0;
-			// 	'b00000001000: invalidInstruction <= 1'b0;
-			// 	'b00000010000: invalidInstruction <= 1'b0;
-			// 	'b00000100000: invalidInstruction <= 1'b0;
-			// 	'b00001000000: invalidInstruction <= 1'b0;
-			// 	'b00010000000: invalidInstruction <= 1'b0;
-			// 	'b00100000000: invalidInstruction <= 1'b0;
-			// 	'b01000000000: invalidInstruction <= 1'b0;
-			// 	'b10000000000: invalidInstruction <= validSystemCommand;
-			// 	default: invalidInstruction <= 1'b1;
-			// endcase
+			case ({ isLUI, isAUIPC, isJAL, isJALR, isBranch, isLoad, isStore, isALUImm, isALU, isFence, isSystem })
+				'b00000000001: invalidInstruction <= 1'b0;
+				'b00000000010: invalidInstruction <= 1'b0;
+				'b00000000100: invalidInstruction <= 1'b0;
+				'b00000001000: invalidInstruction <= 1'b0;
+				'b00000010000: invalidInstruction <= 1'b0;
+				'b00000100000: invalidInstruction <= 1'b0;
+				'b00001000000: invalidInstruction <= 1'b0;
+				'b00010000000: invalidInstruction <= 1'b0;
+				'b00100000000: invalidInstruction <= 1'b0;
+				'b01000000000: invalidInstruction <= 1'b0;
+				'b10000000000: invalidInstruction <= validSystemCommand;
+				default: invalidInstruction <= 1'b1;
+			endcase
 		end
 	end
 

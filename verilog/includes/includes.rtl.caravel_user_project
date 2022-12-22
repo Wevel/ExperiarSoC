@@ -12,6 +12,7 @@
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeStage.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Pipe/PipeStore.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Utility/InstructionDecode.v
+-v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/Utility/MisalignedMemoryController.v
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR_ConfigurationRegister.v 
 -v $(USER_PROJECT_VERILOG)/rtl/ExperiarCore/CSR/CSR_DataRegister.v 

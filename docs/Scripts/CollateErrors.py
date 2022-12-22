@@ -84,7 +84,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	else:
 		print("Found issues")
 		if errorCount != 0:
-			print(f"	\033[91mErrors: {errorCount}\033[0m")
+			print(f"	\033[91mErrors: {errorCount}	")
 		if violationCount != 0:
 			print(f"	\033[91mViolations: {violationCount}\033[0m")
 		if warningCount != 0:

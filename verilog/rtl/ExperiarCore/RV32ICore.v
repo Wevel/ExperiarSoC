@@ -9,22 +9,22 @@ module RV32ICore(
 
 		// Instruction cache interface
 		output wire[31:0] instruction_memoryAddress,
-		output wire instruction_memoryReadEnable,
+		output wire instruction_memoryEnable,
 		input wire[31:0] instruction_memoryDataRead,
 		input wire instruction_memoryBusy,
 		input wire instruction_memoryAccessFault,
-		input wire instruction_addressBreakpoint,
+		input wire instruction_memoryAddressBreakpoint,
 
 		// Data cache interface
 		output wire[31:0] data_memoryAddress,
 		output wire[3:0] data_memoryByteSelect,
+		output wire data_memoryEnable,
 		output wire data_memoryWriteEnable,
-		output wire data_memoryReadEnable,
 		output wire[31:0] data_memoryDataWrite,
 		input wire[31:0] data_memoryDataRead,
 		input wire data_memoryBusy,
 		input wire data_memoryAccessFault,
-		input wire data_addressBreakpoint,
+		input wire data_memoryAddressBreakpoint,
 
 		// Management interface
 		input wire management_run,
@@ -43,11 +43,10 @@ module RV32ICore(
 		input wire[25:0] extensions,
 
 		// Traps
-		input wire isAddressBreakpoint,
 		input wire[15:0] userInterrupts,
 
 		// Logic probes
-		output wire[1:0] probe_state,
+		output wire probe_state,
 		output wire[1:0] probe_env,
 		output wire[31:0] probe_programCounter
     );
@@ -121,20 +120,25 @@ module RV32ICore(
 	wire[31:0] trapVector;
 	wire[31:0] trapReturnVector;
 	wire inTrap;
-	wire isRet;
 
 	// ----------Pipe----------
+	wire pipe1_shouldStall;
+	wire pipe2_shouldStall;
 	wire shouldStore;
 	wire shouldLoad;
-	wire jumpStall;
-	wire fenceStall;
+
+	reg cancelStall;
 
 	wire loadStoreBusy = shouldStore || shouldLoad ? data_memoryBusy : 1'b0;
 	wire stepPipe = state == STATE_EXECUTE && !instruction_memoryBusy && !loadStoreBusy;
-	wire stallPipe = !management_allowInstruction || jumpStall || fenceStall || isRet;
+	wire stallPipe = !management_allowInstruction || pipe1_shouldStall || pipe2_shouldStall;
+	wire stallIncrementProgramCounter = !management_allowInstruction || pipe1_shouldStall;
 
 	// 0: Request instruction
 	wire pipe0_stall;
+	wire pipe0_active;
+	wire[31:0] pipe0_currentInstruction;
+	wire[31:0] pipe0_programCounter;
 	wire pipe0_addressMisaligned;
 	wire[31:0] pipe0_instructionFetchAddress;
 	wire pipe0_instructionFetchEnable;
@@ -144,7 +148,11 @@ module RV32ICore(
 		.stepPipe(stepPipe),
 		.pipeStall(stallPipe),
 		.currentPipeStall(pipe0_stall),
+		.active(pipe0_active),
+		.currentInstruction(instruction_memoryDataRead),
+		.lastInstruction(pipe0_currentInstruction),
 		.programCounter(fetchProgramCounter),
+		.lastProgramCounter(pipe0_programCounter),
 		.addressMisaligned(pipe0_addressMisaligned),
 		.fetchAddress(pipe0_instructionFetchAddress),
 		.fetchEnable(pipe0_instructionFetchEnable));
@@ -153,8 +161,8 @@ module RV32ICore(
 	reg[31:0] pipe1_resultRegister;
 	reg[31:0] pipe1_csrData;
 
-	wire pipe1_active;
 	wire pipe1_stall;
+	wire pipe1_active;
 	wire pipe1_invalidInstruction;
 	wire[31:0] pipe1_currentInstruction;
 	wire[11:0] pipe1_csrReadAddress;
@@ -166,13 +174,15 @@ module RV32ICore(
 	reg[31:0] pipe1_rs2Data;
 	wire pipe1_operationResultStoreEnable;
 	wire[31:0] pipe1_operationResult;
-	wire pipe1_isJump;	
+	wire pipe1_isJump;
+	wire pipe1_isFence;
 	wire pipe1_jumpEnable;
+	wire pipe1_failedBranch;
 	wire[31:0] pipe1_nextProgramCounter;
 	wire pipe1_jumpMissaligned;
 	wire pipe1_addressMisaligned_load;
 	wire pipe1_addressMisaligned_store;
-	wire pipe1_memoryReadEnable;
+	wire pipe1_memoryEnable;
 	wire pipe1_memoryWriteEnable;
 	wire[3:0] pipe1_memoryByteSelect;
 	wire[31:0] pipe1_memoryAddress;
@@ -185,10 +195,10 @@ module RV32ICore(
 		.clk(clk),
 		.rst(rst),
 		.stepPipe(stepPipe),
-		.pipeStall(pipe0_stall),
+		.pipeStall(pipe0_stall && !cancelStall),
 		.currentPipeStall(pipe1_stall),
 		.active(pipe1_active),
-		.currentInstruction(instruction_memoryDataRead),
+		.currentInstruction(pipe0_currentInstruction),
 		.lastInstruction(pipe1_currentInstruction),
 		.invalidInstruction(pipe1_invalidInstruction),
 		.csrReadAddress(pipe1_csrReadAddress),
@@ -204,11 +214,12 @@ module RV32ICore(
 		.isJump(pipe1_isJump),
 		.isFence(pipe1_isFence),
 		.jumpEnable(pipe1_jumpEnable),
+		.failedBranch(pipe1_failedBranch),
 		.nextProgramCounter(pipe1_nextProgramCounter),
 		.jumpMissaligned(pipe1_jumpMissaligned),
 		.addressMisaligned_load(pipe1_addressMisaligned_load),
 		.addressMisaligned_store(pipe1_addressMisaligned_store),
-		.memoryReadEnable(pipe1_memoryReadEnable),
+		.memoryEnable(pipe1_memoryEnable),
 		.memoryWriteEnable(pipe1_memoryWriteEnable),
 		.memoryByteSelect(pipe1_memoryByteSelect),
 		.memoryAddress(pipe1_memoryAddress),
@@ -218,34 +229,37 @@ module RV32ICore(
 		.isEBREAK(pipe1_isEBREAK),
 		.isRET(pipe1_isRET));
 
+	assign pipe1_shouldStall = pipe1_isJump || pipe1_isFence || pipe1_isRET;
+
 	always @(posedge clk) begin
 		if (rst) begin
 			pipe1_resultRegister <= 32'b0;
 			pipe1_csrData <= 32'b0;
+			cancelStall <= 1'b0;
 		end else begin
 			if (state == STATE_EXECUTE) begin
 				if (pipe1_operationResultStoreEnable) pipe1_resultRegister <= pipe1_operationResult;
 				if (pipe1_csrReadEnable) pipe1_csrData <= csrReadData;
+				cancelStall <= pipe1_failedBranch;
 			end
 		end
 	end
 
-	assign jumpStall = pipe1_isJump;
-	assign fenceStall = pipe1_isFence;
-	assign isRet = pipe1_isRET;
-
 	// 3: Store data
-	wire pipe2_active;
 	wire pipe2_stall;
+	wire pipe2_active;
 	wire pipe2_invalidInstruction;
 	wire[31:0] pipe2_currentInstruction;
-	wire pipe1_expectingLoad;
+	wire pipe2_expectingLoad;
 	wire[4:0] pipe2_rdAddress;
 	wire[31:0] pipe2_registerWriteData;
 	wire pipe2_registerWriteEnable;
 	wire[11:0] pipe2_csrWriteAddress;
 	wire[31:0] pipe2_csrWriteData;
 	wire pipe2_csrWriteEnable;
+	wire pipe2_isJump;
+	wire pipe2_isFence;
+	wire pipe2_isRET;
 	PipeStore pipe2_store (
 		.clk(clk),
 		.rst(rst),
@@ -256,7 +270,7 @@ module RV32ICore(
 		.currentInstruction(pipe1_currentInstruction),
 		.lastInstruction(pipe2_currentInstruction),
 		.invalidInstruction(pipe2_invalidInstruction),
-		.expectingLoad(pipe1_expectingLoad),
+		.expectingLoad(pipe2_expectingLoad),
 		.memoryDataRead(data_memoryDataRead),
 		.aluResultData(pipe1_resultRegister),
 		.csrData(pipe1_csrData),
@@ -265,7 +279,12 @@ module RV32ICore(
 		.registerWriteEnable(pipe2_registerWriteEnable),
 		.csrWriteAddress(pipe2_csrWriteAddress),
 		.csrWriteData(pipe2_csrWriteData),
-		.csrWriteEnable(pipe2_csrWriteEnable));
+		.csrWriteEnable(pipe2_csrWriteEnable),
+		.isJump(pipe2_isJump),
+		.isFence(pipe2_isFence),
+		.isRET(pipe2_isRET));
+
+	assign pipe2_shouldStall = pipe2_isJump || pipe2_isFence || pipe2_isRET;
 
 	// Integer restister control
 	// Check if pipe1 needs the value being written by pipe2
@@ -292,10 +311,10 @@ module RV32ICore(
 		end
 	end
 
-	assign shouldStore = pipe1_memoryWriteEnable;
-	assign shouldLoad = pipe1_memoryReadEnable || pipe1_expectingLoad;
+	assign shouldStore = pipe1_memoryEnable && pipe1_memoryWriteEnable;
+	assign shouldLoad = (pipe1_memoryEnable && !pipe1_memoryWriteEnable) || pipe2_expectingLoad;
 
-	wire pipeActive = pipe1_active || pipe2_active;
+	wire pipeActive = pipe0_active || pipe1_active || pipe2_active;
 
 	always @(posedge clk) begin
 		if (rst) begin
@@ -315,9 +334,9 @@ module RV32ICore(
 						if (inTrap) fetchProgramCounter <= trapVector;
 						else if (pipe1_isRET) fetchProgramCounter <= trapReturnVector;
 						else if (pipe1_jumpEnable) fetchProgramCounter <= pipe1_nextProgramCounter;
-						else if (!stallPipe) fetchProgramCounter <= fetchProgramCounter + 4;
+						else if (!stallIncrementProgramCounter) fetchProgramCounter <= fetchProgramCounter + 4;
 
-						executeProgramCounter <= fetchProgramCounter;
+						executeProgramCounter <= pipe0_programCounter;
 					end
 				end
 
@@ -328,12 +347,12 @@ module RV32ICore(
 
 	// Memory control
 	assign instruction_memoryAddress = pipe0_instructionFetchAddress;
-	assign instruction_memoryReadEnable = pipe0_instructionFetchEnable;
+	assign instruction_memoryEnable = pipe0_instructionFetchEnable;
 
 	assign data_memoryAddress = pipe1_memoryAddress;
 	assign data_memoryByteSelect = pipe1_memoryByteSelect;
+	assign data_memoryEnable = pipe1_memoryEnable;
 	assign data_memoryWriteEnable = pipe1_memoryWriteEnable;
-	assign data_memoryReadEnable = pipe1_memoryReadEnable;
 	assign data_memoryDataWrite = pipe1_memoryWriteData;
 
 	// System commands 
@@ -381,13 +400,13 @@ module RV32ICore(
 		.isDataAddressMisaligned_store(pipe1_addressMisaligned_store),
 		.isJumpMissaligned(pipe1_jumpMissaligned),
 		.isFetchAccessFault(instruction_memoryAccessFault),
-		.isDataAccessFault_load(data_memoryAccessFault && data_memoryReadEnable),
-		.isDataAccessFault_store(data_memoryAccessFault && data_memoryWriteEnable),
+		.isDataAccessFault_load(data_memoryAccessFault && data_memoryEnable && !data_memoryWriteEnable),
+		.isDataAccessFault_store(data_memoryAccessFault && data_memoryEnable && data_memoryWriteEnable),
 		.isInvalidInstruction(pipe1_invalidInstruction),
 		.isEBREAK(eBreak),
 		.isECALL(eCall),
-		.isFetchAddressBreakpoint(instruction_addressBreakpoint),
-		.isDataAddressBreakpoint(data_addressBreakpoint),
+		.isFetchAddressBreakpoint(instruction_memoryAddressBreakpoint),
+		.isDataAddressBreakpoint(data_memoryAddressBreakpoint),
 		.userInterrupts(management_interruptEnable ? userInterrupts : 16'b0),
 		.trapReturn(trapReturn),
 		.inTrap(inTrap),
@@ -395,7 +414,7 @@ module RV32ICore(
 		.trapReturnVector(trapReturnVector));
 
 	// Debug
-	assign probe_state = {1'b0, state};
+	assign probe_state = state;
 	assign probe_env = { eCall, eBreak };
 	assign probe_programCounter = executeProgramCounter;
 

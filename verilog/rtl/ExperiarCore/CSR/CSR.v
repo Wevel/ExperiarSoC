@@ -143,6 +143,22 @@ module CSR (
 		.csrRequestOutput(coreIDRequestOutput),
 		.value({ 24'b0, coreIndex }));
 
+	// Pointer to configuration data structure
+	wire[31:0] configPointerReadData;
+	wire configPointerRequestOutput;
+	wire[31:0] configPointerValue_nc;
+	CSR_ConfigurationRegister #(.ADDRESS(12'hF15)) mconfigptr(
+		.clk(clk),
+		.rst(rst),
+		.csrWriteEnable(csrWriteEnable),
+		.csrReadEnable(csrReadEnable),
+		.csrWriteAddress(csrWriteAddress),
+		.csrReadAddress(csrReadAddress),
+		.csrWriteData(csrWriteData),
+		.csrReadData(configPointerReadData),
+		.csrRequestOutput(configPointerRequestOutput),
+		.value(configPointerValue_nc));
+
 	// ISA
 	wire[31:0] misaReadData;
 	wire misaRequestOutput;
@@ -206,6 +222,7 @@ module CSR (
 			archIDRequestOutput: csrReadData <= archIDReadData;
 			implIDRequestOutput: csrReadData <= implIDReadData;
 			coreIDRequestOutput: csrReadData <= coreIDReadData;
+			configPointerRequestOutput: csrReadData <= configPointerReadData;
 			misaRequestOutput: csrReadData <= misaReadData;
 
 			// Traps

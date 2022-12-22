@@ -29,13 +29,14 @@ module PipeOperation (
 		output wire isJump,
 		output wire isFence,
 		output wire jumpEnable,
+		output wire failedBranch,
 		output wire[31:0] nextProgramCounter,
 		output wire jumpMissaligned,
 		output wire addressMisaligned_load,
 		output wire addressMisaligned_store,
 
 		// Load/Store control
-		output wire memoryReadEnable,
+		output wire memoryEnable,
 		output wire memoryWriteEnable,
 		output wire[3:0] memoryByteSelect,
 		output wire[31:0] memoryAddress,
@@ -77,7 +78,7 @@ module PipeOperation (
 		.isCompressed(isCompressed),
 		.isLUI(isLUI), .isAUIPC(isAUIPC), .isJAL(isJAL), .isJALR(isJALR), .isBranch(isBranch), .isLoad(isLoad), .isStore(isStore),
 		.isALUImmBase(isALUImmBase), .isALUImmNormal(isALUImmNormal), .isALUImmShift(isALUImmShift), .isALUImm(isALUImm), .isALU(isALU),
-		.isFENCE(isFence), .isSystem(isSystem),
+		.isFence(isFence), .isSystem(isSystem),
 		.isCSR(isCSR), .isCSRIMM(isCSRIMM), .isCSRRW(isCSRRW), .isCSRRS(isCSRRS), .isCSRRC(isCSRRC),
 		.isECALL(isECALL), .isEBREAK(isEBREAK), .isRET(isRET),
 		.invalidInstruction(invalidInstruction)
@@ -159,6 +160,7 @@ module PipeOperation (
 	wire[31:0] nextProgramCounterFull = isCompressed ? nextProgramCounterCompressed : nextProgramCounterWord;
 	assign isJump = isJAL || isJALR || isBranch;
 	assign jumpEnable = isJAL || isJALR || takeBranch;
+	assign failedBranch = isBranch && !takeBranch;
 	assign nextProgramCounter = { nextProgramCounterFull[31:1] , 1'b0};
 	assign jumpMissaligned = !isCompressed && |nextProgramCounter[1:0] && (isJAL || isJALR || takeBranch);
 
@@ -253,6 +255,7 @@ module PipeOperation (
 	assign addressMisaligned_store = isAddressMisaligned && isStore;
 	wire shouldLoad  = loadStoreByteMaskValid && !isAddressMisaligned && isLoad;
 	wire shouldStore = loadStoreByteMaskValid && !isAddressMisaligned && isStore;
+	wire shouldLoadOrStore = shouldLoad || shouldStore;
 
 	reg[31:0] dataOut;
 	always @(*) begin
@@ -300,10 +303,10 @@ module PipeOperation (
 	assign operationResult = currentData;
 
 	// Load/Store control
-	assign memoryReadEnable = shouldLoad && !pipeStall;
+	assign memoryEnable = shouldLoadOrStore && !pipeStall;
 	assign memoryWriteEnable = shouldStore && !pipeStall;
-	assign memoryByteSelect = shouldStore || shouldLoad  ? loadStoreByteMask[3:0] : 4'b0000;
-	assign memoryAddress = shouldLoad || shouldStore ? { targetMemoryAddress[31:2], 2'b00 } : 32'b0;
+	assign memoryByteSelect = shouldLoadOrStore ? loadStoreByteMask[3:0] : 4'b0000;
+	assign memoryAddress = shouldLoadOrStore ? { targetMemoryAddress[31:2], 2'b00 } : 32'b0;
 	assign memoryWriteData = dataOut;
 
 endmodule

@@ -27,7 +27,12 @@ module PipeStore (
 		// CSR store control
 		output wire[11:0] csrWriteAddress,
 		output wire[31:0] csrWriteData,
-		output wire csrWriteEnable
+		output wire csrWriteEnable,
+
+		// Stall control
+		output wire isJump,
+		output wire isFence,
+		output wire isRET
 	);
 	
 	// Pipe control
@@ -48,9 +53,9 @@ module PipeStore (
 	wire isCompressed;
 	wire isLUI; wire isAUIPC; wire isJAL; wire isJALR; wire isBranch; wire isLoad; wire isStore;
 	wire isALUImmBase; wire isALUImmNormal; wire isALUImmShift; wire isALUImm; wire isALU;
-	wire isFENCE; wire isSystem; 
+	wire isSystem; 
 	wire isCSR; wire isCSRIMM; wire isCSRRW; wire isCSRRS; wire isCSRRC; 
-	wire isECALL; wire isEBREAK; wire isRET;
+	wire isECALL; wire isEBREAK;
 	InstructionDecode decode(
 		.currentInstruction(currentInstruction),
 		.stall(pipeStall),
@@ -60,7 +65,7 @@ module PipeStore (
 		.isCompressed(isCompressed),
 		.isLUI(isLUI), .isAUIPC(isAUIPC), .isJAL(isJAL), .isJALR(isJALR), .isBranch(isBranch), .isLoad(isLoad), .isStore(isStore),
 		.isALUImmBase(isALUImmBase), .isALUImmNormal(isALUImmNormal), .isALUImmShift(isALUImmShift), .isALUImm(isALUImm), .isALU(isALU),
-		.isFENCE(isFENCE), .isSystem(isSystem),
+		.isFence(isFence), .isSystem(isSystem),
 		.isCSR(isCSR), .isCSRIMM(isCSRIMM), .isCSRRW(isCSRRW), .isCSRRS(isCSRRS), .isCSRRC(isCSRRC),
 		.isECALL(isECALL), .isEBREAK(isEBREAK), .isRET(isRET),
 		.invalidInstruction(invalidInstruction)
@@ -178,5 +183,8 @@ module PipeStore (
 	assign csrWriteAddress = currentInstruction[31:20];
 	assign csrWriteData = aluResultData;
 	assign csrWriteEnable = csrWrite && !pipeStall;
+
+	// Stall control
+	assign isJump = isJAL || isJALR || isBranch;
 
 endmodule

@@ -27,7 +27,7 @@ module coreArch_tb;
 
 	// Instruction cache interface
 	wire[31:0] instruction_memoryAddress;
-	wire instruction_memoryReadEnable;
+	wire instruction_memoryEnable;
 	reg[31:0] instruction_memoryDataRead;
 	wire instruction_memoryBusy = 1'b0;
 	wire instruction_memoryAccessFault = 1'b0;
@@ -35,8 +35,8 @@ module coreArch_tb;
 	// Data cache interface
 	wire[31:0] data_memoryAddress;
 	wire[3:0] data_memoryByteSelect;
+	wire data_memoryEnable;
 	wire data_memoryWriteEnable;
-	wire data_memoryReadEnable;
 	wire[31:0] data_memoryDataWrite;
 	reg[31:0] data_memoryDataRead;
 	wire data_memoryBusy = 1'b0;
@@ -50,10 +50,11 @@ module coreArch_tb;
 	wire[31:0] management_writeData = 'b0;
 	wire[31:0] management_readData;
 
-	wire isAddressBreakpoint = 1'b0;
+	wire coreInstructionAddressBreakpoint = 1'b0;
+	wire coreDataAddressBreakpoint = 1'b0;
 	wire[15:0] userInterrupts = 16'b0;
 
-	wire[1:0] probe_state;
+	wire probe_state;
 	wire[1:0] probe_env;
 	wire[31:0] probe_programCounter;
 
@@ -103,7 +104,7 @@ module coreArch_tb;
 	initial begin
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (10) begin
+		repeat (20) begin
 			repeat (1000) @(posedge clock);
 		end
 		
@@ -167,18 +168,20 @@ module coreArch_tb;
 		.clk(clock),
 		.rst(!RSTB),
 		.instruction_memoryAddress(instruction_memoryAddress),
-		.instruction_memoryReadEnable(instruction_memoryReadEnable),
+		.instruction_memoryEnable(instruction_memoryEnable),
 		.instruction_memoryDataRead(instruction_memoryDataRead),
 		.instruction_memoryBusy(instruction_memoryBusy),
 		.instruction_memoryAccessFault(instruction_memoryAccessFault),
+		.instruction_memoryAddressBreakpoint(coreInstructionAddressBreakpoint),
 		.data_memoryAddress(data_memoryAddress),
 		.data_memoryByteSelect(data_memoryByteSelect),
+		.data_memoryEnable(data_memoryEnable),
 		.data_memoryWriteEnable(data_memoryWriteEnable),
-		.data_memoryReadEnable(data_memoryReadEnable),
 		.data_memoryDataWrite(data_memoryDataWrite),
 		.data_memoryDataRead(data_memoryDataRead),
 		.data_memoryBusy(data_memoryBusy),
 		.data_memoryAccessFault(data_memoryAccessFault),
+		.data_memoryAddressBreakpoint(coreDataAddressBreakpoint),
 		.management_run(management_run),
 		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
@@ -191,7 +194,6 @@ module coreArch_tb;
 		.partID(16'hCD55),
 		.versionID(4'h0),
 		.extensions(CORE_EXTENSIONS),
-		.isAddressBreakpoint(isAddressBreakpoint),
 		.userInterrupts(userInterrupts),
 		.probe_state(probe_state),
 		.probe_env(probe_env),
@@ -216,8 +218,7 @@ module coreArch_tb;
 		$display("Memory 5 bytes = 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x", memory[0], memory[1], memory[2], memory[3], memory[4]);
 	end
 
-	wire instruction_sramEnable = RSTB && ((instruction_memoryAddress[31:24] == 8'h00) || (instruction_memoryAddress[31:24] == 8'h80));
-	wire instruction_sramReadEnable = instruction_sramEnable && instruction_memoryReadEnable;
+	wire instruction_sramEnable = RSTB && ((instruction_memoryAddress[31:24] == 8'h00) || (instruction_memoryAddress[31:24] == 8'h80)) && instruction_memoryEnable;
 	wire[23:0] instruction_localAddress = instruction_memoryAddress[23:0];
 
 	always @(posedge clock) begin
@@ -225,24 +226,22 @@ module coreArch_tb;
 			instruction_memoryDataRead <= 32'b0;
 		end if (run) begin
 			instruction_memoryDataRead <= {
-				instruction_sramReadEnable ? memory[instruction_localAddress + 3] : 8'b0,
-				instruction_sramReadEnable ? memory[instruction_localAddress + 2] : 8'b0,
-				instruction_sramReadEnable ? memory[instruction_localAddress + 1] : 8'b0,
-				instruction_sramReadEnable ? memory[instruction_localAddress] : 8'b0 
+				instruction_sramEnable ? memory[instruction_localAddress + 3] : 8'b0,
+				instruction_sramEnable ? memory[instruction_localAddress + 2] : 8'b0,
+				instruction_sramEnable ? memory[instruction_localAddress + 1] : 8'b0,
+				instruction_sramEnable ? memory[instruction_localAddress] : 8'b0 
 			};
 		end
 	end
 
-	wire data_sramEnable = RSTB && ((data_memoryAddress[31:24] == 8'h00) || (data_memoryAddress[31:24] == 8'h80));
-	wire data_sramWriteEnable = data_sramEnable && data_memoryWriteEnable;
-	wire data_sramReadEnable = data_sramEnable && data_memoryReadEnable;
+	wire data_sramEnable = RSTB && ((data_memoryAddress[31:24] == 8'h00) || (data_memoryAddress[31:24] == 8'h80)) && data_memoryEnable;
 	wire[23:0] data_localAddress = data_memoryAddress[23:0];
 
 	always @(posedge clock) begin
 		if (!RSTB) begin
 			data_memoryDataRead <= 32'b0;
 		end if (run) begin
-			if (data_sramWriteEnable) begin
+			if (data_sramEnable && data_memoryWriteEnable) begin
 				if (data_memoryByteSelect[0]) memory[data_localAddress] <= data_memoryDataWrite[7:0];
 				if (data_memoryByteSelect[1]) memory[data_localAddress + 1] <= data_memoryDataWrite[15:8];
 				if (data_memoryByteSelect[2]) memory[data_localAddress + 2] <= data_memoryDataWrite[23:16];
@@ -250,13 +249,15 @@ module coreArch_tb;
 				$display("Write of 0x%h to 0x%h", data_memoryDataWrite, data_localAddress);
 			end
 
-			if (data_sramReadEnable) begin
+			if (data_sramEnable && !data_memoryWriteEnable) begin
 				data_memoryDataRead <= {
-					data_memoryByteSelect[3] && data_sramReadEnable ? memory[data_localAddress + 3] : 8'b0,
-					data_memoryByteSelect[2] && data_sramReadEnable ? memory[data_localAddress + 2] : 8'b0,
-					data_memoryByteSelect[1] && data_sramReadEnable ? memory[data_localAddress + 1] : 8'b0,
-					data_memoryByteSelect[0] && data_sramReadEnable ? memory[data_localAddress] : 8'b0 
+					data_memoryByteSelect[3] ? memory[data_localAddress + 3] : 8'b0,
+					data_memoryByteSelect[2] ? memory[data_localAddress + 2] : 8'b0,
+					data_memoryByteSelect[1] ? memory[data_localAddress + 1] : 8'b0,
+					data_memoryByteSelect[0] ? memory[data_localAddress] 	 : 8'b0 
 				};
+			end else begin
+				data_memoryDataRead <= 32'b0;
 			end
 		end
 	end

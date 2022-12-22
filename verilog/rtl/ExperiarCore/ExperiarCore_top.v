@@ -61,16 +61,9 @@ module ExperiarCore (
 		input  wire[63:0] dout1,
 
 		// Logic probes
-		output wire[1:0] probe_state,
+		output wire probe_state,
 		output wire[1:0] probe_env,
 		output wire[31:0] probe_programCounter,
-		output wire[6:0] probe_opcode,
-		output wire[1:0] probe_errorCode,
-		output wire probe_isBranch,
-		output wire probe_takeBranch,
-		output wire probe_isStore,
-		output wire probe_isLoad,
-		output wire probe_isCompressed,
 		output wire[4:0] probe_jtagInstruction
 	);
 	
@@ -101,19 +94,28 @@ module ExperiarCore (
 	localparam CORE_VERSION = 8'h00;
 
 	// Core
-	// Memory interface from core
-	wire coreMemoryWriteEnable;
-	wire coreMemoryReadEnable;
-	wire[31:0] coreMemoryAddress;
-	wire[3:0] coreMemoryByteSelect;
-	wire[31:0] coreMemoryDataWrite;
-	wire[31:0] coreMemoryDataRead;
-	wire coreMemoryBusy;
-	wire coreMemoryAccessFault = 1'b0;
+	// Instruction cache interface
+	wire[31:0] coreInstructionMemoryAddress;
+	wire coreInstructionMemoryEnable;
+	wire[31:0] coreInstructionMemoryDataRead;
+	wire coreInstructionMemoryBusy;
+	wire coreInstructionMemoryAccessFault = |(coreInstructionMemoryAddress[1:0]);
+	wire coreInstructionAddressBreakpoint;
+
+	// Data cache interface
+	wire[31:0] coreDataMemoryAddress;
+	wire[3:0] coreDataMemoryByteSelect;
+	wire coreDataMemoryEnable;
+	wire coreDataMemoryWriteEnable;
+	wire[31:0] coreDataMemoryDataWrite;
+	wire[31:0] coreDataMemoryDataRead;
+	wire coreDataMemoryBusy;
+	wire coreDataMemoryAccessFault = |(coreDataMemoryAddress[1:0]);
+	wire coreDataAddressBreakpoint;
 
 	// Memory interface from core to local memory
+	wire coreLocalMemoryEnable;
 	wire coreLocalMemoryWriteEnable;
-	wire coreLocalMemoryReadEnable;
 	wire[23:0] coreLocalMemoryAddress;
 	wire[3:0] coreLocalMemoryByteSelect;
 	wire[31:0] coreLocalMemoryDataWrite;
@@ -121,8 +123,8 @@ module ExperiarCore (
 	wire coreLocalMemoryBusy;
 
 	// Memory interface from core to wb
+	wire coreWBEnable;
 	wire coreWBWriteEnable;
-	wire coreWBReadEnable;
 	wire[27:0] coreWBAddress;
 	wire[3:0] coreWBByteSelect;
 	wire[31:0] coreWBDataWrite;
@@ -130,8 +132,8 @@ module ExperiarCore (
 	wire coreWBBusy;
 
 	// Memory interface from wb to local memory
+	wire wbLocalMemoryEnable;
 	wire wbLocalMemoryWriteEnable;
-	wire wbLocalMemoryReadEnable;
 	wire[23:0] wbLocalMemoryAddress;
 	wire[3:0] wbLocalMemoryByteSelect;
 	wire[31:0] wbLocalMemoryDataWrite;
@@ -140,7 +142,6 @@ module ExperiarCore (
 
 	// Core management
 	wire management_run;
-	wire management_trapEnable;
 	wire management_interruptEnable;
 	wire management_writeEnable;
 	wire[3:0] management_byteSelect;
@@ -148,15 +149,15 @@ module ExperiarCore (
 	wire[31:0] management_writeData;
 	wire[31:0] management_readData;
 
+	wire jtag_management_enable;
 	wire jtag_management_writeEnable;
-	wire jtag_management_readEnable;
 	wire[3:0] jtag_management_byteSelect;
 	wire[19:0] jtag_management_address;
 	wire[31:0] jtag_management_writeData;
 	wire[31:0] jtag_management_readData;
 
+	wire wb_management_enable;
 	wire wb_management_writeEnable;
-	wire wb_management_readEnable;
 	wire[3:0] wb_management_byteSelect;
 	wire[19:0] wb_management_address;
 	wire[31:0] wb_management_writeData;
@@ -174,38 +175,36 @@ module ExperiarCore (
 		.jtag_tms(jtag_tms),
 		.jtag_tdi(jtag_tdi),
 		.jtag_tdo(jtag_tdo),
+		.management_enable(jtag_management_enable),
 		.management_writeEnable(jtag_management_writeEnable),
-		.management_readEnable(jtag_management_readEnable),
 		.management_byteSelect(jtag_management_byteSelect),
 		.management_address(jtag_management_address),
 		.management_writeData(jtag_management_writeData),
 		.management_readData(jtag_management_readData),
 		.probe_jtagInstruction(probe_jtagInstruction));
 
-	wire isAddressBreakpoint;
 	CoreManagement coreManagement(
 		.clk(wb_clk_i),
 		.rst(wb_rst_i),
 		.management_run(management_run),
-		.management_trapEnable(management_trapEnable),
 		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
 		.management_address(management_address),
 		.management_writeData(management_writeData),
 		.management_readData(management_readData),
-		.isAddressBreakpoint(isAddressBreakpoint),
-		.coreAddress(coreMemoryAddress),
-		.core_env(probe_env),
-		.core_errorCode(probe_errorCode),
+		.isInstructionAddressBreakpoint(coreInstructionAddressBreakpoint),
+		.isDataAddressBreakpoint(coreDataAddressBreakpoint),
+		.coreInstructionAddress(coreInstructionMemoryAddress),
+		.coreDataAddress(coreDataMemoryAddress),
+		.jtag_management_enable(jtag_management_enable),
 		.jtag_management_writeEnable(jtag_management_writeEnable),
-		.jtag_management_readEnable(jtag_management_readEnable),
 		.jtag_management_byteSelect(jtag_management_byteSelect),
 		.jtag_management_address(jtag_management_address),
 		.jtag_management_writeData(jtag_management_writeData),
 		.jtag_management_readData(jtag_management_readData),
+		.wb_management_enable(wb_management_enable),
 		.wb_management_writeEnable(wb_management_writeEnable),
-		.wb_management_readEnable(wb_management_readEnable),
 		.wb_management_byteSelect(wb_management_byteSelect),
 		.wb_management_address(wb_management_address),
 		.wb_management_writeData(wb_management_writeData),
@@ -220,16 +219,22 @@ module ExperiarCore (
 `endif
 		.clk(wb_clk_i),
 		.rst(wb_rst_i),
-		.memoryWriteEnable(coreMemoryWriteEnable),
-		.memoryReadEnable(coreMemoryReadEnable),
-		.memoryAddress(coreMemoryAddress),
-		.memoryByteSelect(coreMemoryByteSelect),
-		.memoryDataWrite(coreMemoryDataWrite),
-		.memoryDataRead(coreMemoryDataRead),
-		.memoryBusy(coreMemoryBusy),
-		.memoryAccessFault(coreMemoryAccessFault),
+		.instruction_memoryAddress(coreInstructionMemoryAddress),
+		.instruction_memoryEnable(coreInstructionMemoryEnable),
+		.instruction_memoryDataRead(coreInstructionMemoryDataRead),
+		.instruction_memoryBusy(coreInstructionMemoryBusy),
+		.instruction_memoryAccessFault(coreInstructionMemoryAccessFault),
+		.instruction_memoryAddressBreakpoint(coreInstructionAddressBreakpoint),
+		.data_memoryAddress(coreDataMemoryAddress),
+		.data_memoryByteSelect(coreDataMemoryByteSelect),
+		.data_memoryEnable(coreDataMemoryEnable),
+		.data_memoryWriteEnable(coreDataMemoryWriteEnable),
+		.data_memoryDataWrite(coreDataMemoryDataWrite),
+		.data_memoryDataRead(coreDataMemoryDataRead),
+		.data_memoryBusy(coreDataMemoryBusy),
+		.data_memoryAccessFault(coreDataMemoryAccessFault),
+		.data_memoryAddressBreakpoint(coreDataAddressBreakpoint),
 		.management_run(management_run),
-		.management_trapEnable(management_trapEnable),
 		.management_interruptEnable(management_interruptEnable),
 		.management_writeEnable(management_writeEnable),
 		.management_byteSelect(management_byteSelect),
@@ -241,38 +246,36 @@ module ExperiarCore (
 		.partID(partID),
 		.versionID(versionID),
 		.extensions(CORE_EXTENSIONS),
-		.isAddressBreakpoint(isAddressBreakpoint),
 		.userInterrupts(irq),
 		.probe_state(probe_state),
 		.probe_env(probe_env),
-		.probe_programCounter(probe_programCounter),
-		.probe_opcode(probe_opcode),
-		.probe_errorCode(probe_errorCode),
-		.probe_isBranch(probe_isBranch),
-		.probe_takeBranch(probe_takeBranch),
-		.probe_isStore(probe_isStore),
-		.probe_isLoad(probe_isLoad),
-		.probe_isCompressed(probe_isCompressed));
+		.probe_programCounter(probe_programCounter));
 
 	MemoryController memoryController(
-		.coreAddress(coreMemoryAddress),
-		.coreByteSelect(coreMemoryByteSelect),
-		.coreWriteEnable(coreMemoryWriteEnable),
-		.coreReadEnable(coreMemoryReadEnable),
-		.coreDataWrite(coreMemoryDataWrite),
-		.coreDataRead(coreMemoryDataRead),
-		.coreBusy(coreMemoryBusy),
+		.clk(wb_clk_i),
+		.rst(wb_rst_i),
+		.coreInstructionAddress(coreInstructionMemoryAddress),
+		.coreInstructionEnable(coreInstructionMemoryEnable),
+		.coreInstructionDataRead(coreInstructionMemoryDataRead),
+		.coreInstructionBusy(coreInstructionMemoryBusy),
+		.coreDataAddress(coreDataMemoryAddress),
+		.coreDataByteSelect(coreDataMemoryByteSelect),
+		.coreDataEnable(coreDataMemoryEnable),
+		.coreDataWriteEnable(coreDataMemoryWriteEnable),
+		.coreDataDataWrite(coreDataMemoryDataWrite),
+		.coreDataDataRead(coreDataMemoryDataRead),
+		.coreDataBusy(coreDataMemoryBusy),
 		.localMemoryAddress(coreLocalMemoryAddress),
 		.localMemoryByteSelect(coreLocalMemoryByteSelect),
 		.localMemoryWriteEnable(coreLocalMemoryWriteEnable),
-		.localMemoryReadEnable(coreLocalMemoryReadEnable),
+		.localMemoryEnable(coreLocalMemoryEnable),
 		.localMemoryDataWrite(coreLocalMemoryDataWrite),
 		.localMemoryDataRead(coreLocalMemoryDataRead),
 		.localMemoryBusy(coreLocalMemoryBusy),
 		.wbAddress(coreWBAddress),
 		.wbByteSelect(coreWBByteSelect),
+		.wbEnable(coreWBEnable),
 		.wbWriteEnable(coreWBWriteEnable),
-		.wbReadEnable(coreWBReadEnable),
 		.wbDataWrite(coreWBDataWrite),
 		.wbDataRead(coreWBDataRead),
 		.wbBusy(coreWBBusy));
@@ -282,15 +285,15 @@ module ExperiarCore (
 		.rst(wb_rst_i),
 		.coreAddress(coreLocalMemoryAddress),
 		.coreByteSelect(coreLocalMemoryByteSelect),
+		.coreEnable(coreLocalMemoryEnable),
 		.coreWriteEnable(coreLocalMemoryWriteEnable),
-		.coreReadEnable(coreLocalMemoryReadEnable),
 		.coreDataWrite(coreLocalMemoryDataWrite),
 		.coreDataRead(coreLocalMemoryDataRead),
 		.coreBusy(coreLocalMemoryBusy),
 		.wbAddress(wbLocalMemoryAddress),
 		.wbByteSelect(wbLocalMemoryByteSelect),
+		.wbEnable(wbLocalMemoryEnable),
 		.wbWriteEnable(wbLocalMemoryWriteEnable),
-		.wbReadEnable(wbLocalMemoryReadEnable),
 		.wbDataWrite(wbLocalMemoryDataWrite),
 		.wbDataRead(wbLocalMemoryDataRead),
 		.wbBusy(wbLocalMemoryBusy),
@@ -321,8 +324,8 @@ module ExperiarCore (
 		.wb_data_i(core_wb_data_i),
 		.wbAddress(coreWBAddress),
 		.wbByteSelect(coreWBByteSelect),
+		.wbEnable(coreWBEnable),
 		.wbWriteEnable(coreWBWriteEnable),
-		.wbReadEnable(coreWBReadEnable),
 		.wbDataWrite(coreWBDataWrite),
 		.wbDataRead(coreWBDataRead),
 		.wbBusy(coreWBBusy));
@@ -342,13 +345,13 @@ module ExperiarCore (
 		.wb_data_o(localMemory_wb_data_o),
 		.localMemoryAddress(wbLocalMemoryAddress),
 		.localMemoryByteSelect(wbLocalMemoryByteSelect),
+		.localMemoryEnable(wbLocalMemoryEnable),
 		.localMemoryWriteEnable(wbLocalMemoryWriteEnable),
-		.localMemoryReadEnable(wbLocalMemoryReadEnable),
 		.localMemoryDataWrite(wbLocalMemoryDataWrite),
 		.localMemoryDataRead(wbLocalMemoryDataRead),
 		.localMemoryBusy(wbLocalMemoryBusy),
+		.management_enable(wb_management_enable),
 		.management_writeEnable(wb_management_writeEnable),
-		.management_readEnable(wb_management_readEnable),
 		.management_byteSelect(wb_management_byteSelect),
 		.management_address(wb_management_address),
 		.management_writeData(wb_management_writeData),

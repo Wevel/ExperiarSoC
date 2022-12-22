@@ -67,7 +67,7 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 - 0.3.0: Pipeline CPU
 - 0.4.0: Mesh bus
 - 0.5.0: Flash/PSRAM controller with caching
-- 0.6.0: L1 instruction cache and L2 instruction/data cache
+- 0.6.0: L1 instruction/data cache and L2 shared cache
 
 ## Need to do
 - Update probe values

@@ -16,8 +16,8 @@ module Core_WBInterface (
 		// Memory interface from core
 		input wire[27:0] wbAddress,
 		input wire[3:0] wbByteSelect,
+		input wire wbEnable,
 		input wire wbWriteEnable,
-		input wire wbReadEnable,
 		input wire[31:0] wbDataWrite,
 		output wire[31:0] wbDataRead,
 		output wire wbBusy
@@ -43,12 +43,14 @@ module Core_WBInterface (
 				STATE_IDLE: begin
 					readDataBuffered <= ~32'b0;
 
-					if (wbWriteEnable) begin
-						state <= STATE_WRITE_SINGLE;
-						stb <= 1'b1;
-					end else if (wbReadEnable) begin
-						state <= STATE_READ_SINGLE;
-						stb <= 1'b1;
+					if (wbEnable) begin
+						if (wbWriteEnable) begin
+							state <= STATE_WRITE_SINGLE;
+							stb <= 1'b1;
+						end else begin
+							state <= STATE_READ_SINGLE;
+							stb <= 1'b1;
+						end
 					end
 				end
 
@@ -90,6 +92,6 @@ module Core_WBInterface (
 	assign wb_adr_o = wbAddress;
 	
 	assign wbDataRead = readDataBuffered;
-	assign wbBusy = (state != STATE_IDLE || wbWriteEnable || wbReadEnable) && (state != STATE_END);
+	assign wbBusy = (state != STATE_IDLE) && (state != STATE_END);
 
 endmodule

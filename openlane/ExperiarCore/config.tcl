@@ -12,6 +12,12 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/ExperiarCore/ExperiarCore_top.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/CoreManagement.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/RV32ICore.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Pipe/PipeFetch.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Pipe/PipeOperation.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Pipe/PipeStage.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Pipe/PipeStore.v \
+	$script_dir/../../verilog/rtl/ExperiarCore/Utility/InstructionDecode.v\
+	$script_dir/../../verilog/rtl/ExperiarCore/Utility/MisalignedMemoryController.v\
 	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_ConfigurationRegister.v \
 	$script_dir/../../verilog/rtl/ExperiarCore/CSR/CSR_DataRegister.v \
@@ -42,7 +48,8 @@ set ::env(CLOCK_BUFFER_FANOUT) "8"
 # Modules should be bigger than 200x200
 # Also generally best to leave bottom left as 0,0
 set ::env(FP_SIZING) "absolute"
-set ::env(DIE_AREA) "0 0 500 1000"
+set ::env(DIE_AREA) "0 0 500 800"
+#set ::env(DIE_AREA) "0 0 500 1000"
 
 # Alternatively use an adaptive size
 #set ::env(FP_SIZING) "relative"
@@ -52,7 +59,8 @@ set ::env(DIE_AREA) "0 0 500 1000"
 set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 set ::env(PL_BASIC_PLACEMENT) 0
-set ::env(PL_TARGET_DENSITY) 0.275
+set ::env(PL_TARGET_DENSITY) 0.375
+#set ::env(PL_TARGET_DENSITY) 0.275
 
 # Margin for max slew as percentage
 # Not sure what the limits of this value should be

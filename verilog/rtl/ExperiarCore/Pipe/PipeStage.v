@@ -19,7 +19,6 @@ module PipeStage (
 			if (stepPipe) begin
 				currentPipeStall <= pipeStall;
 				if (!pipeStall) lastInstruction <= currentInstruction;
-				else lastInstruction <= 32'b0; // TODO: Does it make the core bigger to include this
 			end
 		end
 	end

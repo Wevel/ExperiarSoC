@@ -18,15 +18,15 @@ module WB_SRAMInterface (
 		// Memory interface
 		output wire[23:0] localMemoryAddress,
 		output wire[3:0] localMemoryByteSelect,
+		output wire localMemoryEnable,
 		output wire localMemoryWriteEnable,
-		output wire localMemoryReadEnable,
 		output wire[31:0] localMemoryDataWrite,
 		input wire[31:0] localMemoryDataRead,
 		input wire localMemoryBusy,
 
 		// Management interface
+		output wire management_enable,
 		output wire management_writeEnable,
-		output wire management_readEnable,
 		output wire[3:0] management_byteSelect,
 		output wire[19:0] management_address,
 		output wire[31:0] management_writeData,
@@ -129,21 +129,19 @@ module WB_SRAMInterface (
 	assign wb_data_o = dataRead_buffered;
 
 	// Connect local memory and management interface signals
-	wire localMemoryEnable = wb_adr_i[23] == 1'b0;
-	wire managementEnable = wb_adr_i[23:20] == 4'h8;
-
-	assign peripheralBus_dataRead = localMemoryEnable ? localMemoryDataRead : 
-									managementEnable   ? management_readData : ~32'b0;
-	assign peripheralBus_busy = (localMemoryEnable && localMemoryBusy) || (managementEnable && management_busy);
+	assign localMemoryEnable = wb_adr_i[23] == 1'b0 && (peripheralBus_oe || peripheralBus_we);
+	assign management_enable = wb_adr_i[23:20] == 4'h8 && (peripheralBus_oe || peripheralBus_we);
 
 	assign localMemoryWriteEnable = localMemoryEnable && peripheralBus_we;
-	assign localMemoryReadEnable = localMemoryEnable && peripheralBus_oe;
+	assign peripheralBus_dataRead = localMemoryEnable ? localMemoryDataRead : 
+									management_enable   ? management_readData : ~32'b0;
+	assign peripheralBus_busy = (localMemoryEnable && localMemoryBusy) || (management_enable && management_busy);
+
 	assign localMemoryAddress = peripheralBus_address;
 	assign localMemoryByteSelect = peripheralBus_byteSelect;
 	assign localMemoryDataWrite = peripheralBus_dataWrite;
 
-	assign management_writeEnable = managementEnable && peripheralBus_we;
-	assign management_readEnable = managementEnable && peripheralBus_oe;
+	assign management_writeEnable = management_enable && peripheralBus_we;
 	assign management_address = peripheralBus_address;
 	assign management_byteSelect = peripheralBus_byteSelect;
 	assign management_writeData = peripheralBus_dataWrite;
