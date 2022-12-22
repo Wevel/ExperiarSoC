@@ -98,7 +98,7 @@ module CSR (
 	// Vendor ID
 	wire[31:0] vendorIDReadData;
 	wire vendorIDRequestOutput;
-	CSR_ReadRegister #(.ADDRESS(12'hC01)) vendorID(
+	CSR_ReadRegister #(.ADDRESS(12'hF11)) vendorID(
 		.clk(clk),
 		.rst(rst),
 		.csrReadEnable(csrReadEnable),
@@ -110,7 +110,7 @@ module CSR (
 	// Architecture ID
 	wire[31:0] archIDReadData;
 	wire archIDRequestOutput;
-	CSR_ReadRegister #(.ADDRESS(12'hC01)) archID(
+	CSR_ReadRegister #(.ADDRESS(12'hF12)) archID(
 		.clk(clk),
 		.rst(rst),
 		.csrReadEnable(csrReadEnable),
@@ -122,7 +122,7 @@ module CSR (
 	// Implementation ID
 	wire[31:0] implIDReadData;
 	wire implIDRequestOutput;
-	CSR_ReadRegister #(.ADDRESS(12'hC01)) implID(
+	CSR_ReadRegister #(.ADDRESS(12'hF13)) implID(
 		.clk(clk),
 		.rst(rst),
 		.csrReadEnable(csrReadEnable),
@@ -134,7 +134,7 @@ module CSR (
 	// Hardware thread ID
 	wire[31:0] coreIDReadData;
 	wire coreIDRequestOutput;
-	CSR_ReadRegister #(.ADDRESS(12'hC01)) coreID(
+	CSR_ReadRegister #(.ADDRESS(12'hF14)) coreID(
 		.clk(clk),
 		.rst(rst),
 		.csrReadEnable(csrReadEnable),
@@ -146,7 +146,7 @@ module CSR (
 	// ISA
 	wire[31:0] misaReadData;
 	wire misaRequestOutput;
-	CSR_ReadRegister #(.ADDRESS(12'hC01)) misa(
+	CSR_ReadRegister #(.ADDRESS(12'h301)) misa(
 		.clk(clk),
 		.rst(rst),
 		.csrReadEnable(csrReadEnable),
