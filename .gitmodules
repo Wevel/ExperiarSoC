@@ -1,0 +1,6 @@
+[submodule "verilog/dv/ExperiarSoC_Tests"]
+	path = verilog/dv/ExperiarSoC_Tests
+	url = https://github.com/Wevel/ExperiarSoC_Tests.git
+[submodule "verilog/rtl/ExperiarSoC_Core"]
+	path = verilog/rtl/ExperiarSoC_Core
+	url = https://github.com/Wevel/ExperiarSoC_Core.git

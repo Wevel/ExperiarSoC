@@ -1,2 +1,4 @@
 precheck_results
 .vscode
+openlane/Makefile
+openlane/user_project_wrapper/pin_order.cfg
