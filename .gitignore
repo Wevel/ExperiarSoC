@@ -1,4 +1,5 @@
-precheck_results
+/.idea/
+/precheck_results/
+*/tmp
+*/*/tmp
 .vscode
-openlane/Makefile
-openlane/user_project_wrapper/pin_order.cfg

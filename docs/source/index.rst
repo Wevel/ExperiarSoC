@@ -27,17 +27,19 @@ Table of contents
 =================
 
 -  `Overview <#overview>`__
--  `Install Caravel <#install-caravel>`__
+-  `Quickstart <#quickstart>`__
 -  `Caravel Integration <#caravel-integration>`__
 
    -  `Repo Integration <#repo-integration>`__
    -  `Verilog Integration <#verilog-integration>`__
+   -  `GPIO Configuration <#gpio-configuration>`__
    -  `Layout Integration <#layout-integration>`__
 
 -  `Running Full Chip Simulation <#running-full-chip-simulation>`__
 -  `User Project Wrapper Requirements <#user-project-wrapper-requirements>`__
 -  `Hardening the User Project using
    Openlane <#hardening-the-user-project-using-openlane>`__
+-  `Running Timing Analysis on Existing Projects <#running-timing-analysis-on-existing-projects>`__
 -  `Checklist for Open-MPW
    Submission <#checklist-for-open-mpw-submission>`__
 
@@ -59,36 +61,135 @@ Prerequisites
 
 - Python 3.6+ with PIP
 
-Install Caravel
-===============
 
-To setup caravel, run the following:
+Quickstart 
+===========
 
-.. code:: bash
+---------------------
+Starting your project
+---------------------
+
+#. To start the project you first need to create a new repository based on the `caravel_user_project <https://github.com/efabless/caravel_user_project/>`_ template and make sure your repo is public and includes a README.
+
+   *   Follow https://github.com/efabless/caravel_user_project/generate to create a new repository.
+   *   Clone the reposity using the following command:
+   
+       .. code:: bash
+        
+    	git clone <your github repo URL>
+	
+#.  To setup your local environment run:
+
+    .. code:: bash
     
-    git clone https://github.com/efabless/caravel_user_project.git
-    cd caravel_user_project
+    	cd <project_name> # project_name is the name of your repo
+	
+    	mkdir dependencies
+	
+	export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src # you need to export this whenever you start a new shell
+	
+	export PDK_ROOT=$(pwd)/dependencies/pdks # you need to export this whenever you start a new shell
+
+	# export the PDK variant depending on your shuttle, if you don't know leave it to the default
+	
+	# for sky130 MPW shuttles....
+	export PDK=sky130A
+	
+	# for the gf180 GFMPW shuttles...
+	export PDK=gf180mcuC
+
+
+
+        make setup
+
+*   This command will setup your environment by installing the following
     
-    make install
+    - caravel_lite (a lite version of caravel)
+    - management core for simulation
+    - openlane to harden your design 
+    - pdk
 
-To remove caravel, run
+	
+#.  Now you can start hardening your design
 
-.. code:: bash
+    *   To start hardening you project you need 
+        - RTL verilog model for your design for OpenLane to harden
+        - A subdirectory for each macro in your project under ``openlane/`` directory, each subdirectory should include openlane configuration files for the macro
 
-    make uninstall
+        .. code:: bash
 
-By default
-`caravel-lite <https://github.com/efabless/caravel-lite.git>`__ is
-installed. To install the full version of caravel, run this prior to
-calling make install.
+           make <module_name>	
+        ..
 
-.. code:: bash
+		For an example of hardening a project please refer to `Hardening the User Project using OpenLane`_. .
+	
+#.  Integrate modules into the user_project_wrapper
 
-    export CARAVEL_LITE=0
+    *   Change the environment variables ``VERILOG_FILES_BLACKBOX``, ``EXTRA_LEFS`` and ``EXTRA_GDS_FILES`` in ``openlane/user_project_wrapper/config.tcl`` to point to your module
+    *   Instantiate your module(s) in ``verilog/rtl/user_project_wrapper.v``
+    *   Harden the user_project_wrapper including your module(s), using this command:
+
+        .. code:: bash
+
+            make user_project_wrapper
+
+#.  Run simulation on your design
+
+    *   You need to include your rtl/gl/gl+sdf files in ``verilog/includes/includes.<rtl/gl/gl+sdf>.caravel_user_project``
+
+        **NOTE:** You shouldn't include the files inside the verilog code
+
+        .. code:: bash
+
+            # you can then run RTL simulations using
+            make verify-<testbench-name>-rtl
+
+            # OR GL simulation using
+            make verify-<testbench-name>-gl
+
+            # OR for GL+SDF simulation using 
+            # sdf annotated simulation is slow
+            make verify-<testbench-name>-gl-sdf
+
+            # for example
+            make verify-io_ports-rtl
+
+#.  Run opensta on your design
+
+    *   Extract spefs for ``user_project_wrapper`` and macros inside it:
+
+        .. code:: bash
+
+            make extract-parasitics
+
+    *   Create spef mapping file that maps instance names to spef files:
+
+        .. code:: bash
+
+            make create-spef-mapping
+
+    *   Run opensta:
+
+        .. code:: bash
+
+            make caravel-sta
+
+        **NOTE:** To update timing scripts run ``make setup-timing-scripts``
+	
+#.  Run the precheck locally 
+
+    .. code:: bash
+
+        make precheck
+        make run-precheck
+
+#. You are done! now go to https://efabless.com/open_shuttle_program/ to submit your project!
+
 
 Caravel Integration
 ===================
 
+----------------
 Repo Integration
 ----------------
 
@@ -113,6 +214,7 @@ corresponding files:
 
 The symbolic links are automatically set when you run ``make install``.
 
+-------------------
 Verilog Integration
 -------------------
 
@@ -147,7 +249,42 @@ for more information.
 
    </p>
 
+-------------------
+GPIO Configuration
+-------------------
 
+You are required to specify the power-on default configuration for each GPIO in Caravel.  The default configuration provide the state the GPIO will come up on power up.  The configuration can be changed by the management SoC during firmware execution.
+
+Configuration settings define whether the GPIO is configured to connect to the user project area or the managment SoC.  They also determine whether IOs are inputs or outputs, digital or analog, as well as whether pull-up or pull-down resistors are configured for inputs.
+
+GPIOs are configured by assigning predefined values for each IO in the file `verilog/rtl/user_defines.v <https://github.com/efabless/caravel_user_project/blob/main/verilog/rtl/user_defines.v>`_ in your project.
+
+You need to assigned configuration values for GPIO[5] thru GPIO[37]. 
+
+GPIO[0] thru GPIO[4] are preset and cannot be changed.
+
+The following values are redefined for assigning to GPIOs.
+
+
+- GPIO_MODE_MGMT_STD_INPUT_NOPULL
+- GPIO_MODE_MGMT_STD_INPUT_PULLDOWN
+- GPIO_MODE_MGMT_STD_INPUT_PULLUP
+- GPIO_MODE_MGMT_STD_OUTPUT
+- GPIO_MODE_MGMT_STD_BIDIRECTIONAL
+- GPIO_MODE_MGMT_STD_ANALOG
+
+- GPIO_MODE_USER_STD_INPUT_NOPULL
+- GPIO_MODE_USER_STD_INPUT_PULLDOWN
+- GPIO_MODE_USER_STD_INPUT_PULLUP
+- GPIO_MODE_USER_STD_OUTPUT
+- GPIO_MODE_USER_STD_BIDIRECTIONAL
+- GPIO_MODE_USER_STD_OUT_MONITORED 
+- GPIO_MODE_USER_STD_ANALOG
+
+
+MPW_Prececk includes a check to confirm each GPIO is assigned a valid value.
+
+-------------------
 Layout Integration
 -------------------
 
@@ -161,20 +298,6 @@ The caravel layout is pre-designed with an empty golden wrapper in the user spac
    
 To make sure that this integration process goes smoothly without having any DRC or LVS issues, your hardened ``user_project_wrapper`` must adhere to a number of requirements listed at `User Project Wrapper Requirements <#user-project-wrapper-requirements>`__ .
 
-
-Building the PDK 
-================
-
-For more information about volare click `here <https://github.com/efabless/volare>`__
-
-.. code:: bash
-
-    # set PDK_ROOT to the path you wish to use for the pdk
-    export PDK_ROOT=<pdk-installation-path>
-
-    # use volare to download the pdk
-    # To change the default pdk version you can export OPEN_PDKS_COMMIT=<pdk_commit>
-    make pdk-with-volare 
 
 Running Full Chip Simulation
 ============================
@@ -192,8 +315,10 @@ Then, run the RTL simulation by
 .. code:: bash
 
     export PDK_ROOT=<pdk-installation-path>
-    # Run RTL simulation on IO ports testbench, make verify-io_ports
     make verify-<testbench-name>-rtl
+    
+    # For example
+    make verify-io_ports-rtl
 
 Once you have the physical implementation done and you have the gate-level netlists ready, it is crucial to run full gate-level simulations to make sure that your design works as intended after running the physical implementation. 
 
@@ -202,9 +327,21 @@ Run the gate-level simulation by:
 .. code:: bash
 
     export PDK_ROOT=<pdk-installation-path>
-    # Run RTL simulation on IO ports testbench, make verify-io_ports
     make verify-<testbench-name>-gl
 
+    # For example
+    make verify-io_ports-gl
+
+To make sure that your design is timing clean, one way is running sdf annotated gate-level simulation
+Run the sdf annotated gate-level simulation by: 
+
+.. code:: bash
+
+    export PDK_ROOT=<pdk-installation-path>
+    make verify-<testbench-name>-gl-sdf
+
+    # For example
+    make verify-io_ports-gl-sdf
 
 This sample project comes with four example testbenches to test the IO port connection, wishbone interface, and logic analyzer. The test-benches are under the
 `verilog/dv <https://github.com/efabless/caravel_user_project/tree/main/verilog/dv>`__ directory. For more information on setting up the
@@ -247,6 +384,7 @@ To make sure that you adhere to these requirements, we run an exclusive-or (XOR)
 Hardening the User Project using OpenLane
 ==========================================
 
+---------------------
 OpenLane Installation 
 ---------------------
 
@@ -266,6 +404,7 @@ For detailed instructions on the openlane and the pdk installation refer
 to
 `README <https://github.com/The-OpenROAD-Project/OpenLane#setting-up-openlane>`__.
 
+-----------------
 Hardening Options 
 -----------------
 
@@ -300,7 +439,7 @@ openlane:
 
 For more details on hardening macros using openlane, refer to `README <https://github.com/The-OpenROAD-Project/OpenLane/blob/master/docs/source/hardening_macros.md>`__.
 
-
+-----------------
 Running OpenLane 
 -----------------
 
@@ -323,7 +462,7 @@ To reproduce hardening this project, run the following:
 .. code:: bash
 
    # DO NOT cd into openlane
-
+   
    # Run openlane to harden user_proj_example
    make user_proj_example
    # Run openlane to harden user_project_wrapper
@@ -353,6 +492,38 @@ Then, you can run the precheck by running
    make run-precheck
 
 This will run all the precheck checks on your project and will produce the logs under the ``checks`` directory.
+
+Running Timing Analysis on Existing Projects
+========================================================
+
+Start by updating the Makefile for your project.  Starting in the project root...
+
+.. code:: bash
+  
+   curl -k https://raw.githubusercontent.com/efabless/caravel_user_project/main/Makefile > Makefile
+   
+   make setup-timing-scripts
+   
+   make install
+   
+   make install_mcw
+   
+
+This will update Caravel design files and install the scripts for running timing. 
+
+
+Then, you can run then run timing by the following...
+
+.. code:: bash
+
+   make extract-parasitics
+   
+   make create-spef-mapping
+   
+   make caravel-sta
+   
+
+A summary of timing results is provided at the end of the flow. 
 
 
 Other Miscellaneous Targets
