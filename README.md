@@ -88,6 +88,6 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 
 # Reference work and inspiration
 - [Zero to ASIC Course](https://www.zerotoasiccourse.com/): Complete course on ASIC design. Also has useful references and terminology definitions.
-- [Openlane Documentation](https://openlane-docs.readthedocs.io/en/rtd-develop/index.html): Reference for a lot of configuration. The [Variables](https://openlane-docs.readthedocs.io/en/rtd-develop/configuration/README.html) and [Hardening Macros](https://openlane-docs.readthedocs.io/en/rtd-develop/doc/hardening_macros.html#) pages have been particularity useful.
+- [Openlane Documentation](https://openlane.readthedocs.io/en/latest/index.html): Reference for a lot of configuration. The [Variables](https://openlane.readthedocs.io/en/latest/reference/configuration.html) and [Hardening Macros](https://openlane.readthedocs.io/en/latest/usage/hardening_macros.html) pages have been particularity useful.
 - [Caravel Documentation](https://caravel-harness.readthedocs.io/en/latest/index.html): Reference for caravel and configuration. This seems slightly out of date, but an alternate version can be found in the [github repository](https://github.com/efabless/caravel/tree/main/docs/pdf).
 - [Riscduino](https://github.com/dineshannayya/riscduino): Used for inspiration and as a reference for using openlane. There are a number of similar aspects to this project, but all have been reimplemented rather than copied.
