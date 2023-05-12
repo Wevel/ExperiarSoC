@@ -35,6 +35,14 @@ module CaravelHost (
 		// Caravel IRQ
 		output wire[3:0] caravel_irq,
 
+		// Logic probes
+		// input wire[127:0] la_data_in,
+		output wire[127:0] la_data_out,
+		// input wire[127:0] la_oenb,
+
+		//output wire[127:0] probe_in,
+		input wire[97:0] probe_out,
+
 		// Configuration constants
 		output wire[7:0] core0Index,
 		output wire[7:0] core1Index,
@@ -183,4 +191,9 @@ module CaravelHost (
 	
 	assign caravel_irq = 3'b0;
 	
+	assign la_data_out = {
+		30'b0,
+		probe_out
+	};
+
 endmodule

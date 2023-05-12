@@ -20,21 +20,21 @@
 .SILENT: clean all
 
 
-PATTERNS = io_ports la_test1 la_test2 wb_port mprj_stimulus
+PATTERNS = coreArch coreMemory corePC flash memory peripheralsGPIO peripheralsPWM peripheralsSPI peripheralsUART
 
 all:  ${PATTERNS}
 
 	for i in ${PATTERNS}; do \
-		( cd $$i && make -f Makefile $${i}.vcd &> verify.log && grep Monitor verify.log) ; \
+		( cd $$i && make -f Makefile ExperiarSoC_Tests/$${i}.vcd &> verify.log && grep Monitor verify.log) ; \
 	done
 
 DV_PATTERNS = $(foreach dv, $(PATTERNS), verify-$(dv))
 $(DV_PATTERNS): verify-% : 
-	cd $* && make
+	cd ExperiarSoC_Tests/$* && make
 
 clean:  ${PATTERNS}
 	for i in ${PATTERNS}; do \
-		( cd $$i && \rm  -f *.elf *.hex *.bin *.vvp *.log *.vcd *.lst *.hexe ) ; \
+		( cd ExperiarSoC_Tests/$$i && \rm  -f *.elf *.hex *.bin *.vvp *.log *.vcd *.lst *.hexe ) ; \
 	done
 	rm -rf *.log
 	

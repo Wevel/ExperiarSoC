@@ -5,7 +5,7 @@
 			"displayName": "Art",
 			"position": {
 				"x": 210,
-				"y": 2508
+				"y": 2558
 			},
 			"size": {
 				"x": 305,
@@ -26,11 +26,11 @@
 			"displayName": "Caravel Host",
 			"position": {
 				"x": 1600,
-				"y": 250
+				"y": 225
 			},
 			"size": {
-				"x": 350,
-				"y": 350
+				"x": 400,
+				"y": 425
 			},
 			"rotation": "N"
 		},
@@ -38,12 +38,12 @@
 			"name": "experiarSoC/core0",
 			"displayName": "Core 0",
 			"position": {
-				"x": 925,
-				"y": 150
+				"x": 900,
+				"y": 200
 			},
 			"size": {
 				"x": 500,
-				"y": 1000
+				"y": 800
 			},
 			"rotation": "N"
 		},
@@ -51,12 +51,12 @@
 			"name": "experiarSoC/core1",
 			"displayName": "Core 1",
 			"position": {
-				"x": 925,
-				"y": 1280
+				"x": 900,
+				"y": 1320
 			},
 			"size": {
 				"x": 500,
-				"y": 1000
+				"y": 800
 			},
 			"rotation": "N"
 		},
@@ -64,7 +64,7 @@
 			"name": "experiarSoC/flash",
 			"displayName": "Flash Controller",
 			"position": {
-				"x": 2100,
+				"x": 2200,
 				"y": 700
 			},
 			"size": {
@@ -77,7 +77,7 @@
 			"name": "experiarSoC/peripherals",
 			"displayName": "Peripherals",
 			"position": {
-				"x": 2100,
+				"x": 2200,
 				"y": 1000
 			},
 			"size": {
@@ -90,8 +90,8 @@
 			"name": "experiarSoC/video",
 			"displayName": "Video",
 			"position": {
-				"x": 1600,
-				"y": 2633
+				"x": 1625,
+				"y": 2683
 			},
 			"size": {
 				"x": 350,
@@ -103,8 +103,8 @@
 			"name": "experiarSoC/wishboneInterconnect",
 			"displayName": "Wishbone Interconnect",
 			"position": {
-				"x": 1600,
-				"y": 725
+				"x": 1650,
+				"y": 800
 			},
 			"size": {
 				"x": 350,
@@ -116,8 +116,8 @@
 			"name": "experiarSoC/core0SRAM0",
 			"displayName": "Core 0 SRAM 0",
 			"position": {
-				"x": 140,
-				"y": 150
+				"x": 90,
+				"y": 200
 			},
 			"size": {
 				"x": 683.1,
@@ -133,8 +133,8 @@
 			"name": "experiarSoC/core0SRAM1",
 			"displayName": "Core 0 SRAM 1",
 			"position": {
-				"x": 140,
-				"y": 715
+				"x": 90,
+				"y": 765
 			},
 			"size": {
 				"x": 683.1,
@@ -150,8 +150,8 @@
 			"name": "experiarSoC/core1SRAM0",
 			"displayName": "Core 1 SRAM 0",
 			"position": {
-				"x": 140,
-				"y": 1300
+				"x": 90,
+				"y": 1350
 			},
 			"size": {
 				"x": 683.1,
@@ -167,8 +167,8 @@
 			"name": "experiarSoC/core1SRAM1",
 			"displayName": "Core 1 SRAM 1",
 			"position": {
-				"x": 140,
-				"y": 1865
+				"x": 90,
+				"y": 1915
 			},
 			"size": {
 				"x": 683.1,
@@ -185,7 +185,7 @@
 			"displayName": "Video SRAM 0",
 			"position": {
 				"x": 767,
-				"y": 2400
+				"y": 2450
 			},
 			"size": {
 				"x": 683.1,
@@ -202,7 +202,7 @@
 			"displayName": "Video SRAM 1",
 			"position": {
 				"x": 767,
-				"y": 2950
+				"y": 3000
 			},
 			"size": {
 				"x": 683.1,
@@ -218,8 +218,8 @@
 			"name": "experiarSoC/videoSRAM2",
 			"displayName": "Video SRAM 2",
 			"position": {
-				"x": 2100,
-				"y": 2400
+				"x": 2150,
+				"y": 2450
 			},
 			"size": {
 				"x": 683.1,
@@ -235,8 +235,8 @@
 			"name": "experiarSoC/videoSRAM3",
 			"displayName": "Video SRAM 3",
 			"position": {
-				"x": 2100,
-				"y": 2950
+				"x": 2150,
+				"y": 3000
 			},
 			"size": {
 				"x": 683.1,
@@ -252,8 +252,8 @@
 			"name": "experiarSoC/flashSRAM",
 			"displayName": "Flash SRAM",
 			"position": {
-				"x": 2050,
-				"y": 150
+				"x": 2150,
+				"y": 200
 			},
 			"size": {
 				"x": 683.1,

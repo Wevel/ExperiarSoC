@@ -1,44 +1,86 @@
-[WARNING]: Skipping Tap/Decap Insertion.
-[WARNING]: All internal macros will not be connected to power.
-[WARNING]: All internal macros will not be connected to power.
-[WARNING]: All internal macros will not be connected to power.
-[WARNING]: Specifying a routing obstruction is now done using the coordinates
-[WARNING]: of its bounding box instead of the now deprecated (x, y, size_x, size_y).
-[WARNING]: There are max slew violations in the design at the typical corner. Please refer to /home/crab/windows/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/user_project_wrapper/reports/routing/22-parasitics_sta.slew.rpt
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\1-synthesis.log[249]: Warnings: 1 unique messages, 4 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[71]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[72]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[73]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[74]: /home/crab/windows/ASIC/PDKs/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\synthesis\2-synthesis.log[249]: Warnings: 1 unique messages, 4 total
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[51]: [WARNING PDN-0042] No via added at (1621.04 735.64 1622.64 737.43) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[52]: [WARNING PDN-0042] No via added at (1774.64 735.64 1776.24 737.43) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\6-pdn.log[53]: [WARNING PDN-0042] No via added at (1928.24 735.64 1929.84 737.43) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\7-pdn.log[32]: [WARNING PDN-0042] No via added at (1737.57 122.93 1740.67 125.0) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\7-pdn.log[33]: [WARNING PDN-0042] No via added at (1917.57 122.93 1920.67 125.0) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\8-pdn.log[32]: [WARNING PDN-0042] No via added at (316.17 3383.0 319.27 3384.63) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\8-pdn.log[33]: [WARNING PDN-0042] No via added at (496.17 3383.0 499.27 3384.63) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[32]: [WARNING PDN-0042] No via added at (784.77 3491.54 787.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[33]: [WARNING PDN-0042] No via added at (964.77 3491.54 967.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[34]: [WARNING PDN-0042] No via added at (1144.77 3491.54 1147.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[35]: [WARNING PDN-0042] No via added at (1324.77 3491.54 1327.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[36]: [WARNING PDN-0042] No via added at (2224.77 3491.54 2227.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[37]: [WARNING PDN-0042] No via added at (2404.77 3491.54 2407.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[38]: [WARNING PDN-0042] No via added at (2584.77 3491.54 2587.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\floorplan\9-pdn.log[39]: [WARNING PDN-0042] No via added at (2764.77 3491.54 2767.87 3493.23) because the full height of met5 (3.1) is not covered by the overlap.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[90]: DEF Read: encountered 15 warnings total.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[1039]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gdsii.log[1040]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[119]: CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\24-gds_ptrs.log[427]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\25-gdsii-klayout.log[20]: WARNING: no fill config file specified
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\26-spice.log[90]: DEF Read: encountered 15 warnings total.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\27-write_powered_def.log[36]: warning: `//.tclsh-history' is not writable.
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
-openlane/user_project_wrapper\runs\user_project_wrapper\logs\finishing\29-lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
-openlane/user_project_wrapper\runs\user_project_wrapper\reports\finishing\antenna.rpt[0]: Warning - class CORE ANTENNACELL is not found. This message can be ignored if not in the antenna-avoid flow
+[WARNING]: There are max slew violations in the design at the typical corner. Please refer to '../mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/reports/signoff/22-rcx_sta.slew.rpt'.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\1-synthesis.log[71]: /pdk/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\1-synthesis.log[72]: /pdk/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\1-synthesis.log[73]: /pdk/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\1-synthesis.log[74]: /pdk/sky130A/libs.ref/sky130_sram_macros/verilog/sky130_sram_2kbyte_1rw1r_32x512_8.v:0: Warning: System task `$display' outside initial block is unsupported.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\1-synthesis.log[253]: Warnings: 1 unique messages, 4 total
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\2-sta.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\2-sta.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/synthesis\2-sta.log[2640]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/routing\12-global_write_netlist.log[5]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\3-initial_fp.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\3-initial_fp.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-apply_def_template.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-apply_def_template.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-apply_def_template.log[1294]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-apply_def_template.log[1296]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[4]: [WARNING PPL-0015] Macro art is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[5]: [WARNING PPL-0015] Macro caravelHost is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[6]: [WARNING PPL-0015] Macro experiarSoC/core0 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[7]: [WARNING PPL-0015] Macro experiarSoC/core0SRAM0 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[8]: [WARNING PPL-0015] Macro experiarSoC/core0SRAM1 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[9]: [WARNING PPL-0015] Macro experiarSoC/core1 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[10]: [WARNING PPL-0015] Macro experiarSoC/core1SRAM0 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[11]: [WARNING PPL-0015] Macro experiarSoC/core1SRAM1 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[12]: [WARNING PPL-0015] Macro experiarSoC/flash is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[13]: [WARNING PPL-0015] Macro experiarSoC/flashSRAM is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[14]: [WARNING PPL-0015] Macro experiarSoC/peripherals is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[15]: [WARNING PPL-0015] Macro experiarSoC/video is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[16]: [WARNING PPL-0015] Macro experiarSoC/videoSRAM0 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[17]: [WARNING PPL-0015] Macro experiarSoC/videoSRAM1 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[18]: [WARNING PPL-0015] Macro experiarSoC/videoSRAM2 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[19]: [WARNING PPL-0015] Macro experiarSoC/videoSRAM3 is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\4-io.log[20]: [WARNING PPL-0015] Macro experiarSoC/wishboneInterconnect is not placed.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[22]: [WARNING PDN-0110] No via inserted between met4 and met5 at (983.3700, 990.7650) - (986.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[23]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1163.3700, 990.7650) - (1166.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[24]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1343.3700, 990.7650) - (1346.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[25]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1703.3700, 808.7300) - (1706.4700, 809.5950) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[26]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1883.3700, 808.7300) - (1886.4700, 809.5950) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[27]: [WARNING PDN-0110] No via inserted between met4 and met5 at (983.3700, 990.7650) - (986.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[28]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1163.3700, 990.7650) - (1166.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[29]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1343.3700, 990.7650) - (1346.4700, 991.8300) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[30]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1703.3700, 808.7300) - (1706.4700, 809.5950) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/floorplan\6-pdn.log[31]: [WARNING PDN-0110] No via inserted between met4 and met5 at (1883.3700, 808.7300) - (1886.4700, 809.5950) on vdda1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\16-parasitics_extraction.min.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\16-parasitics_extraction.min.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.min.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\16-parasitics_extraction.min.log[43]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\17-rcx_mcsta.min.log[959]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\18-parasitics_extraction.max.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\18-parasitics_extraction.max.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.max.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\18-parasitics_extraction.max.log[43]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\19-rcx_mcsta.max.log[1340]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\20-parasitics_extraction.nom.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\20-parasitics_extraction.nom.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\20-parasitics_extraction.nom.log[43]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\21-rcx_mcsta.nom.log[1205]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\22-rcx_sta.log[631]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\23-irdrop.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\23-irdrop.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\24-gdsii.log[90]: DEF Read: encountered 15 warnings total.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\24-gdsii.log[606]: CIF file read warning: CIF style sky130(): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\24-gdsii.log[607]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\24-gds_ptrs.log[219]: CIF file read warning: CIF style sky130(): units rescaled by factor of 5 / 1
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\24-gds_ptrs.log[443]: CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[0]: Warning: No mapping for layer 'met5', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[1]: Warning: No mapping for layer 'met4', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[2]: Warning: No mapping for layer 'li1', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[3]: Warning: No mapping for layer 'met3', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[4]: Warning: No mapping for layer 'met2', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\25-gdsii-klayout.log[5]: Warning: No mapping for layer 'met1', purpose 'BLK' - layer is ignored
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\26-xor.log[632]: Warning: Skipping 81/14
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\27-spice.log[90]: DEF Read: encountered 15 warnings total.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[22]: warning: `//.tclsh-history' is not writable.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[27]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[29]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[52]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_def.log[54]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_verilog.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_verilog.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/user_project_wrapper/runs/23_05_12_19_46/tmp/merged.nom.lef at line 930.
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\28-write_powered_verilog.log[20]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\30-lvs.lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\30-lvs.lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+openlane/user_project_wrapper/runs/23_05_12_19_46/logs/signoff\30-lvs.lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
+openlane/user_project_wrapper/runs/23_05_12_19_46/reports/synthesis\2-syn_sta.parasitics_check.rpt[2570]: [WARNING] Did not save OpenROAD database!
+openlane/user_project_wrapper/runs/23_05_12_19_46/reports/signoff\22-rcx_sta.parasitics_check.rpt[586]: [WARNING] Did not save OpenROAD database!

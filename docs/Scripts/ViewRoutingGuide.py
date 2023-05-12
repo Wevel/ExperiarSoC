@@ -4,18 +4,21 @@ import os
 import sys
 import json
 import shutil
+import glob
 
 from JSONWrapper import JSONWrapper
+import Utility
 
-def ParseGuideFile(fileName:str) -> dict[str, list[tuple[float, float, float, float]]]:
+
+def ParseGuideFile(fileName: str) -> dict[str, list[tuple[float, float, float, float]]]:
 	if not os.path.exists(fileName) or os.path.splitext(fileName)[1] != ".guide":
 		return {}
 
 	with open(fileName, "r") as f:
 		lines = f.readlines()
 
-	data = { "other": [] }
-	
+	data = {"other": []}
+
 	for l in lines:
 		parts = l.strip().split(' ')
 		if len(parts) == 5:
@@ -28,7 +31,8 @@ def ParseGuideFile(fileName:str) -> dict[str, list[tuple[float, float, float, fl
 
 	return data
 
-def LoadDRCErrorLocations(fileName:str) -> list[tuple[float, float, float, float]]:
+
+def LoadDRCErrorLocations(fileName: str) -> list[tuple[float, float, float, float]]:
 	if not os.path.exists(fileName):
 		return []
 
@@ -46,7 +50,8 @@ def LoadDRCErrorLocations(fileName:str) -> list[tuple[float, float, float, float
 
 	return data
 
-def LoadMacroPlacementFile(macroPlacementFileName:str) -> JSONWrapper:
+
+def LoadMacroPlacementFile(macroPlacementFileName: str) -> JSONWrapper:
 	if not os.path.exists(macroPlacementFileName):
 		print(f"Can't find macro placement file '{macroPlacementFileName}'")
 		return JSONWrapper(macroPlacementFileName, ".", ".", {})
@@ -60,7 +65,52 @@ def LoadMacroPlacementFile(macroPlacementFileName:str) -> JSONWrapper:
 
 	return JSONWrapper(macroPlacementFileName, ".", ".", data)
 
-def GetMacroBounds(positionX:float, positionY:float, width:float, height:float, rotation:str) -> tuple[float, float, float, float]:
+
+def LoadCongestionFile(congestionFileName: str) -> JSONWrapper:
+	if not os.path.exists(congestionFileName):
+		print(f"Can't find congestion file '{congestionFileName}'")
+		return JSONWrapper(congestionFileName, ".", ".", {})
+
+	if os.path.splitext(congestionFileName)[1] != ".rpt":
+		print(f"Can't find file '{congestionFileName}' as it isn't a report file")
+		return JSONWrapper(congestionFileName, ".", ".", {})
+
+	# File looks something like this:
+	# violation type: Horizontal congestion
+	# 	srcs:
+	# 	congestion information: capacity:17 usage:20 overflow:3
+	# 	bbox = ( 69, 82.8 ) - ( 75.9, 89.7) on Layer -
+	# violation type: Horizontal congestion
+	# 	srcs:
+	# 	congestion information: capacity:17 usage:19 overflow:2
+	# 	bbox = ( 55.2, 89.7 ) - ( 62.1, 96.6) on Layer -
+
+	# Load bbox for each congestion
+	data = {}
+	file = Utility.FileReference(congestionFileName)
+	file.Load()
+	line = file.NextLine()
+	while line is not None:
+		if line.startswith("violation type: "):
+			violationType = line[len("violation type: "):]
+			if violationType not in data:
+				data[violationType] = []
+			line = file.NextLine()
+			while line is not None and line.startswith("  bbox = "):
+				bbox = line[len("  bbox = "):].split(" ")
+				if len(bbox) == 6:
+					data[violationType].append((float(bbox[0]), float(bbox[1]), float(bbox[3]), float(bbox[4])))
+				else:
+					print(f"Invalid bbox line '{line}'")
+				line = file.NextLine()
+		line = file.NextLine()
+
+	print(data)
+
+	return JSONWrapper(congestionFileName, ".", ".", data)
+
+
+def GetMacroBounds(positionX: float, positionY: float, width: float, height: float, rotation: str) -> tuple[float, float, float, float]:
 	if rotation == "N" or rotation == "S" or rotation == "FN" or rotation == "FS":
 		return (positionX, positionY, positionX + width, positionY + height)
 	elif rotation == "E" or rotation == "W" or rotation == "FE" or rotation == "FW":
@@ -69,34 +119,35 @@ def GetMacroBounds(positionX:float, positionY:float, width:float, height:float, 
 		print(f"Invalid rotation '{rotation}'")
 		return (positionX, positionY, positionX + width, positionY + height)
 
-def DrawText(image, bounds:tuple[float, float, float, float], text:str):
+
+def DrawText(image, bounds: tuple[float, float, float, float], text: str, imageScale: int):
 	width = abs(bounds[2] - bounds[0])
 	height = abs(bounds[3] - bounds[1])
 
-	fontSize = 200
+	fontSize = 200 * imageScale
 	textWidth = width + 1
-	while textWidth >  width:
+	while textWidth > width:
 		fnt = ImageFont.truetype("arial.ttf", fontSize)
 		textWidth = fnt.getlength(text)
-		fontSize -= 10
+		fontSize -= 10 * imageScale
 
 	rotated = False
-	if fontSize < 100 and height > width:
-		fontSizeAlt = 200
+	if fontSize < 100 * imageScale and height > width:
+		fontSizeAlt = 200 * imageScale
 		textWidth = height + 1
-		while textWidth >  height:
+		while textWidth > height:
 			fnt = ImageFont.truetype("arial.ttf", fontSizeAlt)
 			textWidth = fnt.getlength(text)
-			fontSizeAlt -= 10
+			fontSizeAlt -= 10 * imageScale
 		if fontSizeAlt > fontSize:
 			fontSize = fontSizeAlt
 			rotated = True
 
 	fnt = ImageFont.truetype("arial.ttf", fontSize)
-	textSize = fnt.getsize(text)
-	textIm=Image.new('L', textSize)
+	left, top, right, bottom = fnt.getbbox(text)
+	textIm = Image.new('L', (right - left, bottom - top))
 	textDraw = ImageDraw.Draw(textIm)
-	textDraw.text((0.5 * textSize[0], 0.5 * textSize[1]), text, font=fnt, anchor="mm", align="center", fill=255)
+	textDraw.text((0.5 * (right - left), 0.5 * (bottom - top)), text, font=fnt, anchor="mm", align="center", fill=255)
 
 	if rotated:
 		w = textIm.rotate(90, expand=True)
@@ -107,98 +158,101 @@ def DrawText(image, bounds:tuple[float, float, float, float], text:str):
 	py = bounds[3] + (0.5 * (height - w.height))
 
 	image.paste(ImageOps.colorize(w, "black", "white"), (int(px), int(py)), w)
-	
-def ViewGuideFile(guideFileName:str, macroPlacementFileName:str):
-	if not os.path.exists(guideFileName):
-		print(f"Can't find guide file '{guideFileName}' to render")
+
+
+def ViewGuideFile(guideFilePath: str, outputDir: str, baseName: str, macroPlacementFileName: str | None):
+	if not os.path.exists(guideFilePath):
+		print(f"Can't find guide file '{guideFilePath}' to render")
 		return
 
-	if os.path.splitext(guideFileName)[1] != ".guide":
-		print(f"Can't find file '{guideFileName}' as it isn't a guide file")
+	if os.path.splitext(guideFilePath)[1] != ".guide":
+		print(f"Can't find file '{guideFilePath}' as it isn't a guide file")
 		return
 
-	data = ParseGuideFile(guideFileName)
+	data = ParseGuideFile(guideFilePath)
 
-	chipWidth = 2908.58
-	chipHeight = 3497.92
+	macroWidth = 0  # 2908.58
+	macroHeight = 0  #3497.92
 	boarder = 100
-	imageScale = 2
+	imageScale = 1
 
-	imageWidth = int((chipWidth + boarder + boarder) * imageScale) + 1
-	imageHeight = int((chipHeight + boarder + boarder) * imageScale) + 1
-	
-	imBase = Image.new(mode="RGBA", size=(imageWidth, imageHeight), color=(15, 15, 15, 255))
+	for layer in data.values():
+		for r in layer:
+			macroWidth = max(macroWidth, r[0], r[2])
+			macroHeight = max(macroHeight, r[1], r[3])
+
+	imageWidth = int((macroWidth + boarder + boarder) * imageScale) + 1
+	imageHeight = int((macroHeight + boarder + boarder) * imageScale) + 1
+
+	imBase = Image.new(mode="RGBA", size=(imageWidth, imageHeight), color=(35, 35, 35, 255))
 	draw = ImageDraw.Draw(imBase, "RGBA")
 
 	textToDraw = []
 
-	if macroPlacementFileName != "" and os.path.exists(macroPlacementFileName):
+	if macroPlacementFileName != None and os.path.exists(macroPlacementFileName):
 		root = LoadMacroPlacementFile(macroPlacementFileName)
 		macroPlacement = root.GetEntry("macros")
 		for item in macroPlacement:
 			position = item.GetEntry("position")
 			size = item.GetEntry("size")
 			rotation = item.GetEntry("rotation")
-			bounds = GetMacroBounds(
-				position.GetEntry("x").AsFloat(),
-				position.GetEntry("y").AsFloat(),
-				size.GetEntry("x").AsFloat(),
-				size.GetEntry("y").AsFloat(),
-				rotation.AsString())
+			bounds = GetMacroBounds(position.GetEntry("x").AsFloat(), position.GetEntry("y").AsFloat(), size.GetEntry("x").AsFloat(), size.GetEntry("y").AsFloat(), rotation.AsString())
 			px0 = (bounds[0] + boarder) * imageScale
-			py0 = (chipHeight - bounds[1] + boarder) * imageScale
+			py0 = (macroHeight - bounds[1] + boarder) * imageScale
 			px1 = (bounds[2] + boarder) * imageScale
-			py1 = (chipHeight - bounds[3] + boarder) * imageScale
-			draw.rectangle((px0, py0, px1, py1), fill=(50, 50, 50, 255), outline=(150, 150, 150, 255), width=5)
+			py1 = (macroHeight - bounds[3] + boarder) * imageScale
+			draw.rectangle((px0, py0, px1, py1), fill=(70, 70, 70, 255), outline=(150, 150, 150, 255), width=5 * imageScale)
 
 			if item.HasEntry("displayName"):
-				textToDraw.append(((px0, py0, px1, py1), item.GetEntry("displayName").AsString()))			
-	
-	def drawRect(d, r, c):		
+				textToDraw.append(((px0, py0, px1, py1), item.GetEntry("displayName").AsString()))
+
+	def drawRect(d: ImageDraw.ImageDraw, r, c):
 		px0 = int((r[0] + boarder) * imageScale)
-		py0 = int((chipHeight - r[1] + boarder) * imageScale)
+		py0 = int((macroHeight - r[1] + boarder) * imageScale)
 		px1 = int((r[2] + boarder) * imageScale)
-		py1 = int((chipHeight - r[3] + boarder) * imageScale)
+		py1 = int((macroHeight - r[3] + boarder) * imageScale)
 		d.rectangle((px0, py0, px1, py1), fill=c, outline=None, width=0)
 
 	def drawLayer(name, c):
-		layerIm = imBase.copy()# Image.new(mode="RGBA", size=(imageWidth, imageHeight), color=(15, 15, 15, 255))
+		layerIm = imBase.copy()  # Image.new(mode="RGBA", size=(imageWidth, imageHeight), color=(15, 15, 15, 255))
 		layerDraw = ImageDraw.Draw(layerIm, "RGBA")
 
 		if name in data:
-			for	r in data[name]:
+			for r in data[name]:
 				drawRect(layerDraw, r, (c[0], c[1], c[2], 255))
 
 		return Image.blend(imBase, layerIm, c[3] / 255.0)
 
-	imBase = drawLayer("li1"  , (100, 100, 100, 200))
-	imBase = drawLayer("met1" , (  0, 121, 198, 200))
-	imBase = drawLayer("met2" , (164,   0, 164, 200))
-	imBase = drawLayer("met3" , ( 30, 159,   0, 200))
-	imBase = drawLayer("met4" , (205,  19,   5, 200))
-	imBase = drawLayer("met5" , (239, 239,   0, 200))
+	imBase = drawLayer("li1", (100, 100, 100, 200))
+	imBase = drawLayer("met1", (0, 121, 198, 200))
+	imBase = drawLayer("met2", (164, 0, 164, 200))
+	imBase = drawLayer("met3", (30, 159, 0, 200))
+	imBase = drawLayer("met4", (205, 19, 5, 200))
+	imBase = drawLayer("met5", (239, 239, 0, 200))
 	imBase = drawLayer("other", (255, 255, 255, 200))
 
 	for item in textToDraw:
-		DrawText(imBase, item[0], item[1])
+		DrawText(imBase, item[0], item[1], imageScale)
 
 	imDraw = ImageDraw.Draw(imBase, "RGBA")
 	errorData = LoadDRCErrorLocations("ExperiarSoC/precheck_results/24_MAY_2022___21_15_27/outputs/reports/magic_drc_check.drc.report")
 	for item in errorData:
-		drawRect(imDraw, (item[0]-20, item[1]-20, item[2]+20, item[3]+20), (255, 0, 0, 255))
+		drawRect(imDraw, (item[0] - 20, item[1] - 20, item[2] + 20, item[3] + 20), (255, 0, 0, 255))
 
 	# write to stdout
-	imBase.save(f"{guideFileName}.jpg", "PNG")
-	print(f"Saved output image: '{guideFileName}.jpg'")
+	outputFileName = Utility.Join(outputDir, f"{baseName}_{os.path.split(guideFilePath)[1]}.png")
+	imBase.save(f"{outputFileName}", "PNG")
+	print(f"Saved output image: '{outputFileName}'")
+
 
 def main():
 	if len(sys.argv) > 1:
-		macroPlacementFile = ""
+		macroPlacementFile = None
 		for i in range(1, len(sys.argv)):
 			item = sys.argv[i]
 			if type(item) is str:
 				if os.path.splitext(item)[1] == ".json":
-					if macroPlacementFile == "":
+					if macroPlacementFile is None:
 						macroPlacementFile = item
 					else:
 						print("Multiple macro placement files specified")
@@ -207,16 +261,32 @@ def main():
 			item = sys.argv[i]
 			if type(item) is str:
 				if os.path.splitext(item)[1] != ".json":
-					ViewGuideFile(str(item), macroPlacementFile)
+					guideFileName = str(item)
+					if os.path.isdir(guideFileName):
+						buildPath = Utility.GetMostRecentRunPath(guideFileName)
+						if buildPath is None:
+							print(f"No runs for '{guideFileName}'")
+							return
+
+						guideFileName = Utility.Join(buildPath, "tmp/routing/detailed.guide")
+					ViewGuideFile(guideFileName, "docs/Images/", "", macroPlacementFile)
 			else:
 				print(f"Invalid argument '{item}' but be a path to a guide file")
 	else:
-		wrapperGuideFileName = "openlane/user_project_wrapper/runs/user_project_wrapper/tmp/routing/detailed.guide"
-		wrapperGuideCopyFileName = "docs/Images/detailed.guide"
-		if os.path.exists(wrapperGuideFileName):
-			shutil.copy2(wrapperGuideFileName, wrapperGuideCopyFileName)
-		
-		ViewGuideFile(wrapperGuideCopyFileName, "openlane/user_project_wrapper/macros.json")
+		macroPaths = [f.path for f in os.scandir("openlane") if f.is_dir()]
+
+		for item in macroPaths:
+			macroName = os.path.split(item)[1]
+			buildPath = Utility.GetMostRecentRunPath(item)
+			if buildPath is None:
+				print("No runs")
+				return
+
+			guideFileNames = glob.glob(Utility.Join(buildPath, "tmp/routing/*.guide"))
+			if len(guideFileNames) > 0:
+				placementFile = Utility.Join(item, "macros.json")
+				ViewGuideFile(guideFileNames[0], "docs/Images/", macroName, placementFile if os.path.exists(placementFile) else None)
+
 
 if __name__ == "__main__":
 	main()

@@ -3,6 +3,10 @@ import re
 from typing import TextIO
 import multiprocessing as mp
 import time
+from datetime import datetime
+
+import Utility
+
 
 def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 	macrosPaths = [f.path for f in os.scandir(sourceLocation) if f.is_dir()]
@@ -10,21 +14,26 @@ def CollateErrors(sourceLocation: str, outputLocation: str) -> None:
 	[process.start() for process in processes]
 	[process.join() for process in processes]
 
+
 def CheckMacro(macroPath: str, outputLocation: str) -> None:
 	outputTypes = ["logs", "reports"]
 	outputSections = ["synthesis", "routing", "placement", "floorplan", "finishing", "signoff"]
 	macroName = os.path.basename(macroPath)
 
-	buildPath = os.path.join(macroPath, "runs", macroName)
-	macroOutputPath = os.path.join(outputLocation, macroName)
+	buildPath = Utility.GetMostRecentRunPath(macroPath)
+	if buildPath is None:
+		print("No runs")
+		return
+
+	macroOutputPath = Utility.Join(outputLocation, macroName)
 	if not os.path.exists(macroOutputPath):
 		os.mkdir(macroOutputPath)
 
-	errorOutputFilePath = os.path.join(macroOutputPath, "errors.log")
+	errorOutputFilePath = Utility.Join(macroOutputPath, "errors.log")
 	if os.path.exists(errorOutputFilePath):
 		os.remove(errorOutputFilePath)
 
-	warningOutputFilePath = os.path.join(macroOutputPath, "warnings.log")
+	warningOutputFilePath = Utility.Join(macroOutputPath, "warnings.log")
 	if os.path.exists(warningOutputFilePath):
 		os.remove(warningOutputFilePath)
 
@@ -41,7 +50,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 
 		if os.path.exists(buildPath):
 			# Copy errors from file
-			errorFilePath = os.path.join(buildPath, "errors.log")
+			errorFilePath = Utility.Join(buildPath, "errors.log")
 			if os.path.exists(errorFilePath):
 				with open(errorFilePath, "r") as f:
 					lines = f.readlines()
@@ -49,7 +58,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 					errorCount += len(lines)
 
 			# Copy warnings from file
-			warningFilePath = os.path.join(buildPath, "warnings.log")
+			warningFilePath = Utility.Join(buildPath, "warnings.log")
 			if os.path.exists(warningFilePath):
 				with open(warningFilePath, "r") as f:
 					lines = f.readlines()
@@ -58,7 +67,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 
 			for dir in outputTypes:
 				for section in outputSections:
-					path = os.path.join(buildPath, dir, section)
+					path = Utility.Join(buildPath, dir, section)
 					if os.path.exists(path):
 						files = [f.path for f in os.scandir(path) if f.is_file() and (f.path.endswith(".log") or f.path.endswith(".rpt"))]
 
@@ -75,7 +84,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 			warningOutputFile.close()
 
 	print(f"Checking macro '{macroName}': ", end="")
-	
+
 	if errorCount == 0 and violationCount == 0 and warningCount == 0:
 		if os.path.exists(buildPath):
 			print("Ok")
@@ -89,6 +98,7 @@ def CheckMacro(macroPath: str, outputLocation: str) -> None:
 			print(f"	\033[91mViolations: {violationCount}\033[0m")
 		if warningCount != 0:
 			print(f"	\033[93mWarnings: {warningCount}\033[0m")
+
 
 def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[int, int, int]:
 	if not os.path.exists(fileName):
@@ -117,8 +127,10 @@ def CheckFile(fileName: str, errorFile: TextIO, warningFile: TextIO) -> tuple[in
 
 	return errorCount, warningCount, violationCount
 
+
 def main():
 	CollateErrors("openlane/", "docs/Logs/")
+
 
 if __name__ == "__main__":
 	main()

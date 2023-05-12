@@ -1,107 +1,843 @@
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1374]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1535]: Warning: Wire Flash.\wb_stall_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1536]: Warning: Wire Flash.\wb_error_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1537]: Warning: Wire Flash.\wb_data_o [31] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1538]: Warning: Wire Flash.\wb_data_o [30] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1539]: Warning: Wire Flash.\wb_data_o [29] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1540]: Warning: Wire Flash.\wb_data_o [28] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1541]: Warning: Wire Flash.\wb_data_o [27] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1542]: Warning: Wire Flash.\wb_data_o [26] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1543]: Warning: Wire Flash.\wb_data_o [25] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1544]: Warning: Wire Flash.\wb_data_o [24] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1545]: Warning: Wire Flash.\wb_data_o [23] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1546]: Warning: Wire Flash.\wb_data_o [22] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1547]: Warning: Wire Flash.\wb_data_o [21] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1548]: Warning: Wire Flash.\wb_data_o [20] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1549]: Warning: Wire Flash.\wb_data_o [19] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1550]: Warning: Wire Flash.\wb_data_o [18] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1551]: Warning: Wire Flash.\wb_data_o [17] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1552]: Warning: Wire Flash.\wb_data_o [16] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1553]: Warning: Wire Flash.\wb_data_o [15] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1554]: Warning: Wire Flash.\wb_data_o [14] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1555]: Warning: Wire Flash.\wb_data_o [13] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1556]: Warning: Wire Flash.\wb_data_o [12] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1557]: Warning: Wire Flash.\wb_data_o [11] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1558]: Warning: Wire Flash.\wb_data_o [10] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1559]: Warning: Wire Flash.\wb_data_o [9] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1560]: Warning: Wire Flash.\wb_data_o [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1561]: Warning: Wire Flash.\wb_data_o [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1562]: Warning: Wire Flash.\wb_data_o [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1563]: Warning: Wire Flash.\wb_data_o [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1564]: Warning: Wire Flash.\wb_data_o [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1565]: Warning: Wire Flash.\wb_data_o [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1566]: Warning: Wire Flash.\wb_data_o [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1567]: Warning: Wire Flash.\wb_data_o [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1568]: Warning: Wire Flash.\wb_data_o [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1569]: Warning: Wire Flash.\wb_ack_o is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1570]: Warning: Wire Flash.\sram_wmask0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1571]: Warning: Wire Flash.\sram_wmask0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1572]: Warning: Wire Flash.\sram_wmask0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1573]: Warning: Wire Flash.\sram_wmask0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1574]: Warning: Wire Flash.\sram_web0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1575]: Warning: Wire Flash.\sram_din0 [31] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1576]: Warning: Wire Flash.\sram_din0 [30] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1577]: Warning: Wire Flash.\sram_din0 [29] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1578]: Warning: Wire Flash.\sram_din0 [28] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1579]: Warning: Wire Flash.\sram_din0 [27] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1580]: Warning: Wire Flash.\sram_din0 [26] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1581]: Warning: Wire Flash.\sram_din0 [25] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1582]: Warning: Wire Flash.\sram_din0 [24] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1583]: Warning: Wire Flash.\sram_din0 [23] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1584]: Warning: Wire Flash.\sram_din0 [22] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1585]: Warning: Wire Flash.\sram_din0 [21] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1586]: Warning: Wire Flash.\sram_din0 [20] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1587]: Warning: Wire Flash.\sram_din0 [19] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1588]: Warning: Wire Flash.\sram_din0 [18] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1589]: Warning: Wire Flash.\sram_din0 [17] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1590]: Warning: Wire Flash.\sram_din0 [16] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1591]: Warning: Wire Flash.\sram_din0 [15] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1592]: Warning: Wire Flash.\sram_din0 [14] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1593]: Warning: Wire Flash.\sram_din0 [13] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1594]: Warning: Wire Flash.\sram_din0 [12] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1595]: Warning: Wire Flash.\sram_din0 [11] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1596]: Warning: Wire Flash.\sram_din0 [10] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1597]: Warning: Wire Flash.\sram_din0 [9] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1598]: Warning: Wire Flash.\sram_din0 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1599]: Warning: Wire Flash.\sram_din0 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1600]: Warning: Wire Flash.\sram_din0 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1601]: Warning: Wire Flash.\sram_din0 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1602]: Warning: Wire Flash.\sram_din0 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1603]: Warning: Wire Flash.\sram_din0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1604]: Warning: Wire Flash.\sram_din0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1605]: Warning: Wire Flash.\sram_din0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1606]: Warning: Wire Flash.\sram_din0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1607]: Warning: Wire Flash.\sram_csb1 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1608]: Warning: Wire Flash.\sram_csb0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1609]: Warning: Wire Flash.\sram_clk1 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1610]: Warning: Wire Flash.\sram_clk0 is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1611]: Warning: Wire Flash.\sram_addr1 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1612]: Warning: Wire Flash.\sram_addr1 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1613]: Warning: Wire Flash.\sram_addr1 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1614]: Warning: Wire Flash.\sram_addr1 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1615]: Warning: Wire Flash.\sram_addr1 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1616]: Warning: Wire Flash.\sram_addr1 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1617]: Warning: Wire Flash.\sram_addr1 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1618]: Warning: Wire Flash.\sram_addr1 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1619]: Warning: Wire Flash.\sram_addr1 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1620]: Warning: Wire Flash.\sram_addr0 [8] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1621]: Warning: Wire Flash.\sram_addr0 [7] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1622]: Warning: Wire Flash.\sram_addr0 [6] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1623]: Warning: Wire Flash.\sram_addr0 [5] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1624]: Warning: Wire Flash.\sram_addr0 [4] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1625]: Warning: Wire Flash.\sram_addr0 [3] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1626]: Warning: Wire Flash.\sram_addr0 [2] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1627]: Warning: Wire Flash.\sram_addr0 [1] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1628]: Warning: Wire Flash.\sram_addr0 [0] is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1629]: Warning: Wire Flash.\flash_sck is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1630]: Warning: Wire Flash.\flash_io1_write is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1631]: Warning: Wire Flash.\flash_io1_we is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1632]: Warning: Wire Flash.\flash_io0_write is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1633]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1634]: Warning: Wire Flash.\flash_csb is used but has no driver.
-openlane/Flash\runs\Flash\logs\synthesis\1-synthesis.log[1707]: Warnings: 100 unique messages, 100 total
-openlane/Flash\runs\Flash\logs\finishing\27-gdsii-klayout.log[12]: WARNING: no fill config file specified
-openlane/Flash\runs\Flash\logs\finishing\32-lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
-openlane/Flash\runs\Flash\logs\finishing\32-lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
-openlane/Flash\runs\Flash\logs\finishing\32-lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
-openlane/Flash\runs\Flash\reports\finishing\antenna.rpt[0]: Warning - class CORE ANTENNACELL is not found. This message can be ignored if not in the antenna-avoid flow
+[WARNING]: There are max fanout violations in the design at the typical corner. Please refer to '../mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/reports/signoff/25-rcx_sta.slew.rpt'.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1153]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1154]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1155]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1156]: Warning: WIDTHLABEL \sram_addr1 [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1157]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1158]: Warning: WIDTHLABEL \sram_addr1 [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1159]: Warning: WIDTHLABEL \flashBuffer.cachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1160]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1161]: Warning: WIDTHLABEL \flashBuffer.cachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1162]: Warning: WIDTHLABEL \flashBuffer.cachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1163]: Warning: WIDTHLABEL \flashBuffer.cachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1164]: Warning: WIDTHLABEL \flashBuffer.cachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1165]: Warning: WIDTHLABEL \flashBuffer.cachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1166]: Warning: WIDTHLABEL \flashBuffer.cachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1167]: Warning: WIDTHLABEL \flashBuffer.cachedCount [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1168]: Warning: WIDTHLABEL \flashBuffer.cachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1169]: Warning: WIDTHLABEL \flashBuffer.cachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1170]: Warning: WIDTHLABEL \flashBuffer.cachedCount [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1171]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1172]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1173]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1174]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1175]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1176]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1177]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1178]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1179]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1180]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1181]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1182]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1183]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1184]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1185]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1186]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1187]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1188]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1189]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1190]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1191]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1192]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1193]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1194]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1195]: Warning: WIDTHLABEL \sram_addr1 [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1196]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1197]: Warning: WIDTHLABEL \sram_addr1 [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1198]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1199]: Warning: WIDTHLABEL \sram_addr1 [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1200]: Warning: WIDTHLABEL \sram_addr1 [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1201]: Warning: WIDTHLABEL \sram_addr1 [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1202]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1203]: Warning: WIDTHLABEL \sram_addr1 [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1204]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1205]: Warning: WIDTHLABEL \sram_addr1 [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1206]: Warning: WIDTHLABEL \sram_addr1 [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1207]: Warning: WIDTHLABEL \sram_addr1 [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1208]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1209]: Warning: WIDTHLABEL \sram_addr1 [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1210]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1211]: Warning: WIDTHLABEL \sram_addr1 [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1212]: Warning: WIDTHLABEL \sram_addr1 [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1213]: Warning: WIDTHLABEL \sram_addr1 [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1214]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1215]: Warning: WIDTHLABEL \sram_addr1 [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1216]: Warning: WIDTHLABEL \sram_addr1 [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1217]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1218]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1219]: Warning: WIDTHLABEL \flashBuffer.cachedCount [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1220]: Warning: WIDTHLABEL \flashBuffer.cachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1221]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1222]: Warning: WIDTHLABEL \flashBuffer.cachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1223]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1224]: Warning: WIDTHLABEL \flashBuffer.cachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1225]: Warning: WIDTHLABEL \flashBuffer.cachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1226]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1227]: Warning: WIDTHLABEL \flashBuffer.cachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1228]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1229]: Warning: WIDTHLABEL \flashBuffer.cachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1230]: Warning: WIDTHLABEL \flashBuffer.cachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1231]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1232]: Warning: WIDTHLABEL \flashBuffer.cachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1233]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1234]: Warning: WIDTHLABEL \flashBuffer.cachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1235]: Warning: WIDTHLABEL \flashBuffer.cachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1236]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1237]: Warning: WIDTHLABEL \flashBuffer.cachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1238]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1239]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1240]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1241]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1242]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1243]: Warning: WIDTHLABEL \qspiDevice.resetState [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1244]: Warning: WIDTHLABEL \qspiDevice.resetState [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1245]: Warning: WIDTHLABEL \qspiDevice.bitCounter [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1246]: Warning: WIDTHLABEL \qspiDevice.bitCounter [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1247]: Warning: WIDTHLABEL \qspiDevice.bitCounter [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1248]: Warning: WIDTHLABEL \qspiDevice.bitCounter [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1249]: Warning: WIDTHLABEL \qspiDevice.bitCounter [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1250]: Warning: WIDTHLABEL \qspiDevice.bitCounter [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1251]: Warning: WIDTHLABEL \qspiDevice.bitCounter [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1252]: Warning: WIDTHLABEL \qspiDevice.bitCounter [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1253]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1254]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1255]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1256]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1257]: Warning: WIDTHLABEL \sram_addr1 [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1258]: Warning: WIDTHLABEL \wb_data_i [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1259]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1260]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1261]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1262]: Warning: WIDTHLABEL \wb_data_i [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1263]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1264]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1265]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1266]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1267]: Warning: WIDTHLABEL \wb_data_i [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1268]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1269]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1270]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1271]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1272]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1273]: Warning: WIDTHLABEL \wb_data_i [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1274]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1275]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1276]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1277]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1278]: Warning: WIDTHLABEL \wb_data_i [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1279]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1280]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1281]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1282]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1283]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1284]: Warning: WIDTHLABEL \wb_data_i [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1285]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1286]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1287]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1288]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1289]: Warning: WIDTHLABEL \wb_data_i [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1290]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1291]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1292]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1293]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1294]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1295]: Warning: WIDTHLABEL \wb_data_i [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1296]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1297]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1298]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1299]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1300]: Warning: WIDTHLABEL \wb_data_i [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1301]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1302]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1303]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1304]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1305]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1306]: Warning: WIDTHLABEL \wb_data_i [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1307]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1308]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1309]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1310]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1311]: Warning: WIDTHLABEL \wb_data_i [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1312]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1313]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1314]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1315]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1316]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1317]: Warning: WIDTHLABEL \wb_data_i [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1318]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1319]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1320]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1321]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1322]: Warning: WIDTHLABEL \wb_data_i [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1323]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1324]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1325]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1326]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1327]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1328]: Warning: WIDTHLABEL \wb_data_i [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1329]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1330]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1331]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1332]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1333]: Warning: WIDTHLABEL \wb_data_i [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1334]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1335]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1336]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1337]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1338]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1339]: Warning: WIDTHLABEL \wb_data_i [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1340]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1341]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1342]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1343]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1344]: Warning: WIDTHLABEL \wb_data_i [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1345]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1346]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1347]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1348]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1349]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1350]: Warning: WIDTHLABEL \wb_data_i [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1351]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1352]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1353]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1354]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1355]: Warning: WIDTHLABEL \wb_data_i [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1356]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1357]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1358]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1359]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1360]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1361]: Warning: WIDTHLABEL \wb_data_i [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1362]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1363]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1364]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1365]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1366]: Warning: WIDTHLABEL \wb_data_i [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1367]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1368]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1369]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1370]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1371]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1372]: Warning: WIDTHLABEL \wb_data_i [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1373]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1374]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1375]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1376]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1377]: Warning: WIDTHLABEL \qspiDevice.register.data [31] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1378]: Warning: WIDTHLABEL \qspiDevice.register.data [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1379]: Warning: WIDTHLABEL \qspiDevice.resetState [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1380]: Warning: WIDTHLABEL \qspiDevice.resetState [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1381]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1382]: Warning: WIDTHLABEL \qspiDevice.resetState [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1383]: Warning: WIDTHLABEL \qspiDevice.resetState [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1384]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1385]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1386]: Warning: WIDTHLABEL \wb_data_i [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1387]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1388]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1389]: Warning: WIDTHLABEL \wb_data_i [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1390]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1391]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1392]: Warning: WIDTHLABEL \qspiDevice.register.data [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1393]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1394]: Warning: WIDTHLABEL \qspiDevice.register.data [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1395]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1396]: Warning: WIDTHLABEL \qspiDevice.register.data [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1397]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1398]: Warning: WIDTHLABEL \qspiDevice.register.data [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1399]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1400]: Warning: WIDTHLABEL \qspiDevice.register.data [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1401]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1402]: Warning: WIDTHLABEL \qspiDevice.register.data [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1403]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1404]: Warning: WIDTHLABEL \qspiDevice.register.data [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1405]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1406]: Warning: WIDTHLABEL \qspiDevice.register.data [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1407]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1408]: Warning: WIDTHLABEL \qspiDevice.register.data [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1409]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1410]: Warning: WIDTHLABEL \qspiDevice.register.data [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1411]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1412]: Warning: WIDTHLABEL \qspiDevice.register.data [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1413]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1414]: Warning: WIDTHLABEL \qspiDevice.register.data [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1415]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1416]: Warning: WIDTHLABEL \qspiDevice.register.data [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1417]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1418]: Warning: WIDTHLABEL \qspiDevice.register.data [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1419]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1420]: Warning: WIDTHLABEL \qspiDevice.register.data [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1421]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1422]: Warning: WIDTHLABEL \qspiDevice.register.data [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1423]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1424]: Warning: WIDTHLABEL \qspiDevice.register.data [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1425]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1426]: Warning: WIDTHLABEL \qspiDevice.register.data [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1427]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1428]: Warning: WIDTHLABEL \qspiDevice.register.data [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1429]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1430]: Warning: WIDTHLABEL \qspiDevice.register.data [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1431]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1432]: Warning: WIDTHLABEL \qspiDevice.register.data [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1433]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1434]: Warning: WIDTHLABEL \qspiDevice.register.data [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1435]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1436]: Warning: WIDTHLABEL \qspiDevice.register.data [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1437]: Warning: WIDTHLABEL \qspiDevice.register.data [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1438]: Warning: WIDTHLABEL \qspiDevice.register.data [24] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1439]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1440]: Warning: WIDTHLABEL \qspiDevice.register.data [25] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1441]: Warning: WIDTHLABEL \qspiDevice.register.data [26] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1442]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1443]: Warning: WIDTHLABEL \qspiDevice.register.data [27] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1444]: Warning: WIDTHLABEL \qspiDevice.register.data [28] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1445]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1446]: Warning: WIDTHLABEL \qspiDevice.register.data [29] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1447]: Warning: WIDTHLABEL \qspiDevice.register.data [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1448]: Warning: WIDTHLABEL \qspiDevice.bitCounter [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1449]: Warning: WIDTHLABEL \qspiDevice.bitCounter [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1450]: Warning: WIDTHLABEL \qspiDevice.bitCounter [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1451]: Warning: WIDTHLABEL \qspiDevice.bitCounter [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1452]: Warning: WIDTHLABEL \qspiDevice.bitCounter [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1453]: Warning: WIDTHLABEL \qspiDevice.bitCounter [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1454]: Warning: WIDTHLABEL $flatten\wbPeripheralBusInterface.$procmux$329.Y [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1455]: Warning: WIDTHLABEL $flatten\wbPeripheralBusInterface.$procmux$329.Y [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1456]: Warning: WIDTHLABEL $flatten\qspiDevice.$procmux$400.Y [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1457]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1458]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1459]: Warning: WIDTHLABEL $flatten\qspiDevice.$procmux$400.Y [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1460]: Warning: WIDTHLABEL \sram_dout1 [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1461]: Warning: WIDTHLABEL \sram_addr1 [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1462]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1463]: Warning: WIDTHLABEL \flashBuffer.baseAddress [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1464]: Warning: WIDTHLABEL \sram_dout1 [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1465]: Warning: WIDTHLABEL \flashBuffer.baseAddress [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1466]: Warning: WIDTHLABEL \sram_dout1 [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1467]: Warning: WIDTHLABEL \flashBuffer.baseAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1468]: Warning: WIDTHLABEL \sram_dout1 [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1469]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1470]: Warning: WIDTHLABEL \flashBuffer.baseAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1471]: Warning: WIDTHLABEL \sram_dout1 [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1472]: Warning: WIDTHLABEL \flashBuffer.baseAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1473]: Warning: WIDTHLABEL \sram_dout1 [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1474]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1475]: Warning: WIDTHLABEL \flashBuffer.baseAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1476]: Warning: WIDTHLABEL \sram_dout1 [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1477]: Warning: WIDTHLABEL \flashBuffer.baseAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1478]: Warning: WIDTHLABEL \sram_dout1 [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1479]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1480]: Warning: WIDTHLABEL \flashBuffer.baseAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1481]: Warning: WIDTHLABEL \sram_dout1 [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1482]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1483]: Warning: WIDTHLABEL \flashBuffer.baseAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1484]: Warning: WIDTHLABEL \sram_dout1 [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1485]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1486]: Warning: WIDTHLABEL \flashBuffer.baseAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1487]: Warning: WIDTHLABEL \sram_dout1 [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1488]: Warning: WIDTHLABEL \flashBuffer.baseAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1489]: Warning: WIDTHLABEL \sram_dout1 [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1490]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1491]: Warning: WIDTHLABEL \flashBuffer.baseAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1492]: Warning: WIDTHLABEL \sram_dout1 [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1493]: Warning: WIDTHLABEL \flashBuffer.baseAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1494]: Warning: WIDTHLABEL \sram_dout1 [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1495]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1496]: Warning: WIDTHLABEL \flashBuffer.baseAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1497]: Warning: WIDTHLABEL \sram_dout1 [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1498]: Warning: WIDTHLABEL \flashBuffer.baseAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1499]: Warning: WIDTHLABEL \sram_dout1 [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1500]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1501]: Warning: WIDTHLABEL \flashBuffer.baseAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1502]: Warning: WIDTHLABEL \sram_dout1 [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1503]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1504]: Warning: WIDTHLABEL \flashBuffer.baseAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1505]: Warning: WIDTHLABEL \sram_dout1 [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1506]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1507]: Warning: WIDTHLABEL \flashBuffer.baseAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1508]: Warning: WIDTHLABEL \sram_dout1 [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1509]: Warning: WIDTHLABEL \flashBuffer.baseAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1510]: Warning: WIDTHLABEL \sram_dout1 [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1511]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1512]: Warning: WIDTHLABEL \flashBuffer.baseAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1513]: Warning: WIDTHLABEL \sram_dout1 [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1514]: Warning: WIDTHLABEL \flashBuffer.baseAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1515]: Warning: WIDTHLABEL \sram_dout1 [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1516]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1517]: Warning: WIDTHLABEL \flashBuffer.baseAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1518]: Warning: WIDTHLABEL \sram_dout1 [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1519]: Warning: WIDTHLABEL \flashBuffer.baseAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1520]: Warning: WIDTHLABEL \sram_dout1 [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1521]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1522]: Warning: WIDTHLABEL \flashBuffer.baseAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1523]: Warning: WIDTHLABEL \sram_dout1 [24] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1524]: Warning: WIDTHLABEL \sram_dout1 [25] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1525]: Warning: WIDTHLABEL \sram_dout1 [26] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1526]: Warning: WIDTHLABEL \sram_dout1 [27] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1527]: Warning: WIDTHLABEL \sram_dout1 [28] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1528]: Warning: WIDTHLABEL \sram_dout1 [29] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1529]: Warning: WIDTHLABEL \sram_dout1 [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1530]: Warning: WIDTHLABEL \sram_dout1 [31] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1531]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1532]: Warning: WIDTHLABEL \flashBuffer.configurationRegister.maskedWriteData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1533]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1534]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1535]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1536]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1537]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1538]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1539]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1540]: Warning: WIDTHLABEL \flashBuffer.configurationRegister.maskedWriteData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1541]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1542]: Warning: WIDTHLABEL \flashBuffer.cachedCount [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1543]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1544]: Warning: WIDTHLABEL \flashBuffer.cachedCount [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1545]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1546]: Warning: WIDTHLABEL \flashBuffer.cachedCount [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1547]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1548]: Warning: WIDTHLABEL \flashBuffer.cachedCount [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1549]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1550]: Warning: WIDTHLABEL \flashBuffer.cachedCount [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1551]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1552]: Warning: WIDTHLABEL \flashBuffer.cachedCount [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1553]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1554]: Warning: WIDTHLABEL \flashBuffer.cachedCount [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1555]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1556]: Warning: WIDTHLABEL \flashBuffer.cachedCount [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1557]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1558]: Warning: WIDTHLABEL \flashBuffer.cachedCount [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1559]: Warning: WIDTHLABEL \flashBuffer.nextCachedCount [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1560]: Warning: WIDTHLABEL \flashBuffer.cachedCount [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1561]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1562]: Warning: WIDTHLABEL \flashBuffer.baseAddress [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1563]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1564]: Warning: WIDTHLABEL \flashBuffer.baseAddress [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1565]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1566]: Warning: WIDTHLABEL \flashBuffer.baseAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1567]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1568]: Warning: WIDTHLABEL \flashBuffer.baseAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1569]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1570]: Warning: WIDTHLABEL \flashBuffer.baseAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1571]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1572]: Warning: WIDTHLABEL \flashBuffer.baseAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1573]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1574]: Warning: WIDTHLABEL \flashBuffer.baseAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1575]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1576]: Warning: WIDTHLABEL \flashBuffer.baseAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1577]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1578]: Warning: WIDTHLABEL \flashBuffer.baseAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1579]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1580]: Warning: WIDTHLABEL \flashBuffer.baseAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1581]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1582]: Warning: WIDTHLABEL \flashBuffer.baseAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1583]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1584]: Warning: WIDTHLABEL \flashBuffer.baseAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1585]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1586]: Warning: WIDTHLABEL \flashBuffer.baseAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1587]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1588]: Warning: WIDTHLABEL \flashBuffer.baseAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1589]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1590]: Warning: WIDTHLABEL \flashBuffer.baseAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1591]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1592]: Warning: WIDTHLABEL \flashBuffer.baseAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1593]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1594]: Warning: WIDTHLABEL \flashBuffer.baseAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1595]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1596]: Warning: WIDTHLABEL \flashBuffer.baseAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1597]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1598]: Warning: WIDTHLABEL \flashBuffer.baseAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1599]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1600]: Warning: WIDTHLABEL \flashBuffer.baseAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1601]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1602]: Warning: WIDTHLABEL \flashBuffer.baseAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1603]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1604]: Warning: WIDTHLABEL \flashBuffer.baseAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1605]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1606]: Warning: WIDTHLABEL \flashBuffer.baseAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1607]: Warning: WIDTHLABEL \flashBuffer.baseAddressRegister.writeData [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1608]: Warning: WIDTHLABEL \flashBuffer.baseAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1609]: Warning: WIDTHLABEL \qspiDevice.register.data [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1610]: Warning: WIDTHLABEL \qspiDevice.register.data [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1611]: Warning: WIDTHLABEL \qspiDevice.register.data [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1612]: Warning: WIDTHLABEL \qspiDevice.register.data [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1613]: Warning: WIDTHLABEL \qspiDevice.register.data [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1614]: Warning: WIDTHLABEL \qspiDevice.register.data [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1615]: Warning: WIDTHLABEL \qspiDevice.register.data [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1616]: Warning: WIDTHLABEL \qspiDevice.register.data [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1617]: Warning: WIDTHLABEL \qspiDevice.register.data [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1618]: Warning: WIDTHLABEL \qspiDevice.register.data [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1619]: Warning: WIDTHLABEL \qspiDevice.register.data [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1620]: Warning: WIDTHLABEL \qspiDevice.register.data [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1621]: Warning: WIDTHLABEL \qspiDevice.register.data [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1622]: Warning: WIDTHLABEL \qspiDevice.register.data [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1623]: Warning: WIDTHLABEL \qspiDevice.register.data [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1624]: Warning: WIDTHLABEL \qspiDevice.register.data [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1625]: Warning: WIDTHLABEL \qspiDevice.register.data [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1626]: Warning: WIDTHLABEL \qspiDevice.register.data [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1627]: Warning: WIDTHLABEL \qspiDevice.register.data [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1628]: Warning: WIDTHLABEL \qspiDevice.register.data [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1629]: Warning: WIDTHLABEL \qspiDevice.register.data [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1630]: Warning: WIDTHLABEL \qspiDevice.register.data [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1631]: Warning: WIDTHLABEL \qspiDevice.register.data [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1632]: Warning: WIDTHLABEL \qspiDevice.register.data [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1633]: Warning: WIDTHLABEL \qspiDevice.register.data [24] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1634]: Warning: WIDTHLABEL \qspiDevice.register.data [25] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1635]: Warning: WIDTHLABEL \qspiDevice.register.data [26] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1636]: Warning: WIDTHLABEL \qspiDevice.register.data [27] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1637]: Warning: WIDTHLABEL \qspiDevice.register.data [28] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1638]: Warning: WIDTHLABEL \qspiDevice.register.data [29] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1639]: Warning: WIDTHLABEL \qspiDevice.register.data [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1640]: Warning: WIDTHLABEL \qspiDevice.register.data [31] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1641]: Warning: WIDTHLABEL \qspiDevice.resetState [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1642]: Warning: WIDTHLABEL \qspiDevice.register.parallelIn [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1643]: Warning: WIDTHLABEL \qspiDevice.resetState [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1644]: Warning: WIDTHLABEL $flatten\qspiDevice.$procmux$400.Y [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1645]: Warning: WIDTHLABEL \qspiDevice.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1646]: Warning: WIDTHLABEL $flatten\qspiDevice.$procmux$400.Y [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1647]: Warning: WIDTHLABEL \qspiDevice.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1648]: Warning: WIDTHLABEL \qspiDevice.bitCounter [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1649]: Warning: WIDTHLABEL \qspiDevice.bitCounter [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1650]: Warning: WIDTHLABEL \qspiDevice.bitCounter [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1651]: Warning: WIDTHLABEL \qspiDevice.bitCounter [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1652]: Warning: WIDTHLABEL \qspiDevice.bitCounter [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1653]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1654]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1655]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1656]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1657]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1658]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1659]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1660]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1661]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1662]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1663]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1664]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1665]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1666]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1667]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1668]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1669]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1670]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1671]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1672]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1673]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1674]: Warning: WIDTHLABEL \flashBuffer.cachedAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1675]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1676]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1677]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1678]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1679]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1680]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1681]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1682]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1683]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1684]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1685]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1686]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1687]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1688]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1689]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1690]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1691]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1692]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1693]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1694]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1695]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1696]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1697]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1698]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1699]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [24] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1700]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [25] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1701]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [26] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1702]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [27] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1703]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [28] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1704]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [29] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1705]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [30] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1706]: Warning: WIDTHLABEL \wbPeripheralBusInterface.dataRead_buffered [31] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1707]: Warning: WIDTHLABEL \wb_adr_i [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1708]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1709]: Warning: WIDTHLABEL \wb_adr_i [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1710]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [3] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1711]: Warning: WIDTHLABEL \wb_adr_i [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1712]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [4] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1713]: Warning: WIDTHLABEL \wb_adr_i [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1714]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [5] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1715]: Warning: WIDTHLABEL \wb_adr_i [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1716]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [6] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1717]: Warning: WIDTHLABEL \wb_adr_i [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1718]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [7] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1719]: Warning: WIDTHLABEL \wb_adr_i [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1720]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [8] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1721]: Warning: WIDTHLABEL \wb_adr_i [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1722]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [9] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1723]: Warning: WIDTHLABEL \wb_adr_i [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1724]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [10] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1725]: Warning: WIDTHLABEL \wb_adr_i [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1726]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [11] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1727]: Warning: WIDTHLABEL \wb_adr_i [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1728]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [12] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1729]: Warning: WIDTHLABEL \wb_adr_i [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1730]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [13] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1731]: Warning: WIDTHLABEL \wb_adr_i [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1732]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [14] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1733]: Warning: WIDTHLABEL \wb_adr_i [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1734]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [15] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1735]: Warning: WIDTHLABEL \wb_adr_i [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1736]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [16] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1737]: Warning: WIDTHLABEL \wb_adr_i [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1738]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [17] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1739]: Warning: WIDTHLABEL \wb_adr_i [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1740]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [18] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1741]: Warning: WIDTHLABEL \wb_adr_i [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1742]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [19] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1743]: Warning: WIDTHLABEL \wb_adr_i [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1744]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [20] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1745]: Warning: WIDTHLABEL \wb_adr_i [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1746]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [21] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1747]: Warning: WIDTHLABEL \wb_adr_i [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1748]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [22] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1749]: Warning: WIDTHLABEL \wb_adr_i [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1750]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentAddress [23] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1751]: Warning: WIDTHLABEL $flatten\wbPeripheralBusInterface.$procmux$329.Y [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1752]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1753]: Warning: WIDTHLABEL $flatten\wbPeripheralBusInterface.$procmux$329.Y [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1754]: Warning: WIDTHLABEL \wbPeripheralBusInterface.state [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1755]: Warning: WIDTHLABEL \wb_sel_i [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1756]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [0] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1757]: Warning: WIDTHLABEL \wb_sel_i [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1758]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [1] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1759]: Warning: WIDTHLABEL \wb_sel_i [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1760]: Warning: WIDTHLABEL \wbPeripheralBusInterface.currentByteSelect [2] 1
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[1972]: ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2118]: Warning: Wire Flash.\wb_stall_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2119]: Warning: Wire Flash.\wb_error_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2120]: Warning: Wire Flash.\wb_data_o [31] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2121]: Warning: Wire Flash.\wb_data_o [30] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2122]: Warning: Wire Flash.\wb_data_o [29] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2123]: Warning: Wire Flash.\wb_data_o [28] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2124]: Warning: Wire Flash.\wb_data_o [27] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2125]: Warning: Wire Flash.\wb_data_o [26] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2126]: Warning: Wire Flash.\wb_data_o [25] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2127]: Warning: Wire Flash.\wb_data_o [24] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2128]: Warning: Wire Flash.\wb_data_o [23] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2129]: Warning: Wire Flash.\wb_data_o [22] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2130]: Warning: Wire Flash.\wb_data_o [21] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2131]: Warning: Wire Flash.\wb_data_o [20] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2132]: Warning: Wire Flash.\wb_data_o [19] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2133]: Warning: Wire Flash.\wb_data_o [18] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2134]: Warning: Wire Flash.\wb_data_o [17] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2135]: Warning: Wire Flash.\wb_data_o [16] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2136]: Warning: Wire Flash.\wb_data_o [15] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2137]: Warning: Wire Flash.\wb_data_o [14] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2138]: Warning: Wire Flash.\wb_data_o [13] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2139]: Warning: Wire Flash.\wb_data_o [12] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2140]: Warning: Wire Flash.\wb_data_o [11] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2141]: Warning: Wire Flash.\wb_data_o [10] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2142]: Warning: Wire Flash.\wb_data_o [9] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2143]: Warning: Wire Flash.\wb_data_o [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2144]: Warning: Wire Flash.\wb_data_o [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2145]: Warning: Wire Flash.\wb_data_o [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2146]: Warning: Wire Flash.\wb_data_o [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2147]: Warning: Wire Flash.\wb_data_o [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2148]: Warning: Wire Flash.\wb_data_o [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2149]: Warning: Wire Flash.\wb_data_o [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2150]: Warning: Wire Flash.\wb_data_o [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2151]: Warning: Wire Flash.\wb_data_o [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2152]: Warning: Wire Flash.\wb_ack_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2153]: Warning: Wire Flash.\sram_wmask0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2154]: Warning: Wire Flash.\sram_wmask0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2155]: Warning: Wire Flash.\sram_wmask0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2156]: Warning: Wire Flash.\sram_wmask0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2157]: Warning: Wire Flash.\sram_web0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2158]: Warning: Wire Flash.\sram_din0 [31] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2159]: Warning: Wire Flash.\sram_din0 [30] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2160]: Warning: Wire Flash.\sram_din0 [29] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2161]: Warning: Wire Flash.\sram_din0 [28] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2162]: Warning: Wire Flash.\sram_din0 [27] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2163]: Warning: Wire Flash.\sram_din0 [26] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2164]: Warning: Wire Flash.\sram_din0 [25] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2165]: Warning: Wire Flash.\sram_din0 [24] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2166]: Warning: Wire Flash.\sram_din0 [23] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2167]: Warning: Wire Flash.\sram_din0 [22] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2168]: Warning: Wire Flash.\sram_din0 [21] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2169]: Warning: Wire Flash.\sram_din0 [20] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2170]: Warning: Wire Flash.\sram_din0 [19] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2171]: Warning: Wire Flash.\sram_din0 [18] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2172]: Warning: Wire Flash.\sram_din0 [17] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2173]: Warning: Wire Flash.\sram_din0 [16] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2174]: Warning: Wire Flash.\sram_din0 [15] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2175]: Warning: Wire Flash.\sram_din0 [14] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2176]: Warning: Wire Flash.\sram_din0 [13] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2177]: Warning: Wire Flash.\sram_din0 [12] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2178]: Warning: Wire Flash.\sram_din0 [11] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2179]: Warning: Wire Flash.\sram_din0 [10] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2180]: Warning: Wire Flash.\sram_din0 [9] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2181]: Warning: Wire Flash.\sram_din0 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2182]: Warning: Wire Flash.\sram_din0 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2183]: Warning: Wire Flash.\sram_din0 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2184]: Warning: Wire Flash.\sram_din0 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2185]: Warning: Wire Flash.\sram_din0 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2186]: Warning: Wire Flash.\sram_din0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2187]: Warning: Wire Flash.\sram_din0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2188]: Warning: Wire Flash.\sram_din0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2189]: Warning: Wire Flash.\sram_din0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2190]: Warning: Wire Flash.\sram_csb1 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2191]: Warning: Wire Flash.\sram_csb0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2192]: Warning: Wire Flash.\sram_clk1 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2193]: Warning: Wire Flash.\sram_clk0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2194]: Warning: Wire Flash.\sram_addr1 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2195]: Warning: Wire Flash.\sram_addr1 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2196]: Warning: Wire Flash.\sram_addr1 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2197]: Warning: Wire Flash.\sram_addr1 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2198]: Warning: Wire Flash.\sram_addr1 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2199]: Warning: Wire Flash.\sram_addr1 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2200]: Warning: Wire Flash.\sram_addr1 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2201]: Warning: Wire Flash.\sram_addr1 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2202]: Warning: Wire Flash.\sram_addr1 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2203]: Warning: Wire Flash.\sram_addr0 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2204]: Warning: Wire Flash.\sram_addr0 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2205]: Warning: Wire Flash.\sram_addr0 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2206]: Warning: Wire Flash.\sram_addr0 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2207]: Warning: Wire Flash.\sram_addr0 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2208]: Warning: Wire Flash.\sram_addr0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2209]: Warning: Wire Flash.\sram_addr0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2210]: Warning: Wire Flash.\sram_addr0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2211]: Warning: Wire Flash.\sram_addr0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2212]: Warning: Wire Flash.\flash_sck is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2213]: Warning: Wire Flash.\flash_io1_write is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2214]: Warning: Wire Flash.\flash_io1_we is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2215]: Warning: Wire Flash.\flash_io0_write is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2216]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2217]: Warning: Wire Flash.\flash_csb is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\1-synthesis.log[2286]: Warnings: 386 unique messages, 708 total
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\2-sta.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\2-sta.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/synthesis\2-sta.log[1370]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/routing\14-global_write_netlist.log[5]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/floorplan\3-initial_fp.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/floorplan\3-initial_fp.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\19-parasitics_extraction.min.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\19-parasitics_extraction.min.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.min.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\19-parasitics_extraction.min.log[35]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\20-rcx_mcsta.min.log[78733]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\21-parasitics_extraction.max.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\21-parasitics_extraction.max.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.max.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\21-parasitics_extraction.max.log[35]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\22-rcx_mcsta.max.log[79140]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\23-parasitics_extraction.nom.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\23-parasitics_extraction.nom.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\23-parasitics_extraction.nom.log[35]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\24-rcx_mcsta.nom.log[78943]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\25-rcx_sta.log[684]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\26-irdrop.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\26-irdrop.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\28-gdsii-klayout.log[0]: Warning: No mapping for layer 'pwell', purpose 'LEFOBS' - layer is ignored
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\31-write_powered_def.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\31-write_powered_def.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\31-write_powered_verilog.log[4]: [WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\31-write_powered_verilog.log[6]: To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /mnt/f/WSL/ASIC/ExperiarSoC/openlane/Flash/runs/23_05_12_10_06/tmp/merged.nom.lef at line 930.
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\31-write_powered_verilog.log[20]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\33-lvs.lef.log[1]: Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\33-lvs.lef.log[2]: Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+openlane/Flash/runs/23_05_12_10_06/logs/signoff\33-lvs.lef.log[6]: Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[3]: Warning: Wire Flash.\wb_stall_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[4]: Warning: Wire Flash.\wb_error_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[5]: Warning: Wire Flash.\wb_data_o [31] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[6]: Warning: Wire Flash.\wb_data_o [30] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[7]: Warning: Wire Flash.\wb_data_o [29] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[8]: Warning: Wire Flash.\wb_data_o [28] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[9]: Warning: Wire Flash.\wb_data_o [27] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[10]: Warning: Wire Flash.\wb_data_o [26] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[11]: Warning: Wire Flash.\wb_data_o [25] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[12]: Warning: Wire Flash.\wb_data_o [24] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[13]: Warning: Wire Flash.\wb_data_o [23] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[14]: Warning: Wire Flash.\wb_data_o [22] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[15]: Warning: Wire Flash.\wb_data_o [21] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[16]: Warning: Wire Flash.\wb_data_o [20] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[17]: Warning: Wire Flash.\wb_data_o [19] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[18]: Warning: Wire Flash.\wb_data_o [18] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[19]: Warning: Wire Flash.\wb_data_o [17] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[20]: Warning: Wire Flash.\wb_data_o [16] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[21]: Warning: Wire Flash.\wb_data_o [15] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[22]: Warning: Wire Flash.\wb_data_o [14] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[23]: Warning: Wire Flash.\wb_data_o [13] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[24]: Warning: Wire Flash.\wb_data_o [12] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[25]: Warning: Wire Flash.\wb_data_o [11] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[26]: Warning: Wire Flash.\wb_data_o [10] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[27]: Warning: Wire Flash.\wb_data_o [9] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[28]: Warning: Wire Flash.\wb_data_o [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[29]: Warning: Wire Flash.\wb_data_o [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[30]: Warning: Wire Flash.\wb_data_o [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[31]: Warning: Wire Flash.\wb_data_o [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[32]: Warning: Wire Flash.\wb_data_o [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[33]: Warning: Wire Flash.\wb_data_o [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[34]: Warning: Wire Flash.\wb_data_o [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[35]: Warning: Wire Flash.\wb_data_o [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[36]: Warning: Wire Flash.\wb_data_o [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[37]: Warning: Wire Flash.\wb_ack_o is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[38]: Warning: Wire Flash.\sram_wmask0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[39]: Warning: Wire Flash.\sram_wmask0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[40]: Warning: Wire Flash.\sram_wmask0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[41]: Warning: Wire Flash.\sram_wmask0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[42]: Warning: Wire Flash.\sram_web0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[43]: Warning: Wire Flash.\sram_din0 [31] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[44]: Warning: Wire Flash.\sram_din0 [30] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[45]: Warning: Wire Flash.\sram_din0 [29] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[46]: Warning: Wire Flash.\sram_din0 [28] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[47]: Warning: Wire Flash.\sram_din0 [27] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[48]: Warning: Wire Flash.\sram_din0 [26] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[49]: Warning: Wire Flash.\sram_din0 [25] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[50]: Warning: Wire Flash.\sram_din0 [24] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[51]: Warning: Wire Flash.\sram_din0 [23] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[52]: Warning: Wire Flash.\sram_din0 [22] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[53]: Warning: Wire Flash.\sram_din0 [21] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[54]: Warning: Wire Flash.\sram_din0 [20] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[55]: Warning: Wire Flash.\sram_din0 [19] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[56]: Warning: Wire Flash.\sram_din0 [18] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[57]: Warning: Wire Flash.\sram_din0 [17] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[58]: Warning: Wire Flash.\sram_din0 [16] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[59]: Warning: Wire Flash.\sram_din0 [15] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[60]: Warning: Wire Flash.\sram_din0 [14] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[61]: Warning: Wire Flash.\sram_din0 [13] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[62]: Warning: Wire Flash.\sram_din0 [12] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[63]: Warning: Wire Flash.\sram_din0 [11] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[64]: Warning: Wire Flash.\sram_din0 [10] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[65]: Warning: Wire Flash.\sram_din0 [9] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[66]: Warning: Wire Flash.\sram_din0 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[67]: Warning: Wire Flash.\sram_din0 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[68]: Warning: Wire Flash.\sram_din0 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[69]: Warning: Wire Flash.\sram_din0 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[70]: Warning: Wire Flash.\sram_din0 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[71]: Warning: Wire Flash.\sram_din0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[72]: Warning: Wire Flash.\sram_din0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[73]: Warning: Wire Flash.\sram_din0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[74]: Warning: Wire Flash.\sram_din0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[75]: Warning: Wire Flash.\sram_csb1 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[76]: Warning: Wire Flash.\sram_csb0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[77]: Warning: Wire Flash.\sram_clk1 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[78]: Warning: Wire Flash.\sram_clk0 is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[79]: Warning: Wire Flash.\sram_addr1 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[80]: Warning: Wire Flash.\sram_addr1 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[81]: Warning: Wire Flash.\sram_addr1 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[82]: Warning: Wire Flash.\sram_addr1 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[83]: Warning: Wire Flash.\sram_addr1 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[84]: Warning: Wire Flash.\sram_addr1 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[85]: Warning: Wire Flash.\sram_addr1 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[86]: Warning: Wire Flash.\sram_addr1 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[87]: Warning: Wire Flash.\sram_addr1 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[88]: Warning: Wire Flash.\sram_addr0 [8] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[89]: Warning: Wire Flash.\sram_addr0 [7] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[90]: Warning: Wire Flash.\sram_addr0 [6] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[91]: Warning: Wire Flash.\sram_addr0 [5] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[92]: Warning: Wire Flash.\sram_addr0 [4] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[93]: Warning: Wire Flash.\sram_addr0 [3] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[94]: Warning: Wire Flash.\sram_addr0 [2] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[95]: Warning: Wire Flash.\sram_addr0 [1] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[96]: Warning: Wire Flash.\sram_addr0 [0] is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[97]: Warning: Wire Flash.\flash_sck is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[98]: Warning: Wire Flash.\flash_io1_write is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[99]: Warning: Wire Flash.\flash_io1_we is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[100]: Warning: Wire Flash.\flash_io0_write is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[101]: Warning: Wire Flash.\flash_io0_we is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\1-synthesis.AREA_0.chk.rpt[102]: Warning: Wire Flash.\flash_csb is used but has no driver.
+openlane/Flash/runs/23_05_12_10_06/reports/synthesis\2-syn_sta.parasitics_check.rpt[964]: [WARNING] Did not save OpenROAD database!
+openlane/Flash/runs/23_05_12_10_06/reports/signoff\25-rcx_sta.parasitics_check.rpt[149]: [WARNING] Did not save OpenROAD database!

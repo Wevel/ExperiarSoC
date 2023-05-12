@@ -108,6 +108,10 @@ module user_project_wrapper #(
 	wire[15:0] partID;
 	wire[3:0] versionID;
 
+	// Debug
+	//wire[97:0] soc_probe_in;
+	wire[97:0] soc_probe_out;
+
 	ExperiarSoC experiarSoC(
 `ifdef USE_POWER_PINS
 		.vccd1(vccd1),	// User area 1 1.8V power
@@ -131,9 +135,8 @@ module user_project_wrapper #(
 		.caravel_uart_rx(caravel_uart_rx),
 		.caravel_uart_tx(caravel_uart_tx),
 		.caravel_irq(caravel_irq),
-		.la_data_in(la_data_in),
-		.la_data_out(la_data_out),
-		.la_oenb(la_oenb),
+		//.probe_in(soc_probe_in),
+		.probe_out(soc_probe_out),
 		.core0Index(core0Index),
 		.core1Index(core1Index),
 		.manufacturerID(manufacturerID),
@@ -169,6 +172,11 @@ module user_project_wrapper #(
 		.caravel_uart_rx(caravel_uart_tx),
 		.caravel_uart_tx(caravel_uart_rx),
 		.caravel_irq(caravel_irq),
+		//.la_data_in(la_data_in),
+		.la_data_out(la_data_out),
+		//.la_oenb(la_oenb),
+		//.probe_in(soc_probe_in),
+		.probe_out(soc_probe_out),
 		.core0Index(core0Index),
 		.core1Index(core1Index),
 		.manufacturerID(manufacturerID),

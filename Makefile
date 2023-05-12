@@ -106,16 +106,16 @@ blocks=$(shell cd openlane && find * -maxdepth 0 -type d)
 $(blocks): % :
 	$(MAKE) -C openlane $*
 
-dv_patterns=$(shell cd verilog/dv && find * -maxdepth 0 -type d)
+dv_patterns=$(shell cd verilog/dv/ExperiarSoC_Tests && find * -maxdepth 0 -type d)
 dv-targets-rtl=$(dv_patterns:%=verify-%-rtl)
 dv-targets-gl=$(dv_patterns:%=verify-%-gl)
 dv-targets-gl-sdf=$(dv_patterns:%=verify-%-gl-sdf)
 
 TARGET_PATH=$(shell pwd)
-verify_command="source ~/.bashrc && cd ${TARGET_PATH}/verilog/dv/$* && export SIM=${SIM} && make"
+verify_command="source ~/.bashrc && cd ${TARGET_PATH}/verilog/dv/ExperiarSoC_Tests/$* && export SIM=${SIM} && make"
 dv_base_dependencies=simenv
 docker_run_verify=\
-	docker run -v ${TARGET_PATH}:${TARGET_PATH} -v ${PDK_ROOT}:${PDK_ROOT} \
+	docker run --rm -v ${TARGET_PATH}:${TARGET_PATH} -v ${PDK_ROOT}:${PDK_ROOT} \
 		-v ${CARAVEL_ROOT}:${CARAVEL_ROOT} \
 		-v ${MCW_ROOT}:${MCW_ROOT} \
 		-e TARGET_PATH=${TARGET_PATH} -e PDK_ROOT=${PDK_ROOT} \
@@ -221,7 +221,7 @@ precheck:
 run-precheck: check-pdk check-precheck
 	$(eval INPUT_DIRECTORY := $(shell pwd))
 	cd $(PRECHECK_ROOT) && \
-	docker run -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) \
+	docker run --rm -v $(PRECHECK_ROOT):$(PRECHECK_ROOT) \
 	-v $(INPUT_DIRECTORY):$(INPUT_DIRECTORY) \
 	-v $(PDK_ROOT):$(PDK_ROOT) \
 	-e INPUT_DIRECTORY=$(INPUT_DIRECTORY) \

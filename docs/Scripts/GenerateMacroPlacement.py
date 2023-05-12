@@ -5,8 +5,10 @@ import sys
 import json
 
 from JSONWrapper import JSONWrapper
+import Utility
 
-def LoadMacroPlacementFile(macroPlacementFileName:str) -> JSONWrapper:
+
+def LoadJSON(macroPlacementFileName: str) -> JSONWrapper:
 	if not os.path.exists(macroPlacementFileName):
 		print(f"Can't find macro placement file '{macroPlacementFileName}'")
 		return JSONWrapper(macroPlacementFileName, ".", ".", {})
@@ -20,6 +22,14 @@ def LoadMacroPlacementFile(macroPlacementFileName:str) -> JSONWrapper:
 
 	return JSONWrapper(macroPlacementFileName, ".", ".", data)
 
+
+def SaveJSON(root: JSONWrapper):
+	with open(root.baseFileName, 'w') as f:
+		json.dump(root.value, f, indent='\t')
+
+	print(f"Saved '{root.baseFileName}'")
+
+
 def GetMacroBounds(positionX, positionY, width, height, rotation) -> tuple[float, float, float, float]:
 	if rotation == "N" or rotation == "S" or rotation == "FN" or rotation == "FS":
 		return (positionX, positionY, positionX + width, positionY + height)
@@ -29,48 +39,48 @@ def GetMacroBounds(positionX, positionY, width, height, rotation) -> tuple[float
 		print(f"Invalid rotation '{rotation}'")
 		return (positionX, positionY, positionX + width, positionY + height)
 
-def PrintMacroPlacement(macroPlacementFileName:str):
-	root = LoadMacroPlacementFile(macroPlacementFileName)
+
+def PrintMacroPlacement(macroPlacementFileName: str):
+	macroDir = os.path.dirname(macroPlacementFileName)
+	root = LoadJSON(macroPlacementFileName)
 	macroPlacement = root.GetEntry("macros")
 
-	print(f"Macro PDN hooks for '{macroPlacementFileName}':")
-	print("set ::env(FP_PDN_MACRO_HOOKS) \"\\")
+	macroPositions = []
+	pdnHooks = []
+	obstructions = ["met5 0.0 0.0 2920.0 3520.0,"]
 	for i, item in enumerate(macroPlacement):
 		name = item.GetEntry("name").AsString()
-		if i == macroPlacement.EntryCount() - 1:
-			print(f"	{name} vccd1 vssd1\"")
-		else:
-			print(f"	{name} vccd1 vssd1, \\")
-
-	print()
-	print(f"Macro obstructions for '{macroPlacementFileName}':")
-	print("set ::env(GLB_RT_OBS) \"\\", end="")
-	print(f"\n	met5 0.0 0.0 2920.0 3520.0", end="")
-	for item in macroPlacement:
-		if item.HasEntry("obstructions"):
-			name = item.GetEntry("name").AsString()
-			position = item.GetEntry("position")
-			size = item.GetEntry("size")
-			rotation = item.GetEntry("rotation")
-			bounds = GetMacroBounds(
-				position.GetEntry("x").AsFloat(),
-				position.GetEntry("y").AsFloat(),
-				size.GetEntry("x").AsFloat(),
-				size.GetEntry("y").AsFloat(),
-				rotation.AsString())
-			boundsString = f"{bounds[0]} {bounds[1]} {bounds[2]} {bounds[3]}"
-			obstructions = item.GetEntry("obstructions")
-			for obs in obstructions:
-				print(f",\\\n	{obs.AsString()} {boundsString}", end="")
-	print("\"")
-
-	print()
-	print(f"Macro placement for '{macroPlacementFileName}':")
-	for item in macroPlacement:
-		name = item.GetEntry("name").AsString()
 		position = item.GetEntry("position")
-		rotation = item.GetEntry("rotation").AsString()
-		print(f"{name} {position.GetEntry('x').AsFloat()} {position.GetEntry('y').AsFloat()} {rotation}")
+		size = item.GetEntry("size")
+		rotation = item.GetEntry("rotation")
+
+		macroPositions.append(f"{name} {position.GetEntry('x').AsFloat()} {position.GetEntry('y').AsFloat()} {rotation.AsString()}\n")
+		pdnHooks.append(f"{name} vccd1 vssd1 vccd1 vssd1,",)
+
+		if item.HasEntry("obstructions"):
+			bounds = GetMacroBounds(position.GetEntry("x").AsFloat(), position.GetEntry("y").AsFloat(), size.GetEntry("x").AsFloat(), size.GetEntry("y").AsFloat(), rotation.AsString())
+			boundsString = f"{bounds[0]} {bounds[1]} {bounds[2]} {bounds[3]}"
+			obstructionLayers = item.GetEntry("obstructions")
+			for layer in obstructionLayers:
+				obstructions.append(f"{layer.AsString()} {boundsString},")
+
+	if len(pdnHooks) > 0:
+		pdnHooks[-1] = pdnHooks[-1].strip(",")
+
+	if len(obstructions) > 0:
+		obstructions[-1] = obstructions[-1].strip(",")
+
+	config = LoadJSON(Utility.Join(macroDir, "config.json"))
+	config.SetEntry("FP_PDN_MACRO_HOOKS", pdnHooks)
+	config.SetEntry("GRT_OBS", obstructions)
+	SaveJSON(config)
+
+	macroPositionsFilePath = Utility.Join(macroDir, "macro.cfg")
+	with open(macroPositionsFilePath, "w") as f:
+		f.writelines(macroPositions)
+
+	print(f"Saved '{macroPositionsFilePath}'")
+
 
 def main():
 	if len(sys.argv) > 1:
@@ -81,6 +91,7 @@ def main():
 				PrintMacroPlacement(item)
 	else:
 		PrintMacroPlacement("openlane/user_project_wrapper/macros.json")
+
 
 if __name__ == "__main__":
 	main()
