@@ -6,29 +6,27 @@
 		0x1080_xxxx: Management
 			0x1080_xxxx: Control
 				0x1080_0000: Management control
-				0x1080_0004: Core state
 			0x1081_xxxx: Core registers
 				0x1081_0000: PC
 				0x1081_0004: Relative Jump
 				0x1081_0008: Step
 				0x1081_0010: Current Instruction
 				0x1081_0020: Clear error
-				0x1081_1000-0x1081_101F: Register
-				0x1081_2000-0x1081_2FFF: CSRs			
+				0x1081_4000-0x4081_101F: Register
+				0x1081_8000-0x8081_2FFF: CSRs			
 	0x11xx_xxxx: Slave 1 (Core 1 local memory)
 		0x1100_0000-0x117F_FFFF: SRAM
 		0x1180_xxxx: Management
 			0x1180_xxxx: Control
 				0x1180_0000: Management control
-				0x1180_0004: Core state
 			0x1181_xxxx: Core registers
 				0x1181_0000: PC
 				0x1181_0004: Relative Jump
 				0x1181_0008: Step
 				0x1181_0010: Current Instruction
 				0x1181_0020: Clear error
-				0x1181_1000-0x1181_101F: Register
-				0x1181_2000-0x1181_2FFF: CSRs		
+				0x1181_4000-0x4181_101F: Register
+				0x1181_8000-0x8181_2FFF: CSRs		
 	0x12xx_xxxx: Slave 2 (Video SRAM)
 		0x1200_0000-0x127F_FFFF
 		0x1280_0xxx: VGA Configuration
