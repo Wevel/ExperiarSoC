@@ -144,8 +144,10 @@
 				0x1303_2020: Input
 	0x14xx_xxxx: Slave 4 (Flash)
 		0x1400_0000-0x1400_0FFF: Flash cache
-		0x1400_1000: Base address
-		0x1400_1004: Cached address
+		0x1480_0000: Config
+		0x1480_0004: Status	
+		0x1480_0008: Current page address
+		0x1480_000C: Cache load address
 	0x1Fxx_xxxx: Reserved for caravel interface
 		Caravel accessed everything with 0x3xxx_xxxx, but has its own UART interface at 0x3F00_0000 so would not be able to access 0x1Fxx_xxxx
 0x3xxx_xxxx: Reserved for caravel interface
