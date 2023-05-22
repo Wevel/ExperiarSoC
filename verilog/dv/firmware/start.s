@@ -38,11 +38,9 @@ end_init_bss:
 
 	ecall
 
-    .cfi_endproc
-    .end
-
-.section .text
-.global	_exit
-.type _start, @function
 _exit:
-	j _exit
+	jal _exit
+
+    .cfi_endproc
+
+.end
