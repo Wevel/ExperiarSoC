@@ -91,17 +91,20 @@ endif
 
 ifeq ($(SIM),RTL)
 	vvp  $<
-	 cp $@ RTL-$@
-	 rm $@
+	cp $@ RTL-$@
+	rm $@
+	rm $<
 endif
 ifeq ($(SIM),GL)
 	vvp  $<
-	 cp $@ GL-$@
-	 rm $@
+	cp $@ GL-$@
+	rm $@
+	rm $<
 endif
 ifeq ($(SIM),GL_SDF)
-	 cp $@ GL_SDF-$@
-	 rm $@
+	cp $@ GL_SDF-$@
+	rm $@
+	rm $<
 endif
 
 # twinwave: RTL-%.vcd GL-%.vcd

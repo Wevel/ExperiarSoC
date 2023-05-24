@@ -4,12 +4,15 @@ RISCV_ARCH := rv32i
 CPUFLAGS=-march=rv32i      -mabi=ilp32
 CPUENDIANNESS=little
 CLANG=0
-CSTD := c18
+CSTD := c17
 CPPSTD := gnu++17
 
-LINKER_SCRIPT?=$(TARGET_PATH)/verilog/dv/firmware/sections.lds
-SOURCE_FILES?=$(TARGET_PATH)/verilog/dv/firmware/start.s 
-VERILOG_FILES=
+INC_DIRS ?= 
+LINKER_SCRIPT ?= $(TARGET_PATH)/verilog/dv/firmware/sections.lds
+START_FILE ?= $(TARGET_PATH)/verilog/dv/firmware/start.s 
+VERILOG_FILES ?=
+
+SOURCE_FILES += $(START_FILE)
 
 DEFINES = \
 	-D__riscv=1 \
@@ -33,7 +36,7 @@ CFLAGS += -fdiagnostics-color=always
 # Linker flags
 CFLAGS += -Wl,-Bstatic,-T$(LINKER_SCRIPT),--strip-debug
 CFLAGS += -nostartfiles -ffreestanding -Wl,--gc-sections
-CFLAGS += -static-libgcc
+CFLAGS += -lc -lm -static-libgcc
 
 .SUFFIXES:
 all:  ${BLOCKS:=.lst}
@@ -43,7 +46,7 @@ hex:  ${BLOCKS:=.hex}
 ##############################################################################
 # Compile firmware
 ##############################################################################
-%.elf: %.c $(LINKER_SCRIPT) $(SOURCE_FILES)
+%.elf: %.c $(LINKER_SCRIPT) $(HEADER_FILES) $(SOURCE_FILES)
 	${GCC_PATH}/${GCC_PREFIX}-gcc -g $(CPUFLAGS) -std=$(CSTD) $(CFLAGS) -Wl,-Map=$(@:.elf=.map) -o $@ $(SOURCE_FILES) $<
 	@${GCC_PATH}/${GCC_PREFIX}-size $@
 
