@@ -2,7 +2,7 @@ export IVERILOG_DUMPER = fst
 
 # RTL/GL/GL_SDF
 SIM?=RTL
-
+PARTIAL_BUILD?=0
 
 .SUFFIXES:
 all:  ${BLOCKS:=.vcd} ${BLOCKS:=.lst}
@@ -18,26 +18,21 @@ hex:  ${BLOCKS:=.hex}
 ## RTL
 ifeq ($(SIM),RTL)
     ifeq ($(CONFIG),caravel_user_project)
-		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
-        -f$(VERILOG_PATH)/includes/includes.rtl.caravel \
-        -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@ $<
+    ifeq ($(PARTIAL_BUILD),1)
+		iverilog -E -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@.v
+    endif
+		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@ $<
     else
-		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
-		-f $(VERILOG_PATH)/includes/includes.rtl.$(CONFIG) \
-		-o $@ $(CARAVEL_PATH)/rtl/__user_project_wrapper.v $<
+		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f $(VERILOG_PATH)/includes/includes.rtl.$(CONFIG) -o $@ $(CARAVEL_PATH)/rtl/__user_project_wrapper.v $<
     endif
 endif 
 
 ## GL
 ifeq ($(SIM),GL)
     ifeq ($(CONFIG),caravel_user_project)
-		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
-        -f$(VERILOG_PATH)/includes/includes.gl.caravel \
-        -f$(USER_PROJECT_VERILOG)/includes/includes.gl.$(CONFIG) -o $@ $<
+		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.gl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.gl.$(CONFIG) -o $@ $<
     else
-		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
-        -f$(VERILOG_PATH)/includes/includes.gl.$(CONFIG) \
-		-o $@ $(CARAVEL_PATH)/gl/__user_project_wrapper.v $<
+		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.gl.$(CONFIG) -o $@ $(CARAVEL_PATH)/gl/__user_project_wrapper.v $<
     endif
 endif 
 
@@ -49,7 +44,7 @@ ifeq ($(SIM),GL_SDF)
 		+change_port_type +dump2fst +fst+parallel2=on   +nointeractive +notimingchecks +mipdopt \
 		-f $(VERILOG_PATH)/includes/includes.gl+sdf.caravel \
 		-f $(USER_PROJECT_VERILOG)/includes/includes.gl+sdf.$(CONFIG) $<
-	else
+    else
 		cvc64  +interp \
 		+define+SIM +define+FUNCTIONAL +define+GL +define+USE_POWER_PINS +define+UNIT_DELAY +define+ENABLE_SDF \
 		+change_port_type +dump2fst +fst+parallel2=on   +nointeractive +notimingchecks +mipdopt \
@@ -78,9 +73,6 @@ ifeq ($(SIM),GL_SDF)
 	rm $<
 endif
 
-# twinwave: RTL-%.vcd GL-%.vcd
-#     twinwave RTL-$@ * + GL-$@ *
-
 check-env:
 ifndef PDK_ROOT
 	$(error PDK_ROOT is undefined, please export it before running make)
@@ -100,7 +92,7 @@ endif
 # ---- Clean ----
 
 clean:
-	\rm  -f *.elf *.hex *.bin *.vvp *.log *.vcd *.lst *.hexe *.map
+	\rm  -f *.elf *.hex *.bin *.vvp .vvp.v *.log *.vcd *.lst *.hexe *.map
 
 .PHONY: clean all
 
