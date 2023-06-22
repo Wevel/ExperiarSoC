@@ -5,6 +5,9 @@ _start:
     .cfi_startproc 
     .cfi_undefined ra
 
+	la a0, _trap
+	csrrw zero, mtvec, a0
+
     .option push
     .option norelax
     la gp, _global_pointer$
@@ -34,15 +37,11 @@ loop_init_bss:
 	blt a0, a1, loop_init_bss
 end_init_bss:
 
-	la a0, _trap
-	csrrw zero, mtvec, a0
-
     jal main
 
 	ecall
 
 _trap:
-	ebreak
 	j _trap
 
 _exit:
