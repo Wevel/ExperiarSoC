@@ -3,6 +3,7 @@ export IVERILOG_DUMPER = fst
 # RTL/GL/GL_SDF
 SIM?=RTL
 PARTIAL_BUILD?=0
+SIM_DEFINES += -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=\#1
 
 .SUFFIXES:
 
@@ -48,20 +49,20 @@ hex:  ${BLOCKS:=.hex}
 ifeq ($(SIM),RTL)
     ifeq ($(CONFIG),caravel_user_project)
     ifeq ($(PARTIAL_BUILD),1)
-		iverilog -E -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@.v
+		iverilog -E -Ttyp $(SIM_DEFINES) -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@.v
     endif
-		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@ $<
+		iverilog -Ttyp $(SIM_DEFINES) -f$(VERILOG_PATH)/includes/includes.rtl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.rtl.$(CONFIG) -o $@ $<
     else
-		iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f $(VERILOG_PATH)/includes/includes.rtl.$(CONFIG) -o $@ $(CARAVEL_PATH)/rtl/__user_project_wrapper.v $<
+		iverilog -Ttyp $(SIM_DEFINES) -f $(VERILOG_PATH)/includes/includes.rtl.$(CONFIG) -o $@ $(CARAVEL_PATH)/rtl/__user_project_wrapper.v $<
     endif
 endif 
 
 ## GL
 ifeq ($(SIM),GL)
     ifeq ($(CONFIG),caravel_user_project)
-		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.gl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.gl.$(CONFIG) -o $@ $<
+		iverilog -Ttyp -DGL $(SIM_DEFINES) -f$(VERILOG_PATH)/includes/includes.gl.caravel -f$(USER_PROJECT_VERILOG)/includes/includes.gl.$(CONFIG) -o $@ $<
     else
-		iverilog -Ttyp -DFUNCTIONAL -DGL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 -f$(VERILOG_PATH)/includes/includes.gl.$(CONFIG) -o $@ $(CARAVEL_PATH)/gl/__user_project_wrapper.v $<
+		iverilog -Ttyp -DGL $(SIM_DEFINES) -f$(VERILOG_PATH)/includes/includes.gl.$(CONFIG) -o $@ $(CARAVEL_PATH)/gl/__user_project_wrapper.v $<
     endif
 endif 
 

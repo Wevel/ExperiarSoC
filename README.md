@@ -29,45 +29,49 @@ RISC-V SoC designed for the Efabless Open MPW Program. This project
 </p>
 
 ## Build Status
-- CaravelHost: Success
-- ExperiarCore: Success
-- Flash: Success
-- Peripherals: Success
-- Video: Success
-- WishboneInterconnect: Success
-- user_project_wrapper: Success
+- CaravelHost: ~
+- ExperiarCore: ~
+- Flash: ~
+- Peripherals: ~
+- Video: ~
+- WishboneInterconnect: ~
+- user_project_wrapper: ~
 
 # Tests
 ## RTL
-### verify-coreArch-rtl: Success
-### verify-corePC-rtl: Success
-### verify-coreMemory-rtl: Success
-### verify-flash-rtl: Success
-### verify-memory-rtl: Success
-### verify-peripheralsGPIO-rtl: Success
-### verify-peripheralsPWM-rtl: Success
-### verify-peripheralsSPI-rtl: Success
-### verify-peripheralsUART-rtl: Success
-### verify-video-rtl: Success (Not validating correct pixel data)
+### verify-coreArch-rtl: ~
+### verify-corePC-rtl: ~
+### verify-coreMemory-rtl: ~
+### verify-flash-rtl: ~
+### verify-memory-rtl: ~
+### verify-peripheralsGPIO-rtl: ~
+### verify-peripheralsPWM-rtl: ~
+### verify-peripheralsSPI-rtl: ~
+### verify-peripheralsUART-rtl: ~
+### verify-video-rtl: ~
 
 ## GL
-### verify-corePC-gl: Success
-### verify-coreMemory-rtl: Success
-### verify-flash-gl: Success
-### verify-memory-gl: Success
-### verify-peripheralsGPIO-gl: Success
-### verify-peripheralsPWM-gl: Success
-### verify-peripheralsSPI-gl: Success
-### verify-peripheralsUART-gl: Success
-### verify-video-gl: Success
+### verify-corePC-gl: ~
+### verify-coreMemory-rtl: ~
+### verify-flash-gl: ~
+### verify-memory-gl: ~
+### verify-peripheralsGPIO-gl: ~
+### verify-peripheralsPWM-gl: ~
+### verify-peripheralsSPI-gl: ~
+### verify-peripheralsUART-gl: ~
+### verify-video-gl: ~
 
 # Roadmap
 ## Versions
-- 0.2.3(Current): Initial MPW-6 design
-- 0.3.0: Pipeline CPU
-- 0.4.0: Mesh bus
-- 0.5.0: Flash/PSRAM controller with caching
-- 0.6.0: L1 instruction/data cache and L2 shared cache
+- 0.2.3: Initial MPW-6 design
+- 0.3.0(Current): MPW-9????
+	- Flash controller
+		- Automatic paging selection
+		- Multiple active flash pages
+	- Pipeline CPU
+
+## Issues
+- Flash controller needs to be enabled in manual page mode and have a page selected before it can work with automatic page selection
 
 ## Need to do
 - Update probe values

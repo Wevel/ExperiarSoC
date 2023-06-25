@@ -19,46 +19,47 @@ SECTIONS
 		. = ALIGN(4);
 		PROVIDE (_stext = .);
 
-        KEEP(*(.vectors .vectors.*))
-        *(.rodata .rodata.*)  
-		*(.srodata .srodata.*)		
-		*(.text .text.*)
-		*(.plt .plt.*)
-		*(.interp .interp.*)
-		*(.dynsym .dynsym.*)
-		*(.dynstr .dynstr.*)
-		*(.hash .hash.*)
-		*(.gnu .gnu.*)
-		*(.eh_frame_hdr .eh_frame_hdr.*)
-		*(.rela .rela.*)
+        KEEP(*(.vectors*))
+        *(.rodata*)  
+		*(.srodata*)		
+		*(.text*)
+		*(.plt*)
+		*(.interp*)
+		*(.dynsym*)
+		*(.dynstr*)
+		*(.hash*)
+		*(.gnu*)
+		*(.eh_frame_hdr*)
+		*(.rela*)
 
 		. = ALIGN(4);
         _etext = .;
-		_sidata = _etext;
     } > ROM
 
-    .data : AT (_sidata)
+    .data : 
     {
 		. = ALIGN(4);
         _sdata = .;
 
 		PROVIDE(_global_pointer$ = . + (4K / 2));
-
-		*(.sdata .sdata.*)
-		*(.rdata .rdata.*) 
-        *(.data .data.*);
+		
+		*(.ramtext*)
+		*(.sdata*)
+		*(.rdata*) 
+        *(.data*);
 
 		. = ALIGN(4);
         _edata = .;
-    } > RAM
-	
-    .bss (NOLOAD) :
+    } > RAM AT > ROM
+	_sidata = LOADADDR(.data);
+
+	.bss (NOLOAD) :
     {
 		. = ALIGN(4);
         _sbss = .;
 		
-		*(.sbss .sbss.*)
-        *(.bss .bss.*)
+		*(.sbss*)
+        *(.bss*)
         *(COMMON)
 
 		. = ALIGN(4);
