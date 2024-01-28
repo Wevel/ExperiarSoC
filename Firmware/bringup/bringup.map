@@ -1,0 +1,139 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+flag                0x2               /tmp/ccDomUtu.o
+messageBuffer       0x10              /tmp/ccA8fH0H.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+vexriscv_debug   0x00000000f00f0000 0x0000000000000100
+dff              0x0000000000000000 0x0000000000000400
+dff2             0x0000000000000400 0x0000000000000200
+flash            0x0000000010000000 0x0000000001000000
+mprj             0x0000000030000000 0x0000000000100000
+hk               0x0000000026000000 0x0000000000300000
+csr              0x00000000f0000000 0x0000000000010000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                __DYNAMIC = 0x0
+
+.text           0x0000000010000000     0x1a00
+                0x0000000010000000                _ftext = .
+ *crt0*(.text)
+ *crt0*(.text)
+ *(.text.isr)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000010000000      0x114 /tmp/ccqZ1o07.o
+                0x0000000010000000                _start
+                0x0000000010000020                trap_entry
+ .text          0x0000000010000114       0xd4 /tmp/ccDomUtu.o
+                0x0000000010000174                isr
+ .text          0x00000000100001e8      0x778 /tmp/cczW5XEE.o
+                0x0000000010000220                putchar
+                0x0000000010000288                print
+                0x00000000100002d8                print_hex
+                0x000000001000035c                print_dec
+                0x00000000100007a8                print_digit
+ .text          0x0000000010000960        0xc /tmp/ccatBzir.o
+                0x0000000010000960                core0
+ .text          0x000000001000096c      0xfb0 /tmp/ccA8fH0H.o
+                0x00000000100009a4                configure_io
+                0x0000000010000cc4                wbWrite
+                0x0000000010000d2c                wbRead
+                0x0000000010000d8c                delay
+                0x0000000010000e08                printWrite
+                0x0000000010000e74                printFetch
+                0x0000000010000ee8                printWriteFetch
+                0x0000000010000f2c                testWrite
+                0x0000000010000f9c                testRead
+                0x0000000010001008                testWriteRead
+                0x000000001000107c                UART_Transmit
+                0x00000000100010d4                UART_Receive
+                0x0000000010001144                CompareBuffers
+                0x00000000100011c8                testUART
+                0x0000000010001310                printCore0Stats
+                0x00000000100013a4                runInstruction
+                0x000000001000142c                testCore
+                0x000000001000164c                testSRAM
+                0x000000001000179c                main
+                0x0000000010001a00                . = ALIGN (0x100)
+ *fill*         0x000000001000191c       0xe4 
+                0x0000000010001a00                _etext = .
+
+.rodata         0x0000000010001a00      0x200
+                0x0000000010001a00                . = ALIGN (0x100)
+                0x0000000010001a00                _frodata = .
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0000000010001a00       0x19 /tmp/cczW5XEE.o
+ *fill*         0x0000000010001a19        0x3 
+ .rodata        0x0000000010001a1c      0x178 /tmp/ccA8fH0H.o
+ *(.rodata1)
+                0x0000000010001c00                . = ALIGN (0x100)
+ *fill*         0x0000000010001b94       0x6c 
+                0x0000000010001c00                _erodata = .
+
+.rela.dyn       0x0000000010001c00        0x0
+ .rela.text     0x0000000010001c00        0x0 /tmp/ccqZ1o07.o
+
+.data           0x0000000000000000        0x8 load address 0x0000000010001c00
+                0x0000000000000000                . = ALIGN (0x100)
+                0x0000000000000000                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000000000        0x0 /tmp/ccqZ1o07.o
+ .data          0x0000000000000000        0x0 /tmp/ccDomUtu.o
+ .data          0x0000000000000000        0x0 /tmp/cczW5XEE.o
+ .data          0x0000000000000000        0x0 /tmp/ccatBzir.o
+ .data          0x0000000000000000        0x0 /tmp/ccA8fH0H.o
+ *(.data1)
+                0x0000000000000000                _gp = ALIGN (0x10)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x0000000000000000        0x4 /tmp/ccA8fH0H.o
+                0x0000000000000000                testStatus
+                0x0000000000000008                . = ALIGN (0x8)
+ *fill*         0x0000000000000004        0x4 
+                0x0000000000000008                _edata = .
+
+.bss            0x0000000000000008      0x110 load address 0x0000000010001c08
+                0x0000000000000100                . = ALIGN (0x100)
+ *fill*         0x0000000000000008       0xf8 
+                0x0000000000000100                _fbss = .
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x0000000000000100        0x4 /tmp/ccA8fH0H.o
+                0x0000000000000100                testIndex
+ *(.scommon)
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000000104        0x0 /tmp/ccqZ1o07.o
+ .bss           0x0000000000000104        0x0 /tmp/ccDomUtu.o
+ .bss           0x0000000000000104        0x0 /tmp/cczW5XEE.o
+ .bss           0x0000000000000104        0x0 /tmp/ccatBzir.o
+ .bss           0x0000000000000104        0x0 /tmp/ccA8fH0H.o
+ *(COMMON)
+ COMMON         0x0000000000000104        0x2 /tmp/ccDomUtu.o
+                0x0000000000000104                flag
+ *fill*         0x0000000000000106        0x2 
+ COMMON         0x0000000000000108       0x10 /tmp/ccA8fH0H.o
+                0x0000000000000108                messageBuffer
+                0x0000000000000118                . = ALIGN (0x8)
+                0x0000000000000118                _ebss = .
+                0x0000000000000118                _end = .
+                0x0000000000000400                PROVIDE (_fstack = (ORIGIN (dff) + LENGTH (dff)))
+                0x0000000010001c00                PROVIDE (_fdata_rom = LOADADDR (.data))
+                [!provide]                        PROVIDE (_edata_rom = (LOADADDR (.data) + SIZEOF (.data)))
+LOAD /tmp/ccqZ1o07.o
+LOAD /tmp/ccDomUtu.o
+LOAD /tmp/cczW5XEE.o
+LOAD /tmp/ccatBzir.o
+LOAD /tmp/ccA8fH0H.o
+OUTPUT(bringup.elf elf32-littleriscv)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 /tmp/ccDomUtu.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /tmp/cczW5XEE.o
+ .comment       0x0000000000000011       0x12 /tmp/ccA8fH0H.o

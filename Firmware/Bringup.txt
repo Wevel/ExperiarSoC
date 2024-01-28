@@ -1,0 +1,23 @@
+Working:
+	Internal UART Rx/Tx
+	Core
+		Instructions
+			BEQ (rs1=x0, rs2=x0, imm=0)
+			LUI
+			ADDI
+			SW
+		CSRs (Memory map is for 0x1081_2xxx, but should be 0x1081_8xxx)
+			cycle (upper and lower)	
+			timer lower (and probably upper)
+			instret lower (and probably upper)
+Not working:
+	SRAM
+	System registers
+		Memory map is for 0x1081_1xxx, but should be 0x1081_4xxx
+		Incorrect index == 0 check, returns the opposite of what it should be
+			management_readRegister: management_dataOut <= !management_registerIndex ? registers[management_registerIndex] : 32'b0;
+			Should have used |management_registerIndex rather than !management_registerIndex
+	CSRs
+		timerLower, vendorID, archID, implID, coreID, and misa all use the address 0xC01
+			Will return the value from timerLower
+		Can't seem to write to any

@@ -1,153 +1,385 @@
 0x0xxx_xxxx: Per core local memory
-	0x0000_0000-0x007F_FFFF: SRAM
+	0x0000_0000-0x007F_FFFF: SRAM (4kB)
 0x1xxx_xxxx: Wishbone bus
 	0x10xx_xxxx: Slave 0 (Core 0 local memory)
-		0x1000_0000-0x107F_FFFF: SRAM
+		0x1000_0000-0x107F_FFFF: SRAM 						(RW 4kB)
 		0x1080_xxxx: Management
 			0x1080_xxxx: Control
-				0x1080_0000: Management control
-				0x1080_0004: Core state
+				0x1080_0000: Management control 			(RW Default 0x0 3 bits)
+					b00: run
+					b01: trapEnable
+					b02: interruptEnable
+				0x1080_0004: Core state						(R 5 bits)
+					{ management_run, eCall, eBreak, isAddressMisaligned, isInvalidInstruction }
 			0x1081_xxxx: Core registers
-				0x1081_0000: PC
-				0x1081_0004: Relative Jump
-				0x1081_0008: Step
-				0x1081_0010: Current Instruction
-				0x1081_0020: Clear error
-				0x1081_1000-0x1081_101F: Register
-				0x1081_2000-0x1081_2FFF: CSRs			
+				0x1081_0000: PC 							(RW 32 bits)
+				0x1081_0004: Relative Jump 					(RW 32 bits)
+					Any read returns PC
+				0x1081_0008: Step 							(RW 32 bits)
+					Any write triggers step
+					Any read returns PC
+				0x1081_0010: Current Instruction 			(R 32 bits)
+				0x1081_0020: Clear error 					(W 0 bits)
+					Any write clears error bits
+				0x1081_1000-0x1081_101F: Register 			(RW 32 bits)
+				0x1081_2000-0x1081_2FFF: CSRs 				(RW 32 bits)	
 	0x11xx_xxxx: Slave 1 (Core 1 local memory)
-		0x1100_0000-0x117F_FFFF: SRAM
+		0x1100_0000-0x117F_FFFF: SRAM 						(RW 4kB)
 		0x1180_xxxx: Management
 			0x1180_xxxx: Control
-				0x1180_0000: Management control
-				0x1180_0004: Core state
+				0x1180_0000: Management control 			(RW Default 0x0 3 bits)
+					b00: run
+					b01: trapEnable
+					b02: interruptEnable
+				0x1180_0004: Core state 					(R 5 bits)
+					{ management_run, eCall, eBreak, isAddressMisaligned, isInvalidInstruction }
 			0x1181_xxxx: Core registers
-				0x1181_0000: PC
-				0x1181_0004: Relative Jump
-				0x1181_0008: Step
-				0x1181_0010: Current Instruction
-				0x1181_0020: Clear error
-				0x1181_1000-0x1181_101F: Register
-				0x1181_2000-0x1181_2FFF: CSRs		
+				0x1181_0000: PC 							(RW 32 bits)
+				0x1181_0004: Relative Jump 					(RW 32 bits)
+					Any read returns PC
+				0x1181_0008: Step 							(RW 32 bits)
+					Any write triggers step
+					Any read returns PC
+				0x1181_0010: Current Instruction 			(R 32 bits)
+				0x1181_0020: Clear error 					(W 0 bits)
+					Any write clears error bits
+				0x1181_1000-0x1181_101F: Register 			(RW 32 bits)
+				0x1181_2000-0x1181_2FFF: CSRs 				(RW 32 bits)	
 	0x12xx_xxxx: Slave 2 (Video SRAM)
-		0x1200_0000-0x127F_FFFF
+		0x1200_0000-0x127F_FFFF 							(8kB)
 		0x1280_0xxx: VGA Configuration
-			0x1280_0000: Configuration register
-			0x1280_0010: Horizontal visible area compare
-			0x1280_0014: Horizontal front porch compare
-			0x1280_0018: Horizontal sync pulse compare
-			0x1280_001C: Horizontal whole line compare
-			0x1280_0020: Vertical visible area compare
-			0x1280_0024: Vertical front porch compare
-			0x1280_0028: Vertical sync pulse compare
-			0x1280_002C: Vertical whole line compare
-			0x1280_0030: VGA screen state
+			0x1280_0000: Configuration register 			(RW Default 0x0AA 13 bits)
+				b00-b03: horizontalPixelSize	Default 0xA
+				b04-b07: verticalPixelSize		Default 0xA
+				b08-b09: drawMode 				Default 0b00
+				b10: enableOutput				Default 0
+				b11: hsyncInterruptEnable		Default 0
+				b12: vsyncInterruptEnable		Default 0
+			0x1280_0010: Horizontal visible area compare 	(RW Default 0x31F 11 bits)
+			0x1280_0014: Horizontal front porch compare 	(RW Default 0x347 11 bits)
+			0x1280_0018: Horizontal sync pulse compare 		(RW Default 0x3C7 11 bits)
+			0x1280_001C: Horizontal whole line compare 		(RW Default 0x41F 11 bits)
+			0x1280_0020: Vertical visible area compare 		(RW Default 0x257 10 bits)
+			0x1280_0024: Vertical front porch compare 		(RW Default 0x258 10 bits)
+			0x1280_0028: Vertical sync pulse compare 		(RW Default 0x25C 10 bits)
+			0x1280_002C: Vertical whole line compare 		(RW Default 0x273 10 bits)
+			0x1280_0030: VGA screen state 					(R 5 bits)
+				{ inVerticalVisibleArea, inHorizontalVisibleArea, !vga_vsync, !vga_hsync, enableOutput }
 	0x13xx_xxxx: Slave 3 (Peripherals)
 		0x1300_xxxx: Peripheral 0 (UART)
-			0x1300_0xxx: Peripheral configuration
-				0x1300_0000: Peripheral configuration register (Might not exist)
 			0x1300_1xxx: Device 0 (Internal to caravel)
-				0x1300_1000: Configuration register
-				0x1300_1004: Clear register
-				0x1300_1008: Status register
-				0x1300_1010: Rx register
-				0x1300_1014: Tx register
+				0x1300_1000: Configuration register 		(RW Default 0x01047 21 bits)
+					b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+					b16: waitForTxSpace	  				Default 0x0
+					b17: enable 			  			Default 0x0
+					b18: dataLostInterruptEnable		Default 0x0
+					b19: rxDataAvailableInterruptEnable	Default 0x0
+					b20: txDataSentInterruptEnable		Default 0x0
+				0x1300_1004: Clear register 				(W 4 bits)
+					b0: Clear Rx
+					b1: Clear Tx
+					b2: Clear Rx buffer
+					b3: Clear Tx buffer
+				0x1300_1008: Status register 				(R 6 bits)
+					b0: rxDataAvailable
+					b1: rxBufferFull
+					b2: rxDataLost
+					b3: txDataAvailable
+					b4: txBufferFull
+					b5: txDataLost
+				0x1300_1010: Rx register 					(R 9 bits)
+					b0-b7: Data
+					b8: isValid
+				0x1300_1014: Tx register 					(W 8 bits)
 			0x1300_2xxx: Device 1
-				0x1300_2000: Configuration register
-				0x1300_2004: Clear register
-				0x1300_2008: Status register
-				0x1300_2010: Rx register
-				0x1300_2014: Tx register
+				0x1300_2000: Configuration register 		(RW Default 0x01047 21 bits)
+					b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+					b16: waitForTxSpace	  				Default 0x0
+					b17: enable 			  			Default 0x0
+					b18: dataLostInterruptEnable		Default 0x0
+					b19: rxDataAvailableInterruptEnable	Default 0x0
+					b20: txDataSentInterruptEnable		Default 0x0
+				0x1300_2004: Clear register 				(W 4 bits)
+					b0: Clear Rx
+					b1: Clear Tx
+					b2: Clear Rx buffer
+					b3: Clear Tx buffer
+				0x1300_2008: Status register 				(R 6 bits)
+					b0: rxDataAvailable
+					b1: rxBufferFull
+					b2: rxDataLost
+					b3: txDataAvailable
+					b4: txBufferFull
+					b5: txDataLost
+				0x1300_2010: Rx register 					(R 9 bits)
+					b0-b7: Data
+					b8: isValid
+				0x1300_2014: Tx register 					(W 8 bits)
 			0x1300_3xxx: Device 2
-				0x1300_3000: Configuration register
-				0x1300_3004: Clear register
-				0x1300_3008: Status register
-				0x1300_3010: Rx register
-				0x1300_3014: Tx register
+				0x1300_3000: Configuration register 		(RW Default 0x01047 21 bits)
+					b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+					b16: waitForTxSpace	  				Default 0x0
+					b17: enable 			  			Default 0x0
+					b18: dataLostInterruptEnable		Default 0x0
+					b19: rxDataAvailableInterruptEnable	Default 0x0
+					b20: txDataSentInterruptEnable		Default 0x0
+				0x1300_3004: Clear register 				(W 4 bits)
+					b0: Clear Rx
+					b1: Clear Tx
+					b2: Clear Rx buffer
+					b3: Clear Tx buffer
+				0x1300_3008: Status register 				(R 6 bits)
+					b0: rxDataAvailable
+					b1: rxBufferFull
+					b2: rxDataLost
+					b3: txDataAvailable
+					b4: txBufferFull
+					b5: txDataLost
+				0x1300_3010: Rx register 					(R 9 bits)
+					b0-b7: Data
+					b8: isValid
+				0x1300_3014: Tx register 					(W 8 bits)
 			0x1300_4xxx: Device 3
-				0x1300_4000: Configuration register
-				0x1300_4004: Clear register
-				0x1300_4008: Status register
-				0x1300_4010: Rx register
-				0x1300_4014: Tx register
+				0x1300_4000: Configuration register 		(RW Default 0x01047 21 bits)
+					b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+					b16: waitForTxSpace	  				Default 0x0
+					b17: enable 			  			Default 0x0
+					b18: dataLostInterruptEnable		Default 0x0
+					b19: rxDataAvailableInterruptEnable	Default 0x0
+					b20: txDataSentInterruptEnable		Default 0x0
+				0x1300_4004: Clear register 				(W 4 bits)
+					b0: Clear Rx
+					b1: Clear Tx
+					b2: Clear Rx buffer
+					b3: Clear Tx buffer
+				0x1300_4008: Status register 				(R 6 bits)
+					b0: rxDataAvailable
+					b1: rxBufferFull
+					b2: rxDataLost
+					b3: txDataAvailable
+					b4: txBufferFull
+					b5: txDataLost
+				0x1300_4010: Rx register 					(R 9 bits)
+					b0-b7: Data
+					b8: isValid
+				0x1300_4014: Tx register 					(W 8 bits)
 		0x1301_xxxx: Peripheral 1 (SPI)
-			0x1301_0xxx: Peripheral configuration
-				0x1301_0000: Peripheral configuration register (Might not exist)
 			0x1301_1xxx: Device 0
-				0x1301_1000: Configuration register
-				0x1301_1004: Status register
-				0x1301_1008: Data
+				0x1301_1000: Configuration register 		(RW Default 0x064 9 bits)
+					b0-b2: clockScale 		Default 0x4
+					b3-4: spiMode 			Default 0x0
+					b5: msbFirst 			Default 0x1
+					b6: useCS 				Default 0x1
+					b7: activeHighCS		Default 0x0
+					b8: enable				Default 0x0
+				0x1301_1004: Status register 				(R 1 bit)
+					b0: deviceBusy
+				0x1301_1008: Data 							(RW 8 bits)
+					Write will trigger data transmission  
 		0x1302_xxxx: Peripheral 2 (PWM)
-			0x1302_0xxx: Peripheral configuration
-				0x1302_0000: Peripheral configuration register (Might not exist)
 			0x1302_1xxx: Device 0
-				0x1302_1000: Configuration register
-				0x1302_1004: Counter top
-				0x1302_1008: Counter value
-				0x1302_1010: Output 0 compare
-				0x1302_1014: Output 1 compare
-				0x1302_1018: Output 2 compare
-				0x1302_101C: Output 3 compare
+				0x1302_1000: Configuration register 		(RW Default 0x00000E 22 bits)
+					b00-b04: clockScale		  Default 0x03
+					b05: counterEnable		  Default 0x0
+					b06: compareEnable0		  Default 0x0
+					b07: compareEnable1		  Default 0x0
+					b08: compareEnable2		  Default 0x0
+					b09: compareEnable3		  Default 0x0
+					b10: outputEnable0		  Default 0x0
+					b11: outputEnable1		  Default 0x0
+					b12: outputEnable2		  Default 0x0
+					b13: outputEnable3		  Default 0x0
+					b14: riseInterruptEnable0 Default 0x0
+					b15: riseInterruptEnable1 Default 0x0
+					b16: riseInterruptEnable2 Default 0x0
+					b17: riseInterruptEnable3 Default 0x0
+					b18: fallInterruptEnable0 Default 0x0
+					b19: fallInterruptEnable1 Default 0x0
+					b20: fallInterruptEnable2 Default 0x0
+					b21: fallInterruptEnable3 Default 0x0
+				0x1302_1004: Counter top 					(RW Default 0x1387 16 bits)
+				0x1302_1008: Counter value 					(R 20 bits)
+					b00-b15: counterValue
+					b16-b19: output
+				0x1302_1010: Output 0 compare 				(RW Default 0x0000 16 bits)
+				0x1302_1014: Output 1 compare 				(RW Default 0x0000 16 bits)
+				0x1302_1018: Output 2 compare 				(RW Default 0x0000 16 bits)
+				0x1302_101C: Output 3 compare 				(RW Default 0x0000 16 bits)
 			0x1302_2xxx: Device 1
-				0x1302_2000: Configuration register
-				0x1302_2004: Counter top
-				0x1302_2008: Counter value
-				0x1302_2010: Output 0 compare
-				0x1302_2014: Output 1 compare
-				0x1302_2018: Output 2 compare
-				0x1302_201C: Output 3 compare
+				0x1302_2000: Configuration register 		(RW Default 0x00000E 22 bits)
+					b00-b04: clockScale		  Default 0x03
+					b05: counterEnable		  Default 0x0
+					b06: compareEnable0		  Default 0x0
+					b07: compareEnable1		  Default 0x0
+					b08: compareEnable2		  Default 0x0
+					b09: compareEnable3		  Default 0x0
+					b10: outputEnable0		  Default 0x0
+					b11: outputEnable1		  Default 0x0
+					b12: outputEnable2		  Default 0x0
+					b13: outputEnable3		  Default 0x0
+					b14: riseInterruptEnable0 Default 0x0
+					b15: riseInterruptEnable1 Default 0x0
+					b16: riseInterruptEnable2 Default 0x0
+					b17: riseInterruptEnable3 Default 0x0
+					b18: fallInterruptEnable0 Default 0x0
+					b19: fallInterruptEnable1 Default 0x0
+					b20: fallInterruptEnable2 Default 0x0
+					b21: fallInterruptEnable3 Default 0x0
+				0x1302_2004: Counter top 					(RW Default 0x1387 16 bits)
+				0x1302_2008: Counter value 					(R 20 bits)
+					b00-b15: counterValue
+					b16-b19: output
+				0x1302_2010: Output 0 compare 				(RW Default 0x0000 16 bits)
+				0x1302_2014: Output 1 compare 				(RW Default 0x0000 16 bits)
+				0x1302_2018: Output 2 compare 				(RW Default 0x0000 16 bits)
+				0x1302_201C: Output 3 compare 				(RW Default 0x0000 16 bits)
 			0x1302_3xxx: Device 2
-				0x1302_3000: Configuration register
-				0x1302_3004: Counter top
-				0x1302_3008: Counter value
-				0x1302_3010: Output 0 compare
-				0x1302_3014: Output 1 compare
-				0x1302_3018: Output 2 compare
-				0x1302_301C: Output 3 compare
+				0x1302_3000: Configuration register 		(RW Default 0x00000E 22 bits)
+					b00-b04: clockScale		  Default 0x03
+					b05: counterEnable		  Default 0x0
+					b06: compareEnable0		  Default 0x0
+					b07: compareEnable1		  Default 0x0
+					b08: compareEnable2		  Default 0x0
+					b09: compareEnable3		  Default 0x0
+					b10: outputEnable0		  Default 0x0
+					b11: outputEnable1		  Default 0x0
+					b12: outputEnable2		  Default 0x0
+					b13: outputEnable3		  Default 0x0
+					b14: riseInterruptEnable0 Default 0x0
+					b15: riseInterruptEnable1 Default 0x0
+					b16: riseInterruptEnable2 Default 0x0
+					b17: riseInterruptEnable3 Default 0x0
+					b18: fallInterruptEnable0 Default 0x0
+					b19: fallInterruptEnable1 Default 0x0
+					b20: fallInterruptEnable2 Default 0x0
+					b21: fallInterruptEnable3 Default 0x0
+				0x1302_3004: Counter top 					(RW Default 0x1387 16 bits)
+				0x1302_3008: Counter value 					(R 20 bits)
+					b00-b15: counterValue
+					b16-b19: output
+				0x1302_3010: Output 0 compare 				(RW Default 0x0000 16 bits)
+				0x1302_3014: Output 1 compare 				(RW Default 0x0000 16 bits)
+				0x1302_3018: Output 2 compare 				(RW Default 0x0000 16 bits)
+				0x1302_301C: Output 3 compare 				(RW Default 0x0000 16 bits)
 			0x1302_4xxx: Device 3
-				0x1302_4000: Configuration register
-				0x1302_4004: Counter top
-				0x1302_4008: Counter value
-				0x1302_4010: Output 0 compare
-				0x1302_4014: Output 1 compare
-				0x1302_4018: Output 2 compare
-				0x1302_401C: Output 3 compare
+				0x1302_4000: Configuration register 		(RW Default 0x00000E 22 bits)
+					b00-b04: clockScale		  Default 0x03
+					b05: counterEnable		  Default 0x0
+					b06: compareEnable0		  Default 0x0
+					b07: compareEnable1		  Default 0x0
+					b08: compareEnable2		  Default 0x0
+					b09: compareEnable3		  Default 0x0
+					b10: outputEnable0		  Default 0x0
+					b11: outputEnable1		  Default 0x0
+					b12: outputEnable2		  Default 0x0
+					b13: outputEnable3		  Default 0x0
+					b14: riseInterruptEnable0 Default 0x0
+					b15: riseInterruptEnable1 Default 0x0
+					b16: riseInterruptEnable2 Default 0x0
+					b17: riseInterruptEnable3 Default 0x0
+					b18: fallInterruptEnable0 Default 0x0
+					b19: fallInterruptEnable1 Default 0x0
+					b20: fallInterruptEnable2 Default 0x0
+					b21: fallInterruptEnable3 Default 0x0
+				0x1302_4004: Counter top 					(RW Default 0x1387 16 bits)
+				0x1302_4008: Counter value 					(R 20 bits)
+					b00-b15: counterValue
+					b16-b19: output
+				0x1302_4010: Output 0 compare 				(RW Default 0x0000 16 bits)
+				0x1302_4014: Output 1 compare 				(RW Default 0x0000 16 bits)
+				0x1302_4018: Output 2 compare 				(RW Default 0x0000 16 bits)
+				0x1302_401C: Output 3 compare 				(RW Default 0x0000 16 bits)
 		0x1303_xxxx: Peripheral 3 (GPIO)
 			0x1303_0xxx: Peripheral configuration
 				0x1303_0000: Peripheral configuration register (Might not exist)
 			0x1303_1xxx: Device 0 (Side 1)
 				0x1303_100x: OutputEnable
-					0x1303_1000: Write
-					0x1303_1004: Set
-					0x1303_1008: Clear
-					0x1303_100C: Toggle
+					0x1303_1000: Write 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_1004: Set 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_1008: Clear 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_100C: Toggle 					(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
 				0x1303_101x: Output
-					0x1303_1010: Write
-					0x1303_1014: Set
-					0x1303_1018: Clear
-					0x1303_101C: Toggle
-				0x1303_1020: Input
-				0x1303_101x: IRQ
-					0x1303_1010: Write
-					0x1303_1014: Set
-					0x1303_1018: Clear
-					0x1303_101C: Toggle
+					0x1303_1010: Write 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_1014: Set 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_1018: Clear 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_101C: Toggle 					(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
+				0x1303_1020: Input 							(W 19 bits)
+				0x1303_103x: IRQ 							(RW Default 0x00000 19 bits)
+					0x1303_1030: Write 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_1034: Set 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_1038: Clear 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_103C: Toggle 					(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
 			0x1303_2xxx: Device 1 (Side 2)
 				0x1303_200x: OutputEnable
-					0x1303_2000: Write
-					0x1303_2004: Set
-					0x1303_2008: Clear
-					0x1303_200C: Toggle
+					0x1303_2000: Write 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_2004: Set 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_2008: Clear 						(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_200C: Toggle 					(RW Default 0x7FFFF 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
 				0x1303_201x: Output
-					0x1303_2010: Write
-					0x1303_2014: Set
-					0x1303_2018: Clear
-					0x1303_201C: Toggle
-				0x1303_2020: Input
+					0x1303_2010: Write 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_2014: Set 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_2018: Clear 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_201C: Toggle 					(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
+				0x1303_2020: Input 							(W 19 bits)
+				0x1303_203x: IRQ 							(RW Default 0x00000 19 bits)
+					0x1303_2030: Write 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write sets output value
+					0x1303_2034: Set 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write enables output pins with data as mask
+					0x1303_2038: Clear 						(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write clears output pins with data as mask
+					0x1303_203C: Toggle 					(RW Default 0x00000 19 bits)
+						Read returns output value
+						Write toggles output pins with data as mask
 	0x14xx_xxxx: Slave 4 (Flash)
-		0x1400_0000-0x1400_0FFF: Flash cache
-		0x1400_1000: Base address
-		0x1400_1004: Cached address
+		0x1400_0000-0x1400_0FFF: Flash cache 				(R 2kB)
+		0x1400_1000: Configuration register 				(RW Default 0x0 1 bit)
+			b00: enable				Default 0x0
+		0x1400_1004: Base address register 					(RW Default 0x000000 24 bits)
+		0x1400_1004: cached address register 				(R 24 bits)
 	0x1Fxx_xxxx: Reserved for caravel interface
 		Caravel accessed everything with 0x3xxx_xxxx, but has its own UART interface at 0x3F00_0000 so would not be able to access 0x1Fxx_xxxx
 0x3xxx_xxxx: Reserved for caravel interface
@@ -157,12 +389,26 @@
 	0x33xx_xxxx: SoC wishbone slave 3 (Peripherals)
 	0x33xx_xxxx: SoC wishbone slave 3 (Flash)
 	0x3F00_xxxx: Peripheral 0 (UART)
-		0x3F00_0xxx: Peripheral configuration
-			0x3000_0000: Peripheral configuration register (Might not exist)
-		0x3F00_1xxx: Internal Device
-			0x3F00_1000: Configuration register
-			0x3F00_1004: Clear register
-			0x3F00_1008: Status register
-			0x3F00_1010: Rx register
-			0x3F00_1014: Tx register	
-		
+		0x3F00_1000: Configuration register 				(RW Default 0x01047 21 bits)
+			b00-b15: cyclesPerBit  				Default 0x1047	((CLK_FREQ + BAUD) / BAUD) - 1 => Default uses CLK_FREQ=40MHz BAUD=9600(Actually 9599.2)
+			b16: waitForTxSpace	  				Default 0x0
+			b17: enable 			  			Default 0x0
+			b18: dataLostInterruptEnable		Default 0x0
+			b19: rxDataAvailableInterruptEnable	Default 0x0
+			b20: txDataSentInterruptEnable		Default 0x0
+		0x3F00_1004: Clear register 						(W 4 bits)
+			b0: Clear Rx
+			b1: Clear Tx
+			b2: Clear Rx buffer
+			b3: Clear Tx buffer
+		0x3F00_1008: Status register 						(R 6 bits)
+			b0: rxDataAvailable
+			b1: rxBufferFull
+			b2: rxDataLost
+			b3: txDataAvailable
+			b4: txBufferFull
+			b5: txDataLost
+		0x3F00_1010: Rx register 							(R 9 bits)
+			b0-b7: Data
+			b8: isValid
+		0x3F00_1014: Tx register 							(W 8 bits)

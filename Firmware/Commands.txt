@@ -1,0 +1,9 @@
+admin cmd:
+	usbipd wsl list
+	usbipd wsl attach --busid 1-7 (might be 1-8 if pico probe is connected)
+
+cd /mnt/f/Git/caravel_board/firmware/chipignite/blink
+
+sudo make clean flash
+sudo python3 ../util/caravel_hkdebug.py
+sudo screen /dev/ttyUSB0 9600
